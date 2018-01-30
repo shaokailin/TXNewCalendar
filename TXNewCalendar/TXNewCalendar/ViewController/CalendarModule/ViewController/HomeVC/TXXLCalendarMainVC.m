@@ -12,6 +12,7 @@
 #import "TXXLCalendarMessageView.h"
 #import "TXXLFestivalCountDownHeaderView.h"
 #import "TXXLFestivalCountDownCell.h"
+#import "TXXLFestivalListVC.h"
 @interface TXXLCalendarMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSDate *_currentDate;
@@ -40,6 +41,15 @@
     [self.messageView setupContentWithDate:_currentDate suitAction:@"纳采  嫁娶  招贤  祈福  纳婿  开市  盖屋" avoidAction:@"订盟  裁衣  安葬  祭祀  修坟" dateDetail:@"三十斋日    (每月6斋期、每月10斋期)" alertFirst:@"小寒：1月5日  星期五 10：41" alertLast:@"小寒：1月5日  星期五 10：41"];
 }
 #pragma mark - 回调
+//跳转更多节假日界面
+- (void)viewDidAppear:(BOOL)animated {
+    [self jumpMoreVC];
+}
+- (void)jumpMoreVC {
+    TXXLFestivalListVC *festivalVC = [[TXXLFestivalListVC alloc]init];
+    festivalVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:festivalVC animated:YES];
+}
 //导航栏选择日期按钮事件
 - (void)navigationSelectDateEvent {
     
@@ -121,6 +131,9 @@
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:KColorHexadecimal(kLineMain_Color, 1.0)];
     KViewRadius(tableView, 5.0);
     TXXLFestivalCountDownHeaderView *headerView = [[TXXLFestivalCountDownHeaderView alloc]initWithFrame:CGRectMake(15, 0, SCREEN_WIDTH - 30, 48)];
+    headerView.moreBlock = ^(BOOL isMore) {
+        [ws jumpMoreVC];
+    };
     tableView.tableHeaderView = headerView;
     tableView.rowHeight = 44;
     [tableView registerClass:[TXXLFestivalCountDownCell class] forCellReuseIdentifier:kTXXLFestivalCountDownCell];

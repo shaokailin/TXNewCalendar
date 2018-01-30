@@ -27,6 +27,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXXLHoursDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLHoursDetailCell];
+    [cell setupCellContent:@"甲子时" state:indexPath.row % 2 timeBetween:@"23:00-00:59" timeDetail:@"冲马（戊午）煞南" orientation:@"财神-东北" suit:@"财神-东北" avoid:@"开市  力券"];
     return cell;
 }
 #pragma mark - 界面

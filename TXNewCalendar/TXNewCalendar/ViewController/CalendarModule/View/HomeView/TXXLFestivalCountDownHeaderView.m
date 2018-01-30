@@ -46,6 +46,8 @@
     
 }
 - (void)moreClick {
-    
+    if (self.moreBlock) {
+        self.moreBlock(YES);
+    }
 }
 @end

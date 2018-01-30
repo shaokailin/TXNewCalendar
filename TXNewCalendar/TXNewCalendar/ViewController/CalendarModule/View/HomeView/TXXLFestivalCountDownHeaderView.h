@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^MoreBlock)(BOOL isMore);
 @interface TXXLFestivalCountDownHeaderView : UIView
-
+@property (nonatomic, copy) MoreBlock moreBlock;
 @end
