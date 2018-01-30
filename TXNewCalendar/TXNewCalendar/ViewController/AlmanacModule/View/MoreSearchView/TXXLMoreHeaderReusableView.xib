@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TXXLMoreHeaderReusableView" id="U6b-Vx-4bR" customClass="TXXLMoreHeaderReusableView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKO-77-BFC">
+                    <rect key="frame" x="53" y="41" width="48" height="24"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="textColor" red="0.1960784314" green="0.1960784314" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-CC-UAR">
+                    <rect key="frame" x="10" y="0.0" width="170" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="33" id="KAx-wx-zek"/>
+                        <constraint firstAttribute="width" constant="170" id="ftY-4E-foo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="150" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="为什么新历宜忌择日比其他日历准" image="question">
+                        <color key="titleColor" red="0.87058823529411766" green="0.27450980392156865" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="alertBtnClick:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="Mh2-i9-bpQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Btp-CC-UAR" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="CPJ-wc-DR6"/>
+                <constraint firstItem="MKO-77-BFC" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="53" id="OdO-7v-dC3"/>
+                <constraint firstAttribute="bottom" secondItem="MKO-77-BFC" secondAttribute="bottom" constant="8" id="lZl-Jj-TDe"/>
+                <constraint firstItem="Btp-CC-UAR" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="qA4-5i-lMB"/>
+            </constraints>
+            <connections>
+                <outlet property="alertBtn" destination="Btp-CC-UAR" id="gyi-Te-DME"/>
+                <outlet property="titleLbl" destination="MKO-77-BFC" id="gKj-G9-hB4"/>
+            </connections>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="question" width="12" height="12"/>
+    </resources>
+</document>
