@@ -35,6 +35,8 @@
         [self setupType3Content:contentDict];
     }else if (_currentType == 4) {
         [self setupType4Content:contentDict];
+    }else if (_currentType == 6 || _currentType == 7) {
+        [self setupMoreContent:contentDict];
     }
 }
 - (void)setupType5Content:(NSArray *)array {
@@ -51,7 +53,8 @@
 - (void)setupType4Content:(NSDictionary *)dict {
     NSString *titleString = [dict objectForKey:@"shen_sha"];
     NSString *detailString = [dict objectForKey:@"shen_sha_detail"];
-    [self setupContentOneType:titleString detailString:detailString];
+    NSString *detail1 = @"古人认为每天都有一个星神值日，若遇青龙、明堂、金匮、天德、玉堂、司令六个吉神值日，诸事皆宜，称为“黄道吉日。\n如遇天刑、朱雀、白虎、天牢、玄武、勾陈六个凶神当道，或遇到天象异常如日食、月食、日中黑子、彗星见、变星见、陨石坠落等，这一天就是不吉日，称为“黑道凶日”。";
+    [self setupMoreContentArray:@[@"",titleString] detailArray:@[detail1,detailString]];
 }
 - (void)setupType2Content:(NSDictionary *)dict {
     NSString *shengxiao = [dict objectForKey:@"shengxiao"];
@@ -93,6 +96,124 @@
     height += detailHeight;
     CGFloat heightNew = height > _defaultHeight ? height + 15 : _defaultHeight + 10;
     _contentHeight = heightNew;
+}
+
+- (void)setupMoreContent:(NSDictionary *)contentDict {
+    NSInteger contentCount = contentDict.allKeys.count;
+    CGFloat width = SCREEN_WIDTH - 20 - 40 - 2;
+    NSInteger maxIndex = MAX(_currentIndex, contentCount);
+    CGFloat height = _defaultHeight - 20;
+    for (int i = 0; i < maxIndex; i ++ ) {
+        UILabel *titleLbl = [self viewWithTag:200 + i];
+        UILabel *detailLbl = [self viewWithTag:300 + i];
+        if (i < contentCount) {
+            height += 21;
+            NSString *titleString = [contentDict.allKeys objectAtIndex:i];
+            NSString *detailString = [contentDict objectForKey:titleString];
+            BOOL isTitleString = KJudgeIsNullData(titleString);
+            if (isTitleString) {
+                if (titleLbl == nil) {
+                    titleLbl = [self customTitleLbl:i];
+                    [self addSubview:titleLbl];
+                }
+                titleLbl.text = titleString;
+                titleLbl.frame = CGRectMake(20, height, width, 17);
+                height += 17;
+            }else if(titleLbl) {
+                titleLbl.text = nil;
+                titleLbl.hidden = YES;
+            }
+            if (KJudgeIsNullData(detailString)) {
+                height += isTitleString?18 :0;
+                if (detailLbl == nil) {
+                    detailLbl = [self customDetailLbl:i];
+                    [self addSubview:detailLbl];
+                }
+                detailLbl.text = detailString;
+                CGFloat detailHeight = [detailString calculateTextHeight:12 width:width];
+                detailLbl.frame = CGRectMake(20, height, width, detailHeight);
+                height += detailHeight;
+            }else if (detailLbl) {
+                detailLbl.text = nil;
+                detailLbl.hidden = YES;
+            }
+        }else {
+            if (titleLbl) {
+                titleLbl.text = nil;
+                titleLbl.hidden = YES;
+            }
+            if (detailLbl) {
+                detailLbl.text = nil;
+                detailLbl.hidden = YES;
+            }
+        }
+    }
+    CGFloat heightNew = height > _defaultHeight ? height + 15 : _defaultHeight + 10;
+    _contentHeight = heightNew;
+    _currentIndex = contentCount;
+}
+- (void)setupMoreContentArray:(NSArray *)titleArray detailArray:(NSArray *)detailArray {
+    NSInteger titleCount = titleArray.count;
+    NSInteger detailCount = detailArray.count;
+    CGFloat width = SCREEN_WIDTH - 20 - 40 - 2;
+    NSInteger maxIndex = MAX(detailCount, titleCount);
+    maxIndex = MAX(_currentIndex, maxIndex);
+    CGFloat height = _defaultHeight - 20;
+    for (int i = 0; i < maxIndex; i ++ ) {
+        UILabel *titleLbl = [self viewWithTag:200 + i];
+        UILabel *detailLbl = [self viewWithTag:300 + i];
+        if (i >= titleCount && i >= detailCount) {
+            if (titleLbl) {
+                titleLbl.text = nil;
+                titleLbl.hidden = YES;
+            }
+            if (detailLbl) {
+                detailLbl.text = nil;
+                detailLbl.hidden = YES;
+            }
+        }else {
+            height += 21;
+            NSString *titleString = nil;
+            NSString *detailString = nil;
+            if (i < titleCount) {
+                titleString = [titleArray objectAtIndex:i];
+            }
+            if (i < detailCount) {
+                detailString = [detailArray objectAtIndex:i];
+            }
+            BOOL isTitleString = KJudgeIsNullData(titleString);
+            if (isTitleString) {
+                if (titleLbl == nil) {
+                    titleLbl = [self customTitleLbl:i];
+                    [self addSubview:titleLbl];
+                }
+                titleLbl.text = titleString;
+                titleLbl.frame = CGRectMake(20, height, width, 17);
+                height += 17;
+            }else if(titleLbl) {
+                titleLbl.text = nil;
+                titleLbl.hidden = YES;
+            }
+            if (KJudgeIsNullData(detailString)) {
+                height += isTitleString?18 :0;
+                if (detailLbl == nil) {
+                    detailLbl = [self customDetailLbl:i];
+                    [self addSubview:detailLbl];
+                }
+                detailLbl.text = detailString;
+                CGFloat detailHeight = [detailString calculateTextHeight:12 width:width];
+                detailLbl.frame = CGRectMake(20, height, width, detailHeight);
+                height += detailHeight;
+            }else if (detailLbl) {
+                detailLbl.text = nil;
+                detailLbl.hidden = YES;
+            }
+            
+        }
+    }
+    CGFloat heightNew = height > _defaultHeight ? height + 15 : _defaultHeight + 10;
+    _contentHeight = heightNew;
+    _currentIndex = maxIndex;
 }
 - (void)_layoutMainView:(NSInteger)headerType {
     _currentIndex = 0;
