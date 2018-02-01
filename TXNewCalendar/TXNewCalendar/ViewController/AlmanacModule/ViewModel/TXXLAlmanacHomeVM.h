@@ -7,8 +7,9 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "TXXLAlmanacHomeModel.h"
 @interface TXXLAlmanacHomeVM : LSKBaseViewModel
 @property (nonatomic, copy) NSString *dateString;
+@property (nonatomic, strong) TXXLAlmanacHomeModel *messageModel;
 - (void)getAlmanacHomeData:(BOOL)isFirst;
 @end

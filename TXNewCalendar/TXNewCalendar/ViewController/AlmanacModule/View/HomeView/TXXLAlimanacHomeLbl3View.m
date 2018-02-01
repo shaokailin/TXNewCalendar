@@ -29,6 +29,8 @@
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:message];
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             [paragraphStyle setLineSpacing:3];
+            [paragraphStyle setAlignment:NSTextAlignmentCenter];//设置对齐方式
+            [paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
             [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [message length])];
             _contentLbl.attributedText = attributedString;
             _contentLbl.textAlignment = 1;
@@ -54,6 +56,13 @@
         make.top.equalTo(topLbl.mas_bottom).with.offset(2);
         make.bottom.lessThanOrEqualTo(ws).with.offset(-8);
     }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail)];
+    [self addGestureRecognizer:tap];
+}
+- (void)showDetail {
+    if (self.detailBlock) {
+        self.detailBlock(YES);
+    }
 }
 
 @end

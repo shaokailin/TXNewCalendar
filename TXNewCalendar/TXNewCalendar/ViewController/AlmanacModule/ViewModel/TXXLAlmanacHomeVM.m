@@ -8,7 +8,7 @@
 
 #import "TXXLAlmanacHomeVM.h"
 #import "TXXLAlmanacModuleAPI.h"
-#import "LSKBaseResponseModel.h"
+
 @interface TXXLAlmanacHomeVM ()
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, assign) NSUInteger currentLoading;
@@ -20,11 +20,12 @@
         [SKHUD showLoadingDotInWindow];
     }
     if (self.isLoading && _currentLoading > 0) {
-        [self removeObjectFromCurrentLoadingAtIndex:_currentLoading];
+        [self removeLoadingWithIdentifier:_currentLoading];
+        _currentLoading = -1;
     }
     [self.almanacHomeCommand execute:nil];
 }
-- (void)removeObjectFromCurrentLoadingAtIndex:(NSUInteger)index {
+- (void)reurnCurrentLoadingIndentifier:(NSUInteger)index {
     _currentLoading = index;
 }
 - (RACCommand *)almanacHomeCommand {
@@ -38,14 +39,17 @@
         [_almanacHomeCommand.errors subscribeNext:^(NSError * _Nullable x) {
            @strongify(self)
             self.currentLoading = -1;
+            self.messageModel = nil;
             [self sendFailureResult:0 error:nil];
         }];
-        [_almanacHomeCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+        [_almanacHomeCommand.executionSignals.flatten subscribeNext:^(TXXLAlmanacHomeModel *model) {
             @strongify(self)
             self.currentLoading = -1;
             if (model.error_code != 0) {
+                self.messageModel = nil;
                 [self sendFailureResult:0 error:nil];
             }else {
+                self.messageModel = model;
                 [self sendSuccessResult:0 model:model];
             }
         }];

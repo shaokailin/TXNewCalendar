@@ -16,4 +16,5 @@ typedef void (^AlimanacDateChangeBlock)(DateChangeType type);
 //点击修改日期的回调
 @property (nonatomic, copy) AlimanacDateChangeBlock changeDateBlock;
 - (void)setupDateContent:(NSDate *)date;
+- (void)setupChinessDateData:(NSDictionary *)jinian week:(NSString *)week shengxiao:(NSString *)shengxiao nongli:(NSDictionary *)nongli;
 @end

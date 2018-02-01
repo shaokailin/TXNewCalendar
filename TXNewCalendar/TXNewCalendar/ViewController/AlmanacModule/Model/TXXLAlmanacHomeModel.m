@@ -11,18 +11,28 @@
 @implementation TXXLAlmanacHomeModel
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{
-             @"jian_chu" : @"data.jian_chu",
-             @"chong_sha" : @"data.chong_sha",
-             @"na_yin" : @"data.na_yin",
-             @"tai_shen" : @"data.tai_shen",
+             @"nongli" : @"data.nongli",
+             @"nongliNum" : @"data._nongli",
+             @"jinian" : @"data.jinian",
+             @"shengxiao" : @"data.shengxiao",
+             @"jie_ri" : @"data.jie_ri",
+             @"gongli" : @"data.gongli",
+             @"week" : @"data.week",
+             @"jieqi" : @"data.jieqi",
+             @"position" : @"data.position",
+             @"bamen" : @"data.bamen",
              @"peng_zu" : @"data.peng_zu",
+             @"jianchu" : @"data.jianchu",
+             @"hehai" : @"data.hehai",
+             @"na_yin" : @"data.na_yin",
              @"xing_su" : @"data.xing_su",
-             @"zhi_shen" : @"data.zhi_shen",
-             @"lucky" : @"data.lucky",
-             @"jishen" : @"data.jishen",
-             @"xiong" : @"data.xiong",
-             @"yi" : @"data.yi",
-             @"ji" : @"data.ji",
+             @"kong_wang" : @"data.kong_wang",
+             @"zhi_ri" : @"data.zhi_ri",
+             @"tai_shen" : @"data.tai_shen",
+             @"san_sha" : @"data.san_sha",
+             @"xing_zuo" : @"data.xing_zuo",
+             @"h_detail" : @"data.h_detail",
+             @"yi_ji" : @"data.yi_ji"
              };
 }
 @end

@@ -41,7 +41,13 @@
        make.bottom.equalTo(ws).with.offset(-4);
         make.centerX.equalTo(ws);
     }];
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail)];
+    [self addGestureRecognizer:tap];
+}
+- (void)showDetail {
+    if (self.detailBlock) {
+        self.detailBlock(YES);
+    }
 }
 
 @end

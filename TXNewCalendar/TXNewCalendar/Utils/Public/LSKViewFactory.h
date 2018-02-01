@@ -106,6 +106,7 @@
                                  separatorColor :(UIColor *)separatorColor
                                 backgroundColor :(UIColor *)backgroundColor;
 + (TPKeyboardAvoidingTableView *)initializeTPTableViewWithDelegate:(id)delegate tableType:(UITableViewStyle)style separatorStyle:(UITableViewCellSeparatorStyle)separatorStyle headRefreshAction:(SEL)headAction footRefreshAction:(SEL)footAction separatorColor:(UIColor *)separatorColor backgroundColor:(UIColor *)backgroundColor;
++ (UIScrollView *)initializeScrollViewTarget:(id)target headRefreshAction:(SEL)headAction footRefreshAction:(SEL)footAction;
 + (TPKeyboardAvoidingScrollView *)initializeTPScrollView;
 /**
  UICollectionView

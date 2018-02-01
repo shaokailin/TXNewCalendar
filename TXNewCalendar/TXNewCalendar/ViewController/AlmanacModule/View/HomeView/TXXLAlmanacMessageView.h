@@ -10,6 +10,7 @@
 #import "TXXLAlmanacHomeModel.h"
 typedef NS_ENUM(NSInteger, MessageEventType) {
     MessageEventType_Compass,
+    MessageEventType_Detail,
 };
 typedef void (^MessageBlock) (MessageEventType type);
 @interface TXXLAlmanacMessageView : UIView
@@ -17,8 +18,6 @@ typedef void (^MessageBlock) (MessageEventType type);
 @property (nonatomic, copy) MessageBlock clickBlock;
 //罗盘旋转
 - (void)compassTranform:(CGFloat)radius;
-//设置罗盘周边数据
-- (void)setupPeripheralsMessage:(TXXLAlmanacHomeModel *)model;
-//设置罗盘数据
-- (void)setupCompassMessage:(id)model;
+//设置数据
+- (void)setupContentMessage:(TXXLAlmanacHomeModel *)model;
 @end

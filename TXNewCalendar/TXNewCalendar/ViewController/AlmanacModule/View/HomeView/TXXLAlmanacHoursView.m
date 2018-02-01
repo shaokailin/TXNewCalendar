@@ -19,20 +19,32 @@
     }
     return self;
 }
-- (void)setupContentWithHours:(NSArray *)hours states:(NSArray *)states {
-    NSInteger hourCount = hours.count;
-    NSInteger stateCount = states.count;
-    for (int i = 0; i < 12; i++) {
-        TXXLHourView *hourView = [self viewWithTag:200 + i];
-        NSString *hourString = nil;
-        NSString *stateString = nil;
-        if (i < hourCount) {
-            hourString = [hours objectAtIndex:i];
-            if (i < stateCount) {
-                stateString = [states objectAtIndex:i];
+- (void)setupContentWithHours:(NSArray *)hours {
+    if (KJudgeIsArrayAndHasValue(hours)) {
+        NSInteger hourCount = hours.count;
+        for (int i = 0; i < 12; i++) {
+            TXXLHourView *hourView = [self viewWithTag:200 + i];
+            NSString *hourString = nil;
+            NSString *stateString = nil;
+            if (i < hourCount) {
+                NSDictionary *hourDetailDict = [hours objectAtIndex:i];
+                NSArray *hour = [hourDetailDict objectForKey:@"h"];
+                if (KJudgeIsArrayAndHasValue(hour)) {
+                    hourString = [hour componentsJoinedByString:@"\n"];
+                }
+                stateString = KNullTransformString([hourDetailDict objectForKey:@"jix"]);
             }
+            [hourView setupContentWithHour:hourString state:stateString];
         }
-        [hourView setupContentWithHour:hourString state:stateString];
+    }else {
+        [self setupDefaultData];
+    }
+}
+- (void)setupDefaultData {
+    NSArray *hours = @[@"子",@"寅",@"丑",@"卯",@"辰",@"巳",@"午",@"未",@"申",@"酉",@"戌",@"亥"];
+    for (int i = 0; i < 12; i ++) {
+        TXXLHourView *hourView = [self viewWithTag:200 + i];
+        [hourView setupContentWithHour:[hours objectAtIndex:i] state:@""];
     }
 }
 - (void)currentHourChange:(NSInteger)hour {

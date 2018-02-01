@@ -13,6 +13,7 @@
     UILabel *_calendarNewLbl;
     UILabel *_calendarChinessLbl;
     UILabel *_detailLbl;
+    NSDate *_date;
 }
 - (instancetype)init {
     if (self = [super init]) {
@@ -22,9 +23,45 @@
     return self;
 }
 - (void)setupDateContent:(NSDate *)date {
+    _date = date;
     _calendarNewLbl.text = NSStringFormat(@"公历%@",[date dateTransformToString:@"yyyy年MM月dd日"]);
     _calendarChinessLbl.text = NSStringFormat(@"%@%@",[date getChineseMonthString],[date getChineseDayString]);
-    _detailLbl.text = NSStringFormat(@"%@[%@]年  (未算)月  (未算)日 %@",[date getChinessYearString],[date getZodiac],[date getWeekDate]);
+    [self setupNilData];
+}
+- (void)setupNilData {
+    _detailLbl.text = nil;
+}
+- (void)setupChinessDateData:(NSDictionary *)jinian week:(NSString *)week shengxiao:(NSString *)shengxiao nongli:(NSDictionary *)nongli {
+    if ([nongli isKindOfClass:[NSDictionary class]]) {
+        NSString *month = KJudgeIsNullData([nongli objectForKey:@"m"])?[nongli objectForKey:@"m"]:[_date getChineseMonthString];
+        NSString *day = KJudgeIsNullData([nongli objectForKey:@"d"])?[nongli objectForKey:@"d"]:[_date getChineseDayString];
+        _calendarChinessLbl.text = NSStringFormat(@"%@%@",month,day);
+    }
+    NSString *year = nil;
+    NSString *month = @"";
+    NSString *day = @"";
+    NSString *weekend = KJudgeIsNullData(week)?week:[_date getWeekDate];
+    NSString *shengxiaoString = KJudgeIsNullData(shengxiao)?shengxiao:[_date getZodiac];
+    if ([jinian isKindOfClass:[NSDictionary class]]) {
+        NSArray *yearArray = [jinian objectForKey:@"y"];
+        if (KJudgeIsArrayAndHasValue(yearArray)) {
+            year = [self reurnDateAppend:yearArray];
+        }else {
+            year = [_date getChinessYearString];
+        }
+        NSArray *monthArray = [jinian objectForKey:@"m"];
+        if (KJudgeIsArrayAndHasValue(monthArray)) {
+            month = NSStringFormat(@"%@月",[self reurnDateAppend:monthArray]);
+        }
+        NSArray *dayArray = [jinian objectForKey:@"d"];
+        if (KJudgeIsArrayAndHasValue(dayArray)) {
+            day = NSStringFormat(@"%@日",[self reurnDateAppend:dayArray]);
+        }
+    }
+    _detailLbl.text = NSStringFormat(@"%@[%@]年  %@  %@ %@",year,shengxiaoString,month,day,weekend);
+}
+- (NSString *)reurnDateAppend:(NSArray *)array {
+    return NSStringFormat(@"%@%@",[array objectAtIndex:0],(array.count > 1)?[array objectAtIndex:1]:@"");
 }
 - (void)_layoutMainView {
     UILabel *calendarNewLbl = [TXXLViewManager customTitleLbl:nil font:16];

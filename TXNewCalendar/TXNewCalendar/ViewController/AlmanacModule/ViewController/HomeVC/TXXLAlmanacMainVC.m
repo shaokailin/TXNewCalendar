@@ -78,6 +78,11 @@
         TXXLCompassDetailVC *compassView = [[TXXLCompassDetailVC alloc]init];
         compassView.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:compassView animated:YES];
+    }else if (type == EventType_Detail) {
+        TXXLSuitAvoidVC *suitAvoidVC = [[TXXLSuitAvoidVC alloc]init];
+        suitAvoidVC.loadingDateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];
+        suitAvoidVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:suitAvoidVC animated:YES];
     }
 }
 - (void)swiptViewEvent:(DirectionType)direction date:(NSDate *)date{
@@ -107,8 +112,7 @@
 #pragma mark - 界面初始化
 - (void)initializeMainView {
     WS(ws)
-    
-    UIScrollView *mainScrollView = [[UIScrollView alloc]init];
+    UIScrollView *mainScrollView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
     mainScrollView.showsHorizontalScrollIndicator = NO;
     mainScrollView.backgroundColor = [UIColor clearColor];
     self.mainScrollView = mainScrollView;

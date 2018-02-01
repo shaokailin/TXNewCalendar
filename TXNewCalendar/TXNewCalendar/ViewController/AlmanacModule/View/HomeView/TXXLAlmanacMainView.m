@@ -12,6 +12,7 @@
 #import "TXXLAlmanacHoursView.h"
 #import "NSTimer+Extend.h"
 #import <CoreLocation/CoreLocation.h>
+#import "TXXLAlmanacHomeModel.h"
 @interface TXXLAlmanacMainView ()<CLLocationManagerDelegate>
 {
     NSInteger _changeDateEventCount;
@@ -72,8 +73,10 @@
     }
 }
 #pragma mark - 填充内容数据
-- (void)setupMessageContent:(id)model {
-    [self.messageView setupPeripheralsMessage:model];
+- (void)setupMessageContent:(TXXLAlmanacHomeModel *)model {
+    [self.dateView setupChinessDateData:model.jinian week:model.week shengxiao:model.shengxiao nongli:model.nongli];
+    [self.hoursView setupContentWithHours:model.h_detail];
+    [self.messageView setupContentMessage:model];
 }
 #pragma mark -手势
 - (void)addSwipeGestureRecognizer {
@@ -137,6 +140,8 @@
     if (self.clickBlock) {
         if (type == MessageEventType_Compass) {
             self.clickBlock(EventType_Compass);
+        }else {
+            self.clickBlock(EventType_Detail);
         }
     }
 }
@@ -156,7 +161,7 @@
 }
 #pragma mark- 时辰设置
 - (void)setupTimeHourDafaultValue {
-    [self.hoursView setupContentWithHours:@[@"壬\n子",@"甲\n寅",@"癸\n丑",@"乙\n卯",@"丙\n辰",@"丁\n巳",@"戊\n午",@"己\n未",@"庚\n申",@"辛\n酉",@"壬\n戌",@"癸\n亥"] states:@[@"吉",@"凶",@"吉",@"凶",@"吉",@"凶",@"吉",@"凶",@"吉",@"凶",@"吉",@"凶"]];
+    [self.hoursView setupDefaultData];
     [self setupCurrentHour];
 }
 //解析出时间差

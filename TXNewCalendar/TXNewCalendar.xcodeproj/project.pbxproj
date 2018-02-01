@@ -96,8 +96,6 @@
 		95CB55B62020A93300B45447 /* TXXLPublicFestiveItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95CB55B52020A93300B45447 /* TXXLPublicFestiveItemView.m */; };
 		95EFF1E6201EB90A00FA27A5 /* TXXLSuitAvoidVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EFF1E5201EB90A00FA27A5 /* TXXLSuitAvoidVC.m */; };
 		95EFF1E9201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EFF1E8201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.m */; };
-		95EFF1F4201EFE6D00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EFF1F2201EFE6C00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.m */; };
-		95EFF1F5201EFE6D00FA27A5 /* TXXLSuitAvoidTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EFF1F3201EFE6D00FA27A5 /* TXXLSuitAvoidTableViewCell.m */; };
 		95EFF1FA201F1D9400FA27A5 /* TXXLMoreSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EFF1F9201F1D9400FA27A5 /* TXXLMoreSearchVC.m */; };
 		95EFF205201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EFF203201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.m */; };
 		95EFF206201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95EFF204201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.xib */; };
@@ -112,6 +110,10 @@
 		95F15D1920172B6D00E1340E /* TXXLAlimanacHomeLbl3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F15D1820172B6D00E1340E /* TXXLAlimanacHomeLbl3View.m */; };
 		95F15D1C20172B7900E1340E /* TXXLAlimanacHomeLbl4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F15D1B20172B7900E1340E /* TXXLAlimanacHomeLbl4View.m */; };
 		95F15D1F20172C1400E1340E /* TXXLCompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F15D1E20172C1400E1340E /* TXXLCompassView.m */; };
+		A67490602022E9AF0039838F /* TXXLAlmanacDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A674905F2022E9AF0039838F /* TXXLAlmanacDetailVM.m */; };
+		A67490632022EA0E0039838F /* TXXLAlmanacDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490622022EA0E0039838F /* TXXLAlmanacDetailModel.m */; };
+		A67490662022F4600039838F /* TXXLSuitAvoidHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490652022F4600039838F /* TXXLSuitAvoidHeaderView.m */; };
+		A67490692022FA300039838F /* TXXLSuitAvoidContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490682022FA300039838F /* TXXLSuitAvoidContentView.m */; };
 		A6B5663920214B7500E8DEFF /* TXXLPublicFestivelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */; };
 		A6B5663C2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663B2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m */; };
 		A6B5663F20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663E20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m */; };
@@ -306,10 +308,6 @@
 		95EFF1E5201EB90A00FA27A5 /* TXXLSuitAvoidVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLSuitAvoidVC.m; sourceTree = "<group>"; };
 		95EFF1E7201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLSuitAvoidNatigationView.h; sourceTree = "<group>"; };
 		95EFF1E8201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLSuitAvoidNatigationView.m; sourceTree = "<group>"; };
-		95EFF1F0201EFE6C00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXXLSuitAvoidHeaderTableViewCell.h; sourceTree = "<group>"; };
-		95EFF1F1201EFE6C00FA27A5 /* TXXLSuitAvoidTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXXLSuitAvoidTableViewCell.h; sourceTree = "<group>"; };
-		95EFF1F2201EFE6C00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXXLSuitAvoidHeaderTableViewCell.m; sourceTree = "<group>"; };
-		95EFF1F3201EFE6D00FA27A5 /* TXXLSuitAvoidTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXXLSuitAvoidTableViewCell.m; sourceTree = "<group>"; };
 		95EFF1F8201F1D9400FA27A5 /* TXXLMoreSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLMoreSearchVC.h; sourceTree = "<group>"; };
 		95EFF1F9201F1D9400FA27A5 /* TXXLMoreSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLMoreSearchVC.m; sourceTree = "<group>"; };
 		95EFF202201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLMoreCollectionViewCell.h; sourceTree = "<group>"; };
@@ -332,6 +330,14 @@
 		95F15D1D20172C1400E1340E /* TXXLCompassView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCompassView.h; sourceTree = "<group>"; };
 		95F15D1E20172C1400E1340E /* TXXLCompassView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCompassView.m; sourceTree = "<group>"; };
 		967DCDBCBDD8C2ED20C01B01 /* Pods-TXNewCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXNewCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TXNewCalendar/Pods-TXNewCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		A674905E2022E9AF0039838F /* TXXLAlmanacDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacDetailVM.h; sourceTree = "<group>"; };
+		A674905F2022E9AF0039838F /* TXXLAlmanacDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacDetailVM.m; sourceTree = "<group>"; };
+		A67490612022EA0E0039838F /* TXXLAlmanacDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacDetailModel.h; sourceTree = "<group>"; };
+		A67490622022EA0E0039838F /* TXXLAlmanacDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacDetailModel.m; sourceTree = "<group>"; };
+		A67490642022F4600039838F /* TXXLSuitAvoidHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLSuitAvoidHeaderView.h; sourceTree = "<group>"; };
+		A67490652022F4600039838F /* TXXLSuitAvoidHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLSuitAvoidHeaderView.m; sourceTree = "<group>"; };
+		A67490672022FA300039838F /* TXXLSuitAvoidContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLSuitAvoidContentView.h; sourceTree = "<group>"; };
+		A67490682022FA300039838F /* TXXLSuitAvoidContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLSuitAvoidContentView.m; sourceTree = "<group>"; };
 		A6B5663720214B7500E8DEFF /* TXXLPublicFestivelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicFestivelCell.h; sourceTree = "<group>"; };
 		A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLPublicFestivelCell.m; sourceTree = "<group>"; };
 		A6B5663A2021580C00E8DEFF /* TXXLPublicFestivelRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicFestivelRightCell.h; sourceTree = "<group>"; };
@@ -955,12 +961,12 @@
 		95EFF1E2201EB8DB00FA27A5 /* SuitAvoidView */ = {
 			isa = PBXGroup;
 			children = (
-				95EFF1F0201EFE6C00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.h */,
-				95EFF1F2201EFE6C00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.m */,
-				95EFF1F1201EFE6C00FA27A5 /* TXXLSuitAvoidTableViewCell.h */,
-				95EFF1F3201EFE6D00FA27A5 /* TXXLSuitAvoidTableViewCell.m */,
 				95EFF1E7201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.h */,
 				95EFF1E8201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.m */,
+				A67490642022F4600039838F /* TXXLSuitAvoidHeaderView.h */,
+				A67490652022F4600039838F /* TXXLSuitAvoidHeaderView.m */,
+				A67490672022FA300039838F /* TXXLSuitAvoidContentView.h */,
+				A67490682022FA300039838F /* TXXLSuitAvoidContentView.m */,
 			);
 			path = SuitAvoidView;
 			sourceTree = "<group>";
@@ -1036,6 +1042,8 @@
 			children = (
 				A6B566BF2021AD3E00E8DEFF /* TXXLAlmanacHomeVM.h */,
 				A6B566C02021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m */,
+				A674905E2022E9AF0039838F /* TXXLAlmanacDetailVM.h */,
+				A674905F2022E9AF0039838F /* TXXLAlmanacDetailVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1045,6 +1053,8 @@
 			children = (
 				A6B566C72021C21600E8DEFF /* TXXLAlmanacHomeModel.h */,
 				A6B566C82021C21600E8DEFF /* TXXLAlmanacHomeModel.m */,
+				A67490612022EA0E0039838F /* TXXLAlmanacDetailModel.h */,
+				A67490622022EA0E0039838F /* TXXLAlmanacDetailModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1239,6 +1249,7 @@
 				9540D2CF2015BB56005F6751 /* LSKWebEventHandleManager.m in Sources */,
 				9590A66E201ACFEB0063FDDE /* FSCalendarDelegationProxy.m in Sources */,
 				A6B566C12021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m in Sources */,
+				A67490632022EA0E0039838F /* TXXLAlmanacDetailModel.m in Sources */,
 				95F15D0A20172AFC00E1340E /* TXXLAlimanacHomeLbl1View.m in Sources */,
 				9540D2C62015BB56005F6751 /* LSKBannerImageView.m in Sources */,
 				9590A676201ACFEB0063FDDE /* FSCalendarExtensions.m in Sources */,
@@ -1287,6 +1298,7 @@
 				95CB5585201FFBF000B45447 /* TXXLMoreHeaderReusableView.m in Sources */,
 				95CB558F2020459200B45447 /* TXXLSearchDetailCell.m in Sources */,
 				95CB55B62020A93300B45447 /* TXXLPublicFestiveItemView.m in Sources */,
+				A67490602022E9AF0039838F /* TXXLAlmanacDetailVM.m in Sources */,
 				9540D2B72015BB56005F6751 /* UITabBarController+Extend.m in Sources */,
 				9590A677201ACFEB0063FDDE /* FSCalendar+Deprecated.m in Sources */,
 				9540D2B32015BB56005F6751 /* NSTimer+Extend.m in Sources */,
@@ -1302,16 +1314,16 @@
 				9590A64A201AC77B0063FDDE /* TXXLCalendarMessageView.m in Sources */,
 				9540D3162015E398005F6751 /* TXXLAlmanacSearchView.m in Sources */,
 				9540D2FA2015C498005F6751 /* TXXLCalendarMainVC.m in Sources */,
+				A67490692022FA300039838F /* TXXLSuitAvoidContentView.m in Sources */,
 				A6B5664220215D8100E8DEFF /* TXXLHolidaysHeaderView.m in Sources */,
 				95CB558C2020453500B45447 /* TXXLSearchDetailHeaderView.m in Sources */,
 				959EF32620187481003FE057 /* TXXLAlmanacMainView.m in Sources */,
 				9540D2B02015BB56005F6751 /* LSKMediaParamterEntity.m in Sources */,
-				95EFF1F4201EFE6D00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.m in Sources */,
+				A67490662022F4600039838F /* TXXLSuitAvoidHeaderView.m in Sources */,
 				A6B5663C2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m in Sources */,
 				9540D30D2015E335005F6751 /* TXXLAlmanacDateView.m in Sources */,
 				95CB559A2020728300B45447 /* TXXLHoursDetailCell.m in Sources */,
 				9590A67B201ACFEB0063FDDE /* FSCalendarTransitionCoordinator.m in Sources */,
-				95EFF1F5201EFE6D00FA27A5 /* TXXLSuitAvoidTableViewCell.m in Sources */,
 				9540D2BD2015BB56005F6751 /* LSKBaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

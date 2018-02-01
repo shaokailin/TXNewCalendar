@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TXXLAlimanacHomeLbl5View : UIView
+@property (nonatomic, copy) ShowTodayDetailBlock detailBlock;
 - (void)setupLblType5Content:(NSString *)title ;
 - (void)setupMessage:(NSString *)message;
 @end

@@ -15,6 +15,7 @@
 @property (nonatomic,readonly, weak) UIViewController *currentController;
 @property (nonatomic, assign) BOOL isShowAlertAndHiden;
 - (void)reurnCurrentLoadingIndentifier:(NSUInteger)taskIdentifier;
+- (void)removeLoadingWithIdentifier:(NSUInteger)taskIndetifer;
 /**
  初始化ViewModel 需要回调的时候调用
 

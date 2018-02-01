@@ -25,6 +25,8 @@
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:content];
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             [paragraphStyle setLineSpacing:3];
+            [paragraphStyle setAlignment:NSTextAlignmentCenter];//设置对齐方式
+            [paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
             [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [content length])];
             _contentLbl.attributedText = attributedString;
         }
@@ -43,7 +45,7 @@
     
     _contentLbl = [TXXLViewManager customTitleLbl:nil font:10];
     _contentLbl.numberOfLines = 2;
-    _contentLbl.adjustsFontSizeToFitWidth = YES;
+//    _contentLbl.adjustsFontSizeToFitWidth = YES;
     [self addSubview:_contentLbl];
     [_contentLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(iconLbl.mas_right).with.offset(5);
@@ -51,7 +53,12 @@
         make.right.lessThanOrEqualTo(ws).with.offset(-5);
     }];
     
-    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail)];
+    [self addGestureRecognizer:tap];
 }
-
+- (void)showDetail {
+    if (self.detailBlock) {
+        self.detailBlock(YES);
+    }
+}
 @end

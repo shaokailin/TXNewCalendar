@@ -11,11 +11,13 @@
 typedef NS_ENUM(NSInteger, EventType) {
     EventType_Compass,
     EventType_Hours,
+    EventType_Detail,
 };
 typedef NS_ENUM(NSInteger, DirectionType) {
     DirectionType_Left = 0,
     DirectionType_Right
 };
+@class TXXLAlmanacHomeModel;
 typedef void (^TapEventBlock)(EventType type);
 typedef void (^TimeChangeBlock)(DirectionType direction,NSDate *date);
 @interface TXXLAlmanacMainView : UIView
@@ -25,5 +27,5 @@ typedef void (^TimeChangeBlock)(DirectionType direction,NSDate *date);
 - (void)viewDidAppearStartHeading;
 - (void)viewDidDisappearStopHeading;
 //设置内容界面上的数据
-- (void)setupMessageContent:(id)model;
+- (void)setupMessageContent:(TXXLAlmanacHomeModel *)model;
 @end

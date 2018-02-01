@@ -10,4 +10,5 @@
 
 @interface TXXLAlmanacModuleAPI : NSObject
 + (LSKParamterEntity *)getAlmanacHomeData:(NSString *)dateString;
++ (LSKParamterEntity *)getAlmanacDetailData:(NSString *)dateString;
 @end

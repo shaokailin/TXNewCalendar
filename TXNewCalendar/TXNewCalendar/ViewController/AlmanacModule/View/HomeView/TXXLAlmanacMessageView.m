@@ -38,80 +38,88 @@
     return self;
 }
 #pragma mark - 设置数据
-- (void)setupCompassMessage:(id)model {
-    
+- (NSString *)dataAppend:(NSArray *)array {
+    NSMutableString *yi = [NSMutableString string];
+    NSInteger count = array.count;
+    for (int i = 0; i < count; i ++) {
+        NSString *key = [array objectAtIndex:i];
+        [yi appendString:key];
+        if (i != count - 1 ) {
+            [yi appendString:@"  "];
+        }
+    }
+    return yi;
 }
-- (void)setupPeripheralsMessage:(TXXLAlmanacHomeModel *)model {
-    if ([model.zhi_shen isKindOfClass:[NSDictionary class]]) {
-        [self.left1View setupMessage:[model.zhi_shen objectForKey:@"shen_sha"]];
+- (void)setupContentMessage:(TXXLAlmanacHomeModel *)model {
+    if ([model.position isKindOfClass:[NSDictionary class]]) {
+        NSString *sheng = @"    ";
+        if ([model.bamen isKindOfClass:[NSDictionary class]]) {
+            sheng = [model.bamen objectForKey:@"生"];
+        }
+        [self.compassView setupContentWithMoney:[model.position objectForKey:@"cai_shen"] happy:[model.position objectForKey:@"xi_shen"] luck:[model.position objectForKey:@"fu_shen"] live:sheng];
     }
-    if ([model.chong_sha isKindOfClass:[NSDictionary class]]) {
-        [self.right1View setupMessage:NSStringFormat(@"冲%@煞%@",[model.chong_sha objectForKey:@"chong"],[model.chong_sha objectForKey:@"sha"])];
+    
+    if ([model.zhi_ri isKindOfClass:[NSDictionary class]]) {
+        [self.left1View setupMessage:[model.zhi_ri objectForKey:@"shen_sha"]];
     }
-    if (KJudgeIsArrayAndHasValue(model.na_yin)) {
-        [self.left2View setupMessage:nil bottom:[model.na_yin objectAtIndex:0]];
+    NSString *chong = @"  ";
+    if ([model.hehai isKindOfClass:[NSDictionary class]]) {
+        chong = [model.hehai objectForKey:@"xian_chong"];
+    }
+    NSString *sha = @"煞    ";
+    if ([model.san_sha isKindOfClass:[NSDictionary class]] && KJudgeIsArrayAndHasValue([model.san_sha objectForKey:@"d"])) {
+        NSArray *array = [model.san_sha objectForKey:@"d"];
+        sha = [array objectAtIndex:0];
+    }
+    [self.right1View setupMessage:NSStringFormat(@"冲%@%@",chong,sha)];
+    if ([model.na_yin isKindOfClass:[NSDictionary class]]) {
+        //带处理
+        [self.left2View setupMessage:nil bottom:[model.na_yin objectForKey:@"d"]];
     }
     if (KJudgeIsArrayAndHasValue(model.peng_zu)) {
-        NSArray *contentArray = [model.peng_zu objectAtIndex:0];
-        if (KJudgeIsArrayAndHasValue(contentArray)) {
-            NSString *top = contentArray.count > 0?[contentArray objectAtIndex:0]:nil;
-            NSString *bottom = contentArray.count > 1? [contentArray objectAtIndex:1]:nil;
-            [self.right2View setupMessage:top bottom:bottom];
+        NSString *top = model.peng_zu.count > 0?[model.peng_zu objectAtIndex:0]:nil;
+        NSString *bottom = model.peng_zu.count > 1? [model.peng_zu objectAtIndex:1]:nil;
+        [self.right2View setupMessage:top bottom:bottom];
+    }
+    if ([model.yi_ji isKindOfClass:[NSDictionary class]]) {
+        NSArray *xiongArray = [model.yi_ji objectForKey:@"xiong"];
+        if (KJudgeIsArrayAndHasValue(xiongArray)) {
+            [self.left3View setupMessage:[self dataAppend:xiongArray]];
+        }
+        NSArray *jishenArray = [model.yi_ji objectForKey:@"jishen"];
+        if (KJudgeIsArrayAndHasValue(jishenArray)) {
+            [self.right3View setupMessage:[self dataAppend:jishenArray]];
+        }
+        NSArray *yiArray = [model.yi_ji objectForKey:@"yi"];
+        if (KJudgeIsArrayAndHasValue(yiArray)) {
+            [self.left4View setupLblType4Content:[self dataAppend:yiArray]];
+        }else {
+            [self.left4View setupLblType4Content:@"无"];
+        }
+        NSArray *jiArray = [model.yi_ji objectForKey:@"ji"];
+        if (KJudgeIsArrayAndHasValue(jiArray)) {
+            [self.right4View setupLblType4Content:[self dataAppend:jiArray]];
+        }else {
+            [self.right4View setupLblType4Content:@"无"];
         }
     }
-    if ([model.xiong isKindOfClass:[NSDictionary class]] && model.xiong.allKeys.count > 0) {
-        NSMutableString *xiong = [NSMutableString string];
-        NSInteger count = model.xiong.allKeys.count;
-        for (int i = 0; i < count; i ++) {
-            NSString *key = [model.xiong.allKeys objectAtIndex:i];
-            [xiong appendString:key];
-            if (i != count - 1 ) {
-                [xiong appendString:@"  "];
+    
+    if (KJudgeIsNullData(model.jianchu)) {
+        [self.left5View setupMessage:NSStringFormat(@"%@日",model.jianchu)];
+    }
+    if ([model.hehai isKindOfClass:[NSDictionary class]]) {
+        NSArray *array = [model.hehai objectForKey:@"san_he"];
+        NSMutableString *shengxiao = [NSMutableString string];
+        if (KJudgeIsArrayAndHasValue(array)) {
+            for (NSString *value in array) {
+                [shengxiao appendString:value];
             }
         }
-        [self.left3View setupMessage:xiong];
-    }
-    if ([model.jishen isKindOfClass:[NSDictionary class]] && model.jishen.allKeys.count > 0) {
-        NSMutableString *jishen = [NSMutableString string];
-        NSInteger count = model.jishen.allKeys.count;
-        for (int i = 0; i < count; i ++) {
-            NSString *key = [model.jishen.allKeys objectAtIndex:i];
-            [jishen appendString:key];
-            if (i != count - 1 ) {
-                [jishen appendString:@"  "];
-            }
+        NSString *liuhe = [model.hehai objectForKey:@"liu_he"];
+        if (KJudgeIsNullData(liuhe)) {
+            [shengxiao appendString:liuhe];
         }
-        [self.right3View setupMessage:jishen];
-    }
-    if ([model.yi isKindOfClass:[NSDictionary class]] && model.yi.allKeys.count > 0) {
-        NSMutableString *yi = [NSMutableString string];
-        NSInteger count = model.yi.allKeys.count;
-        for (int i = 0; i < count; i ++) {
-            NSString *key = [model.yi.allKeys objectAtIndex:i];
-            [yi appendString:key];
-            if (i != count - 1 ) {
-                [yi appendString:@"  "];
-            }
-        }
-        [self.left4View setupLblType4Content:yi];
-    }
-    if ([model.ji isKindOfClass:[NSDictionary class]] && model.ji.allKeys.count > 0) {
-        NSMutableString *ji = [NSMutableString string];
-        NSInteger count = model.ji.allKeys.count;
-        for (int i = 0; i < count; i ++) {
-            NSString *key = [model.ji.allKeys objectAtIndex:i];
-            [ji appendString:key];
-            if (i != count - 1 ) {
-                [ji appendString:@"  "];
-            }
-        }
-        [self.right4View setupLblType4Content:ji];
-    }
-    if (KJudgeIsArrayAndHasValue(model.jian_chu)) {
-        [self.left5View setupMessage:NSStringFormat(@"%@日",[model.jian_chu objectAtIndex:0])];
-    }
-    if ([model.lucky isKindOfClass:[NSDictionary class]]) {
-        [self.middle5View setupMessage:[model.lucky objectForKey:@"shengxiao"]];
+        [self.middle5View setupMessage:shengxiao];
     }
     if (KJudgeIsArrayAndHasValue(model.tai_shen)) {
         [self.middle6View setupMessage:[model.tai_shen objectAtIndex:0]];
@@ -126,8 +134,8 @@
     [self.right1View setupMessage:@"  "];
     [self.left2View setupMessage:nil bottom:@"  "];
     [self.right2View setupMessage:@"  " bottom:@"  "];
-    [self.left3View setupMessage:nil];
-    [self.right3View setupMessage:nil];
+    [self.left3View setupMessage:@"  "];
+    [self.right3View setupMessage:@"  "];
     [self.left4View setupLblType4Content:@"  "];
     [self.right4View setupLblType4Content:@"  "];
     [self.left5View setupMessage:nil];
@@ -272,5 +280,46 @@
         make.left.equalTo(middle5View.mas_right).with.offset(1);
         make.top.height.width.equalTo(middle5View);
     }];
+    left1View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    right1View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    left2View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    left3View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    left4View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    left5View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    right2View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    right3View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    right4View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    right5View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    middle5View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+    middle6View.detailBlock = ^(BOOL isShow) {
+        [ws detailClick];
+    };
+}
+- (void)detailClick {
+    if (self.clickBlock) {
+        self.clickBlock(MessageEventType_Detail);
+    }
 }
 @end

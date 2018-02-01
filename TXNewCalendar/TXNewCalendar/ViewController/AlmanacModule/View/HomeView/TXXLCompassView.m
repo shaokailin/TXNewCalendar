@@ -77,13 +77,6 @@
         make.left.equalTo(moneyIconLbl.mas_right).with.offset(15);
         make.centerY.equalTo(moneyIconLbl);
     }];
-    UILabel *happyLbl = [TXXLViewManager customTitleLbl:nil font:10];
-    _happyLbl = happyLbl;
-    [self addSubview:happyLbl];
-    [happyLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(ws.mas_right).with.offset(-10);
-        make.centerY.equalTo(moneyIconLbl);
-    }];
     
     UILabel *happyIconLbl = [TXXLViewManager customTitleLbl:@"喜" font:11];
     KViewBoundsRadius(happyIconLbl, 19 / 2.0);
@@ -91,14 +84,22 @@
     happyIconLbl.textAlignment = 1;
     [self addSubview:happyIconLbl];
     [happyIconLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(happyLbl.mas_left).with.offset(-15);
+        make.right.equalTo(ws).with.offset(-45);
         make.centerY.width.height.equalTo(moneyIconLbl);
     }];
+    UILabel *happyLbl = [TXXLViewManager customTitleLbl:nil font:10];
+    _happyLbl = happyLbl;
+    [self addSubview:happyLbl];
+    [happyLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(happyIconLbl.mas_right).with.offset(15);
+        make.centerY.equalTo(moneyIconLbl);
+    }];
+    
     UILabel *liveLbl = [TXXLViewManager customTitleLbl:nil font:10];
     _liveLbl = liveLbl;
     [self addSubview:liveLbl];
     [liveLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(ws.mas_right).with.offset(-10);
+        make.left.equalTo(happyLbl.mas_left);
         make.centerY.equalTo(luckIconLbl);
     }];
     
@@ -108,7 +109,7 @@
     liveIconLbl.textAlignment = 1;
     [self addSubview:liveIconLbl];
     [liveIconLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(liveLbl.mas_left).with.offset(-15);
+        make.right.equalTo(happyIconLbl);
         make.centerY.width.height.equalTo(luckIconLbl);
     }];
     

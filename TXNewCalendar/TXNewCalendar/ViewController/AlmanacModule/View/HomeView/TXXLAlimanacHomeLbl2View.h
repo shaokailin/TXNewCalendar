@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TXXLAlimanacHomeLbl2View : UIView
+@property (nonatomic, copy) ShowTodayDetailBlock detailBlock;
 - (void)setupLblType2Content:(NSString *)title ;
 - (void)setupMessage:(NSString *)middle bottom:(NSString *)bottom;
 @end

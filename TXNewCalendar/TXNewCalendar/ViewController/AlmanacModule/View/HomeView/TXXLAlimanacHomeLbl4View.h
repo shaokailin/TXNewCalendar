@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, ContentType) {
     ContentType_Avoid
 };
 @interface TXXLAlimanacHomeLbl4View : UIView
+@property (nonatomic, copy) ShowTodayDetailBlock detailBlock;
 - (instancetype)initWithType:(ContentType)type;
 - (void)setupLblType4Content:(NSString *)content;
 @end

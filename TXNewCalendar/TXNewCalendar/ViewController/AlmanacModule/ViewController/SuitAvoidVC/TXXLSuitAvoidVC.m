@@ -7,14 +7,14 @@
 //
 
 #import "TXXLSuitAvoidVC.h"
-#import "TXXLSuitAvoidNatigationView.h"
-#import "TXXLSuitAvoidTableViewCell.h"
-#include "TXXLSuitAvoidHeaderTableViewCell.h"
-@interface TXXLSuitAvoidVC ()<UITableViewDelegate,UITableViewDataSource> {
-    NSInteger _currentIndex;
-}
-@property (nonatomic, weak) UITableView *mainTableView;
-@property (nonatomic, strong) TXXLSuitAvoidNatigationView *titleView;
+#import "TXXLSuitAvoidHeaderView.h"
+#import "TXXLSuitAvoidContentView.h"
+#import "TXXLAlmanacDetailVM.h"
+@interface TXXLSuitAvoidVC ()
+@property (nonatomic, strong) TXXLAlmanacDetailVM *viewModel;
+@property (nonatomic, weak) UIScrollView *mainScrollView;
+@property (nonatomic, weak) TXXLSuitAvoidHeaderView *suitView;
+@property (nonatomic, weak) TXXLSuitAvoidHeaderView *avoidView;
 @end
 
 @implementation TXXLSuitAvoidVC
@@ -22,102 +22,107 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.navigationItem.title = @"黄历现代文";
     [self addNavigationBackButton];
-    [self initializeNavigationTitleView];
     [self initializeMainView];
+    [self bindSignal];
 }
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [_titleView removeFromSuperview];
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[TXXLAlmanacDetailVM alloc]initWithSuccessBlock:^(NSUInteger identifier, TXXLAlmanacDetailModel *model) {
+        @strongify(self)
+        [self setupViewContent:model];
+        [self.mainScrollView.mj_header endRefreshing];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainScrollView.mj_header endRefreshing];
+    }];
+    [_viewModel getAlmanacDetailData:NO];
 }
-
-#pragma mark - 私有事件
-//导航栏切换
-- (void)navigaitonClick:(NSInteger)index {
-    _currentIndex = index;
-    [self.mainTableView reloadData];
+- (void)pullDownRefresh {
+    [_viewModel getAlmanacDetailData:YES];
 }
-#pragma mark - default value
-- (NSArray *)returnSuitHeaderData {
-    return @[@{@"title":@"祭祀",@"detail":@"指祠堂之祭祀、即拜祭祖先或庙寺的祭拜、拜神明等事。"},@{@"title":@"祈福",@"detail":@"就是去寺庙上香还愿，祈求神明降福或设蘸还愿之事。"},@{@"title":@"求嗣",@"detail":@"向神明祈求后嗣(子孙)之意。也就是求子啦"}];
-}
-- (NSArray *)returnAvoidHeaderData {
-    return @[@{@"title":@"祈福",@"detail":@"就是去寺庙上香还愿，祈求神明降福或设蘸还愿之事。"},@{@"title":@"祭祀",@"detail":@"指祠堂之祭祀、即拜祭祖先或庙寺的祭拜、拜神明等事。"}];
-}
-
-#pragma mark - delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (_currentIndex == 0) {
-        return 4 + 1;
-    }else {
-        return 4 + 1;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        TXXLSuitAvoidHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLSuitAvoidHeaderTableViewCell];
-        [cell setupContentWithType:_currentIndex setupContent:_currentIndex == 0?[self returnSuitHeaderData]:[self returnAvoidHeaderData]];
-        return cell;
-    }else {
-        TXXLSuitAvoidTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLSuitAvoidTableViewCell];
-        if (indexPath.row == 1) {
-            [cell setupContentWithTitle:@"幸运生肖" setupContent:@[@{@"title":@"六合生肖：龙",@"detail":@"今日与生肖龙（辰）。六合是一种暗合，该生肖是暗中帮助你的贵人"}]];
-        }else if (indexPath.row == 2) {
-            [cell setupContentWithTitle:@"值神" setupContent:@[@{@"detail":@"数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假数据为假"}]];
-        }else if (indexPath.row == 3) {
-            [cell setupContentWithTitle:@"凶神宜忌" setupContent:@[@{@"title":@"祭祀",@"detail":@"指祠堂之祭祀、即拜祭祖先或庙寺的祭拜、拜神明等事。"},@{@"title":@"祈福",@"detail":@"就是去寺庙上香还愿，祈求神明降福或设蘸还愿之事。"},@{@"title":@"求嗣",@"detail":@"向神明祈求后嗣(子孙)之意。也就是求子啦"}]];
-        }else if (indexPath.row == 4) {
-            [cell setupContentWithTitle:@"彭祖百忌" setupContent:@[@{@"title":@"祭祀",@"detail":@"指祠堂之祭祀、即拜祭祖先或庙寺的祭拜、拜神明等事。指祠堂之祭祀、即拜祭祖先或庙寺的祭拜、拜神明等事。"},@{@"title":@"祈福",@"detail":@"就是去寺庙上香还愿，祈求神明降福或设蘸还愿之事。"}]];
+- (void)setupViewContent:(TXXLAlmanacDetailModel *)model {
+    CGFloat contentHeight = 10;
+    CGFloat viewHeight = 0;
+    [self.suitView setupContent:model.yi];
+    viewHeight = self.suitView.contentHeight;
+    self.suitView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
+    contentHeight += viewHeight;
+    contentHeight += 10;
+    
+    [self.avoidView setupContent:model.ji];
+    viewHeight = self.avoidView.contentHeight;
+    self.avoidView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
+    contentHeight += viewHeight;
+    contentHeight += 10;
+    
+    for (int i = 2; i < 12; i ++) {
+        TXXLSuitAvoidContentView *contentView = (TXXLSuitAvoidContentView *)[self.mainScrollView viewWithTag:400 + i];
+        if (i == 2) {
+            [contentView setupContentWithDic:model.lucky];
+        }else if (i == 3) {
+            [contentView setupContentWithDic:model.chong_sha];
+        }else if (i == 4) {
+            [contentView setupContentWithDic:model.zhi_shen];
+        }else if (i == 5) {
+            [contentView setupContentArr:model.na_yin];
+        }else if (i == 6) {
+            [contentView setupContentWithDic:model.jishen];
+        }else if (i == 7) {
+            [contentView setupContentWithDic:model.xiong];
+        }else if (i == 8) {
+            [contentView setupContentArr:model.tai_shen];
+        }else if (i == 9) {
+            [contentView setupContentArr:model.peng_zu];
+        }else if (i == 10) {
+            [contentView setupContentArr:model.jian_chu];
+        }else if (i == 11) {
+            [contentView setupContentArr:model.xing_su];
         }
-        return cell;
+        viewHeight = contentView.contentHeight;
+        contentView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
+        contentHeight += viewHeight;
+        contentHeight += 10;
     }
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        CGFloat top =  10 + 12 + 2 + 40 + 20;
-        if (_currentIndex == 0) {
-            return top + 17 + 18 + 21 + 13 + 17 + 18 + 21 + 13  + 17 + 18 + 21 + 13;
-        }else {
-            return top + 17 + 18 + 21 + 13 + 17 + 18 + 21 + 13;
-        }
-    }
-    CGFloat topHeight = 10 + 2 + 18 + 20 + 17;
-    if (indexPath.row == 1) {
-        return  topHeight + 18 + 15 + 17 + 28;
-    }else if (indexPath.row == 2) {
-        return  topHeight + 18 + 55;
-    }else if (indexPath.row == 3) {
-        return  topHeight + 18 + 17 + 15 + 13  + 18 + 17 + 15 + 13  + 18 + 17 + 15 + 13;
-    }else if (indexPath.row == 4) {
-        return topHeight  + 18 + 17 + 15 + 13 +  + 18 + 17 + 15 + 28;
-    }
-    if (_currentIndex == 0) {
-        
-    }else {
-        
-    }
-    return 10;
+    self.mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
+    
 }
 #pragma mark -界面初始化
-- (void)initializeNavigationTitleView {
-    _titleView = [[TXXLSuitAvoidNatigationView alloc]initWithFrame:CGRectMake(0, (self.navibarHeight - 26) / 2.0, 121, 26)];
-    @weakify(self)
-    _titleView.navigationBlock = ^(NSInteger index) {
-        @strongify(self)
-        [self navigaitonClick:index];
-    };
-    self.navigationItem.titleView = _titleView;
-}
 - (void)initializeMainView {
-    _currentIndex = 0;
-    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:[UIColor whiteColor]];
-    self.mainTableView = mainTableView;
-    [self.mainTableView registerClass:[TXXLSuitAvoidTableViewCell class] forCellReuseIdentifier:kTXXLSuitAvoidTableViewCell];
-    [self.mainTableView registerClass:[TXXLSuitAvoidHeaderTableViewCell class] forCellReuseIdentifier:kTXXLSuitAvoidHeaderTableViewCell];
-    [self.view addSubview:mainTableView];
+    UIScrollView *mainScrollView = [LSKViewFactory initializeScrollViewTarget:self headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil];
+    mainScrollView.backgroundColor = [UIColor whiteColor];
+    self.mainScrollView = mainScrollView;
+    [self.view addSubview:mainScrollView];
+    TXXLSuitAvoidHeaderView *suitView = [[TXXLSuitAvoidHeaderView alloc]initWithHeaderType:0];
+    CGFloat contentHeight = 10;
+    CGFloat viewHeight = suitView.contentHeight;
+    suitView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
+    self.suitView = suitView;
+    [mainScrollView addSubview:suitView];
+    
+    contentHeight += viewHeight;
+    contentHeight += 10;
+    TXXLSuitAvoidHeaderView *avoidView = [[TXXLSuitAvoidHeaderView alloc]initWithHeaderType:1];
+    viewHeight = avoidView.contentHeight;
+    avoidView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
+    self.avoidView = avoidView;
+    [mainScrollView addSubview:avoidView];
+    contentHeight += 10;
+    contentHeight += viewHeight;
+    for (int i = 2; i < 12; i++) {
+        TXXLSuitAvoidContentView *contentView = [[TXXLSuitAvoidContentView alloc]initWithHeaderType:i];
+        contentView.tag = 400 + i;
+        viewHeight = contentView.contentHeight;
+        contentView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
+        [mainScrollView addSubview:contentView];
+        contentHeight += 10;
+        contentHeight += viewHeight;
+    }
+    contentHeight += 10;
+    mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
     WS(ws)
-    [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [mainScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
 }

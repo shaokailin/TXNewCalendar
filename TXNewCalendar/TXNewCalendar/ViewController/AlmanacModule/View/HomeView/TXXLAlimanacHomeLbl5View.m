@@ -30,9 +30,10 @@
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:message];
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
             [paragraphStyle setLineSpacing:2];
+            [paragraphStyle setAlignment:NSTextAlignmentCenter];//设置对齐方式
+            [paragraphStyle setLineBreakMode:NSLineBreakByTruncatingTail];
             [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [message length])];
             _messageLbl.attributedText = attributedString;
-            _messageLbl.textAlignment = 1;
         }
     }
 }
@@ -42,7 +43,8 @@
     [self addSubview:topLbl];
     WS(ws)
     [topLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ws.mas_top).with.offset(8);
+        make.top.equalTo(ws).with.offset(6);
+        make.height.mas_equalTo(16);
         make.centerX.equalTo(ws);
     }];
     _messageLbl = [TXXLViewManager customDetailLbl:nil font:12];
@@ -55,6 +57,13 @@
         make.top.equalTo(topLbl.mas_bottom).with.offset(3);
         make.bottom.equalTo(ws).with.offset(-3);
     }];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail)];
+    [self addGestureRecognizer:tap];
+}
+- (void)showDetail {
+    if (self.detailBlock) {
+        self.detailBlock(YES);
+    }
 }
 
 @end

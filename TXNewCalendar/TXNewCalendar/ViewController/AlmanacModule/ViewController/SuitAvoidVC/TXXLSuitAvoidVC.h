@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface TXXLSuitAvoidVC : LSKBaseViewController
-
+@property (nonatomic, copy) NSString *loadingDateString;
 @end
