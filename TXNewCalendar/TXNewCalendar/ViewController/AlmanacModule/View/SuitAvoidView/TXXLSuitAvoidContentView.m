@@ -26,6 +26,16 @@
 - (void)setupContentArr:(NSArray *)array {
     if (_currentType == 5) {
         [self setupType5Content:array];
+    }else if (_currentType == 8){
+        NSString *titleString = nil;
+        NSString *detailString = nil;
+        if (KJudgeIsArrayAndHasValue(array)) {
+           titleString = [array objectAtIndex:0];
+            if (array.count > 1) {
+                detailString = [array objectAtIndex:1];
+            }
+        }
+        self s
     }
 }
 - (void)setupContentWithDic:(NSDictionary *)contentDict {
