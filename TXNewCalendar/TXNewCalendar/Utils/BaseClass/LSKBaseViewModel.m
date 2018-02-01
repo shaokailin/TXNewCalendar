@@ -38,6 +38,9 @@
         @strongify(self)
         NSInteger taskIdentifier = [LSKHttpManager httpReuquestWithEntity:entity success:^(NSUInteger identifier, id model) {
             LSKLog("api=%@---class=%@---%@",entity.requestApi,NSStringFromClass(entity.responseObject),model);
+            if (self.isShowAlertAndHiden) {
+                [SKHUD dismiss];
+            }
             [self removeLoadingIdentifier:identifier];
             LSKBaseResponseModel *object = [entity.responseObject yy_modelWithJSON:model];
             [subscriber sendNext:object];
@@ -51,12 +54,15 @@
             [subscriber sendError:nil];
         }];
         if (taskIdentifier != -1) {
+            [self reurnCurrentLoadingIndentifier:taskIdentifier];
             [self.loadingArray addObject:@(taskIdentifier)];
         }
         return nil;
     }];
 }
-
+- (void)reurnCurrentLoadingIndentifier:(NSUInteger)taskIdentifier {
+    
+}
 #pragma mark - 结果的回调
 - (void)sendSuccessResult:(NSUInteger)identifier model:(id)model{
     if (_successBlock) {
@@ -79,13 +85,20 @@
     return _currentController;
 }
 #pragma mark 移除未加载完成的
-//为了当页面消失的时候，请求未结束，要释放所有当前正在加载的
--(void)removeLoadingIdentifier :(NSUInteger)taskIndetifer {
+//为了当页面消失的时候，请求未结束，要释放所有当前正在加载的标识
+-(void)removeLoadingIdentifier:(NSUInteger)taskIndetifer {
     [self.loadingArray removeObject:@(taskIndetifer)];
+}
+//同过标识来移除正在加载的数据
+- (void)removeLoadingWithIdentifier:(NSUInteger)taskIndetifer {
+    if ([self.loadingArray containsObject:@(taskIndetifer)]) {
+        [[LSKHttpManager sharedInstance]removeHttpLoadingByIdentifier:@(taskIndetifer)];
+        [self removeLoadingIdentifier:taskIndetifer];
+    }
 }
 - (void)dealloc {
     if (_loadingArray && _loadingArray.count > 0) {
-        [[LSKHttpManager sharedInstance]removeHttpLoadingByIdentifier:_loadingArray];
+        [[LSKHttpManager sharedInstance]removeHttpLoadingByIdentifierArray:_loadingArray];
     }
 }
 -(NSMutableArray *)loadingArray {

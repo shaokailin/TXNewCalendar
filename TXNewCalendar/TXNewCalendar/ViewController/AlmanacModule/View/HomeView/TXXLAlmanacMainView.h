@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 typedef NS_ENUM(NSInteger, EventType) {
     EventType_Compass,
     EventType_Hours,
@@ -16,11 +17,13 @@ typedef NS_ENUM(NSInteger, DirectionType) {
     DirectionType_Right
 };
 typedef void (^TapEventBlock)(EventType type);
-typedef void (^TimeChangeBlock)(DirectionType direction);
+typedef void (^TimeChangeBlock)(DirectionType direction,NSDate *date);
 @interface TXXLAlmanacMainView : UIView
 @property (nonatomic, copy) TapEventBlock clickBlock;
 @property (nonatomic, copy) TimeChangeBlock timeBlock;
 @property (nonatomic, strong) NSDate *currentDate;
 - (void)viewDidAppearStartHeading;
 - (void)viewDidDisappearStopHeading;
+//设置内容界面上的数据
+- (void)setupMessageContent:(id)model;
 @end

@@ -1,0 +1,183 @@
+//
+//  TXXLCompassDetailView.m
+//  TXNewCalendar
+//
+//  Created by shaokai lin on 2018/1/31.
+//  Copyright © 2018年 厦门集网文化传播有限公司. All rights reserved.
+//
+
+#import "TXXLCompassDetailView.h"
+@interface TXXLCompassDetailView ()<CLLocationManagerDelegate>
+{
+    UILabel *_directionLbl;
+    UILabel *_detailLbl;
+    NSInteger _currentSelect;
+    CLLocationManager *_locationManager;
+    BOOL _isStartHeading;
+}
+@property (nonatomic, weak) UIImageView *compassImageView;
+@property (nonatomic, weak) UILabel *directionTitleLbl;
+@end
+@implementation TXXLCompassDetailView
+
+- (instancetype)init {
+    if (self = [super init]) {
+        [self _layoutMainView];
+        [self addLocationManager];
+    }
+    return self;
+}
+//按钮事件
+- (void)btnSelect:(UIButton *)btn {
+    if (!btn.selected) {
+        btn.selected = YES;
+        btn.backgroundColor = KColorHexadecimal(kAPP_Main_Color, 1.0);
+        if (_currentSelect != -1) {
+            UIButton *otherBtn = [self viewWithTag:_currentSelect];
+            otherBtn.selected = NO;
+            otherBtn.backgroundColor = KColorHexadecimal(0xf4babc, 1.0);
+        }
+        _currentSelect  = btn.tag;
+        self.directionTitleLbl.text = NSStringFormat(@"%@方位：",btn.titleLabel.text);
+        [self changeSelect];
+    }
+}
+//内容修改
+- (void)changeSelect {
+    _directionLbl.text = @"正南";
+    _detailLbl.text = @"喜神所在的方位。。。。。";
+}
+#pragma mark 罗盘转动
+#pragma mark - 手机方向监听
+- (void)addLocationManager {
+    if ([CLLocationManager headingAvailable]) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        _locationManager.distanceFilter = 100;
+        _isStartHeading = YES;
+        [_locationManager startUpdatingHeading];
+    }else {
+        [SKHUD showMessageInView:self withMessage:@"手机不支持方向功能,罗盘无法定位到当前方向"];
+    }
+    
+}
+- (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
+    // 角度
+    if (newHeading.headingAccuracy < 0) {
+        return;
+    }
+    CLLocationDirection  theHeading = ((newHeading.trueHeading > 0) ?  newHeading.trueHeading : newHeading.magneticHeading);
+
+//    CLLocationDirection angle = newHeading.magneticHeading;
+    // 角度-> 弧度
+    CGFloat radius = theHeading / 180.0 * M_PI;
+    // 反向旋转图片(弧度)
+    [self compassTranform:radius];
+}
+- (void)viewDidAppearStartHeading {
+    if (_locationManager && !_isStartHeading) {
+        [_locationManager startUpdatingHeading];
+        _isStartHeading = YES;
+    }
+}
+- (void)viewDidDisappearStopHeading {
+    if (_locationManager && _isStartHeading) {
+        [_locationManager stopUpdatingHeading];
+        _isStartHeading = NO;
+    }
+}
+//罗盘修改转动
+- (void)compassTranform:(CGFloat)radius {
+    [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionAllowUserInteraction animations:^{
+        self.compassImageView.transform = CGAffineTransformMakeRotation(-radius);
+    } completion:nil];
+}
+#pragma mark -初始化界面
+- (void)_layoutMainView {
+    self.backgroundColor = [UIColor whiteColor];
+    _currentSelect = -1;
+    UILabel *directionTitleLbl = [TXXLViewManager customTitleLbl:nil font:17];
+    self.directionTitleLbl = directionTitleLbl;
+    [self addSubview:directionTitleLbl];
+    WS(ws)
+    [directionTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ws).with.offset(10);
+        make.top.equalTo(ws).with.offset(36);
+    }];
+    _directionLbl = [TXXLViewManager customTitleLbl:nil font:17];
+    [self addSubview:_directionLbl];
+    [_directionLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(directionTitleLbl.mas_right).with.offset(2);
+        make.centerY.equalTo(directionTitleLbl);
+    }];
+    
+    UIImageView *compassImage = [[UIImageView alloc]initWithImage:ImageNameInit(@"img_round")];
+    self.compassImageView = compassImage;
+    [self addSubview:compassImage];
+    [compassImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(directionTitleLbl.mas_bottom).with.offset(33);
+        make.left.equalTo(ws).with.offset(25);
+        make.right.equalTo(ws).with.offset(-25);
+        make.height.mas_equalTo(SCREEN_WIDTH - 50);
+    }];
+    
+    UIButton *happyBtn = [self customBtn:@"喜神" flag:200];
+    [self addSubview:happyBtn];
+    UIButton *blissBtn = [self customBtn:@"福神" flag:201];
+    [self addSubview:blissBtn];
+    UIButton *moneyBtn = [self customBtn:@"财神" flag:202];
+    [self addSubview:moneyBtn];
+    UIButton *sunBtn = [self customBtn:@"阳贵" flag:203];
+    [self addSubview:sunBtn];
+    UIButton *lunarBtn = [self customBtn:@"阴贵" flag:204];
+    [self addSubview:lunarBtn];
+    CGFloat width = (SCREEN_WIDTH - 20 - 5 * 4) / 5.0;
+    [happyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ws).with.offset(10);
+        make.top.equalTo(compassImage.mas_bottom).with.offset(60);
+        make.height.mas_equalTo(width);
+    }];
+    [blissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(happyBtn.mas_right).with.offset(5);
+        make.top.width.bottom.equalTo(happyBtn);
+    }];
+    [moneyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(blissBtn.mas_right).with.offset(5);
+        make.top.width.bottom.equalTo(blissBtn);
+    }];
+    [sunBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(moneyBtn.mas_right).with.offset(5);
+        make.top.width.bottom.equalTo(moneyBtn);
+    }];
+    [lunarBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(sunBtn.mas_right).with.offset(5);
+        make.top.width.bottom.equalTo(sunBtn);
+        make.right.equalTo(ws).with.offset(-10);
+    }];
+    _detailLbl = [TXXLViewManager customDetailLbl:nil font:12];
+    _detailLbl.numberOfLines = 0;
+    [self addSubview:_detailLbl];
+    [_detailLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ws).with.offset(10);
+        make.right.equalTo(ws).with.offset(-15);
+        make.bottom.equalTo(ws).with.offset(-18);
+    }];
+    [self btnSelect:happyBtn];
+}
+
+- (UIButton *)customBtn:(NSString *)title flag:(NSInteger)flag {
+    UIButton *btn = [LSKViewFactory initializeButtonWithTitle:title nornalImage:nil selectedImage:nil target:self action:@selector(btnSelect:) textfont:17 textColor:KColorHexadecimal(kText_Title_Color, 1.0) backgroundColor:KColorHexadecimal(0xf4babc, 1.0) backgroundImage:nil];
+    btn.tag = flag;
+    CGFloat width = (SCREEN_WIDTH - 20 - 5 * 4) / 5.0;
+    KViewRadius(btn, width / 2.0);
+    KViewBorderLayer(btn, KColorHexadecimal(kText_Title_Color, 1.0), 1);
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    return btn;
+}
+- (void)dealloc {
+    if (_locationManager) {
+        [_locationManager stopUpdatingHeading];
+        _locationManager.delegate = nil;
+    }
+}
+@end

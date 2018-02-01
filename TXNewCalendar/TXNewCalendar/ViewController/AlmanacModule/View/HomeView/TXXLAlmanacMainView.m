@@ -44,12 +44,9 @@
     if ([CLLocationManager headingAvailable]) {
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-//        _isStartHeading = YES;
-//        [_locationManager startUpdatingHeading];
     }else {
         [SKHUD showMessageInView:self withMessage:@"手机不支持方向功能,罗盘无法定位到当前方向"];
     }
-    
 }
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     // 角度
@@ -73,6 +70,10 @@
         [_locationManager stopUpdatingHeading];
         _isStartHeading = NO;
     }
+}
+#pragma mark - 填充内容数据
+- (void)setupMessageContent:(id)model {
+    [self.messageView setupPeripheralsMessage:model];
 }
 #pragma mark -手势
 - (void)addSwipeGestureRecognizer {
@@ -109,9 +110,6 @@
 #pragma mark - 回调事件
 //时间点击修改时间
 - (void)changeDate:(DateChangeType)type {
-    if (self.timeBlock) {
-        self.timeBlock(type == 0? DirectionType_Right:DirectionType_Left);
-    }
     if (type == 0) {//前一个日期
         _changeDateEventCount --;
         _currentDate = [_currentDate dateByAddingTimeInterval:-(60 * 60 * 24)];
@@ -119,11 +117,15 @@
         _changeDateEventCount ++;
         _currentDate = [_currentDate dateByAddingTimeInterval:60 * 60 * 24];
     }
+    if (self.timeBlock) {
+        self.timeBlock(type == 0? DirectionType_Right:DirectionType_Left,_currentDate);
+    }
     [self changeDateEvent];
 }
 //日期修改的时候进行修改内容时间
 - (void)changeDateEvent {
     [self.dateView setupDateContent:_currentDate];
+    [self.messageView setupNilContent];
     if (_changeDateEventCount != 0) {
         [self.hoursView currentHourChange:-1];
     }else {

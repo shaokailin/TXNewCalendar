@@ -13,6 +13,8 @@
 #import "TXXLSuitAvoidVC.h"
 #import "TXXLMoreSearchVC.h"
 #import "TXXLHoursDetailVC.h"
+#import "TXXLCompassDetailVC.h"
+#import "TXXLAlmanacHomeVM.h"
 @interface TXXLAlmanacMainVC ()
 {
     NSInteger _changeDateEventCount;
@@ -22,6 +24,7 @@
 @property (nonatomic, weak) TXXLAlmanacMainView *mainTimeView;
 @property (nonatomic, weak) TXXLAlmanacSearchView *searchView;
 @property (nonatomic, weak) UIImageView *swiptImageView;
+@property (nonatomic, strong) TXXLAlmanacHomeVM *viewModel;
 @end
 
 @implementation TXXLAlmanacMainVC
@@ -30,6 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -38,6 +42,23 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.mainTimeView viewDidDisappearStopHeading];
+}
+#pragma mark 网络请求
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[TXXLAlmanacHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 0) {
+            [self.mainTimeView setupMessageContent:model];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        
+    }];
+    [self loadData:YES];
+}
+- (void)loadData:(BOOL)isFirst {
+    _viewModel.dateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];;
+    [_viewModel getAlmanacHomeData:isFirst];
 }
 #pragma mark - 回调事件
 //吉日查询事件
@@ -54,12 +75,14 @@
         hoursVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:hoursVC animated:YES];
     }else if (type == EventType_Compass) {
-        TXXLSuitAvoidVC *suitView = [[TXXLSuitAvoidVC alloc]init];
-        suitView.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:suitView animated:YES];
+        TXXLCompassDetailVC *compassView = [[TXXLCompassDetailVC alloc]init];
+        compassView.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:compassView animated:YES];
     }
 }
-- (void)swiptViewEvent:(DirectionType)direction {
+- (void)swiptViewEvent:(DirectionType)direction date:(NSDate *)date{
+    _currentDate = date;
+    [self loadData:NO];
     self.swiptImageView.hidden = NO;
     CGFloat width = CGRectGetWidth(self.swiptImageView.frame);
     self.swiptImageView.image = [LSKImageManager makeImageWithView:self.view];
@@ -69,7 +92,6 @@
         self.swiptImageView.frame = CGRectMake(0, 0, width, CGRectGetHeight(self.swiptImageView.frame));
         self.swiptImageView.hidden = YES;
         self.swiptImageView.image = nil;
-        
     }];
 }
 
@@ -85,6 +107,7 @@
 #pragma mark - 界面初始化
 - (void)initializeMainView {
     WS(ws)
+    
     UIScrollView *mainScrollView = [[UIScrollView alloc]init];
     mainScrollView.showsHorizontalScrollIndicator = NO;
     mainScrollView.backgroundColor = [UIColor clearColor];
@@ -99,9 +122,11 @@
     mainView.clickBlock = ^(EventType type) {
         [ws eventClick:type];
     };
-    mainView.timeBlock = ^(DirectionType direction) {
-        [ws swiptViewEvent:direction];
+    mainView.timeBlock = ^(DirectionType direction, NSDate *date) {
+        
+        [ws swiptViewEvent:direction date:date];
     };
+    _currentDate = mainView.currentDate;
     self.mainTimeView = mainView;
     [mainScrollView addSubview:mainView];
     [mainView mas_makeConstraints:^(MASConstraintMaker *make) {

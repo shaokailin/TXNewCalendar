@@ -14,7 +14,7 @@
 //当前控制器
 @property (nonatomic,readonly, weak) UIViewController *currentController;
 @property (nonatomic, assign) BOOL isShowAlertAndHiden;
-
+- (void)reurnCurrentLoadingIndentifier:(NSUInteger)taskIdentifier;
 /**
  初始化ViewModel 需要回调的时候调用
 

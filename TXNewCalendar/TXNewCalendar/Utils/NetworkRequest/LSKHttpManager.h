@@ -21,5 +21,6 @@
 + (NSUInteger)httpReuquestWithEntity:(LSKParamterEntity *)entity success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure;
 
 // 移除当前未加载完成的网络请求
-- (void)removeHttpLoadingByIdentifier:(NSArray *)identifierArray;
+- (void)removeHttpLoadingByIdentifier:(NSNumber *)identifier;
+- (void)removeHttpLoadingByIdentifierArray:(NSArray *)identifierArray;
 @end

@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface LSKBaseResponseModel : NSObject
-@property (nonatomic ,assign)   NSInteger code;
-@property (nonatomic ,copy)     NSString *message;
+@property (nonatomic ,assign)   NSInteger error_code;
+@property (nonatomic ,assign)   NSInteger status;
+@property (nonatomic ,copy)     NSString *msg;
 @end
 

@@ -161,6 +161,14 @@
         make.top.bottom.equalTo(ws);
         make.left.equalTo(hour10.mas_right);
         make.width.equalTo(hour10);
+    }];
+    TXXLHourView *hour12 = [[TXXLHourView alloc]init];
+    hour12.tag = 211;
+    [self addSubview:hour12];
+    [hour12 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(ws);
+        make.left.equalTo(hour11.mas_right);
+        make.width.equalTo(hour11);
         make.right.equalTo(ws).with.offset(-5);
     }];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetailClick)];

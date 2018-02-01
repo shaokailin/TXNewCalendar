@@ -20,9 +20,12 @@
     }
     return self;
 }
-- (void)setupLblType1Content:(NSString *)top bottom:(NSString *)bottom {
-    _topLbl.text = top;
-    _bottomLbl.text = bottom;
+- (void)setupLblType1Content:(NSString *)title {
+    _topLbl.text = title;
+    
+}
+- (void)setupMessage:(NSString *)message {
+    _bottomLbl.text = message;
 }
 - (void)_layoutMainView {
     _topLbl = [TXXLViewManager customAppLbl:nil font:14];

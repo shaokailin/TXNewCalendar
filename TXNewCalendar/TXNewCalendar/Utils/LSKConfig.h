@@ -41,7 +41,7 @@ static const CGFloat kBannerDotScale  = 1;
 
 //网络请求地址
 #ifdef DEBUG
-static NSString * const SERVER_URL = @"";
+static NSString * const SERVER_URL = @"https://toolapi.d1xz.net/v2/rili/";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #else

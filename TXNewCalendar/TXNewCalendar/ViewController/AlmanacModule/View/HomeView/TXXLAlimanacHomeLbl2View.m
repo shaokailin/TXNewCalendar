@@ -21,8 +21,10 @@
     }
     return self;
 }
-- (void)setupLblType2Content:(NSString *)top middle:(NSString *)middle bottom:(NSString *)bottom {
-    _topLbl.text = top;
+- (void)setupLblType2Content:(NSString *)title  {
+    _topLbl.text = title;
+}
+- (void)setupMessage:(NSString *)middle bottom:(NSString *)bottom {
     _bottomLbl.text = bottom;
     _middleLbl.text = middle;
 }

@@ -11,7 +11,7 @@
 @implementation TXXLAlimanacHomeLbl5View
 {
     UILabel *_topLbl;
-    UILabel *_middleLbl;
+    UILabel *_messageLbl;
     UILabel *_bottomLbl;
 }
 - (instancetype)init {
@@ -21,31 +21,39 @@
     }
     return self;
 }
-- (void)setupLblType5Content:(NSString *)top middle:(NSString *)middle bottom:(NSString *)bottom {
-    _topLbl.text = top;
-    _bottomLbl.text = bottom;
-    _middleLbl.text = middle;
+- (void)setupLblType5Content:(NSString *)title  {
+    _topLbl.text = title;
+}
+- (void)setupMessage:(NSString *)message {
+    if (KJudgeIsNullData(message)) {
+        @autoreleasepool {
+            NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:message];
+            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+            [paragraphStyle setLineSpacing:2];
+            [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [message length])];
+            _messageLbl.attributedText = attributedString;
+            _messageLbl.textAlignment = 1;
+        }
+    }
 }
 - (void)_layoutMainView {
-    _topLbl = [TXXLViewManager customAppLbl:nil font:14];
-    [self addSubview:_topLbl];
+    UILabel *topLbl = [TXXLViewManager customAppLbl:nil font:14];
+    _topLbl = topLbl;
+    [self addSubview:topLbl];
     WS(ws)
-    UILabel *middleLbl = [TXXLViewManager customDetailLbl:nil font:12];
-    _middleLbl = middleLbl;
-    [self addSubview:middleLbl];
-    [middleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(ws);
-        make.centerY.equalTo(ws).with.offset(2);
-    }];
-    [_topLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(middleLbl.mas_top).with.offset(-3);
+    [topLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(ws.mas_top).with.offset(8);
         make.centerX.equalTo(ws);
     }];
-    _bottomLbl = [TXXLViewManager customDetailLbl:nil font:12];
-    [self addSubview:_bottomLbl];
-    [_bottomLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(middleLbl.mas_bottom).with.offset(3);
-        make.centerX.equalTo(ws);
+    _messageLbl = [TXXLViewManager customDetailLbl:nil font:12];
+    _messageLbl.numberOfLines = 2;
+    _messageLbl.adjustsFontSizeToFitWidth = YES;
+    [self addSubview:_messageLbl];
+    [_messageLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ws).with.offset(5);
+        make.right.equalTo(ws).with.offset(-5);
+        make.top.equalTo(topLbl.mas_bottom).with.offset(3);
+        make.bottom.equalTo(ws).with.offset(-3);
     }];
 }
 

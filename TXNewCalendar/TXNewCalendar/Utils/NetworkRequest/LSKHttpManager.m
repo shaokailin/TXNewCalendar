@@ -10,6 +10,7 @@
 #import "SynthesizeSingleton.h"
 #import <AFNetworking/AFNetworking.h>
 #import "LSKMediaParamterEntity.h"
+static NSString * const kHttpLoadingToken = @"pHYQ2g0dixMT16p2RSR4R2gNQx2AIuRh";
 static const NSInteger kRequestTimeOutTime = 10;
 static const CGFloat kImageJPEGCompressRate = 0.8;
 @interface LSKHttpManager ()
@@ -53,9 +54,9 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
  @param failure 失败回调
  @return 唯一标示
  */
-- (NSUInteger)_getReuqestWithApiPath:(NSString *)api params:(NSDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure {
+- (NSUInteger)_getReuqestWithApiPath:(NSString *)api params:(NSMutableDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure {
     WS(ws)
-    NSURLSessionDataTask *seccionDataTask = [self.sessionManager GET:api parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSURLSessionDataTask *seccionDataTask = [self.sessionManager GET:api parameters:[LSKHttpManager signAlgorithmGET:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ws removeLoadingSessionDataTask:task];
         id dictionary = [LSKPublicMethodUtil jsonDataTransformToDictionary:responseObject];
         if (dictionary) {
@@ -70,6 +71,7 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
     [self addCurrentLoadingSessionDataTask:seccionDataTask];
     return seccionDataTask.taskIdentifier;
 }
+
 /**
  POST
  
@@ -81,7 +83,7 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
  */
 - (NSUInteger)_postReuqestWithApiPath:(NSString *)api params:(NSDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure {
     WS(ws)
-    NSURLSessionDataTask *seccionDataTask = [self.sessionManager POST:api parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    NSURLSessionDataTask *seccionDataTask = [self.sessionManager POST:[LSKHttpManager signAlgorithmPOST:[params objectForKey:@"app_id"] api:api request_time:[params objectForKey:@"request_time"]] parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ws removeLoadingSessionDataTask:task];
         id dictionary = [LSKPublicMethodUtil jsonDataTransformToDictionary:responseObject];
         if (dictionary) {
@@ -111,7 +113,7 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
 - (NSUInteger)_uploadImageReuqestWithApiPath:(NSString *)api params:(NSDictionary *)params name:(NSString *)name type:(LSKUploadMediaType)type medias:(NSArray *)mediasArray success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure {
     WS(ws)
     if (!mediasArray || mediasArray.count == 0) {
-        return [self _postReuqestWithApiPath:api params:params success:success failure:failure];
+        return [self _postReuqestWithApiPath:[LSKHttpManager signAlgorithmPOST:[params objectForKey:@"app_id"] api:api request_time:[params objectForKey:@"request_time"]] params:params success:success failure:failure];
     }else {
         NSURLSessionDataTask *seccionDataTask = [self.sessionManager POST:api parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
             NSString *fileName = nil;
@@ -145,7 +147,27 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
         return seccionDataTask.taskIdentifier;
     }
 }
-
++ (NSDictionary *)signAlgorithmGET:(NSMutableDictionary *)params {
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSString *key in params.allKeys) {
+        [arr addObject:NSStringFormat(@"%@=%@",key,[params objectForKey:key])];
+    }
+    // 升序
+    [arr sortUsingComparator:^NSComparisonResult(__strong id obj1,__strong id obj2){
+        NSString *str1=(NSString *)obj1;
+        NSString *str2=(NSString *)obj2;
+        return [str1 compare:str2];
+    }];
+    NSString *content = [arr componentsJoinedByString:@""];
+    content = NSStringFormat(@"%@%@",[content lowercaseString],kHttpLoadingToken);
+    [params setObject:[NSString MD5:content] forKey:@"sign"];
+    return params;
+}
++ (NSString *)signAlgorithmPOST:(NSString *)app_id api:(NSString *)api request_time:(NSString *)request_time {
+    NSString *apiString = NSStringFormat(@"app_id=%@request_time=%@%@",app_id,request_time,kHttpLoadingToken);
+    NSString *sign = [NSString MD5:apiString];
+    return NSStringFormat(@"%@?request_time=%@&app_id=%@&sign=%@",api,request_time,app_id,sign);
+}
 #pragma mark - 网络请求的取消
 //保存单个请求的任务，以便 取消
 - (void)addCurrentLoadingSessionDataTask :(NSURLSessionDataTask *)seccionDataTask {
@@ -158,8 +180,17 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
     }
     [seccionDataTask cancel];
 }
+- (void)removeHttpLoadingByIdentifier:(NSNumber *)identifier {
+    if ([self.httpsLoadingDictionary.allKeys containsObject:identifier]) {
+        NSURLSessionDataTask *seccionDataTask = [self.httpsLoadingDictionary objectForKey:identifier];
+        if (seccionDataTask) {
+            [seccionDataTask cancel];
+            [self.httpsLoadingDictionary removeObjectForKey:identifier];
+        }
+    }
+}
 //移除http 请求 根据 NSURLSessionDataTask 的taskIdentifier
-- (void)removeHttpLoadingByIdentifier:(NSArray *)identifierArray {
+- (void)removeHttpLoadingByIdentifierArray:(NSArray *)identifierArray {
     for (NSNumber *taskIdentifier in identifierArray) {
         if (self.httpsLoadingDictionary.allKeys.count > 0 && [self.httpsLoadingDictionary.allKeys containsObject:taskIdentifier]) {
             NSURLSessionDataTask *seccionDataTask = [self.httpsLoadingDictionary objectForKey:taskIdentifier];

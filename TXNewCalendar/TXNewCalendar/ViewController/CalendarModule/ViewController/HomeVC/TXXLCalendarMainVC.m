@@ -42,9 +42,7 @@
 }
 #pragma mark - 回调
 //跳转更多节假日界面
-- (void)viewDidAppear:(BOOL)animated {
-    [self jumpMoreVC];
-}
+
 - (void)jumpMoreVC {
     TXXLFestivalListVC *festivalVC = [[TXXLFestivalListVC alloc]init];
     festivalVC.hidesBottomBarWhenPushed = YES;

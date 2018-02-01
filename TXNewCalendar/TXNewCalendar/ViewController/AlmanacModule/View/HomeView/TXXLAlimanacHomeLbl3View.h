@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TXXLAlimanacHomeLbl3View : UIView
-- (void)setupLblType3Content:(NSString *)top middle:(NSString *)middle bottom:(NSString *)bottom;
+- (void)setupLblType3Content:(NSString *)title ;
+- (void)setupMessage:(NSString *)message;
 @end

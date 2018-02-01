@@ -9,6 +9,8 @@
 #ifndef LSKUtilsConfig_h
 #define LSKUtilsConfig_h
 #import <UIKit/UIKit.h>
+
+#import "NSString+Extend.h"
 #import "LSKPublicMethodUtil.h"
 //需要在LSKConfig 中 设置 您要请求的 服务端地址 等相关内容要修改
 #import "LSKConfig.h"
@@ -23,5 +25,5 @@
 #import "UIBarButtonItem+Extend.h"
 #import "SKHUD.h"
 #import "LSKParamterEntity.h"
-#import "NSString+Extend.h"
+
 #endif /* LSKUtilsConfig_h */

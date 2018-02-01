@@ -112,6 +112,17 @@
 		95F15D1920172B6D00E1340E /* TXXLAlimanacHomeLbl3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F15D1820172B6D00E1340E /* TXXLAlimanacHomeLbl3View.m */; };
 		95F15D1C20172B7900E1340E /* TXXLAlimanacHomeLbl4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F15D1B20172B7900E1340E /* TXXLAlimanacHomeLbl4View.m */; };
 		95F15D1F20172C1400E1340E /* TXXLCompassView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F15D1E20172C1400E1340E /* TXXLCompassView.m */; };
+		A6B5663920214B7500E8DEFF /* TXXLPublicFestivelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */; };
+		A6B5663C2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663B2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m */; };
+		A6B5663F20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663E20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m */; };
+		A6B5664220215D8100E8DEFF /* TXXLHolidaysHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5664120215D8100E8DEFF /* TXXLHolidaysHeaderView.m */; };
+		A6B566442021671200E8DEFF /* twenty-fourSolarTerms.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6B566432021671200E8DEFF /* twenty-fourSolarTerms.plist */; };
+		A6B566472021728700E8DEFF /* TXXLSolarTermsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566462021728700E8DEFF /* TXXLSolarTermsCell.m */; };
+		A6B56650202186D800E8DEFF /* TXXLCompassDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5664F202186D800E8DEFF /* TXXLCompassDetailVC.m */; };
+		A6B5665320218EC200E8DEFF /* TXXLCompassDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5665220218EC200E8DEFF /* TXXLCompassDetailView.m */; };
+		A6B566C12021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566C02021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m */; };
+		A6B566C62021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566C52021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m */; };
+		A6B566C92021C21600E8DEFF /* TXXLAlmanacHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566C82021C21600E8DEFF /* TXXLAlmanacHomeModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -321,6 +332,27 @@
 		95F15D1D20172C1400E1340E /* TXXLCompassView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCompassView.h; sourceTree = "<group>"; };
 		95F15D1E20172C1400E1340E /* TXXLCompassView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCompassView.m; sourceTree = "<group>"; };
 		967DCDBCBDD8C2ED20C01B01 /* Pods-TXNewCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXNewCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-TXNewCalendar/Pods-TXNewCalendar.release.xcconfig"; sourceTree = "<group>"; };
+		A6B5663720214B7500E8DEFF /* TXXLPublicFestivelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicFestivelCell.h; sourceTree = "<group>"; };
+		A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLPublicFestivelCell.m; sourceTree = "<group>"; };
+		A6B5663A2021580C00E8DEFF /* TXXLPublicFestivelRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicFestivelRightCell.h; sourceTree = "<group>"; };
+		A6B5663B2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLPublicFestivelRightCell.m; sourceTree = "<group>"; };
+		A6B5663D20215A0800E8DEFF /* TXXLHolidaysTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLHolidaysTableViewCell.h; sourceTree = "<group>"; };
+		A6B5663E20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLHolidaysTableViewCell.m; sourceTree = "<group>"; };
+		A6B5664020215D8100E8DEFF /* TXXLHolidaysHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLHolidaysHeaderView.h; sourceTree = "<group>"; };
+		A6B5664120215D8100E8DEFF /* TXXLHolidaysHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLHolidaysHeaderView.m; sourceTree = "<group>"; };
+		A6B566432021671200E8DEFF /* twenty-fourSolarTerms.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "twenty-fourSolarTerms.plist"; sourceTree = "<group>"; };
+		A6B566452021728700E8DEFF /* TXXLSolarTermsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLSolarTermsCell.h; sourceTree = "<group>"; };
+		A6B566462021728700E8DEFF /* TXXLSolarTermsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLSolarTermsCell.m; sourceTree = "<group>"; };
+		A6B5664E202186D800E8DEFF /* TXXLCompassDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCompassDetailVC.h; sourceTree = "<group>"; };
+		A6B5664F202186D800E8DEFF /* TXXLCompassDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCompassDetailVC.m; sourceTree = "<group>"; };
+		A6B5665120218EC200E8DEFF /* TXXLCompassDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCompassDetailView.h; sourceTree = "<group>"; };
+		A6B5665220218EC200E8DEFF /* TXXLCompassDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCompassDetailView.m; sourceTree = "<group>"; };
+		A6B566BF2021AD3E00E8DEFF /* TXXLAlmanacHomeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacHomeVM.h; sourceTree = "<group>"; };
+		A6B566C02021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacHomeVM.m; sourceTree = "<group>"; };
+		A6B566C42021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacModuleAPI.h; sourceTree = "<group>"; };
+		A6B566C52021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacModuleAPI.m; sourceTree = "<group>"; };
+		A6B566C72021C21600E8DEFF /* TXXLAlmanacHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacHomeModel.h; sourceTree = "<group>"; };
+		A6B566C82021C21600E8DEFF /* TXXLAlmanacHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacHomeModel.m; sourceTree = "<group>"; };
 		E87CD863AE8939FCAE3A08C1 /* Pods_TXNewCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TXNewCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -396,7 +428,6 @@
 			isa = PBXGroup;
 			children = (
 				9540D1B32015BAD5005F6751 /* Plist */,
-				9540D2062015BAD5005F6751 /* Public */,
 				9540D2072015BAD5005F6751 /* View */,
 				9540D2082015BAD5005F6751 /* Vendor */,
 			);
@@ -412,15 +443,9 @@
 				95F15D022016E6CF00E1340E /* chineseDay.plist */,
 				95F15D042016E77800E1340E /* heavenlyStems.plist */,
 				95F15D062016E7B600E1340E /* earthlyBranches.plist */,
+				A6B566432021671200E8DEFF /* twenty-fourSolarTerms.plist */,
 			);
 			path = Plist;
-			sourceTree = "<group>";
-		};
-		9540D2062015BAD5005F6751 /* Public */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Public;
 			sourceTree = "<group>";
 		};
 		9540D2072015BAD5005F6751 /* View */ = {
@@ -468,12 +493,12 @@
 		9540D2602015BB55005F6751 /* NetworkRequest */ = {
 			isa = PBXGroup;
 			children = (
+				9540D2642015BB55005F6751 /* LSKMediaParamterEntity.h */,
 				9540D2612015BB55005F6751 /* LSKMediaParamterEntity.m */,
 				9540D2622015BB55005F6751 /* LSKParamterEntity.h */,
-				9540D2632015BB55005F6751 /* LSKHttpManager.m */,
-				9540D2642015BB55005F6751 /* LSKMediaParamterEntity.h */,
 				9540D2652015BB55005F6751 /* LSKParamterEntity.m */,
 				9540D2662015BB55005F6751 /* LSKHttpManager.h */,
+				9540D2632015BB55005F6751 /* LSKHttpManager.m */,
 			);
 			path = NetworkRequest;
 			sourceTree = "<group>";
@@ -618,32 +643,19 @@
 		9540D2D12015C361005F6751 /* AlmanacModule */ = {
 			isa = PBXGroup;
 			children = (
-				9540D2D22015C361005F6751 /* ViewModel */,
-				9540D2D32015C361005F6751 /* Model */,
+				A6B566C32021ADA900E8DEFF /* API */,
+				A6B566BE2021AD0A00E8DEFF /* Model */,
+				A6B566BD2021ACF700E8DEFF /* ViewModel */,
 				9540D2D42015C361005F6751 /* View */,
-				9540D2D62015C361005F6751 /* API */,
 				9540D2D92015C361005F6751 /* ViewController */,
 			);
 			path = AlmanacModule;
 			sourceTree = "<group>";
 		};
-		9540D2D22015C361005F6751 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		9540D2D32015C361005F6751 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		9540D2D42015C361005F6751 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A6B5664C2021869F00E8DEFF /* CompassView */,
 				95CB55972020726F00B45447 /* HoursView */,
 				95EFF1F7201F1D5900FA27A5 /* MoreSearchView */,
 				95EFF1E2201EB8DB00FA27A5 /* SuitAvoidView */,
@@ -683,16 +695,10 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
-		9540D2D62015C361005F6751 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
 		9540D2D92015C361005F6751 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A6B5664D202186B500E8DEFF /* CompassVC */,
 				95CB55932020718F00B45447 /* HoursVC */,
 				95EFF1F6201F1D5200FA27A5 /* MoreSearchVC */,
 				95EFF1E3201EB8EA00FA27A5 /* SuitAvoidVC */,
@@ -923,6 +929,16 @@
 				95CB55B2202094E000B45447 /* TXXLHolidaysListView.m */,
 				95CB55B42020A93300B45447 /* TXXLPublicFestiveItemView.h */,
 				95CB55B52020A93300B45447 /* TXXLPublicFestiveItemView.m */,
+				A6B5663720214B7500E8DEFF /* TXXLPublicFestivelCell.h */,
+				A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */,
+				A6B5663A2021580C00E8DEFF /* TXXLPublicFestivelRightCell.h */,
+				A6B5663B2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m */,
+				A6B5663D20215A0800E8DEFF /* TXXLHolidaysTableViewCell.h */,
+				A6B5663E20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m */,
+				A6B5664020215D8100E8DEFF /* TXXLHolidaysHeaderView.h */,
+				A6B5664120215D8100E8DEFF /* TXXLHolidaysHeaderView.m */,
+				A6B566452021728700E8DEFF /* TXXLSolarTermsCell.h */,
+				A6B566462021728700E8DEFF /* TXXLSolarTermsCell.m */,
 			);
 			path = FestivalView;
 			sourceTree = "<group>";
@@ -995,6 +1011,51 @@
 				967DCDBCBDD8C2ED20C01B01 /* Pods-TXNewCalendar.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A6B5664C2021869F00E8DEFF /* CompassView */ = {
+			isa = PBXGroup;
+			children = (
+				A6B5665120218EC200E8DEFF /* TXXLCompassDetailView.h */,
+				A6B5665220218EC200E8DEFF /* TXXLCompassDetailView.m */,
+			);
+			path = CompassView;
+			sourceTree = "<group>";
+		};
+		A6B5664D202186B500E8DEFF /* CompassVC */ = {
+			isa = PBXGroup;
+			children = (
+				A6B5664E202186D800E8DEFF /* TXXLCompassDetailVC.h */,
+				A6B5664F202186D800E8DEFF /* TXXLCompassDetailVC.m */,
+			);
+			path = CompassVC;
+			sourceTree = "<group>";
+		};
+		A6B566BD2021ACF700E8DEFF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6B566BF2021AD3E00E8DEFF /* TXXLAlmanacHomeVM.h */,
+				A6B566C02021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A6B566BE2021AD0A00E8DEFF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A6B566C72021C21600E8DEFF /* TXXLAlmanacHomeModel.h */,
+				A6B566C82021C21600E8DEFF /* TXXLAlmanacHomeModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A6B566C32021ADA900E8DEFF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A6B566C42021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.h */,
+				A6B566C52021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1072,6 +1133,7 @@
 				9590A67C201ACFEB0063FDDE /* Info.plist in Resources */,
 				95F15D052016E77800E1340E /* heavenlyStems.plist in Resources */,
 				95F15D032016E6CF00E1340E /* chineseDay.plist in Resources */,
+				A6B566442021671200E8DEFF /* twenty-fourSolarTerms.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1164,8 +1226,10 @@
 				9540D2C42015BB56005F6751 /* LSKMessageManage.m in Sources */,
 				95F15D1920172B6D00E1340E /* TXXLAlimanacHomeLbl3View.m in Sources */,
 				9590A644201AC73A0063FDDE /* TXXLNavigationRightView.m in Sources */,
+				A6B5665320218EC200E8DEFF /* TXXLCompassDetailView.m in Sources */,
 				95F15D1C20172B7900E1340E /* TXXLAlimanacHomeLbl4View.m in Sources */,
 				9540D2B82015BB56005F6751 /* NSNotificationCenter+Extend.m in Sources */,
+				A6B5663920214B7500E8DEFF /* TXXLPublicFestivelCell.m in Sources */,
 				9540D2C82015BB56005F6751 /* LSKLineTableView.m in Sources */,
 				95CB55B0202094C200B45447 /* TXXLTwentyFourSolarTermsView.m in Sources */,
 				95F15D1620172B5A00E1340E /* TXXLAlimanacHomeLbl5View.m in Sources */,
@@ -1174,6 +1238,7 @@
 				9590A672201ACFEB0063FDDE /* FSCalendar.m in Sources */,
 				9540D2CF2015BB56005F6751 /* LSKWebEventHandleManager.m in Sources */,
 				9590A66E201ACFEB0063FDDE /* FSCalendarDelegationProxy.m in Sources */,
+				A6B566C12021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m in Sources */,
 				95F15D0A20172AFC00E1340E /* TXXLAlimanacHomeLbl1View.m in Sources */,
 				9540D2C62015BB56005F6751 /* LSKBannerImageView.m in Sources */,
 				9590A676201ACFEB0063FDDE /* FSCalendarExtensions.m in Sources */,
@@ -1192,6 +1257,7 @@
 				9540D22B2015BAD5005F6751 /* AppDelegate.m in Sources */,
 				9590A67A201ACFEB0063FDDE /* FSCalendarHeaderView.m in Sources */,
 				9590A673201ACFEB0063FDDE /* FSCalendarCollectionViewLayout.m in Sources */,
+				A6B566472021728700E8DEFF /* TXXLSolarTermsCell.m in Sources */,
 				9590A67D201ACFEB0063FDDE /* FSCalendarAppearance.m in Sources */,
 				9590A647201AC75D0063FDDE /* TXXLCalendarView.m in Sources */,
 				9540D3062015C89F005F6751 /* TXXLSharedInstance.m in Sources */,
@@ -1208,9 +1274,11 @@
 				95CB55A6202091E500B45447 /* TXXLFestivalListHeaderView.m in Sources */,
 				9540D3132015E381005F6751 /* TXXLAlmanacHoursView.m in Sources */,
 				95CB55AA202091EB00B45447 /* TXXLFestivalListVC.m in Sources */,
+				A6B566C92021C21600E8DEFF /* TXXLAlmanacHomeModel.m in Sources */,
 				9540D3092015D368005F6751 /* TXXLViewManager.m in Sources */,
 				95CB55B3202094E000B45447 /* TXXLHolidaysListView.m in Sources */,
 				9540D2BC2015BB56005F6751 /* NSArray+Extend.m in Sources */,
+				A6B5663F20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m in Sources */,
 				9540D3002015C4DD005F6751 /* TXXLAlmanacMainVC.m in Sources */,
 				9540D3102015E369005F6751 /* TXXLAlmanacMessageView.m in Sources */,
 				95EFF1FA201F1D9400FA27A5 /* TXXLMoreSearchVC.m in Sources */,
@@ -1222,6 +1290,8 @@
 				9540D2B72015BB56005F6751 /* UITabBarController+Extend.m in Sources */,
 				9590A677201ACFEB0063FDDE /* FSCalendar+Deprecated.m in Sources */,
 				9540D2B32015BB56005F6751 /* NSTimer+Extend.m in Sources */,
+				A6B56650202186D800E8DEFF /* TXXLCompassDetailVC.m in Sources */,
+				A6B566C62021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m in Sources */,
 				9540D2CC2015BB56005F6751 /* LSKBaseWebView.m in Sources */,
 				9590A671201ACFEB0063FDDE /* FSCalendarStickyHeader.m in Sources */,
 				9540D2CD2015BB56005F6751 /* LSKWebView.m in Sources */,
@@ -1232,10 +1302,12 @@
 				9590A64A201AC77B0063FDDE /* TXXLCalendarMessageView.m in Sources */,
 				9540D3162015E398005F6751 /* TXXLAlmanacSearchView.m in Sources */,
 				9540D2FA2015C498005F6751 /* TXXLCalendarMainVC.m in Sources */,
+				A6B5664220215D8100E8DEFF /* TXXLHolidaysHeaderView.m in Sources */,
 				95CB558C2020453500B45447 /* TXXLSearchDetailHeaderView.m in Sources */,
 				959EF32620187481003FE057 /* TXXLAlmanacMainView.m in Sources */,
 				9540D2B02015BB56005F6751 /* LSKMediaParamterEntity.m in Sources */,
 				95EFF1F4201EFE6D00FA27A5 /* TXXLSuitAvoidHeaderTableViewCell.m in Sources */,
+				A6B5663C2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m in Sources */,
 				9540D30D2015E335005F6751 /* TXXLAlmanacDateView.m in Sources */,
 				95CB559A2020728300B45447 /* TXXLHoursDetailCell.m in Sources */,
 				9590A67B201ACFEB0063FDDE /* FSCalendarTransitionCoordinator.m in Sources */,
@@ -1368,7 +1440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8NZ6HF8AH;
+				DEVELOPMENT_TEAM = 776C9KS82H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXNewCalendar/BaseConfig/TXNewCalendar_PrefixHeader.pch";
 				INFOPLIST_FILE = TXNewCalendar/Info.plist;
@@ -1386,7 +1458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8NZ6HF8AH;
+				DEVELOPMENT_TEAM = 776C9KS82H;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXNewCalendar/BaseConfig/TXNewCalendar_PrefixHeader.pch";
 				INFOPLIST_FILE = TXNewCalendar/Info.plist;

@@ -25,6 +25,9 @@
         otherBtn.selected = NO;
         _currentIndex = btn.tag - 200;
         btn.selected = YES;
+        if (self.clickBlock) {
+            self.clickBlock(_currentIndex);
+        }
         [self changeLineFrame:btn];
     }
 }

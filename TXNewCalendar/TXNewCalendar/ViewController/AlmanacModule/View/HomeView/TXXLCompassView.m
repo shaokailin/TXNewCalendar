@@ -18,7 +18,6 @@
 }
 - (instancetype)init {
     if (self = [super init]) {
-        self.backgroundColor = [UIColor whiteColor];
         [self _layoutMainView];
     }
     return self;
@@ -31,9 +30,13 @@
     _liveLbl.text = live;
 }
 - (void)compassTranform:(double)radius {
-    _compassImageView.transform = CGAffineTransformMakeRotation(-radius);
+    [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut | UIViewAnimationOptionAllowUserInteraction animations:^{
+        _compassImageView.transform = CGAffineTransformMakeRotation(-radius);
+    } completion:nil];
+    
 }
 - (void)_layoutMainView {
+    self.backgroundColor = [UIColor whiteColor];
     _compassImageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"almanace_compass")];
     [self addSubview:_compassImageView];
     WS(ws)

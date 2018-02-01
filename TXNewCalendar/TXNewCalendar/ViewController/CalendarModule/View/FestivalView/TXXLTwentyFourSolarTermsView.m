@@ -7,8 +7,15 @@
 //
 
 #import "TXXLTwentyFourSolarTermsView.h"
-@interface TXXLTwentyFourSolarTermsView ()<UITableViewDelegate, UITableViewDataSource>
-
+#import "TXXLSolarTermsCell.h"
+static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
+@interface TXXLTwentyFourSolarTermsView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+{
+    NSArray *_dataArray;
+    CGFloat _itemHeight;
+    CGFloat _itemWidth;
+}
+@property (nonatomic, weak) UICollectionView *mainCollectionView;
 @end
 @implementation TXXLTwentyFourSolarTermsView
 
@@ -18,8 +25,74 @@
     }
     return self;
 }
+#pragma mark --UICollectionViewDataSource
+//定义展示的UICollectionViewCell的个数
+-( NSInteger )collectionView:( UICollectionView *)collectionView numberOfItemsInSection:( NSInteger )section{
+    return _dataArray.count ;
+}
+//定义展示的Section的个数
+-( NSInteger )numberOfSectionsInCollectionView:( UICollectionView *)collectionView{
+    return 1 ;
+}
+//每个UICollectionView展示的内容
+-( UICollectionViewCell *)collectionView:( UICollectionView *)collectionView cellForItemAtIndexPath:( NSIndexPath *)indexPath{
+    TXXLSolarTermsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTXXLSolarTermsCell forIndexPath:indexPath];
+    NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
+    [cell setupCellContentWithIcon:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] time:[dict objectForKey:@"time"]];
+    return cell;
+}
+
+#pragma mark --UICollectionViewDelegate
+//UICollectionView被选中时调用的方法
+-( void )collectionView:( UICollectionView *)collectionView didSelectItemAtIndexPath:( NSIndexPath *)indexPath{
+}
+#pragma mark --UICollectionViewDelegateFlowLayout
+//定义每个UICollectionView 的边距(次序: 上，左，下，右边)
+-( UIEdgeInsets )collectionView:( UICollectionView *)collectionView layout:( UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:( NSInteger )section{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(_itemWidth, _itemHeight);
+}
+
+//设置单元格间的横向间距
+- (CGFloat) collectionView:(UICollectionView *)collectionView
+                    layout:(UICollectionViewLayout *)collectionViewLayout
+minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return (SCREEN_WIDTH - 20 - _itemWidth * 3) / 2;
+}
+
+//设置单元格间的竖向间距
+- (CGFloat) collectionView:(UICollectionView *)collectionView
+                    layout:(UICollectionViewLayout *)collectionViewLayout
+minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
+#pragma mark -界面初始化
 - (void)_layoutMainView {
+    BOOL isNoSmall = [LSKPublicMethodUtil getiPhoneType] > 1;
+    if (isNoSmall) {
+        _itemHeight = 108 + 38;
+        _itemWidth = 114;
+    }else {
+        _itemHeight = WIDTH_RACE_6S(108) + 38;
+        _itemWidth = WIDTH_RACE_6S(114);
+    }
+    _dataArray = [NSArray arrayWithPlist:kDataPlistName];
     self.backgroundColor = [UIColor whiteColor];
+    UICollectionViewFlowLayout *layout=[[ UICollectionViewFlowLayout alloc ] init ];
+    [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
+    
+    [collectView registerClass:[TXXLSolarTermsCell class] forCellWithReuseIdentifier:kTXXLSolarTermsCell];
+    self.mainCollectionView = collectView;
+    [self addSubview:collectView];
+    WS(ws)
+    [collectView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws);
+    }];
+
 }
 
 @end

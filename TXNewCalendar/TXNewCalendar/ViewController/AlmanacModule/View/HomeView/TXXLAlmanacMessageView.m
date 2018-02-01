@@ -37,20 +37,117 @@
     }
     return self;
 }
+#pragma mark - 设置数据
+- (void)setupCompassMessage:(id)model {
+    
+}
+- (void)setupPeripheralsMessage:(TXXLAlmanacHomeModel *)model {
+    if ([model.zhi_shen isKindOfClass:[NSDictionary class]]) {
+        [self.left1View setupMessage:[model.zhi_shen objectForKey:@"shen_sha"]];
+    }
+    if ([model.chong_sha isKindOfClass:[NSDictionary class]]) {
+        [self.right1View setupMessage:NSStringFormat(@"冲%@煞%@",[model.chong_sha objectForKey:@"chong"],[model.chong_sha objectForKey:@"sha"])];
+    }
+    if (KJudgeIsArrayAndHasValue(model.na_yin)) {
+        [self.left2View setupMessage:nil bottom:[model.na_yin objectAtIndex:0]];
+    }
+    if (KJudgeIsArrayAndHasValue(model.peng_zu)) {
+        NSArray *contentArray = [model.peng_zu objectAtIndex:0];
+        if (KJudgeIsArrayAndHasValue(contentArray)) {
+            NSString *top = contentArray.count > 0?[contentArray objectAtIndex:0]:nil;
+            NSString *bottom = contentArray.count > 1? [contentArray objectAtIndex:1]:nil;
+            [self.right2View setupMessage:top bottom:bottom];
+        }
+    }
+    if ([model.xiong isKindOfClass:[NSDictionary class]] && model.xiong.allKeys.count > 0) {
+        NSMutableString *xiong = [NSMutableString string];
+        NSInteger count = model.xiong.allKeys.count;
+        for (int i = 0; i < count; i ++) {
+            NSString *key = [model.xiong.allKeys objectAtIndex:i];
+            [xiong appendString:key];
+            if (i != count - 1 ) {
+                [xiong appendString:@"  "];
+            }
+        }
+        [self.left3View setupMessage:xiong];
+    }
+    if ([model.jishen isKindOfClass:[NSDictionary class]] && model.jishen.allKeys.count > 0) {
+        NSMutableString *jishen = [NSMutableString string];
+        NSInteger count = model.jishen.allKeys.count;
+        for (int i = 0; i < count; i ++) {
+            NSString *key = [model.jishen.allKeys objectAtIndex:i];
+            [jishen appendString:key];
+            if (i != count - 1 ) {
+                [jishen appendString:@"  "];
+            }
+        }
+        [self.right3View setupMessage:jishen];
+    }
+    if ([model.yi isKindOfClass:[NSDictionary class]] && model.yi.allKeys.count > 0) {
+        NSMutableString *yi = [NSMutableString string];
+        NSInteger count = model.yi.allKeys.count;
+        for (int i = 0; i < count; i ++) {
+            NSString *key = [model.yi.allKeys objectAtIndex:i];
+            [yi appendString:key];
+            if (i != count - 1 ) {
+                [yi appendString:@"  "];
+            }
+        }
+        [self.left4View setupLblType4Content:yi];
+    }
+    if ([model.ji isKindOfClass:[NSDictionary class]] && model.ji.allKeys.count > 0) {
+        NSMutableString *ji = [NSMutableString string];
+        NSInteger count = model.ji.allKeys.count;
+        for (int i = 0; i < count; i ++) {
+            NSString *key = [model.ji.allKeys objectAtIndex:i];
+            [ji appendString:key];
+            if (i != count - 1 ) {
+                [ji appendString:@"  "];
+            }
+        }
+        [self.right4View setupLblType4Content:ji];
+    }
+    if (KJudgeIsArrayAndHasValue(model.jian_chu)) {
+        [self.left5View setupMessage:NSStringFormat(@"%@日",[model.jian_chu objectAtIndex:0])];
+    }
+    if ([model.lucky isKindOfClass:[NSDictionary class]]) {
+        [self.middle5View setupMessage:[model.lucky objectForKey:@"shengxiao"]];
+    }
+    if (KJudgeIsArrayAndHasValue(model.tai_shen)) {
+        [self.middle6View setupMessage:[model.tai_shen objectAtIndex:0]];
+    }
+    if (KJudgeIsArrayAndHasValue(model.xing_su)) {
+        [self.right5View setupMessage:[model.xing_su objectAtIndex:0]];
+    }
+    
+}
+- (void)setupNilContent {
+    [self.left1View setupMessage:@"  "];
+    [self.right1View setupMessage:@"  "];
+    [self.left2View setupMessage:nil bottom:@"  "];
+    [self.right2View setupMessage:@"  " bottom:@"  "];
+    [self.left3View setupMessage:nil];
+    [self.right3View setupMessage:nil];
+    [self.left4View setupLblType4Content:@"  "];
+    [self.right4View setupLblType4Content:@"  "];
+    [self.left5View setupMessage:nil];
+    [self.middle5View setupMessage:nil];
+    [self.middle6View setupMessage:nil];
+    [self.right5View setupMessage:nil];
+    [self.compassView setupContentWithMoney:@"  " happy:@"  " luck:@"  " live:@"  "];
+}
 - (void)setupDefaultContent {
-    [self.left1View setupLblType1Content:@"值神" bottom:@"司命"];
-    [self.right1View setupLblType1Content:@"冲煞" bottom:@"冲虎  煞南"];
-    [self.left2View setupLblType2Content:@"无行" middle:nil bottom:@"大驿土"];
-    [self.right2View setupLblType2Content:@"彭祖百忌" middle:@"戊不受田" bottom:@"申不安床"];
-    [self.left3View setupLblType3Content:@"凶神宜忌" middle:@"大煞  复日" bottom:@"五离  勾陈"];
-    [self.right3View setupLblType3Content:@"吉神宜趋" middle:@"天恩  母仓" bottom:@"三骨  临目"];
-    [self.left4View setupLblType4Content:@"嫁娶  移徒\n纳采  祭祀"];
-    [self.right4View setupLblType4Content:@"开市  立券"];
-    [self.left5View setupLblType5Content:@"建除十二神" middle:nil bottom:@"危日"];
-    [self.middle5View setupLblType5Content:@"幸运生肖" middle:@"蛇" bottom:@"龙   鼠"];
-    [self.middle6View setupLblType5Content:@"今日胎神" middle:@"仓库床外" bottom:@"正东"];
-    [self.right5View setupLblType5Content:@"二十八星宿" middle:nil bottom:@"南方翼火蛇"];
-    [self.compassView setupContentWithMoney:@"正北" happy:@"西南" luck:@"东北" live:@"东南"];
+    [self.left1View setupLblType1Content:@"值神"];
+    [self.right1View setupLblType1Content:@"冲煞"];
+    [self.left2View setupLblType2Content:@"五行"];
+     [self.right2View setupLblType2Content:@"彭祖百忌"];
+    [self.left3View setupLblType3Content:@"凶神宜忌"];
+    [self.right3View setupLblType3Content:@"吉神宜趋"];
+    [self.left5View setupLblType5Content:@"建除十二神"];
+    [self.middle5View setupLblType5Content:@"幸运生肖"];
+    [self.middle6View setupLblType5Content:@"今日胎神"];
+    [self.right5View setupLblType5Content:@"二十八星宿"];
+    [self setupNilContent];
 }
 //罗盘旋转角度
 - (void)compassTranform:(CGFloat)radius {
