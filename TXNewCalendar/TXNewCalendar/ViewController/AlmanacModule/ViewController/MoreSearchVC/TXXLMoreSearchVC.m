@@ -88,6 +88,10 @@
 #pragma mark --UICollectionViewDataSource
 //定义展示的UICollectionViewCell的个数
 -( NSInteger )collectionView:( UICollectionView *)collectionView numberOfItemsInSection:( NSInteger )section{
+    NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
+    if (KJudgeIsArrayAndHasValue(sectionData)) {
+        return sectionData.count;
+    }
     return 8;
 }
 
