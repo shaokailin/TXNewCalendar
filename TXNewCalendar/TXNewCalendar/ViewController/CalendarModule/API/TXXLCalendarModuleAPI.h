@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface TXXLCalendarModuleAPI : NSObject
+//节日列表
 + (LSKParamterEntity *)getFestivalsList:(NSString *)time;
-
+//节假日
++ (LSKParamterEntity *)getHolidaysList;
+//二十四节气
++ (LSKParamterEntity *)getSolarTermsList:(NSString *)time;
 @end

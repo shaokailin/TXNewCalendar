@@ -25,6 +25,7 @@
     return self;
 }
 - (void)setupContentWithDate:(NSDate *)date
+                     xingzuo:(NSString *)xingzuo
                   suitAction:(NSString *)suitAction
                  avoidAction:(NSString *)avoidAction
                   dateDetail:(NSString *)dateDetail
@@ -33,7 +34,7 @@
     self.timeLbl.text = [date getChineseDayString];
     self.suitLbl.text = suitAction;
     self.avoidLbl.text = avoidAction;
-    self.dateMessageLbl.text = NSStringFormat(@"%@%@ %@",[date dateTransformToString:@"MM月dd日"],[date getWeekDate],@"摩羯座");
+    self.dateMessageLbl.text = NSStringFormat(@"%@%@ %@",[date dateTransformToString:@"MM月dd日"],[date getWeekDate],xingzuo);
     self.dateDetailLbl.text = dateDetail;
     self.alertFirstLbl.text = alertFirst;
     self.alertLastLbl.text = alertLast;

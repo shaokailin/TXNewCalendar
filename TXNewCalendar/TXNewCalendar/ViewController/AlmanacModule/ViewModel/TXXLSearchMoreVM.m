@@ -14,7 +14,7 @@
 @implementation TXXLSearchMoreVM
 - (void)getSearchMoreList:(BOOL)isPull {
     if (!isPull) {
-        [SKHUD showLoadingDotInView:self.currentView];
+        [SKHUD showLoadingDotInWindow];
     }
     [self.moreListCommand execute:nil];
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3048DA8702DC62B8A2818254 /* Pods_TXNewCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E87CD863AE8939FCAE3A08C1 /* Pods_TXNewCalendar.framework */; };
+		953B0ACD20248BA5001BBE41 /* TXXLCalendarHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 953B0ACC20248BA5001BBE41 /* TXXLCalendarHomeVM.m */; };
+		953B0AD020248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 953B0ACF20248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.m */; };
+		953B0AD32024B5C1001BBE41 /* TXXLPublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 953B0AD22024B5C1001BBE41 /* TXXLPublicMethod.m */; };
 		953B175B201859DA00CA03E2 /* TXXLHourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 953B175A201859DA00CA03E2 /* TXXLHourView.m */; };
 		9540D1A22015B394005F6751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9540D1A12015B394005F6751 /* Assets.xcassets */; };
 		9540D1A52015B394005F6751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9540D1A32015B394005F6751 /* LaunchScreen.storyboard */; };
@@ -138,6 +141,12 @@
 
 /* Begin PBXFileReference section */
 		6B4AFA573DCA220505AC589C /* Pods-TXNewCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXNewCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TXNewCalendar/Pods-TXNewCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		953B0ACB20248BA5001BBE41 /* TXXLCalendarHomeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalendarHomeVM.h; sourceTree = "<group>"; };
+		953B0ACC20248BA5001BBE41 /* TXXLCalendarHomeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalendarHomeVM.m; sourceTree = "<group>"; };
+		953B0ACE20248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLSolarTermAndFestivalVM.h; sourceTree = "<group>"; };
+		953B0ACF20248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLSolarTermAndFestivalVM.m; sourceTree = "<group>"; };
+		953B0AD12024B5C1001BBE41 /* TXXLPublicMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicMethod.h; sourceTree = "<group>"; };
+		953B0AD22024B5C1001BBE41 /* TXXLPublicMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLPublicMethod.m; sourceTree = "<group>"; };
 		953B1759201859DA00CA03E2 /* TXXLHourView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLHourView.h; sourceTree = "<group>"; };
 		953B175A201859DA00CA03E2 /* TXXLHourView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLHourView.m; sourceTree = "<group>"; };
 		953B175D20186FBD00CA03E2 /* TXXLAlmanacHoursView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacHoursView.h; sourceTree = "<group>"; };
@@ -489,6 +498,8 @@
 				9540D3072015D368005F6751 /* TXXLViewManager.h */,
 				9540D3082015D368005F6751 /* TXXLViewManager.m */,
 				9540D30A2015D39F005F6751 /* TXXLColorManager.h */,
+				953B0AD12024B5C1001BBE41 /* TXXLPublicMethod.h */,
+				953B0AD22024B5C1001BBE41 /* TXXLPublicMethod.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1052,6 +1063,10 @@
 		A674907E202462B70039838F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				953B0ACB20248BA5001BBE41 /* TXXLCalendarHomeVM.h */,
+				953B0ACC20248BA5001BBE41 /* TXXLCalendarHomeVM.m */,
+				953B0ACE20248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.h */,
+				953B0ACF20248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1268,9 +1283,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9540D3032015C51F005F6751 /* TXXLRootTabBarVC.m in Sources */,
+				953B0ACD20248BA5001BBE41 /* TXXLCalendarHomeVM.m in Sources */,
 				9540D2C92015BB56005F6751 /* LSKBaseWebViewController.m in Sources */,
 				9540D2C72015BB56005F6751 /* SKHUD.m in Sources */,
 				95EFF1E6201EB90A00FA27A5 /* TXXLSuitAvoidVC.m in Sources */,
+				953B0AD32024B5C1001BBE41 /* TXXLPublicMethod.m in Sources */,
 				9540D2BB2015BB56005F6751 /* UISearchBar+Extend.m in Sources */,
 				9540D2FD2015C4C0005F6751 /* TXXLCalculateMainVC.m in Sources */,
 				9590A674201ACFEB0063FDDE /* FSCalendarScopeHandle.m in Sources */,
@@ -1296,6 +1313,7 @@
 				9590A66E201ACFEB0063FDDE /* FSCalendarDelegationProxy.m in Sources */,
 				A6B566C12021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m in Sources */,
 				A67490632022EA0E0039838F /* TXXLAlmanacDetailModel.m in Sources */,
+				953B0AD020248BF8001BBE41 /* TXXLSolarTermAndFestivalVM.m in Sources */,
 				95F15D0A20172AFC00E1340E /* TXXLAlimanacHomeLbl1View.m in Sources */,
 				9540D2C62015BB56005F6751 /* LSKBannerImageView.m in Sources */,
 				9590A676201ACFEB0063FDDE /* FSCalendarExtensions.m in Sources */,

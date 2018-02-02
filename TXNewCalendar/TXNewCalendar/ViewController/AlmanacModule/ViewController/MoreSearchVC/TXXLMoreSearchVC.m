@@ -67,7 +67,12 @@
     [_viewModel getSearchMoreList:NO];
 }
 - (void)pullDownRefresh {
-    [_viewModel getSearchMoreList:YES];
+    NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
+    if (!KJudgeIsArrayAndHasValue(sectionData)) {
+        [_viewModel getSearchMoreList:YES];
+    }else {
+        [self.mainCollectionView.mj_header endRefreshing];
+    }
 }
 #pragma mark - 私有事件
 //导航栏切换
@@ -89,10 +94,12 @@
 //定义展示的UICollectionViewCell的个数
 -( NSInteger )collectionView:( UICollectionView *)collectionView numberOfItemsInSection:( NSInteger )section{
     NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
-    if (KJudgeIsArrayAndHasValue(sectionData)) {
-        return sectionData.count;
+    NSDictionary *dict = [sectionData objectAtIndex:section];
+    NSArray *detailArray = [dict objectForKey:@"detail"];
+    if (KJudgeIsArrayAndHasValue(detailArray)) {
+        return detailArray.count;
     }
-    return 8;
+    return 0;
 }
 
 //定义展示的Section的个数
@@ -107,7 +114,10 @@
 //每个UICollectionView展示的内容
 -( UICollectionViewCell *)collectionView:( UICollectionView *)collectionView cellForItemAtIndexPath:( NSIndexPath *)indexPath{
     TXXLMoreCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTXXLMoreCollectionViewCell forIndexPath:indexPath];
-    [cell setupContentWithTitle:@"嫁娶"];
+    NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
+    NSDictionary *dict = [sectionData objectAtIndex:indexPath.section];
+    NSArray *detailArray = [dict objectForKey:@"detail"];
+    [cell setupContentWithTitle:[detailArray objectAtIndex:indexPath.row]];
     return cell;
 }
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -122,7 +132,9 @@
         }else {
             headerView.alertBtn.hidden = YES;
         }
-        headerView.titleLbl.text = @"常用";
+        NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
+        NSDictionary *dict = [sectionData objectAtIndex:indexPath.section];
+        headerView.titleLbl.text = [dict objectForKey:@"title"];
         return headerView;
     }
     return nil;

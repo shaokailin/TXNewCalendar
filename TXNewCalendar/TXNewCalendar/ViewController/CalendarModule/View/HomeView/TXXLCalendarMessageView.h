@@ -10,6 +10,7 @@
 
 @interface TXXLCalendarMessageView : UIView
 - (void)setupContentWithDate:(NSDate *)date
+                     xingzuo:(NSString *)xingzuo
                   suitAction:(NSString *)suitAction
                  avoidAction:(NSString *)avoidAction
                   dateDetail:(NSString *)dateDetail

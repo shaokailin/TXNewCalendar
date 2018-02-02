@@ -15,7 +15,8 @@
 #import "TXXLColorManager.h"
 //自定义View
 #import "TXXLViewManager.h"
-
+//公共方法
+#import "TXXLPublicMethod.h"
 //公司的讨论群
 static NSString const *kCompanyContactQQ = @"466438539";
 //显示首页非罗盘的点击按钮

@@ -9,5 +9,5 @@
 #import "LSKBaseResponseModel.h"
 
 @interface TXXLFestivalsListModel : LSKBaseResponseModel
-@property (nonatomic, strong) NSDictionary *data;
+@property (nonatomic, strong) NSArray *data;
 @end

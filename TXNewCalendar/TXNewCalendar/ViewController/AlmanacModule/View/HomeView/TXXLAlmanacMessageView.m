@@ -38,18 +38,6 @@
     return self;
 }
 #pragma mark - 设置数据
-- (NSString *)dataAppend:(NSArray *)array {
-    NSMutableString *yi = [NSMutableString string];
-    NSInteger count = array.count;
-    for (int i = 0; i < count; i ++) {
-        NSString *key = [array objectAtIndex:i];
-        [yi appendString:key];
-        if (i != count - 1 ) {
-            [yi appendString:@"  "];
-        }
-    }
-    return yi;
-}
 - (void)setupContentMessage:(TXXLAlmanacHomeModel *)model {
     if ([model.position isKindOfClass:[NSDictionary class]]) {
         NSString *sheng = @"    ";
@@ -84,21 +72,21 @@
     if ([model.yi_ji isKindOfClass:[NSDictionary class]]) {
         NSArray *xiongArray = [model.yi_ji objectForKey:@"xiong"];
         if (KJudgeIsArrayAndHasValue(xiongArray)) {
-            [self.left3View setupMessage:[self dataAppend:xiongArray]];
+            [self.left3View setupMessage:[TXXLPublicMethod dataAppend:xiongArray]];
         }
         NSArray *jishenArray = [model.yi_ji objectForKey:@"jishen"];
         if (KJudgeIsArrayAndHasValue(jishenArray)) {
-            [self.right3View setupMessage:[self dataAppend:jishenArray]];
+            [self.right3View setupMessage:[TXXLPublicMethod dataAppend:jishenArray]];
         }
         NSArray *yiArray = [model.yi_ji objectForKey:@"yi"];
         if (KJudgeIsArrayAndHasValue(yiArray)) {
-            [self.left4View setupLblType4Content:[self dataAppend:yiArray]];
+            [self.left4View setupLblType4Content:[TXXLPublicMethod dataAppend:yiArray]];
         }else {
             [self.left4View setupLblType4Content:@"无"];
         }
         NSArray *jiArray = [model.yi_ji objectForKey:@"ji"];
         if (KJudgeIsArrayAndHasValue(jiArray)) {
-            [self.right4View setupLblType4Content:[self dataAppend:jiArray]];
+            [self.right4View setupLblType4Content:[TXXLPublicMethod dataAppend:jiArray]];
         }else {
             [self.right4View setupLblType4Content:@"无"];
         }

@@ -13,6 +13,8 @@
 #import "TXXLFestivalCountDownHeaderView.h"
 #import "TXXLFestivalCountDownCell.h"
 #import "TXXLFestivalListVC.h"
+#import "TXXLCalendarHomeVM.h"
+#import "TXXLAlmanacHomeVM.h"
 @interface TXXLCalendarMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSDate *_currentDate;
@@ -22,6 +24,8 @@
 @property (nonatomic, weak) TXXLCalendarMessageView *messageView;
 @property (nonatomic, weak) TXXLCalendarView *calendarView;
 @property (nonatomic, weak) TXXLNavigationRightView *rightView;
+@property (nonatomic, strong) TXXLAlmanacHomeVM *alViewModel;
+@property (nonatomic, strong) TXXLCalendarHomeVM *clViewModel;
 @end
 
 @implementation TXXLCalendarMainVC
@@ -32,13 +36,91 @@
     [self initNavigationView];
     [self initializeMainView];
     [self setupDefaultDate];
+    [self bindSignal];
+}
+#pragma mark - 网络加载
+- (void)bindSignal {
+    @weakify(self)
+    _alViewModel = [[TXXLAlmanacHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self setupMessageView];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        
+    }];
+    _clViewModel = [[TXXLCalendarHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.festivalTbView reloadData];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        
+    }];
+    [self loadHttp];
+}
+- (void)setupMessageView {
+    TXXLAlmanacHomeModel *model = self.alViewModel.messageModel;
+    NSString *yiString = @"无";
+    NSString *jiString = @"无";
+    if ([model.yi_ji isKindOfClass:[NSDictionary class]]) {
+        NSArray *yiArray = [model.yi_ji objectForKey:@"yi"];
+        if (KJudgeIsArrayAndHasValue(yiArray)) {
+            yiString = [TXXLPublicMethod dataAppend:yiArray];
+        }
+        NSArray *jiArray = [model.yi_ji objectForKey:@"ji"];
+        if (KJudgeIsArrayAndHasValue(jiArray)) {
+            jiString = [TXXLPublicMethod dataAppend:jiArray];
+        }
+    }
+    NSDictionary *jieqi = model.jieqi;
+    NSString *first = nil;
+    NSString *last = nil;
+    if ([jieqi isKindOfClass:[NSDictionary class]]) {
+        NSArray *current = [jieqi objectForKey:@"current"];
+        first = [self returnJieqi:current];
+        NSArray *next = [jieqi objectForKey:@"next"];
+        last = [self returnJieqi:next];
+    }
+    [self.messageView setupContentWithDate:_currentDate xingzuo:model.xing_zuo suitAction:yiString avoidAction:jiString dateDetail:nil alertFirst:first alertLast:last];
+}
+- (NSString *)returnJieqi:(NSArray *)data {
+    if (KJudgeIsArrayAndHasValue(data)) {
+        NSMutableString *string = [NSMutableString stringWithFormat:@"%@:  ",[data objectAtIndex:0]];
+        if (data.count > 1) {
+            NSString *dateString = [data objectAtIndex:1];
+            if (KJudgeIsNullData(dateString)) {
+                NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy-MM-dd HH-mm-ss"];
+                if (date) {
+                    NSString *month = [date dateTransformToString:@"MM月dd日"];
+                    NSString *second = [date dateTransformToString:@"hh:mm"];
+                    [string appendFormat:@"%@  %@  %@",month,[date getWeekDate],second];
+                }else {
+                    [string appendString:dateString];
+                }
+            }
+        }
+        return string;
+    }
+    return nil;
+}
+- (void)loadHttp{
+    NSString *dateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];
+    _alViewModel.dateString = dateString;
+    _clViewModel.time = dateString;
+    [_alViewModel getAlmanacHomeData:YES];
+    [_clViewModel getFestivalsList];
 }
 #pragma mark -初始化默认值
 - (void)setupDefaultDate {
     _currentDate = [NSDate date];
+    [self changeDateEvent];
+}
+- (void)changeDateEvent {
     [self.rightView changeTextWithDate:_currentDate];
     [self.calendarView selectDate:_currentDate];
-    [self.messageView setupContentWithDate:_currentDate suitAction:@"纳采  嫁娶  招贤  祈福  纳婿  开市  盖屋" avoidAction:@"订盟  裁衣  安葬  祭祀  修坟" dateDetail:@"三十斋日    (每月6斋期、每月10斋期)" alertFirst:@"小寒：1月5日  星期五 10：41" alertLast:@"小寒：1月5日  星期五 10：41"];
+    [self.messageView setupContentWithDate:_currentDate xingzuo:@"" suitAction:@"" avoidAction:@"" dateDetail:nil alertFirst:nil alertLast:nil];
+    if (self.clViewModel) {
+        self.clViewModel.festivalsList = nil;
+        [self.festivalTbView reloadData];
+    }
+    
 }
 #pragma mark - 回调
 //跳转更多节假日界面
@@ -64,15 +146,22 @@
 }
 //日历选择时间
 - (void)calendarSelectDate:(NSDate *)date {
-    
+    _currentDate = date;
+    [self changeDateEvent];
+    [self loadHttp];
 }
 #pragma mark -tableview delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (self.clViewModel && KJudgeIsArrayAndHasValue(self.clViewModel.festivalsList)) {
+        return self.clViewModel.festivalsList.count > 5?5:self.clViewModel.festivalsList.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXXLFestivalCountDownCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLFestivalCountDownCell];
-    [cell setupCellContentWithLeft:@"腊八节  (公历2018年01月02日)" right:@"还有8天"];
+    NSDictionary *dict = [self.clViewModel.festivalsList objectAtIndex:indexPath.row];
+    
+    [cell setupCellContentWithLeft:NSStringFormat(@"%@  (公历%@)",[dict objectForKey:@"j"],[dict objectForKey:@"d"]) right:NSStringFormat(@"还有%@天",[dict objectForKey:@"l"])];
     return cell;
 }
 #pragma mark 界面的初始化
