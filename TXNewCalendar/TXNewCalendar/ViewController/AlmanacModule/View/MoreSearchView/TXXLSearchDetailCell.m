@@ -35,17 +35,17 @@
         self.timeBlock(self);
     }
 }
-- (void)setupCellContentWithDate:(NSDate *)date count:(NSInteger)count god:(NSString *)god twelveGod:(NSString *)twelveGod constellation:(NSString *)constellation isHidenLine:(BOOL)isHiden {
-    _dayLbl.text = [date dateTransformToString:@"dd"];
-    _yearMonthLbl.text = [date dateTransformToString:@"yyyy.MM"];
-    _weekLbl.text = [date getWeekDate];
-    _chinessMonthDayLbl.text = NSStringFormat(@"%@%@",[date getChineseMonthString],[date getChineseDayString]);
-    _chinessYearLbl.text = NSStringFormat(@"%@[%@]年",[date getChinessYearString],[date getZodiac]);
-    _hasCountDayLbl.text = NSStringFormat(@"%zd天后",count);
+- (void)setupCellContentWithDay:(NSString *)day yearMonth:(NSString *)yearMonth nongli:(NSString *)nongli chinessYMD:(NSString *)chinessYMD week:(NSString *)week count:(NSString *)count god:(NSString *)god twelveGod:(NSString *)twelveGod constellation:(NSString *)constellation isHidenLine:(BOOL)isHiden {
+    _dayLbl.text = day;
+    _yearMonthLbl.text = yearMonth;
+    _weekLbl.text = week;
+    _chinessYearLbl.text = chinessYMD;
+    _chinessMonthDayLbl.text = nongli;
+    _hasCountDayLbl.text = NSStringFormat(@"%@天后",count);
     _godLbl.text = god;
     _twelveGodLbl.text = twelveGod;
     _constellationLbl.text = constellation;
-    BOOL isWeekend = [date getWeekIndex] > 5;
+    BOOL isWeekend = ([week isEqualToString:@"星期天"] || [week isEqualToString:@"星期日"] || [week isEqualToString:@"星期六"]);
     if (isWeekend != _isWeekend) {
         _isWeekend = isWeekend;
         [self changeTextColor];

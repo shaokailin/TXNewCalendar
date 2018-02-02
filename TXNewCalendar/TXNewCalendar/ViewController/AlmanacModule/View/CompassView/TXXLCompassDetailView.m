@@ -44,8 +44,8 @@
 }
 //内容修改
 - (void)changeSelect {
-    _directionLbl.text = @"正南";
-    _detailLbl.text = @"喜神所在的方位。。。。。";
+    _directionLbl.text = [self returnDirection];
+    _detailLbl.text = [self returnIndexDetail];
 }
 #pragma mark 罗盘转动
 #pragma mark - 手机方向监听
@@ -179,5 +179,53 @@
         [_locationManager stopUpdatingHeading];
         _locationManager.delegate = nil;
     }
+}
+- (NSString *)returnIndexDetail {
+    NSString *detail = nil;
+    NSInteger index = _currentSelect - 200;
+    switch (index) {
+        case 0:
+            detail = @"喜神所在方位有利于增强人的感情运势，对于谈恋爱、招桃花运、表白的人有较大的作用。";
+            break;
+        case 1:
+            detail = @"福神能让幸福降临，福运绵长，吉星高照。";
+            break;
+        case 2:
+            detail = @"财神主管神明，在财神方位打牌、打麻将。工商开门祭拜、求财的人可以增强财运。";
+            break;
+        case 3:
+            detail = @"需要寻找帮助或者求人帮忙办事的时候，贵神方位容易找到相助的贵人，阳贵神在白天起作用。";
+            break;
+        case 4:
+            detail = @"需要寻找帮助或者求人帮忙办事的时候，贵神方位容易找到相助的贵人，阳贵神在晚上起作用。";
+            break;
+        default:
+            break;
+    }
+    return detail;
+}
+- (NSString *)returnDirection {
+    NSString *direction = nil;
+    NSInteger index = _currentSelect - 200;
+    switch (index) {
+        case 0:
+            direction = [self.position objectForKey:@"xi_shen"];
+            break;
+        case 1:
+            direction = [self.position objectForKey:@"fu_shen"];
+            break;
+        case 2:
+            direction = [self.position objectForKey:@"cai_shen"];
+            break;
+        case 3:
+            direction = [self.position objectForKey:@"yang_gui_ren"];
+            break;
+        case 4:
+            direction = [self.position objectForKey:@"yin_gui_ren"];
+            break;
+        default:
+            break;
+    }
+    return direction;
 }
 @end

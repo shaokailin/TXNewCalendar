@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kTXXLHoursDetailCell = @"TXXLHoursDetailCell";
 @interface TXXLHoursDetailCell : UITableViewCell
-- (void)setupCellContent:(NSString *)chinessHour state:(NSInteger)state timeBetween:(NSString *)timeBetween timeDetail:(NSString *)timeDetail orientation:(NSString *)orientation suit:(NSString *)suit avoid:(NSString *)avoid;
+- (void)setupCellContent:(NSString *)chinessHour state:(NSString *)state timeBetween:(NSString *)timeBetween timeDetail:(NSString *)timeDetail orientation:(NSString *)orientation suit:(NSString *)suit avoid:(NSString *)avoid;
 @end

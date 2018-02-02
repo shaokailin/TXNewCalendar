@@ -25,7 +25,7 @@
         make.top.equalTo(ws);
         make.height.mas_equalTo(27);
     }];
-    UIButton *marryBtn = [self customBtn:@"almanace_marry" title:@"结婚" flag:300];
+    UIButton *marryBtn = [self customBtn:@"almanace_marry" title:@"嫁娶" flag:300];
     [self addSubview:marryBtn];
     [marryBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws);
@@ -39,7 +39,7 @@
         make.top.bottom.width.equalTo(marryBtn);
     }];
     
-    UIButton *homeBtn = [self customBtn:@"almanace_home" title:@"住宅" flag:302];
+    UIButton *homeBtn = [self customBtn:@"almanace_home" title:@"入宅" flag:302];
     [self addSubview:homeBtn];
     [homeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(openBtn.mas_right);

@@ -11,5 +11,5 @@ static NSString * const  kTXXLSearchDetailCell = @"TXXLSearchDetailCell";
 typedef void (^DetailAddTimeBlock)(id clickCell);
 @interface TXXLSearchDetailCell : UITableViewCell
 @property (nonatomic, copy) DetailAddTimeBlock timeBlock;
-- (void)setupCellContentWithDate:(NSDate *)date count:(NSInteger)count god:(NSString *)god twelveGod:(NSString *)twelveGod constellation:(NSString *)constellation isHidenLine:(BOOL)isHiden;
+- (void)setupCellContentWithDay:(NSString *)day yearMonth:(NSString *)yearMonth nongli:(NSString *)nongli chinessYMD:(NSString *)chinessYMD week:(NSString *)week count:(NSString *)count god:(NSString *)god twelveGod:(NSString *)twelveGod constellation:(NSString *)constellation isHidenLine:(BOOL)isHiden;
 @end

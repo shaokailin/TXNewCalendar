@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TXXLCompassDetailView : UIView
-
+@property (nonatomic, weak) NSDictionary *position;
 @end

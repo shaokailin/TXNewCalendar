@@ -24,6 +24,7 @@
 - (void)initializeMainView {
     TXXLCompassDetailView *compassView = [[TXXLCompassDetailView alloc]init];
     self.compassView = compassView;
+    compassView.position = self.position;
     [self.view addSubview:compassView];
     WS(ws)
     [compassView mas_makeConstraints:^(MASConstraintMaker *make) {

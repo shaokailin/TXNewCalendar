@@ -22,9 +22,9 @@
     }
     return self;
 }
-- (void)setupCellContent:(NSString *)chinessHour state:(NSInteger)state timeBetween:(NSString *)timeBetween timeDetail:(NSString *)timeDetail orientation:(NSString *)orientation suit:(NSString *)suit avoid:(NSString *)avoid {
+- (void)setupCellContent:(NSString *)chinessHour state:(NSString *)state timeBetween:(NSString *)timeBetween timeDetail:(NSString *)timeDetail orientation:(NSString *)orientation suit:(NSString *)suit avoid:(NSString *)avoid {
     self.chinessTimeLbl.text = chinessHour;
-    self.stateLbl.text = (state == 0?@"凶":@"吉");
+    self.stateLbl.text = state;
     self.timeBetweenLbl.text = NSStringFormat(@"%@  %@",timeBetween,timeDetail);
     self.timeDetailLbl.text = orientation;
     self.suitLbl.text = suit;

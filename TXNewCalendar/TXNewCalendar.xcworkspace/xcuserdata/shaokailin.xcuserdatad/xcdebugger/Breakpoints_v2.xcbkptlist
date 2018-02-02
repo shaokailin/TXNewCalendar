@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/AlmanacModule/View/SuitAvoidView/TXXLSuitAvoidContentView.m"
-            timestampString = "539169689.469509"
+            filePath = "TXNewCalendar/ViewController/AlmanacModule/ViewController/MoreSearchVC/TXXLMoreSearchVC.m"
+            timestampString = "539254743.8108931"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-setupContentWithDic:"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-bindSignal"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

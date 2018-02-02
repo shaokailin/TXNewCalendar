@@ -9,6 +9,6 @@
 #import "LSKBaseViewController.h"
 
 @interface TXXLSearchDetailVC : LSKBaseViewController
-@property (nonatomic, copy) NSString *type;
+@property (nonatomic, assign) BOOL isAvoid;
 @property (nonatomic, copy) NSString *titleString;
 @end

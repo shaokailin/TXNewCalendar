@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface TXXLHoursDetailVC : LSKBaseViewController
-
+@property (nonatomic, strong) NSArray *hoursArray;
 @end

@@ -26,16 +26,50 @@
 - (void)setupContentArr:(NSArray *)array {
     if (_currentType == 5) {
         [self setupType5Content:array];
-    }else if (_currentType == 8){
+    }else if (_currentType == 8 || _currentType == 10){
         NSString *titleString = nil;
         NSString *detailString = nil;
         if (KJudgeIsArrayAndHasValue(array)) {
            titleString = [array objectAtIndex:0];
+            if (_currentType == 10 && KJudgeIsNullData(titleString)) {
+                titleString = NSStringFormat(@"%@日",titleString);
+            }
             if (array.count > 1) {
                 detailString = [array objectAtIndex:1];
             }
         }
-        self s
+        [self setupContentOneType:titleString detailString:detailString];
+    }else if (_currentType == 9) {
+        NSArray *titleArray = nil;
+        NSArray *detailArray = nil;
+        if (KJudgeIsArrayAndHasValue(array)) {
+            titleArray = [array objectAtIndex:0];
+            if (array.count > 1) {
+                detailArray = [array objectAtIndex:1];
+            }
+        }
+        [self setupMoreContentArray:titleArray detailArray:detailArray];
+    }else if (_currentType == 11) {
+        NSArray *titleArray = nil;
+        NSMutableArray *detailArray = nil;
+        if (KJudgeIsArrayAndHasValue(array)) {
+            NSString *titleString = [array objectAtIndex:0];
+            titleArray = @[titleString];
+            detailArray = [NSMutableArray array];
+            if (array.count > 1) {
+                NSArray *detailArr = [array objectAtIndex:1];
+                if (KJudgeIsArrayAndHasValue(detailArr)) {
+                    [detailArray addObject:[detailArr componentsJoinedByString:@"\n"]];
+                }
+            }
+            if (array.count > 2) {
+                NSString *detail2 = [array objectAtIndex:2];
+                if (KJudgeIsNullData(detail2)) {
+                    [detailArray addObject:detail2];
+                }
+            }
+        }
+        [self setupMoreContentArray:titleArray detailArray:detailArray];
     }
 }
 - (void)setupContentWithDic:(NSDictionary *)contentDict {
@@ -163,8 +197,8 @@
     _currentIndex = contentCount;
 }
 - (void)setupMoreContentArray:(NSArray *)titleArray detailArray:(NSArray *)detailArray {
-    NSInteger titleCount = titleArray.count;
-    NSInteger detailCount = detailArray.count;
+    NSInteger titleCount = KJudgeIsArrayAndHasValue(titleArray)?titleArray.count:0;
+    NSInteger detailCount = KJudgeIsArrayAndHasValue(detailArray)?detailArray.count:0;
     CGFloat width = SCREEN_WIDTH - 20 - 40 - 2;
     NSInteger maxIndex = MAX(detailCount, titleCount);
     maxIndex = MAX(_currentIndex, maxIndex);

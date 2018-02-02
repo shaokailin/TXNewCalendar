@@ -15,10 +15,12 @@
 #import "TXXLHoursDetailVC.h"
 #import "TXXLCompassDetailVC.h"
 #import "TXXLAlmanacHomeVM.h"
+#import "TXXLSearchDetailVC.h"
 @interface TXXLAlmanacMainVC ()
 {
     NSInteger _changeDateEventCount;
     NSDate *_currentDate;
+    NSInteger _jumpIndex;
 }
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) TXXLAlmanacMainView *mainTimeView;
@@ -34,6 +36,7 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
     [self bindSignal];
+    
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -50,6 +53,10 @@
         @strongify(self)
         if (identifier == 0) {
             [self.mainTimeView setupMessageContent:model];
+            if (_jumpIndex != -1) {
+                _jumpIndex = -1;
+                [self eventClick:_jumpIndex];
+            }
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         
@@ -67,17 +74,40 @@
         TXXLMoreSearchVC *moreVC = [[TXXLMoreSearchVC alloc]init];
         moreVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:moreVC animated:YES];
+    }else {
+        TXXLSearchDetailVC *searchDetailVC = [[TXXLSearchDetailVC alloc]init];
+        NSString *title = nil;
+        if (type == SearchEventType_Marry) {
+            title = @"嫁娶";
+        }else if (type == SearchEventType_Open) {
+            title = @"开市";
+        }else if (type == SearchEventType_Housing) {
+            title = @"入宅";
+        }
+        searchDetailVC.isAvoid = NO;
+        searchDetailVC.titleString = title;
+        searchDetailVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:searchDetailVC animated:YES];
     }
 }
 - (void)eventClick:(EventType)type {
-    if (type == EventType_Hours) {
-        TXXLHoursDetailVC *hoursVC = [[TXXLHoursDetailVC alloc]init];
-        hoursVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:hoursVC animated:YES];
-    }else if (type == EventType_Compass) {
-        TXXLCompassDetailVC *compassView = [[TXXLCompassDetailVC alloc]init];
-        compassView.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:compassView animated:YES];
+    if (type != EventType_Detail) {
+        if (self.viewModel.messageModel != nil) {
+            if (type == EventType_Hours) {
+                TXXLHoursDetailVC *hoursVC = [[TXXLHoursDetailVC alloc]init];
+                hoursVC.hoursArray = self.viewModel.messageModel.h_detail;
+                hoursVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:hoursVC animated:YES];
+            }else if (type == EventType_Compass) {
+                TXXLCompassDetailVC *compassView = [[TXXLCompassDetailVC alloc]init];
+                compassView.position = self.viewModel.messageModel.position;
+                compassView.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:compassView animated:YES];
+            }
+        }else {
+            _jumpIndex = type;
+            [self loadData:YES];
+        }
     }else if (type == EventType_Detail) {
         TXXLSuitAvoidVC *suitAvoidVC = [[TXXLSuitAvoidVC alloc]init];
         suitAvoidVC.loadingDateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];
@@ -111,6 +141,7 @@
 }
 #pragma mark - 界面初始化
 - (void)initializeMainView {
+    _jumpIndex = -1;
     WS(ws)
     UIScrollView *mainScrollView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
     mainScrollView.showsHorizontalScrollIndicator = NO;

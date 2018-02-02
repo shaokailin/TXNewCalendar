@@ -12,6 +12,7 @@
 #import "TXXLSuitAvoidNatigationView.h"
 #import "TXXLMoreAlertView.h"
 #import "TXXLSearchDetailVC.h"
+#import "TXXLSearchMoreVM.h"
 @interface TXXLMoreSearchVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     NSInteger _currentIndex;
@@ -19,6 +20,8 @@
 }
 @property (nonatomic, weak) UICollectionView *mainCollectionView;
 @property (nonatomic, strong) TXXLSuitAvoidNatigationView *titleView;
+@property (nonatomic, strong) TXXLSearchMoreVM *viewModel;
+@property (nonatomic, strong) NSMutableDictionary *dataDictionary;
 @end
 
 @implementation TXXLMoreSearchVC
@@ -29,6 +32,7 @@
     [self addNavigationBackButton];
     [self initializeNavigationTitleView];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -47,10 +51,33 @@
         self.navigationItem.titleView = _titleView;
     }
 }
+#pragma mark - 数据加载
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[TXXLSearchMoreVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.mainCollectionView.mj_header endRefreshing];
+        [self.dataDictionary setObject:model forKey:NSStringFormat(@"%zd",_currentIndex)];
+        [self.mainCollectionView reloadData];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainCollectionView.mj_header endRefreshing];
+    }];
+    _viewModel.isAvoid = _currentIndex;
+    [_viewModel getSearchMoreList:NO];
+}
+- (void)pullDownRefresh {
+    [_viewModel getSearchMoreList:YES];
+}
 #pragma mark - 私有事件
 //导航栏切换
 - (void)navigaitonClick:(NSInteger)index {
     _currentIndex = index;
+    NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
+    if (!KJudgeIsArrayAndHasValue(sectionData)) {
+        _viewModel.isAvoid = _currentIndex;
+        [_viewModel getSearchMoreList:NO];
+    }
     [self.mainCollectionView reloadData];
 }
 //显示提示
@@ -61,12 +88,16 @@
 #pragma mark --UICollectionViewDataSource
 //定义展示的UICollectionViewCell的个数
 -( NSInteger )collectionView:( UICollectionView *)collectionView numberOfItemsInSection:( NSInteger )section{
-    return 8 ;
+    return 8;
 }
 
 //定义展示的Section的个数
 -( NSInteger )numberOfSectionsInCollectionView:( UICollectionView *)collectionView{
-    return 2 ;
+    NSArray *sectionData = [self.dataDictionary objectForKey:NSStringFormat(@"%zd",_currentIndex)];
+    if (KJudgeIsArrayAndHasValue(sectionData)) {
+        return sectionData.count;
+    }
+    return 0 ;
 }
 
 //每个UICollectionView展示的内容
@@ -100,7 +131,8 @@
     [cell changeSelectState:YES];
     _selectIndexPath = indexPath;
     TXXLSearchDetailVC *detailVC = [[TXXLSearchDetailVC alloc]init];
-    detailVC.titleString = NSStringFormat(@"%@%@",_currentIndex == 0?@"宜":@"忌",[cell returnTitleString]);
+    detailVC.titleString = [cell returnTitleString];
+    detailVC.isAvoid = (_currentIndex == 0?NO:YES);
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -145,10 +177,10 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     self.navigationItem.titleView = _titleView;
 }
 - (void)initializeMainView {
+    _dataDictionary = [NSMutableDictionary dictionary];
     UICollectionViewFlowLayout *layout=[[ UICollectionViewFlowLayout alloc ] init ];
-    
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
+    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
 
     [collectView registerNib:[UINib nibWithNibName:kTXXLMoreCollectionViewCell bundle:nil] forCellWithReuseIdentifier:kTXXLMoreCollectionViewCell];
     [collectView registerNib:[UINib nibWithNibName:kTXXLMoreHeaderReusableView bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kTXXLMoreHeaderReusableView];
