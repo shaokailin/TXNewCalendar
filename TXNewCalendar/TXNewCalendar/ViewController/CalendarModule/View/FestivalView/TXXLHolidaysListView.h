@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TXXLHolidaysListView : UIView
+#import "TXXLFestivalsProtocol.h"
+@interface TXXLHolidaysListView : UIView<TXXLFestivalsProtocol>
+@property (nonatomic, copy) LoadFestivalsBlock loadBlock;
 
 @end

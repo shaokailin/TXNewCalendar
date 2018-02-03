@@ -34,7 +34,7 @@
     self.timeLbl.text = [date getChineseDayString];
     self.suitLbl.text = suitAction;
     self.avoidLbl.text = avoidAction;
-    self.dateMessageLbl.text = NSStringFormat(@"%@%@ %@",[date dateTransformToString:@"MM月dd日"],[date getWeekDate],xingzuo);
+    self.dateMessageLbl.text = NSStringFormat(@"%@%@ %@座",[date dateTransformToString:@"MM月dd日"],[date getWeekDate],xingzuo);
     self.dateDetailLbl.text = dateDetail;
     self.alertFirstLbl.text = alertFirst;
     self.alertLastLbl.text = alertLast;
@@ -56,6 +56,7 @@
     [oldLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws).with.offset(20);
         make.top.equalTo(ws);
+        make.width.mas_equalTo(90);
         make.height.mas_equalTo(80);
     }];
     
@@ -106,7 +107,7 @@
     [self addSubview:lineView2];
     [lineView2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.height.equalTo(lineView1);
-        make.top.equalTo(lineView1.mas_bottom).with.offset(72);
+        make.top.equalTo(lineView1.mas_bottom).with.offset(50);//72
     }];
     
     UILabel *dateDetailLbl = [LSKViewFactory initializeLableWithText:nil font:13 textColor:KColorHexadecimal(0x848484, 1.0) textAlignment:0 backgroundColor:nil];

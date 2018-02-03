@@ -9,32 +9,22 @@
 #import "TXXLCalendarModuleAPI.h"
 #import "TXXLFestivalsListModel.h"
 #import "TXXLHolidaysListModel.h"
-#import "TXXLSolarTermsListModel.h"
 static NSString * const kFestivalsListApi = @"jieri.html";
 static NSString * const kHolidaysListApi = @"jiejiari.html";
 static NSString * const kSolarTermsListApi = @"jieqi.html";
 @implementation TXXLCalendarModuleAPI
-+ (LSKParamterEntity *)getHolidaysList {
++ (LSKParamterEntity *)getFestivalsList:(NSString *)time type:(NSInteger)type  {
     LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
-    params.requestApi = kHolidaysListApi;
+    if (type != 2) {
+        params.requestApi = type == 0?kFestivalsListApi:kSolarTermsListApi;
+        [params.params setValue:time forKeyPath:@"time"];
+        params.responseObject = [TXXLFestivalsListModel class];
+    }else {
+        params.requestApi = kHolidaysListApi;
+        params.responseObject = [TXXLHolidaysListModel class];
+    }
     params.requestType = HTTPRequestType_GET;
-    params.responseObject = [TXXLHolidaysListModel class];
-    return params;
-}
-+ (LSKParamterEntity *)getFestivalsList:(NSString *)time {
-    LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
-    params.requestApi = kFestivalsListApi;
-    params.requestType = HTTPRequestType_GET;
-    params.responseObject = [TXXLFestivalsListModel class];
-    [params.params setValue:time forKeyPath:@"time"];
-    return params;
-}
-+ (LSKParamterEntity *)getSolarTermsList:(NSString *)time {
-    LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
-    params.requestApi = kSolarTermsListApi;
-    params.requestType = HTTPRequestType_GET;
-    params.responseObject = [TXXLSolarTermsListModel class];
-    [params.params setValue:time forKeyPath:@"time"];
+    
     return params;
 }
 @end

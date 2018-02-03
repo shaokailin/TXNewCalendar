@@ -21,4 +21,6 @@
 static NSString const *kCompanyContactQQ = @"466438539";
 //显示首页非罗盘的点击按钮
 typedef void (^ShowTodayDetailBlock)(BOOL isShow);
+//节假日加载数据操作
+typedef void (^LoadFestivalsBlock)(BOOL isCanLoad);
 #endif /* Config_h */

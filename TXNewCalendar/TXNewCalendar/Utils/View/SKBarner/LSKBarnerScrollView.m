@@ -40,7 +40,7 @@
 - (UIImageView *)defaultImageView {
     if (!_defaultImageView) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.bounds];
-        imageView.image = ImageNameInit(@"guanggao");
+        imageView.backgroundColor = [UIColor lightGrayColor];
         _defaultImageView = imageView;
     }
     return _defaultImageView;

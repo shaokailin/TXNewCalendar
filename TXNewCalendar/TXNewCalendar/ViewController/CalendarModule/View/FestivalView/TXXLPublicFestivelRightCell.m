@@ -19,8 +19,8 @@
     }
     return self;
 }
-- (void)setupCellContent:(NSDate *)date title:(NSString *)title hasCount:(NSString *)hasCount {
-    [_itemView setupContentWithDate:date title:title hasCount:hasCount];
+- (void)setupContentWithDate:(NSString *)date week:(NSString *)week title:(NSString *)title hasCount:(NSString *)hasCount {
+    [_itemView setupContentWithDate:date week:week title:title hasCount:hasCount];
 }
 - (void)_layoutMainView {
     self.selectionStyle = 0;

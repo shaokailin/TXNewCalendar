@@ -15,6 +15,7 @@
 #import "TXXLFestivalListVC.h"
 #import "TXXLCalendarHomeVM.h"
 #import "TXXLAlmanacHomeVM.h"
+#import "HSPDatePickView.h"
 @interface TXXLCalendarMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSDate *_currentDate;
@@ -26,6 +27,7 @@
 @property (nonatomic, weak) TXXLNavigationRightView *rightView;
 @property (nonatomic, strong) TXXLAlmanacHomeVM *alViewModel;
 @property (nonatomic, strong) TXXLCalendarHomeVM *clViewModel;
+@property (nonatomic, strong) HSPDatePickView *datePickView;
 @end
 
 @implementation TXXLCalendarMainVC
@@ -112,15 +114,24 @@
     _currentDate = [NSDate date];
     [self changeDateEvent];
 }
+- (void)dateSelect:(NSDate *)date {
+    NSDate *current = [NSDate stringTransToDate:self.clViewModel.time withFormat:@"yyyy-MM-dd"];
+    NSDate *select = [NSDate stringTransToDate:[date dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"];
+    if ([current compare:select] != NSOrderedSame) {
+        _currentDate = date;
+        [self.calendarView selectDate:date];
+        [self changeDateEvent];
+        [self loadHttp];
+    }
+}
 - (void)changeDateEvent {
     [self.rightView changeTextWithDate:_currentDate];
     [self.calendarView selectDate:_currentDate];
     [self.messageView setupContentWithDate:_currentDate xingzuo:@"" suitAction:@"" avoidAction:@"" dateDetail:nil alertFirst:nil alertLast:nil];
-    if (self.clViewModel) {
+    if (self.clViewModel && self.clViewModel.festivalsList != nil) {
         self.clViewModel.festivalsList = nil;
         [self.festivalTbView reloadData];
     }
-    
 }
 #pragma mark - 回调
 //跳转更多节假日界面
@@ -132,7 +143,7 @@
 }
 //导航栏选择日期按钮事件
 - (void)navigationSelectDateEvent {
-    
+    [self.datePickView showInView];
 }
 //日历大小变化
 - (void)calendarFrameChange:(CGFloat)oldHeight currentHeight:(CGFloat)current {
@@ -211,7 +222,7 @@
         make.left.equalTo(mainScrollView).with.offset(15);
         make.right.equalTo(calendarView).with.offset(-15);
         make.top.equalTo(calendarView.mas_bottom).with.offset(15);
-        make.height.mas_equalTo(226);
+        make.height.mas_equalTo(204);
     }];
     contentHeight += 226;
     contentHeight += 10;
@@ -241,6 +252,20 @@
     [mainScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view);
     }];
+}
+- (HSPDatePickView *)datePickView {
+    if (!_datePickView) {
+        HSPDatePickView *datePick = [[HSPDatePickView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT) tabbar:self.tabbarBetweenHeight];
+        datePick.datePickerMode = UIDatePickerModeDate;
+        WS(ws)
+        datePick.dateBlock = ^(NSDate *date) {
+            [ws dateSelect:date];
+        };
+        _datePickView = datePick;
+        [[UIApplication sharedApplication].keyWindow addSubview:datePick];
+    }
+//    _datePickView.minDate = [[NSDate stringTransToDate:@"19" withFormat:]];
+    return _datePickView;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

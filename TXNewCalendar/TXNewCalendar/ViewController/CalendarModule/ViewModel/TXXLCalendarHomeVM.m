@@ -30,7 +30,7 @@
         _currentLoading = -1;
         _festivalsCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[TXXLCalendarModuleAPI getFestivalsList:self.time]];
+            return [self requestWithPropertyEntity:[TXXLCalendarModuleAPI getFestivalsList:self.time type:0]];
         }];
         [_festivalsCommand.errors subscribeNext:^(NSError * _Nullable x) {
             @strongify(self)
@@ -40,7 +40,7 @@
         [_festivalsCommand.executionSignals.flatten subscribeNext:^(TXXLFestivalsListModel *model) {
             @strongify(self)
             self.currentLoading = -1;
-            if (model.status == 1) {
+            if (model.status == 0) {
                 [self sendFailureResult:0 error:nil];
             }else {
                 self.festivalsList = model.data;

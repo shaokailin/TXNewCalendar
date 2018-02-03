@@ -11,7 +11,7 @@
 #import "TXXLHolidaysHeaderView.h"
 @interface TXXLHolidaysListView ()<UITableViewDelegate, UITableViewDataSource>
 {
-    NSDate *_currentDate;
+    NSDictionary *_dataDiction;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @end
@@ -23,16 +23,42 @@
     }
     return self;
 }
-#pragma mark - delegate
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+- (void)pullDownRefresh {
+    if (self.loadBlock) {
+        self.loadBlock(YES);
+    }
 }
+- (void)selectCurrentView {
+    if (!_dataDiction) {
+        if (self.loadBlock) {
+            self.loadBlock(NO);
+        }
+    }
+}
+- (void)loadError {
+    [self.mainTableView.mj_header endRefreshing];
+}
+- (void)loadSucess:(id)data {
+    _dataDiction = data;
+    [self.mainTableView reloadData];
+}
+#pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    if ([_dataDiction isKindOfClass:[NSDictionary class]]) {
+        NSString *key = [_dataDiction.allKeys objectAtIndex:0];
+        NSArray *data = [_dataDiction objectForKey:key];
+        if (KJudgeIsArrayAndHasValue(data)) {
+            return data.count;
+        }
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXXLHolidaysTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLHolidaysTableViewCell];
-    [cell setupCellContent:@"腊八节" date:_currentDate hasCount:@"7天"];
+    NSString *key = [_dataDiction.allKeys objectAtIndex:0];
+    NSArray *data = [_dataDiction objectForKey:key];
+    NSDictionary *dict = [data objectAtIndex:indexPath.row];
+    [cell setupCellContent:[dict objectForKey:@"title"] monthDay:[dict objectForKey:@"ri"] date:NSStringFormat(@"%@年%@  %@",key,[dict objectForKey:@"nongli"],[dict objectForKey:@"week"]) week:[dict objectForKey:@"week"] hasCount:[dict objectForKey:@"tian"]];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -43,7 +69,13 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     TXXLHolidaysHeaderView *headerView = [[TXXLHolidaysHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 25)];
-    [headerView setupTitle:@"2018年"];
+    if ([_dataDiction isKindOfClass:[NSDictionary class]]) {
+        NSString *key = [_dataDiction.allKeys objectAtIndex:0];
+        [headerView setupTitle:NSStringFormat(@"%@年",key)];
+    }else {
+        [headerView setupTitle:@""];
+    }
+    
     return headerView;
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
@@ -51,9 +83,8 @@
 }
 #pragma mark -界面初始化
 - (void)_layoutMainView {
-    _currentDate = [NSDate date];
     self.backgroundColor = KColorHexadecimal(0xf7f7f7, 1.0);
-    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStyleGrouped separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:KColorHexadecimal(0xf7f7f7, 1.0)];
+    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStyleGrouped separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:KColorHexadecimal(0xf7f7f7, 1.0)];
     [tableView registerClass:[TXXLHolidaysTableViewCell class] forCellReuseIdentifier:kTXXLHolidaysTableViewCell];
     tableView.rowHeight = 62;
     tableView.tableHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 7)];

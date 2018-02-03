@@ -11,5 +11,5 @@ static NSString * const kTXXLPublicFestivelCell = @"TXXLPublicFestivelCell";
 typedef void (^TimeAddBlock)(id clickCell);
 @interface TXXLPublicFestivelCell : UITableViewCell
 @property (nonatomic, copy) TimeAddBlock timeBlock;
-- (void)setupCellContent:(NSDate *)date title:(NSString *)title hasCount:(NSString *)hasCount;
+- (void)setupContentWithDate:(NSString *)date week:(NSString *)week title:(NSString *)title hasCount:(NSString *)hasCount;
 @end

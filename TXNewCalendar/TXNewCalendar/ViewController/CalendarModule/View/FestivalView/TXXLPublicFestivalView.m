@@ -9,17 +9,20 @@
 #import "TXXLPublicFestivalView.h"
 #import "TXXLPublicFestivelCell.h"
 #import "TXXLPublicFestivelRightCell.h"
+#import "TXXLSolarTermAndFestivalVM.h"
 @interface TXXLPublicFestivalView ()<UITableViewDelegate, UITableViewDataSource>
 {
-    NSDate *_currentDate;
+    NSArray *_dataArray;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, weak) TXXLSolarTermAndFestivalVM *viewModel;
 @end
 @implementation TXXLPublicFestivalView
 
 - (instancetype)init {
     if (self = [super init]) {
         [self _layoutMainView];
+        
     }
     return self;
 }
@@ -27,11 +30,39 @@
 - (void)addTimeClick:(TXXLPublicFestivelCell *)cell {
     
 }
+- (void)pullDownRefresh {
+    if (self.loadBlock) {
+        self.loadBlock(YES);
+    }
+}
+- (void)selectCurrentView {
+    if (!KJudgeIsArrayAndHasValue(_dataArray)) {
+        if (self.loadBlock) {
+            self.loadBlock(NO);
+        }
+    }
+}
+- (void)loadError {
+    [self.mainTableView.mj_header endRefreshing];
+}
+- (void)loadSucess:(id)data {
+    _dataArray = data;
+    [self.mainTableView reloadData];
+}
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    if (KJudgeIsArrayAndHasValue(_dataArray)) {
+        return _dataArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
+    NSString *timeString = [dict objectForKey:@"d"];
+    NSString *titleString = [dict objectForKey:@"j"];
+    NSString *count = [dict objectForKey:@"l"];
+    NSString *week = [dict objectForKey:@"w"];
+    NSString *hasCount = NSStringFormat(@"剩余%@天",count);
     if (indexPath.row % 2 == 0) {
         TXXLPublicFestivelCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLPublicFestivelCell];
         @weakify(self)
@@ -39,7 +70,7 @@
             @strongify(self)
             [self addTimeClick:clickCell];
         };
-        [cell setupCellContent:_currentDate title:@"腊八节" hasCount:@"剩余7天"];
+        [cell setupContentWithDate:timeString week:week title:titleString hasCount:hasCount];
         return cell;
     }else {
         TXXLPublicFestivelRightCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLPublicFestivelRightCell];
@@ -48,16 +79,14 @@
             @strongify(self)
             [self addTimeClick:clickCell];
         };
-        [cell setupCellContent:_currentDate title:@"腊八节" hasCount:@"剩余7天"];
+        [cell setupContentWithDate:timeString week:week title:titleString hasCount:hasCount];
         return cell;
     }
-   
 }
 #pragma mark - 界面初始化
 - (void)_layoutMainView {
-    _currentDate = [NSDate date];
     self.backgroundColor = [UIColor whiteColor];
-    UITableView *tabbleView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:nil];
+    UITableView *tabbleView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:nil];
     tabbleView.rowHeight = 190 / 2.0;
     [tabbleView registerClass:[TXXLPublicFestivelCell class] forCellReuseIdentifier:kTXXLPublicFestivelCell];
     [tabbleView registerClass:[TXXLPublicFestivelRightCell class] forCellReuseIdentifier:kTXXLPublicFestivelRightCell];

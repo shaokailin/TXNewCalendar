@@ -69,6 +69,9 @@
     if (monthPosition == FSCalendarMonthPositionNext || monthPosition == FSCalendarMonthPositionPrevious) {
         [calendar setCurrentPage:date animated:YES];
     }
+    if (self.dateBlock) {
+        self.dateBlock(date);
+    }
 }
 - (void)calendarCurrentPageDidChange:(FSCalendar *)calendar {
 //    [self getCalendar];

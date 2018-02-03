@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TXXLPublicFestivalView : UIView
-
+#import "TXXLFestivalsProtocol.h"
+@interface TXXLPublicFestivalView : UIView<TXXLFestivalsProtocol>
+@property (nonatomic, copy) LoadFestivalsBlock loadBlock;
 @end

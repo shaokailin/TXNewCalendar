@@ -12,6 +12,7 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
 @interface TXXLTwentyFourSolarTermsView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
     NSArray *_dataArray;
+    NSArray *_messageArray;
     CGFloat _itemHeight;
     CGFloat _itemWidth;
 }
@@ -24,6 +25,25 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
         [self _layoutMainView];
     }
     return self;
+}
+- (void)pullDownRefresh {
+    if (self.loadBlock) {
+        self.loadBlock(YES);
+    }
+}
+- (void)selectCurrentView {
+    if (!KJudgeIsArrayAndHasValue(_messageArray)) {
+        if (self.loadBlock) {
+            self.loadBlock(NO);
+        }
+    }
+}
+- (void)loadError {
+    [self.mainCollectionView.mj_header endRefreshing];
+}
+- (void)loadSucess:(id)data {
+    _messageArray = data;
+    [self.mainCollectionView reloadData];
 }
 #pragma mark --UICollectionViewDataSource
 //定义展示的UICollectionViewCell的个数
@@ -38,7 +58,19 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
 -( UICollectionViewCell *)collectionView:( UICollectionView *)collectionView cellForItemAtIndexPath:( NSIndexPath *)indexPath{
     TXXLSolarTermsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTXXLSolarTermsCell forIndexPath:indexPath];
     NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
-    [cell setupCellContentWithIcon:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] time:[dict objectForKey:@"time"]];
+    NSString *title = nil;
+    NSString *time = nil;
+    if (_messageArray &&  indexPath.row < _messageArray.count) {
+        NSDictionary *messageDic = [_messageArray objectAtIndex:indexPath.row];
+        title = [messageDic objectForKey:@"title"];
+        NSString *timeString = [messageDic objectForKey:@"time"];
+        if (KJudgeIsNullData(timeString)) {
+            NSArray *timeArr = [timeString componentsSeparatedByString:@" "];
+             time = [timeArr objectAtIndex:0];
+        }
+       
+    }
+    [cell setupCellContentWithIcon:[dict objectForKey:@"image"] title:title time:time];
     return cell;
 }
 
@@ -83,7 +115,7 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     self.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *layout=[[ UICollectionViewFlowLayout alloc ] init ];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
+    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
     
     [collectView registerClass:[TXXLSolarTermsCell class] forCellWithReuseIdentifier:kTXXLSolarTermsCell];
     self.mainCollectionView = collectView;

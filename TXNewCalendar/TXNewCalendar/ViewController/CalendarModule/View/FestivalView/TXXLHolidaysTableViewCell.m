@@ -13,6 +13,8 @@
     UILabel *_titleLbl;
     UILabel *_timeLbl;
     UILabel *_hasCountLbl;
+    UILabel *_monthDayLbl;
+    UILabel *_weekLbl;
 }
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -20,9 +22,11 @@
     }
     return self;
 }
-- (void)setupCellContent:(NSString *)title date:(NSDate *)date hasCount:(NSString *)hasCount {
+- (void)setupCellContent:(NSString *)title monthDay:(NSString *)monthDay date:(NSString *)chinessDate week:(NSString *)week hasCount:(NSString *)hasCount {
     _titleLbl.text = title;
-    _timeLbl.text = NSStringFormat(@"%zd年%@%@  %@",[date getChinessYear],[date getChineseMonthString],[date getChineseDayString],[date getWeekDate]);
+    _timeLbl.text = chinessDate;
+    _weekLbl.text = week;
+    _monthDayLbl.text = monthDay;
     _hasCountLbl.text = hasCount;
 }
 - (void)_layoutMainView {
@@ -32,20 +36,46 @@
     UIView *conView = [[UIView alloc]init];
     conView.backgroundColor = [UIColor whiteColor];
     KViewRadius(conView, 4.0);
+    UIImageView *bgImage = [[UIImageView alloc]initWithImage:ImageNameInit(@"timebgImage")];
+    [conView addSubview:bgImage];
+    [bgImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(conView).with.offset(11);
+        make.centerY.equalTo(conView);
+        make.size.mas_equalTo(CGSizeMake(38, 33));
+    }];
+    
+    UILabel *monthDayLbl = [LSKViewFactory initializeLableWithText:nil font:6 textColor:KColorHexadecimal(kText_Green_Color, 1.0) textAlignment:1 backgroundColor:nil];
+    _monthDayLbl = monthDayLbl;
+    [conView addSubview:monthDayLbl];
+    [monthDayLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(bgImage).with.offset(5);
+        make.right.equalTo(bgImage).with.offset(-5);
+        make.top.equalTo(bgImage).with.offset(5);
+    }];
+    
+    UILabel *weekLbl = [TXXLViewManager customTitleLbl:nil font:11];
+    weekLbl.textAlignment = 1;
+    _weekLbl = weekLbl;
+    [conView addSubview:weekLbl];
+    [weekLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(monthDayLbl);
+        make.bottom.equalTo(bgImage).with.offset(-4);
+    }];
     
     _titleLbl = [TXXLViewManager customTitleLbl:nil font:12];
     [conView addSubview:_titleLbl];
     [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(conView).with.offset(17);
+        make.left.equalTo(bgImage.mas_right).with.offset(5);
         make.top.equalTo(conView).with.offset(10);
     }];
     _timeLbl = [TXXLViewManager customDetailLbl:nil font:12];
     [conView addSubview:_timeLbl];
     [_timeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(conView).with.offset(17);
+        make.left.equalTo(bgImage.mas_right).with.offset(5);
         make.bottom.equalTo(conView).with.offset(-11);
     }];
     _hasCountLbl = [TXXLViewManager customTitleLbl:nil font:12];
+    _hasCountLbl.textColor = KColorHexadecimal(kText_Green_Color, 1.0);
     [conView addSubview:_hasCountLbl];
     [_hasCountLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(conView.mas_right).with.offset(-47);

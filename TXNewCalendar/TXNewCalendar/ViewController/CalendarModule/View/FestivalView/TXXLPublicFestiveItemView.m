@@ -20,11 +20,11 @@
     }
     return self;
 }
-- (void)setupContentWithDate:(NSDate *)date title:(NSString *)title hasCount:(NSString *)hasCount {
+- (void)setupContentWithDate:(NSString *)date week:(NSString *)week title:(NSString *)title hasCount:(NSString *)hasCount {
     self.titleLbl.text = title;
     self.hasCountLbl.text = hasCount;
-    self.timeLbl.text = [date dateTransformToString:@"yyyy年MM月dd日"];
-    self.weekLbl.text = [date getWeekDate];
+    self.timeLbl.text = date;
+    self.weekLbl.text = week;
 }
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];

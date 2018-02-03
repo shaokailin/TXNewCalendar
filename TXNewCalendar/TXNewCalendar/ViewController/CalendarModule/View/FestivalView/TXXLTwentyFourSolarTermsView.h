@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface TXXLTwentyFourSolarTermsView : UIView
-
+#import "TXXLFestivalsProtocol.h"
+@interface TXXLTwentyFourSolarTermsView : UIView<TXXLFestivalsProtocol>
+@property (nonatomic, copy) LoadFestivalsBlock loadBlock;
 @end

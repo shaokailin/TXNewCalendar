@@ -20,6 +20,7 @@
         self.userInteractionEnabled = YES;
         _placeHolderImage = placeHolderImage;
         self.contentMode = UIViewContentModeScaleToFill;
+        self.backgroundColor = [UIColor lightGrayColor];
         isHasSucess = NO;
     }
     return self;

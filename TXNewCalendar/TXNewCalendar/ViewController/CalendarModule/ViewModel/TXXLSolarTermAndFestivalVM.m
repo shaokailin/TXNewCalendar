@@ -7,7 +7,45 @@
 //
 
 #import "TXXLSolarTermAndFestivalVM.h"
-
+#import "TXXLCalendarModuleAPI.h"
+#import "TXXLHolidaysListModel.h"
+#import "TXXLFestivalsListModel.h"
+@interface TXXLSolarTermAndFestivalVM ()
+@property (nonatomic, strong) RACCommand *festivalCommand;
+@end
 @implementation TXXLSolarTermAndFestivalVM
-
+- (void)getSolarTermAndFestivalList:(BOOL)isPull {
+    if (!isPull) {
+        [SKHUD showLoadingDotInView:self.currentView];
+    }
+    [self.festivalCommand execute:nil];
+}
+- (RACCommand *)festivalCommand {
+    if (!_festivalCommand) {
+        @weakify(self)
+        _festivalCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[TXXLCalendarModuleAPI getFestivalsList:self.time type:self.type]];
+        }];
+        [_festivalCommand.errors subscribeNext:^(NSError * _Nullable x) {
+            @strongify(self)
+            [self sendFailureResult:0 error:nil];
+        }];
+        [_festivalCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+            @strongify(self)
+            if (model.status == 0) {
+                [self sendFailureResult:0 error:nil];
+            }else {
+                if (self.type != 2) {
+                    TXXLFestivalsListModel *model1 = (TXXLFestivalsListModel *)model;
+                    [self sendSuccessResult:0 model:model1.data];
+                }else {
+                    TXXLHolidaysListModel *model1 = (TXXLHolidaysListModel *)model;
+                    [self sendSuccessResult:0 model:model1.data];
+                }
+            }
+        }];
+    }
+    return _festivalCommand;
+}
 @end

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/AlmanacModule/ViewController/MoreSearchVC/TXXLMoreSearchVC.m"
-            timestampString = "539256576.298372"
+            filePath = "TXNewCalendar/ViewController/CalendarModule/View/HomeView/TXXLCalendarView.m"
+            timestampString = "539342715.9587179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-bindSignal"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-getCalendar"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kTXXLHolidaysTableViewCell = @"TXXLHolidaysTableViewCell";
 @interface TXXLHolidaysTableViewCell : UITableViewCell
-- (void)setupCellContent:(NSString *)title date:(NSDate *)date hasCount:(NSString *)hasCount;
+- (void)setupCellContent:(NSString *)title monthDay:(NSString *)monthDay date:(NSString *)chinessDate week:(NSString *)week hasCount:(NSString *)hasCount;
 @end
