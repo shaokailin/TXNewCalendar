@@ -15,6 +15,5 @@
     // Initialization code
 }
 - (void)setModel:(id)model {
-    
 }
 @end

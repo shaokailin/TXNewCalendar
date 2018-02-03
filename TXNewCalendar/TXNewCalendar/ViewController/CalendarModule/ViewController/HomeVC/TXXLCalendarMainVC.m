@@ -161,7 +161,7 @@
     [self changeDateEvent];
     [self loadHttp];
 }
-#pragma mark -tableview delegate
+#pragma mark -tableview delegate】
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.clViewModel && KJudgeIsArrayAndHasValue(self.clViewModel.festivalsList)) {
         return self.clViewModel.festivalsList.count > 5?5:self.clViewModel.festivalsList.count;
