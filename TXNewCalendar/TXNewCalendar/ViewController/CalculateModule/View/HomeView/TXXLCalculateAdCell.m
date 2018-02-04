@@ -8,11 +8,28 @@
 
 #import "TXXLCalculateAdCell.h"
 #import "UIImageView+WebCache.h"
+@interface TXXLCalculateAdCell ()
+@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+
+@end
 @implementation TXXLCalculateAdCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    _iconImageView.layer.masksToBounds = YES;
+    _iconImageView.layer.cornerRadius = 4;
+    self.bgView.layer.masksToBounds = YES;
+    self.bgView.layer.cornerRadius = 4;
+    _iconImageView.backgroundColor = [UIColor lightGrayColor];
+    self.bgView.layer.shadowColor = [UIColor blackColor].CGColor;
+    self.bgView.layer.shadowOpacity = 0.2;
+    self.bgView.layer.shadowRadius = 2.0f;
+    self.bgView.layer.shadowOffset = CGSizeMake(1, 1);
+    self.clipsToBounds =NO;
+    self.bgView.clipsToBounds =NO;
 }
 - (void)setModel:(id)model {
 }

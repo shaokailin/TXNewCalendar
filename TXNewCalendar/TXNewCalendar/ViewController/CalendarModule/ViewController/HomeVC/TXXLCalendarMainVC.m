@@ -261,6 +261,8 @@
         datePick.dateBlock = ^(NSDate *date) {
             [ws dateSelect:date];
         };
+        _datePickView.minDate = [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
+        _datePickView.maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
         _datePickView = datePick;
         [[UIApplication sharedApplication].keyWindow addSubview:datePick];
     }

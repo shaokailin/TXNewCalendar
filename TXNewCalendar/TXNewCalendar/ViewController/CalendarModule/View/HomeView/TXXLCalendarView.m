@@ -9,6 +9,7 @@
 #import "TXXLCalendarView.h"
 #import "FSCalendar.h"
 #import <EventKit/EventKit.h>
+#import "HYCGetDateAttribute.h"
 @interface TXXLCalendarView ()<FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance>
 {
     FSCalendar *_calendarView;
@@ -16,6 +17,7 @@
     NSDate *_maximumDate;
     
 }
+@property (nonatomic, strong) HYCGetDateAttribute *dateNew;
 @property (strong, nonatomic) NSCalendar *chineseCalendar;
 @property (strong, nonatomic) NSArray<EKEvent *> *events;
 @end
@@ -31,6 +33,7 @@
     [_calendarView selectDate:date];
 }
 - (void)_layoutMainView {
+    _dateNew = [[HYCGetDateAttribute alloc]init];
     self.backgroundColor = [UIColor whiteColor];
     self.chineseCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierChinese];
     _calendarView = [[FSCalendar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304)];
@@ -77,14 +80,28 @@
 //    [self getCalendar];
 }
 - (NSString *)calendar:(FSCalendar *)calendar subtitleForDate:(NSDate *)date {
-    EKEvent *event = [self eventsForDate:date].firstObject;
-    if (event) {
-        return event.title; // 春分、秋分、儿童节、植树节、国庆节、圣诞节...
+    _dateNew.HYC_GLTime = [date dateTransformToString:kCalendarFormatter];
+    NSString *event = nil;
+    if (KJudgeIsNullData(_dateNew.HYC_GLHoliday)) {//公历节日
+        event = _dateNew.HYC_GLHoliday;
+    }else if (KJudgeIsNullData(_dateNew.HYC_NLHoliday)){
+        event = _dateNew.HYC_NLHoliday;
+    }else if (KJudgeIsNullData(_dateNew.HYC_SolarTerms)) {
+        event = _dateNew.HYC_SolarTerms;
+    }
+    if (KJudgeIsNullData(event)) {
+        return event; // 春分、秋分、儿童节、植树节、国庆节、圣诞节...
     }
     return [date calendarChineseString];
 }
 //- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date {
 //}
+- (NSDate *)minimumDateForCalendar:(FSCalendar *)calendar {
+    return [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
+}
+- (NSDate *)maximumDateForCalendar:(FSCalendar *)calendar {
+    return [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
+}
 - (void)calendar:(FSCalendar *)calendar boundingRectWillChange:(CGRect)bounds animated:(BOOL)animated {
     CGFloat height = CGRectGetHeight(_calendarView.frame);
     if (height != CGRectGetHeight(bounds)) {
@@ -94,29 +111,29 @@
         _calendarView.frame = bounds;
     }
 }
-- (void)getCalendar {
-    @weakify(self)
-    EKEventStore *store = [[EKEventStore alloc] init];
-    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-        @strongify(self)
-        if(granted) {
-            NSDate *startDate = self->_minimumDate; // 开始日期
-            NSDate *endDate = self->_maximumDate; // 截止日期
-            NSPredicate *fetchCalendarEvents = [store predicateForEventsWithStartDate:startDate endDate:endDate calendars:nil];
-            NSArray<EKEvent *> *eventList = [store eventsMatchingPredicate:fetchCalendarEvents];
-            NSArray<EKEvent *> *events = [eventList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(EKEvent * _Nullable event, NSDictionary<NSString *,id> * _Nullable bindings) {
-                return event.calendar.subscribed;
-            }]];
-            self.events = events;
-        }
-    }];
-}
-// 某个日期的所有事件
-- (NSArray<EKEvent *> *)eventsForDate:(NSDate *)date
-{
-    NSArray<EKEvent *> *filteredEvents = [self.events filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(EKEvent * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject.occurrenceDate isEqualToDate:date];
-    }]];
-    return filteredEvents;
-}
+//- (void)getCalendar {
+//    @weakify(self)
+//    EKEventStore *store = [[EKEventStore alloc] init];
+//    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+//        @strongify(self)
+//        if(granted) {
+//            NSDate *startDate = self->_minimumDate; // 开始日期
+//            NSDate *endDate = self->_maximumDate; // 截止日期
+//            NSPredicate *fetchCalendarEvents = [store predicateForEventsWithStartDate:startDate endDate:endDate calendars:nil];
+//            NSArray<EKEvent *> *eventList = [store eventsMatchingPredicate:fetchCalendarEvents];
+//            NSArray<EKEvent *> *events = [eventList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(EKEvent * _Nullable event, NSDictionary<NSString *,id> * _Nullable bindings) {
+//                return event.calendar.subscribed;
+//            }]];
+//            self.events = events;
+//        }
+//    }];
+//}
+//// 某个日期的所有事件
+//- (NSArray<EKEvent *> *)eventsForDate:(NSDate *)date
+//{
+//    NSArray<EKEvent *> *filteredEvents = [self.events filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(EKEvent * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+//        return [evaluatedObject.occurrenceDate isEqualToDate:date];
+//    }]];
+//    return filteredEvents;
+//}
 @end

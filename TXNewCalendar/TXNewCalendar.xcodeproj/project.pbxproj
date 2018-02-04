@@ -60,6 +60,7 @@
 		9540D3102015E369005F6751 /* TXXLAlmanacMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540D30F2015E369005F6751 /* TXXLAlmanacMessageView.m */; };
 		9540D3132015E381005F6751 /* TXXLAlmanacHoursView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540D3122015E381005F6751 /* TXXLAlmanacHoursView.m */; };
 		9540D3162015E398005F6751 /* TXXLAlmanacSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540D3152015E398005F6751 /* TXXLAlmanacSearchView.m */; };
+		958FA58B2026F3060018185C /* HYCGetDateAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 958FA58A2026F3060018185C /* HYCGetDateAttribute.m */; };
 		9590A644201AC73A0063FDDE /* TXXLNavigationRightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590A643201AC73A0063FDDE /* TXXLNavigationRightView.m */; };
 		9590A647201AC75D0063FDDE /* TXXLCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590A646201AC75D0063FDDE /* TXXLCalendarView.m */; };
 		9590A64A201AC77B0063FDDE /* TXXLCalendarMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590A649201AC77B0063FDDE /* TXXLCalendarMessageView.m */; };
@@ -258,6 +259,8 @@
 		9540D3122015E381005F6751 /* TXXLAlmanacHoursView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacHoursView.m; sourceTree = "<group>"; };
 		9540D3142015E398005F6751 /* TXXLAlmanacSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacSearchView.h; sourceTree = "<group>"; };
 		9540D3152015E398005F6751 /* TXXLAlmanacSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacSearchView.m; sourceTree = "<group>"; };
+		958FA5892026F3050018185C /* HYCGetDateAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYCGetDateAttribute.h; sourceTree = "<group>"; };
+		958FA58A2026F3060018185C /* HYCGetDateAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYCGetDateAttribute.m; sourceTree = "<group>"; };
 		9590A642201AC73A0063FDDE /* TXXLNavigationRightView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLNavigationRightView.h; sourceTree = "<group>"; };
 		9590A643201AC73A0063FDDE /* TXXLNavigationRightView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLNavigationRightView.m; sourceTree = "<group>"; };
 		9590A645201AC75D0063FDDE /* TXXLCalendarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalendarView.h; sourceTree = "<group>"; };
@@ -496,6 +499,7 @@
 		9540D1B22015BAD5005F6751 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				958FA5882026F2F70018185C /* DateManager */,
 				9540D1B32015BAD5005F6751 /* Plist */,
 				9540D2072015BAD5005F6751 /* View */,
 				9540D2082015BAD5005F6751 /* Vendor */,
@@ -923,6 +927,15 @@
 				9540D2F92015C498005F6751 /* TXXLCalendarMainVC.m */,
 			);
 			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		958FA5882026F2F70018185C /* DateManager */ = {
+			isa = PBXGroup;
+			children = (
+				958FA5892026F3050018185C /* HYCGetDateAttribute.h */,
+				958FA58A2026F3060018185C /* HYCGetDateAttribute.m */,
+			);
+			path = DateManager;
 			sourceTree = "<group>";
 		};
 		9590A64B201ACFEB0063FDDE /* FSCalendar */ = {
@@ -1440,6 +1453,7 @@
 				9540D2CE2015BB56005F6751 /* LSKWebProgressView.m in Sources */,
 				9590A675201ACFEB0063FDDE /* FSCalendarWeekdayView.m in Sources */,
 				95CB558920201CC700B45447 /* TXXLMoreAlertView.m in Sources */,
+				958FA58B2026F3060018185C /* HYCGetDateAttribute.m in Sources */,
 				A67490A3202593390039838F /* TXXLCategoryView.m in Sources */,
 				9590A678201ACFEB0063FDDE /* FSCalendarConstants.m in Sources */,
 				9590A64A201AC77B0063FDDE /* TXXLCalendarMessageView.m in Sources */,

@@ -61,13 +61,13 @@
     topView.backgroundColor = [UIColor whiteColor];
     UIButton *switchBtn = [LSKViewFactory initializeButtonNornalImage:@"close_showweak" selectedImage:@"open_showweak" target:self action:@selector(onlyShowWeekend:)];
     [topView addSubview:switchBtn];
-    CGFloat rightBetween = [LSKPublicMethodUtil getiPhoneType] > 1 ? 30:20;
+    CGFloat rightBetween = [LSKPublicMethodUtil getiPhoneType] > 1 ? 25:15;
     [switchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(topView).with.offset(- rightBetween);
         make.size.mas_equalTo(CGSizeMake(54, 28));
         make.centerY.equalTo(topView);
     }];
-    CGFloat lineBetween = [LSKPublicMethodUtil getiPhoneType] > 1 ? 20:15;
+    CGFloat lineBetween = [LSKPublicMethodUtil getiPhoneType] > 1 ? 15:10;
     UIView *lineView1 = [LSKViewFactory initializeLineView];
     [topView addSubview:lineView1];
     [lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,7 +84,7 @@
         make.height.mas_equalTo(1);
     }];
     
-    _startTimeBtn = [LSKViewFactory initializeButtonWithTitle:nil target:self action:@selector(selectTime:) textfont:16 textColor:KColorHexadecimal(kText_Title_Color, 1.0)];
+    _startTimeBtn = [LSKViewFactory initializeButtonWithTitle:nil target:self action:@selector(selectTime:) textfont:WIDTH_RACE_6S(16) textColor:KColorHexadecimal(kText_Title_Color, 1.0)];
     _startTimeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [topView addSubview:_startTimeBtn];
     [_startTimeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,7 +93,7 @@
         make.bottom.equalTo(lineView2.mas_top);
         make.top.equalTo(topView);
     }];
-    _endTimeBtn = [LSKViewFactory initializeButtonWithTitle:nil target:self action:@selector(selectTime:) textfont:16 textColor:KColorHexadecimal(kText_Title_Color, 1.0)];
+    _endTimeBtn = [LSKViewFactory initializeButtonWithTitle:nil target:self action:@selector(selectTime:) textfont:WIDTH_RACE_6S(16) textColor:KColorHexadecimal(kText_Title_Color, 1.0)];
     _endTimeBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [topView addSubview:_endTimeBtn];
     [_endTimeBtn mas_makeConstraints:^(MASConstraintMaker *make) {

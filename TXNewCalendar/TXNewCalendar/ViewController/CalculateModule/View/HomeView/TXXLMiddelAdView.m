@@ -49,7 +49,7 @@
     SCAdView *adView = [[SCAdView alloc] initWithBuilder:^(SCAdViewBuilder *builder) {
         builder.adArray = @[];
         builder.viewFrame = (CGRect){WIDTH_RACE_6S(25),46,SCREEN_WIDTH - WIDTH_RACE_6S(50),WIDTH_RACE_6S(220)};
-        builder.adItemSize = (CGSize){WIDTH_RACE_6S(108),WIDTH_RACE_6S(142)};
+        builder.adItemSize = (CGSize){WIDTH_RACE_6S(106),WIDTH_RACE_6S(140)};
         builder.minimumLineSpacing = 0;
         builder.secondaryItemMinAlpha = 1;
         builder.threeDimensionalScale = 1.4;

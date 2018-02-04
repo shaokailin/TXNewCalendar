@@ -19,6 +19,9 @@
 #import "TXXLPublicMethod.h"
 //公司的讨论群
 static NSString const *kCompanyContactQQ = @"466438539";
+static NSString * const kCalendarMinDate = @"1901-01-01";
+static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
+static NSString * const kCalendarMaxDate = @"2050-12-31";
 //显示首页非罗盘的点击按钮
 typedef void (^ShowTodayDetailBlock)(BOOL isShow);
 //节假日加载数据操作

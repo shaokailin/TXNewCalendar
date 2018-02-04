@@ -50,13 +50,14 @@
         make.top.equalTo(ws).with.offset(80);
         make.height.mas_equalTo(kLineView_Height);
     }];
-    UILabel *oldLbl = [TXXLViewManager customTitleLbl:nil font:40];
+    BOOL isWith320 = [LSKPublicMethodUtil getiPhoneType] < 2?YES:NO;
+    UILabel *oldLbl = [TXXLViewManager customTitleLbl:nil font:isWith320?WIDTH_RACE_6S(40):40];
     self.timeLbl = oldLbl;
     [self addSubview:oldLbl];
     [oldLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws).with.offset(20);
         make.top.equalTo(ws);
-        make.width.mas_equalTo(90);
+        make.width.mas_equalTo(isWith320?WIDTH_RACE_6S(90):90);
         make.height.mas_equalTo(80);
     }];
     
@@ -75,7 +76,7 @@
     [suitLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(suitTitleLbl.mas_right).with.offset(6);
         make.centerY.equalTo(suitTitleLbl);
-        make.right.lessThanOrEqualTo(ws).with.offset(-10);
+        make.right.lessThanOrEqualTo(ws).with.offset(-5);
     }];
     
     
@@ -92,7 +93,7 @@
     [avoidLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(suitLbl);
         make.centerY.equalTo(avoidTitleLbl);
-        make.right.lessThanOrEqualTo(ws).with.offset(-10);
+        make.right.lessThanOrEqualTo(ws).with.offset(-5);
     }];
     
     UILabel *dateMessageLbl = [TXXLViewManager customTitleLbl:nil font:13];

@@ -34,8 +34,9 @@
         make.centerY.equalTo(ws.contentView);
         make.size.mas_equalTo(CGSizeMake(6, 6));
     }];
-    _leftTitleLbl = [TXXLViewManager customTitleLbl:nil font:13];
+    _leftTitleLbl = [TXXLViewManager customTitleLbl:nil font:WIDTH_RACE_6S(13)];
     [self.contentView addSubview:_leftTitleLbl];
+//    _leftTitleLbl.adjustsFontSizeToFitWidth = YES;
     [_leftTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(circleView.mas_right).with.offset(15);
         make.centerY.equalTo(ws.contentView);
@@ -47,7 +48,7 @@
     [_rightTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(ws).with.offset(-10);
         make.centerY.equalTo(ws.contentView);
-        make.width.mas_equalTo(70);
+        make.width.mas_equalTo(WIDTH_RACE_6S(70));
     }];
     
     
