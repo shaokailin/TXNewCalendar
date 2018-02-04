@@ -125,7 +125,6 @@
 		A674907B20244F420039838F /* HSPDatePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = A674907920244F420039838F /* HSPDatePickView.m */; };
 		A6749081202462D50039838F /* TXXLCalendarModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A6749080202462D50039838F /* TXXLCalendarModuleAPI.m */; };
 		A67490842024632D0039838F /* TXXLFestivalsListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490832024632D0039838F /* TXXLFestivalsListModel.m */; };
-		A674908D202555700039838F /* holiday.plist in Resources */ = {isa = PBXBuildFile; fileRef = A674908C202555700039838F /* holiday.plist */; };
 		A674909020255F330039838F /* TXXLHolidaysListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A674908F20255F330039838F /* TXXLHolidaysListModel.m */; };
 		A67490992025916A0039838F /* SCAdCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490942025916A0039838F /* SCAdCollectionViewLayout.m */; };
 		A674909A2025916A0039838F /* SCAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490982025916A0039838F /* SCAdView.m */; };
@@ -383,7 +382,6 @@
 		A67490822024632D0039838F /* TXXLFestivalsListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLFestivalsListModel.h; sourceTree = "<group>"; };
 		A67490832024632D0039838F /* TXXLFestivalsListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLFestivalsListModel.m; sourceTree = "<group>"; };
 		A674908B20254F350039838F /* TXXLFestivalsProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLFestivalsProtocol.h; sourceTree = "<group>"; };
-		A674908C202555700039838F /* holiday.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = holiday.plist; sourceTree = "<group>"; };
 		A674908E20255F330039838F /* TXXLHolidaysListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLHolidaysListModel.h; sourceTree = "<group>"; };
 		A674908F20255F330039838F /* TXXLHolidaysListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLHolidaysListModel.m; sourceTree = "<group>"; };
 		A67490942025916A0039838F /* SCAdCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAdCollectionViewLayout.m; sourceTree = "<group>"; };
@@ -517,7 +515,6 @@
 				95F15D042016E77800E1340E /* heavenlyStems.plist */,
 				95F15D062016E7B600E1340E /* earthlyBranches.plist */,
 				A6B566432021671200E8DEFF /* twenty-fourSolarTerms.plist */,
-				A674908C202555700039838F /* holiday.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -1263,7 +1260,6 @@
 				9540D1A22015B394005F6751 /* Assets.xcassets in Resources */,
 				95EFF206201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.xib in Resources */,
 				9540D22C2015BAD5005F6751 /* TabBarSetting.plist in Resources */,
-				A674908D202555700039838F /* holiday.plist in Resources */,
 				95CB5586201FFBF000B45447 /* TXXLMoreHeaderReusableView.xib in Resources */,
 				95F15CFF2016E5DF00E1340E /* zodiacs.plist in Resources */,
 				9540D2CB2015BB56005F6751 /* webviewmore@2x.png in Resources */,

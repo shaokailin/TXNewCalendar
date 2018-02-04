@@ -36,11 +36,12 @@
     [self addSubview:bgView];
     _datePickerMode = UIDatePickerModeDate;
     
-    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0,CGRectGetHeight(self.frame), SCREEN_WIDTH, 200)];
+    UIView *contentView = [[UIView alloc]initWithFrame:CGRectMake(0,CGRectGetHeight(self.frame), SCREEN_WIDTH, 220)];
     contentView.backgroundColor = [UIColor whiteColor];
     _contentView = contentView;
     [self addSubview:contentView];
-    UIDatePicker *datePick = [[UIDatePicker alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 160)];
+    UIDatePicker *datePick = [[UIDatePicker alloc]init];
+    datePick.frame = CGRectMake(0, 0, SCREEN_WIDTH, 180);
 //    datePick.backgroundColor = [UIColor yellowColor];
     [datePick setLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh_CN"]];
     // 设置时区
@@ -53,8 +54,8 @@
 }
 
 - (void)initializeNaviButtonView {
-    UIButton *naviView = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:nil action:nil textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
-    naviView.frame = CGRectMake(0, 160, SCREEN_WIDTH, 40);
+    UIButton *naviView = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:nil action:nil textfont:0 textColor:nil backgroundColor:[UIColor whiteColor] backgroundImage:nil];
+    naviView.frame = CGRectMake(0, 180, SCREEN_WIDTH, 40);
     [_contentView addSubview:naviView];
     
     UIView *lineView = [[UIView alloc]init];
@@ -93,7 +94,7 @@
         self.hidden = NO;
         [UIView animateWithDuration:0.25 animations:^{
             _bgView.alpha = 1;
-            _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 200 - _tabbarHeight , SCREEN_WIDTH, 200);
+            _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 220 - _tabbarHeight , SCREEN_WIDTH, 220);
         }];
     }
 }
@@ -125,7 +126,7 @@
 - (void)cancleSelectedClick {
     [UIView animateWithDuration:0.25 animations:^{
         _bgView.alpha = 0;
-        _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame), SCREEN_WIDTH, 200);
+        _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame), SCREEN_WIDTH, 220);
     }completion:^(BOOL finished) {
         self.hidden = YES;
     }];
