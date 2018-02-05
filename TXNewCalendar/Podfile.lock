@@ -14,6 +14,11 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AlicloudMAN (1.0.10):
+    - AlicloudUT
+  - AlicloudUT (5.2.0.3):
+    - AlicloudUTDID
+  - AlicloudUTDID (1.1.0.16)
   - FDFullscreenPopGesture (1.1)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.3)
@@ -26,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AlicloudMAN
   - FDFullscreenPopGesture
   - Masonry
   - MJRefresh
@@ -36,6 +42,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AlicloudMAN: c0feaa5ba3c8955532d37a82a26b373fa0388be4
+  AlicloudUT: 3966144f2c764155adbbee000cd0482fcae7ab50
+  AlicloudUTDID: f5a7bc1420c5f83e3bd40296e5ab2e5a804a12f8
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
@@ -44,6 +53,6 @@ SPEC CHECKSUMS:
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: fee7b0cd0e109caee57b22897e65d6a3da86ebe9
+PODFILE CHECKSUM: 3df57174e6ece5d63ceeadd769e42f2c42d9f119
 
-COCOAPODS: 1.4.0.rc.1
+COCOAPODS: 1.4.0

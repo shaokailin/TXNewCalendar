@@ -7,7 +7,7 @@
 //
 
 #import "TXXLCategoryView.h"
-
+#import "UIImageView+WebCache.h"
 @implementation TXXLCategoryView
 {
     NSInteger _hasViewCount;
@@ -48,8 +48,13 @@
                 btn.frame = CGRectMake(_btnWidth * j, _heightTop + (_heightTop + _btnHeight) * i, _btnWidth, _btnHeight);
                 UILabel *titleLbl = [btn viewWithTag:500 + flag];
                 UIImageView *iconImage = [btn viewWithTag:400 + flag];
-                titleLbl.text = [array objectAtIndex:flag];
-                iconImage.hidden = NO;
+                NSDictionary *contentDict = [array objectAtIndex:flag];
+                NSString *title = [contentDict objectForKey:@"title"];
+                NSString *image = [contentDict objectForKey:@"image"];
+                titleLbl.text = title;
+                if (KJudgeIsNullData(image)) {
+                    [iconImage sd_setImageWithURL:[NSURL URLWithString:image]];
+                }
             }else {
                 if (btn) {
                     [btn removeFromSuperview];
@@ -64,6 +69,7 @@
     UIImageView *iconImageView = [[UIImageView alloc]init];
     iconImageView.backgroundColor = [UIColor lightGrayColor];
     iconImageView.tag = 400 + flag;
+    KViewBoundsRadius(iconImageView, 30);
     [btn addSubview:iconImageView];
     [iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(btn);

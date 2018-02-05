@@ -13,4 +13,5 @@
 @property (nonatomic ,assign) Class responseObject;
 @property (nonatomic ,strong) NSMutableDictionary *params;
 @property (nonatomic ,assign) HTTPRequestType requestType;
+@property (nonatomic ,assign) BOOL isCallApi2;
 @end

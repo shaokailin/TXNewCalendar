@@ -36,13 +36,13 @@
     [_bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws);
     }];
-    _titleLbl = [LSKViewFactory initializeLableWithText:nil font:10 textColor:[UIColor whiteColor] textAlignment:1 backgroundColor:nil];
+    _titleLbl = [LSKViewFactory initializeLableWithText:nil font:10 textColor:[UIColor whiteColor] textAlignment:0 backgroundColor:nil];
     _titleLbl.numberOfLines = 3;
     [self addSubview:_titleLbl];
     [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ws).with.offset(9);
         make.right.equalTo(ws).with.offset(-7);
-        make.width.mas_equalTo(WIDTH_RACE_6S(150 / 2.0 - 15));
+        make.width.mas_equalTo(WIDTH_RACE_6S(180 / 2.0 - 15));
     }];
 }
 @end

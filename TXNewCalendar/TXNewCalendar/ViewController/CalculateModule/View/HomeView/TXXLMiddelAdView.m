@@ -23,18 +23,23 @@
     }
     return self;
 }
-- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english dataArray:(NSArray *)data {
+- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english {
     _titleLbl.text = title;
     _englishLbl.text = english;
+}
+
+- (void)setupContentWithDataArray:(NSArray *)data {
     [_adView reloadWithDataArray:data];
 }
 #pragma mark -delegate
 
--(void)sc_didClickAd:(id)adModel{
-    
+-(void)sc_didClickAd:(NSDictionary *)adModel{
+    if (self.clickBlock) {
+        self.clickBlock([adModel objectForKey: @"url"],[adModel objectForKey:@"title"]);
+    }
 }
 -(void)sc_scrollToIndex:(NSInteger)index{
-    NSLog(@"sc_scrollToIndex-->%ld",index);
+//    NSLog(@"sc_scrollToIndex-->%ld",index);
 }
 - (void)_latoutMainView {
     _titleLbl = [TXXLViewManager customTitleLbl:nil font:15];

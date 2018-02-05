@@ -10,4 +10,5 @@
 
 @interface TXXLSuitAvoidVC : LSKBaseViewController
 @property (nonatomic, copy) NSString *loadingDateString;
+@property (nonatomic, assign) NSInteger index;
 @end

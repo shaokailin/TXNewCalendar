@@ -27,12 +27,28 @@
     [self initializeMainView];
     [self bindSignal];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (_index > 1) {
+        UIView *view = [self.mainScrollView viewWithTag:400 + _index];
+        if (view) {
+            self.mainScrollView.contentOffset = CGPointMake(0, view.frame.origin.y);
+//            [self.mainScrollView scrollRectToVisible:view.frame animated:YES];
+        }
+    }
+}
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[TXXLAlmanacDetailVM alloc]initWithSuccessBlock:^(NSUInteger identifier, TXXLAlmanacDetailModel *model) {
         @strongify(self)
         [self setupViewContent:model];
         [self.mainScrollView.mj_header endRefreshing];
+        if (self.index > 1) {
+            UIView *view = [self.mainScrollView viewWithTag:400 + self.index];
+            if (view) {
+                self.mainScrollView.contentOffset = CGPointMake(0, view.frame.origin.y);
+            }
+        }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
         [self.mainScrollView.mj_header endRefreshing];

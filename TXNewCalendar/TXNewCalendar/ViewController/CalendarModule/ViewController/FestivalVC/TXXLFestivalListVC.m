@@ -34,6 +34,7 @@
     [self bindSignal];
     [self initializeMainView];
 }
+#pragma mark -数据
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[TXXLSolarTermAndFestivalVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
@@ -48,6 +49,10 @@
 - (void)loadData:(BOOL)isPull {
     _viewModel.type = _currentTpye;
     [_viewModel getSolarTermAndFestivalList:isPull];
+}
+#pragma mark -delegate
+- (void)popViewToRoot {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (void)changeShowWithState:(FestivalShowType)type {
     _currentTpye = type;
@@ -120,6 +125,9 @@
     self.publicFestivalView = publicFestivalView;
     publicFestivalView.loadBlock = ^(BOOL isCanLoad) {
         [ws loadData:isCanLoad];
+    };
+    publicFestivalView.popBlock = ^(BOOL isPop) {
+        [ws popViewToRoot];
     };
     [self.view addSubview:publicFestivalView];
     [publicFestivalView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -21,6 +21,7 @@
     NSInteger _changeDateEventCount;
     NSDate *_currentDate;
     NSInteger _jumpIndex;
+    BOOL _isViewIndex;
 }
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) TXXLAlmanacMainView *mainTimeView;
@@ -40,12 +41,15 @@
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    _isViewIndex = YES;
     [self.mainTimeView viewDidAppearStartHeading];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    _isViewIndex = NO;
     [self.mainTimeView viewDidDisappearStopHeading];
 }
+
 #pragma mark 网络请求
 - (void)bindSignal {
     @weakify(self)
@@ -55,11 +59,12 @@
             [self.mainTimeView setupMessageContent:model];
             if (_jumpIndex != -1) {
                 _jumpIndex = -1;
-                [self eventClick:_jumpIndex];
+                [self eventClick:_jumpIndex index:0];
             }
         }
     } failure:^(NSUInteger identifier, NSError *error) {
-        
+//        @strongify(self)
+//        self.mainTimeView
     }];
     [self loadData:YES];
 }
@@ -90,7 +95,7 @@
         [self.navigationController pushViewController:searchDetailVC animated:YES];
     }
 }
-- (void)eventClick:(EventType)type {
+- (void)eventClick:(EventType)type index:(NSInteger)index {
     if (type != EventType_Detail) {
         if (self.viewModel.messageModel != nil) {
             if (type == EventType_Hours) {
@@ -111,6 +116,7 @@
     }else if (type == EventType_Detail) {
         TXXLSuitAvoidVC *suitAvoidVC = [[TXXLSuitAvoidVC alloc]init];
         suitAvoidVC.loadingDateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];
+        suitAvoidVC.index = index;
         suitAvoidVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:suitAvoidVC animated:YES];
     }
@@ -118,6 +124,10 @@
 - (void)swiptViewEvent:(DirectionType)direction date:(NSDate *)date{
     _currentDate = date;
     [self loadData:NO];
+    if (!_isViewIndex) {
+        [self.mainScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+        return;
+    }
     self.swiptImageView.hidden = NO;
     CGFloat width = CGRectGetWidth(self.swiptImageView.frame);
     self.swiptImageView.image = [LSKImageManager makeImageWithView:self.view];
@@ -154,8 +164,8 @@
     contentHeight += 1;
     contentHeight += 70;
     TXXLAlmanacMainView *mainView = [[TXXLAlmanacMainView alloc]init];
-    mainView.clickBlock = ^(EventType type) {
-        [ws eventClick:type];
+    mainView.clickBlock = ^(EventType type, NSInteger index) {
+        [ws eventClick:type index:index];
     };
     mainView.timeBlock = ^(DirectionType direction, NSDate *date) {
         

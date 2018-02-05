@@ -7,8 +7,10 @@
 //
 
 #import "TXXLRootTabBarVC.h"
+
 static NSString * const kTabBarViewController_Plist = @"TabBarSetting";
 @interface TXXLRootTabBarVC ()
+
 @end
 
 @implementation TXXLRootTabBarVC
@@ -17,7 +19,8 @@ static NSString * const kTabBarViewController_Plist = @"TabBarSetting";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setupTabbarData:kTabBarViewController_Plist];
-    self.selectedIndex = 2;
+    self.selectedIndex = 0;
+    
 }
 
 - (void)didReceiveMemoryWarning {

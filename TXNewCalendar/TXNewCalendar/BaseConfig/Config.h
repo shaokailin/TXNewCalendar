@@ -17,8 +17,12 @@
 #import "TXXLViewManager.h"
 //公共方法
 #import "TXXLPublicMethod.h"
+
+static NSString * const kGuide_Is_Has_Show = @"Guide_Is_Has_Show";
+static NSString * const kAlmanacDateChange = @"almanacDateChange";
+static NSString * const kCalendarDateChange = @"CalendarDateChange";
 //公司的讨论群
-static NSString const *kCompanyContactQQ = @"466438539";
+static NSString * const kCompanyContactQQ = @"466438539";
 static NSString * const kCalendarMinDate = @"1901-01-01";
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
 static NSString * const kCalendarMaxDate = @"2050-12-31";
@@ -26,4 +30,5 @@ static NSString * const kCalendarMaxDate = @"2050-12-31";
 typedef void (^ShowTodayDetailBlock)(BOOL isShow);
 //节假日加载数据操作
 typedef void (^LoadFestivalsBlock)(BOOL isCanLoad);
+
 #endif /* Config_h */

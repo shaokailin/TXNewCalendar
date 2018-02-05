@@ -10,4 +10,6 @@
 
 @interface TXXLSharedInstance : LSKMessageManage
 + (TXXLSharedInstance *)sharedInstance;
+- (void)hidenAlertView;
+- (void)showAlertView:(id)alertView weight:(NSInteger)weight;
 @end

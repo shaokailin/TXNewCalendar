@@ -28,7 +28,18 @@
 }
 #pragma mark - 事件
 - (void)addTimeClick:(TXXLPublicFestivelCell *)cell {
-    
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
+    NSString *dateString = [dict objectForKey:@"d"];
+    if (KJudgeIsNullData(dateString)) {
+        NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy年MM月dd日"];
+        if (date) {
+            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kCalendarDateChange object:nil userInfo:@{@"date":date}];
+            if (self.popBlock) {
+                self.popBlock(YES);
+            }
+        }
+    }
 }
 - (void)pullDownRefresh {
     if (self.loadBlock) {

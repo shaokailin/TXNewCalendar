@@ -40,7 +40,7 @@
 - (UIImageView *)defaultImageView {
     if (!_defaultImageView) {
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.bounds];
-        imageView.backgroundColor = [UIColor lightGrayColor];
+        imageView.backgroundColor = [UIColor whiteColor];
         _defaultImageView = imageView;
     }
     return _defaultImageView;
@@ -105,8 +105,8 @@
         }
         LSKBannerImageView *imageView = [[LSKBannerImageView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) placeHolderImage:_placeHolderImage];
         if (_imageUrlArray.count > 0) {
-//            LCAdBannerModel *model = [_imageUrlArray objectAtIndex:0];
-//            imageView.imageWebUrl = model.logo;
+            NSDictionary *model = [_imageUrlArray objectAtIndex:0];
+            imageView.imageWebUrl = [model objectForKey:@"image"];
             [imageView loadWebImageView];
         }
         [self.bannerScrollView addSubview:imageView];
@@ -132,15 +132,15 @@
     }
     for (int i = 0; i < imageArrayCount; i++) {
         LSKBannerImageView *imageView = (LSKBannerImageView *)[self.bannerScrollView.subviews objectAtIndex:i];
-//        LCAdBannerModel *model = nil;
-//        if (i == 0) {
-//            model = _imageUrlArray.lastObject;
-//        }else if (i == imageArrayCount - 1){
-//            model = _imageUrlArray.firstObject;
-//        }else {
-//            model = [_imageUrlArray objectAtIndex:i - 1];
-//        }
-//        imageView.imageWebUrl = model.logo;
+        NSDictionary *model = nil;
+        if (i == 0) {
+            model = _imageUrlArray.lastObject;
+        }else if (i == imageArrayCount - 1){
+            model = _imageUrlArray.firstObject;
+        }else {
+            model = [_imageUrlArray objectAtIndex:i - 1];
+        }
+        imageView.imageWebUrl = [model objectForKey:@"image"];
         [imageView loadWebImageView];
     }
     

@@ -15,12 +15,12 @@
 #import "TXXLAlmanacHomeModel.h"
 @interface TXXLAlmanacMainView ()<CLLocationManagerDelegate>
 {
-    NSInteger _changeDateEventCount;
     BOOL _isStartHeading;
     NSInteger _currentIndexHour;
     NSTimer *_hourTimer;
     CLLocationManager *_locationManager;
     NSInteger _timerBetween;
+    NSDate *_todayDate;
 }
 @property (nonatomic, weak) TXXLAlmanacDateView *dateView;
 @property (nonatomic, weak) TXXLAlmanacMessageView *messageView;
@@ -103,6 +103,22 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(significantTimeChange) name:NSSystemClockDidChangeNotification object:nil];
     //地区区域改变的时候
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentLocaleDidChange) name:NSSystemTimeZoneDidChangeNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAlmanacDate:) name:kAlmanacDateChange object:nil];
+    
+}
+- (void)changeAlmanacDate:(NSNotification *)notification {
+    NSDictionary *dict = notification.userInfo;
+    if (dict && [dict isKindOfClass:[NSDictionary class]]) {
+        NSDate *date = [dict objectForKey:@"date"];
+        if (date) {
+            NSTimeInterval time = [_currentDate timeIntervalSinceDate:date];
+            _currentDate = date;
+            if (self.timeBlock) {
+                self.timeBlock(time > 0? 0:1,_currentDate);
+            }
+            [self changeDateEvent];
+        }
+    }
 }
 - (void)significantTimeChange {
     LSKLog(@"1")
@@ -114,10 +130,8 @@
 //时间点击修改时间
 - (void)changeDate:(DateChangeType)type {
     if (type == 0) {//前一个日期
-        _changeDateEventCount --;
         _currentDate = [_currentDate dateByAddingTimeInterval:-(60 * 60 * 24)];
     }else {
-        _changeDateEventCount ++;
         _currentDate = [_currentDate dateByAddingTimeInterval:60 * 60 * 24];
     }
     if (self.timeBlock) {
@@ -129,32 +143,32 @@
 - (void)changeDateEvent {
     [self.dateView setupDateContent:_currentDate];
     [self.messageView setupNilContent];
-    if (_changeDateEventCount != 0) {
+    BOOL isToday = [NSDate isTimestampToToday:[_currentDate timeIntervalSince1970]];
+    if (!isToday) {
         [self.hoursView currentHourChange:-1];
     }else {
         [self.hoursView currentHourChange:_currentIndexHour];
     }
 }
 //信息的点击事件
-- (void)messageViewClickEvent:(MessageEventType) type {
+- (void)messageViewClickEvent:(MessageEventType) type index:(NSInteger)index {
     if (self.clickBlock) {
         if (type == MessageEventType_Compass) {
-            self.clickBlock(EventType_Compass);
+            self.clickBlock(EventType_Compass,index);
         }else {
-            self.clickBlock(EventType_Detail);
+            self.clickBlock(EventType_Detail,index);
         }
     }
 }
 //时辰的点击事件
 - (void)hourViewClickEvent {
     if (self.clickBlock) {
-        self.clickBlock(EventType_Hours);
+        self.clickBlock(EventType_Hours,0);
     }
 }
 #pragma mark - 初始化默认值
 - (void)setupDefaultValue {
     _currentDate = [NSDate date];
-    _changeDateEventCount = 0;
     _currentIndexHour = -1;
     [self setupTimeHourDafaultValue];
     [self changeDateEvent];
@@ -172,7 +186,8 @@
 //    hourIndex = _currentIndexHour + 1;
     if (hourIndex != _currentIndexHour) {
         _currentIndexHour = hourIndex;
-        if (_changeDateEventCount == 0) {
+        BOOL isToday = [NSDate isTimestampToToday:[_currentDate timeIntervalSince1970]];
+        if (isToday) {
             [self.hoursView currentHourChange:_currentIndexHour];
         }
     }
@@ -207,8 +222,8 @@
     }];
     TXXLAlmanacMessageView *messageView = [[TXXLAlmanacMessageView alloc]init];
     self.messageView = messageView;
-    messageView.clickBlock = ^(MessageEventType type) {
-        [ws messageViewClickEvent:type];
+    messageView.clickBlock = ^(MessageEventType type,NSInteger index) {
+        [ws messageViewClickEvent:type index:index];
     };
     [self addSubview:messageView];
     [messageView mas_makeConstraints:^(MASConstraintMaker *make) {

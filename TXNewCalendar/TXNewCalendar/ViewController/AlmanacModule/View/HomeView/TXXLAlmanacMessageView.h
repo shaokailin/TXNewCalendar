@@ -12,7 +12,7 @@ typedef NS_ENUM(NSInteger, MessageEventType) {
     MessageEventType_Compass,
     MessageEventType_Detail,
 };
-typedef void (^MessageBlock) (MessageEventType type);
+typedef void (^MessageBlock) (MessageEventType type,NSInteger index);
 @interface TXXLAlmanacMessageView : UIView
 - (void)setupNilContent;
 @property (nonatomic, copy) MessageBlock clickBlock;

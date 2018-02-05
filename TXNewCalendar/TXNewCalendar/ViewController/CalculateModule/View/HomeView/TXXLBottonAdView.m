@@ -23,12 +23,31 @@
     }
     return self;
 }
-- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english dataDict:(NSDictionary *)dict {
+- (void)setFlag:(NSInteger)flag {
+    self.tag = flag;
+    if (flag == 600) {
+        [self setupContentWithTitle:@"财运" english:@"Fortune"];
+    }else {
+        [self setupContentWithTitle:@"事业" english:@"Career"];
+    }
+}
+- (void)setupContentWithData:(NSArray *)array {
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *dict = [array objectAtIndex:i];
+        NSString *title = [dict objectForKey:@"title"];
+        NSString *image = [dict objectForKey:@"image"];
+        if (i == 0) {
+            [_maxBtn setupContentWithImage:image title:title];
+        }else if (i == 1) {
+            [_topMinBtn setupContentWithImage:image title:title];
+        }else {
+            [_bottonMinBtn setupContentWithImage:image title:title];
+        }
+    }
+}
+- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english {
     _titleLbl.text = title;
     _englishLbl.text = english;
-    [_maxBtn setupContentWithImage:nil title:@"测试测试测试测试"];
-    [_topMinBtn setupContentWithImage:nil title:@"测试测试测试测试"];
-    [_bottonMinBtn setupContentWithImage:nil title:@"测试测试测试测试"];
 }
 - (void)maxBtnClick {
     if (self.clickBlock) {

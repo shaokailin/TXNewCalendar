@@ -39,6 +39,7 @@
     [self initializeMainView];
     [self setupDefaultDate];
     [self bindSignal];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCalendarDate:) name:kCalendarDateChange object:nil];
 }
 #pragma mark - 网络加载
 - (void)bindSignal {
@@ -113,6 +114,17 @@
 - (void)setupDefaultDate {
     _currentDate = [NSDate date];
     [self changeDateEvent];
+}
+#pragma mark -私有方法
+- (void)changeCalendarDate:(NSNotification *)notification {
+    [self.mainScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+    NSDictionary *dict = notification.userInfo;
+    if (dict && [dict isKindOfClass:[NSDictionary class]]) {
+        NSDate *date = [dict objectForKey:@"date"];
+        if (date) {
+            [self dateSelect:date];
+        }
+    }
 }
 - (void)dateSelect:(NSDate *)date {
     NSDate *current = [NSDate stringTransToDate:self.clViewModel.time withFormat:@"yyyy-MM-dd"];

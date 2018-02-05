@@ -31,6 +31,12 @@
     self.clipsToBounds =NO;
     self.bgView.clipsToBounds =NO;
 }
-- (void)setModel:(id)model {
+- (void)setModel:(NSDictionary *)model {
+    NSString *title = [model objectForKey:@"title"];
+    NSString *image = [model objectForKey:@"image"];
+    _titleLbl.text = title;
+    if (KJudgeIsNullData(image)) {
+        [_iconImageView sd_setImageWithURL:[NSURL URLWithString:image]];
+    }
 }
 @end

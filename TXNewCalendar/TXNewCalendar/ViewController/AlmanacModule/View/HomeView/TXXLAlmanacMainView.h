@@ -18,7 +18,7 @@ typedef NS_ENUM(NSInteger, DirectionType) {
     DirectionType_Right
 };
 @class TXXLAlmanacHomeModel;
-typedef void (^TapEventBlock)(EventType type);
+typedef void (^TapEventBlock)(EventType type,NSInteger index);
 typedef void (^TimeChangeBlock)(DirectionType direction,NSDate *date);
 @interface TXXLAlmanacMainView : UIView
 @property (nonatomic, copy) TapEventBlock clickBlock;

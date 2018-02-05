@@ -37,10 +37,11 @@
         make.edges.equalTo(ws);
     }];
     _titleLbl = [LSKViewFactory initializeLableWithText:nil font:10 textColor:[UIColor whiteColor] textAlignment:1 backgroundColor:nil];
-    _titleLbl.numberOfLines = 3;
     [self addSubview:_titleLbl];
     [_titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(ws);
+        make.left.equalTo(ws).with.offset(5);
+        make.right.equalTo(ws).with.offset(-5);
+        make.centerY.equalTo(ws);
     }];
 }
 @end

@@ -59,6 +59,19 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
 - (void)pullDownRefresh {
     [_viewModel getSearchDetail:YES];
 }
+- (void)clickTimeAdd:(TXXLSearchDetailCell *)cell {
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    TXXLSearchDetailModel *model = [self.viewModel.detailModel.detail objectAtIndex:indexPath.row];
+    if ([model.time isKindOfClass:[NSDictionary class]]) {
+        NSString *dateString = NSStringFormat(@"%@-%@-%@",[model.time objectForKey:@"y"],[model.time objectForKey:@"m"],[model.time objectForKey:@"d"]);
+        NSDate *date = [NSDate stringTransToDate:dateString withFormat:kCalendarFormatter];
+        if (date) {
+            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kAlmanacDateChange object:nil userInfo:@{@"date":date}];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    }
+    
+}
 #pragma mark - 私有事件
 //选择时间事件
 - (void)selectTimeWithState:(TimeState)state {
@@ -156,6 +169,11 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     if ([model.zhi_ri isKindOfClass:[NSDictionary class]]) {
         zhishen = [model.zhi_ri objectForKey:@"shen_sha"];
     }
+    @weakify(self)
+    cell.timeBlock = ^(id clickCell) {
+       @strongify(self)
+        [self clickTimeAdd:clickCell];
+    };
     [cell setupCellContentWithDay:day yearMonth:yearMonth nongli:nongli chinessYMD:chinessYMD week:model.week count:model.tian god:zhishen twelveGod:NSStringFormat(@"十二神：%@日",model.jian_chu) constellation:NSStringFormat(@"星宿：%@星",model.xing_su) isHidenLine:isHiden];
     return cell;
 }

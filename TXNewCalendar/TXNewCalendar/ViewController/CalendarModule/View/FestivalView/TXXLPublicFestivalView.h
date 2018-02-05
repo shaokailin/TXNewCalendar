@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TXXLFestivalsProtocol.h"
+typedef void (^PublicFestivalBlock)(BOOL isPop);
 @interface TXXLPublicFestivalView : UIView<TXXLFestivalsProtocol>
+@property (nonatomic, copy) PublicFestivalBlock popBlock;
 @property (nonatomic, copy) LoadFestivalsBlock loadBlock;
 @end

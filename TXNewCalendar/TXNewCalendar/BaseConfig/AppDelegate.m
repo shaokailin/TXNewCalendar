@@ -8,8 +8,11 @@
 
 #import "AppDelegate.h"
 #import "TXXLRootTabBarVC.h"
+#import "TXXLGuideVC.h"
+#import "PPSSAppVersionManager.h"
 @interface AppDelegate ()
 @property (nonatomic, strong) TXXLRootTabBarVC *rootTabBarVC;
+@property (nonatomic, strong) PPSSAppVersionManager *appVersionManager;
 @end
 
 @implementation AppDelegate
@@ -25,13 +28,26 @@
     return YES;
 }
 - (void)windowRootController {
-    self.window.rootViewController = self.rootTabBarVC;
+    BOOL isHasShow = [kUserMessageManager getMessageManagerForBoolWithKey:kGuide_Is_Has_Show];
+    if (!isHasShow) {
+        TXXLGuideVC *guideVC = [[TXXLGuideVC alloc]init];
+        self.window.rootViewController = guideVC;
+    }else {
+        self.window.rootViewController = self.rootTabBarVC;
+    }
 }
 - (TXXLRootTabBarVC *)rootTabBarVC {
     if (!_rootTabBarVC) {
         _rootTabBarVC = [[TXXLRootTabBarVC alloc]init];
     }
     return _rootTabBarVC;
+}
+#pragma mark -版本更新
+- (PPSSAppVersionManager *)appVersionManager {
+    if (!_appVersionManager) {
+        _appVersionManager = [[PPSSAppVersionManager alloc]init];
+    }
+    return _appVersionManager;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -52,6 +68,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self.appVersionManager loadAppVersion];
 }
 
 

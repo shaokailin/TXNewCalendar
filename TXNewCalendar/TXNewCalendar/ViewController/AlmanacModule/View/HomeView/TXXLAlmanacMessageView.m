@@ -151,7 +151,7 @@
 }
 - (void)compassDetailClick {
     if (self.clickBlock) {
-        self.clickBlock(MessageEventType_Compass);
+        self.clickBlock(MessageEventType_Compass,0);
     }
 }
 - (void)_layoutMainView {
@@ -269,45 +269,45 @@
         make.top.height.width.equalTo(middle5View);
     }];
     left1View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:4];
     };
     right1View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:3];
     };
     left2View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:5];
     };
     left3View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:7];
     };
     left4View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:0];
     };
     left5View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:10];
     };
     right2View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:9];
     };
     right3View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:6];
     };
     right4View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:1];
     };
     right5View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:11];
     };
     middle5View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:2];
     };
     middle6View.detailBlock = ^(BOOL isShow) {
-        [ws detailClick];
+        [ws detailClick:8];
     };
 }
-- (void)detailClick {
+- (void)detailClick:(NSInteger)type {
     if (self.clickBlock) {
-        self.clickBlock(MessageEventType_Detail);
+        self.clickBlock(MessageEventType_Detail,type);
     }
 }
 @end

@@ -15,6 +15,7 @@ static const NSInteger kRequestTimeOutTime = 10;
 static const CGFloat kImageJPEGCompressRate = 0.8;
 @interface LSKHttpManager ()
 @property (nonatomic ,strong)AFHTTPSessionManager *sessionManager;
+@property (nonatomic ,strong)AFHTTPSessionManager *sessionManager2;
 @property (nonatomic ,strong)NSMutableDictionary *httpsLoadingDictionary;
 @end
 @implementation LSKHttpManager
@@ -26,7 +27,11 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
         switch (entity.requestType) {
             case 0:
             {
-                identifier = [[LSKHttpManager sharedInstance]_getReuqestWithApiPath:entity.requestApi params:entity.params success:success failure:failure];
+                if (entity.isCallApi2) {
+                    identifier = [[LSKHttpManager sharedInstance]_getReuqest2WithApiPath:entity.requestApi params:entity.params success:success failure:failure];
+                }else {
+                    identifier = [[LSKHttpManager sharedInstance]_getReuqestWithApiPath:entity.requestApi params:entity.params success:success failure:failure];
+                }
                 break;
             }
             case 2:
@@ -71,7 +76,23 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
     [self addCurrentLoadingSessionDataTask:seccionDataTask];
     return seccionDataTask.taskIdentifier;
 }
-
+- (NSUInteger)_getReuqest2WithApiPath:(NSString *)api params:(NSMutableDictionary *)params success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure {
+    WS(ws)
+    NSURLSessionDataTask *seccionDataTask = [self.sessionManager2 GET:api parameters:[LSKHttpManager signAlgorithmGET:params] progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        [ws removeLoadingSessionDataTask:task];
+        id dictionary = [LSKPublicMethodUtil jsonDataTransformToDictionary:responseObject];
+        if (dictionary) {
+            success(task.taskIdentifier, dictionary);
+        }else {
+            failure(task.taskIdentifier, nil);
+        }
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [ws removeLoadingSessionDataTask:task];
+        failure(task.taskIdentifier, error);
+    }];
+    [self addCurrentLoadingSessionDataTask:seccionDataTask];
+    return seccionDataTask.taskIdentifier;
+}
 /**
  POST
  
@@ -223,6 +244,28 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
     }
     return _sessionManager;
 }
+
+- (AFHTTPSessionManager *)sessionManager2 {
+    if (!_sessionManager2) {
+        _sessionManager2 = [[AFHTTPSessionManager alloc]initWithBaseURL:[NSURL URLWithString:SERVER_URL_2]];
+        //超时时间长
+        [_sessionManager2.requestSerializer willChangeValueForKey:@"timeoutInterval"];
+        _sessionManager2.requestSerializer.timeoutInterval = kRequestTimeOutTime;
+        [_sessionManager2.requestSerializer didChangeValueForKey:@"timeoutInterval"];
+        //设置并发最多个数
+        _sessionManager2.operationQueue.maxConcurrentOperationCount = 5;
+        //设置回传接受类型
+        _sessionManager2.responseSerializer = [AFHTTPResponseSerializer serializer];
+        //设置服务器响应头可接手的样式
+        _sessionManager2.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html",nil];
+        //设置https的证书
+        if (KJudgeIsNullData(HTTPS_CA_NAME)) {
+            _sessionManager2.securityPolicy = [self _setupHttpsSecurityPolicy];
+        }
+    }
+    return _sessionManager2;
+}
+
 //初始化 加载的保存hash表
 - (NSMutableDictionary *)httpsLoadingDictionary
 {

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^MiddleAdClickBlock)(NSInteger index);
+typedef void (^MiddleAdClickBlock)(NSString *url,NSString *title);
 @interface TXXLMiddelAdView : UIView
 @property (nonatomic, copy) MiddleAdClickBlock clickBlock;
-- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english dataArray:(NSArray *)data;
+- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english;
+- (void)setupContentWithDataArray:(NSArray *)data;
 @end

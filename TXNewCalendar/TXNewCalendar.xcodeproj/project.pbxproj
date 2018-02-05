@@ -13,7 +13,6 @@
 		953B0AD32024B5C1001BBE41 /* TXXLPublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 953B0AD22024B5C1001BBE41 /* TXXLPublicMethod.m */; };
 		953B175B201859DA00CA03E2 /* TXXLHourView.m in Sources */ = {isa = PBXBuildFile; fileRef = 953B175A201859DA00CA03E2 /* TXXLHourView.m */; };
 		9540D1A22015B394005F6751 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9540D1A12015B394005F6751 /* Assets.xcassets */; };
-		9540D1A52015B394005F6751 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9540D1A32015B394005F6751 /* LaunchScreen.storyboard */; };
 		9540D1A82015B394005F6751 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540D1A72015B394005F6751 /* main.m */; };
 		9540D22B2015BAD5005F6751 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9540D1B12015BAD5005F6751 /* AppDelegate.m */; };
 		9540D22C2015BAD5005F6751 /* TabBarSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9540D1B42015BAD5005F6751 /* TabBarSetting.plist */; };
@@ -135,6 +134,14 @@
 		A67490AB202598820039838F /* TXXLCalculateAdCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67490A9202598820039838F /* TXXLCalculateAdCell.xib */; };
 		A67490AE2025AB990039838F /* TXXLCalculateMaxButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490AD2025AB990039838F /* TXXLCalculateMaxButton.m */; };
 		A67490B12025ABC10039838F /* TXXLCalculateMinButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490B02025ABC10039838F /* TXXLCalculateMinButton.m */; };
+		A67490BE2027FC8F0039838F /* TXXLGuideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490BD2027FC8F0039838F /* TXXLGuideVC.m */; };
+		A67490CB202808730039838F /* guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A67490C7202808730039838F /* guide_1.png */; };
+		A67490CC202808730039838F /* guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A67490C8202808730039838F /* guide_0.png */; };
+		A67490CD202808740039838F /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A67490C9202808730039838F /* guide_2.png */; };
+		A67490CE202808740039838F /* guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A67490CA202808730039838F /* guide_3.png */; };
+		A67490D1202839CC0039838F /* TXXLCalculateHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D0202839CC0039838F /* TXXLCalculateHomeVM.m */; };
+		A67490D420283A0B0039838F /* TXXLCalculateHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D320283A0B0039838F /* TXXLCalculateHomeModel.m */; };
+		A67490D720283A3F0039838F /* TXXLCalculateModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */; };
 		A6B5663920214B7500E8DEFF /* TXXLPublicFestivelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */; };
 		A6B5663C2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663B2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m */; };
 		A6B5663F20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B5663E20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m */; };
@@ -146,6 +153,12 @@
 		A6B566C12021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566C02021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m */; };
 		A6B566C62021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566C52021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m */; };
 		A6B566C92021C21600E8DEFF /* TXXLAlmanacHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B566C82021C21600E8DEFF /* TXXLAlmanacHomeModel.m */; };
+		A6FEE4F52028516B00F55FCE /* TXXLWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4F42028516B00F55FCE /* TXXLWebVC.m */; };
+		A6FEE501202856BA00F55FCE /* PPSSAppVersionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4F8202856BA00F55FCE /* PPSSAppVersionViewModel.m */; };
+		A6FEE502202856BA00F55FCE /* PPSSAppVersionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4F9202856BA00F55FCE /* PPSSAppVersionModel.m */; };
+		A6FEE503202856BA00F55FCE /* PPSSAppVersionApi.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4FA202856BA00F55FCE /* PPSSAppVersionApi.m */; };
+		A6FEE504202856BA00F55FCE /* PPSSAppUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4FB202856BA00F55FCE /* PPSSAppUpdateView.m */; };
+		A6FEE505202856BA00F55FCE /* PPSSAppVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4FD202856BA00F55FCE /* PPSSAppVersionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -161,7 +174,6 @@
 		953B175D20186FBD00CA03E2 /* TXXLAlmanacHoursView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacHoursView.h; sourceTree = "<group>"; };
 		9540D1952015B394005F6751 /* TXNewCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXNewCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9540D1A12015B394005F6751 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9540D1A42015B394005F6751 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9540D1A62015B394005F6751 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9540D1A72015B394005F6751 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9540D1AF2015BAD5005F6751 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -402,6 +414,18 @@
 		A67490AD2025AB990039838F /* TXXLCalculateMaxButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateMaxButton.m; sourceTree = "<group>"; };
 		A67490AF2025ABC10039838F /* TXXLCalculateMinButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalculateMinButton.h; sourceTree = "<group>"; };
 		A67490B02025ABC10039838F /* TXXLCalculateMinButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateMinButton.m; sourceTree = "<group>"; };
+		A67490BC2027FC8F0039838F /* TXXLGuideVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLGuideVC.h; sourceTree = "<group>"; };
+		A67490BD2027FC8F0039838F /* TXXLGuideVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLGuideVC.m; sourceTree = "<group>"; };
+		A67490C7202808730039838F /* guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_1.png; sourceTree = "<group>"; };
+		A67490C8202808730039838F /* guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_0.png; sourceTree = "<group>"; };
+		A67490C9202808730039838F /* guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_2.png; sourceTree = "<group>"; };
+		A67490CA202808730039838F /* guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_3.png; sourceTree = "<group>"; };
+		A67490CF202839CC0039838F /* TXXLCalculateHomeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalculateHomeVM.h; sourceTree = "<group>"; };
+		A67490D0202839CC0039838F /* TXXLCalculateHomeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateHomeVM.m; sourceTree = "<group>"; };
+		A67490D220283A0B0039838F /* TXXLCalculateHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalculateHomeModel.h; sourceTree = "<group>"; };
+		A67490D320283A0B0039838F /* TXXLCalculateHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateHomeModel.m; sourceTree = "<group>"; };
+		A67490D520283A3F0039838F /* TXXLCalculateModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalculateModuleAPI.h; sourceTree = "<group>"; };
+		A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateModuleAPI.m; sourceTree = "<group>"; };
 		A6B5663720214B7500E8DEFF /* TXXLPublicFestivelCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicFestivelCell.h; sourceTree = "<group>"; };
 		A6B5663820214B7500E8DEFF /* TXXLPublicFestivelCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLPublicFestivelCell.m; sourceTree = "<group>"; };
 		A6B5663A2021580C00E8DEFF /* TXXLPublicFestivelRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLPublicFestivelRightCell.h; sourceTree = "<group>"; };
@@ -423,6 +447,18 @@
 		A6B566C52021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacModuleAPI.m; sourceTree = "<group>"; };
 		A6B566C72021C21600E8DEFF /* TXXLAlmanacHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacHomeModel.h; sourceTree = "<group>"; };
 		A6B566C82021C21600E8DEFF /* TXXLAlmanacHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacHomeModel.m; sourceTree = "<group>"; };
+		A6FEE4F32028516B00F55FCE /* TXXLWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLWebVC.h; sourceTree = "<group>"; };
+		A6FEE4F42028516B00F55FCE /* TXXLWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLWebVC.m; sourceTree = "<group>"; };
+		A6FEE4F7202856BA00F55FCE /* PPSSAppVersionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSAppVersionManager.h; sourceTree = "<group>"; };
+		A6FEE4F8202856BA00F55FCE /* PPSSAppVersionViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSAppVersionViewModel.m; sourceTree = "<group>"; };
+		A6FEE4F9202856BA00F55FCE /* PPSSAppVersionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSAppVersionModel.m; sourceTree = "<group>"; };
+		A6FEE4FA202856BA00F55FCE /* PPSSAppVersionApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSAppVersionApi.m; sourceTree = "<group>"; };
+		A6FEE4FB202856BA00F55FCE /* PPSSAppUpdateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSAppUpdateView.m; sourceTree = "<group>"; };
+		A6FEE4FC202856BA00F55FCE /* PPSSAppVersionViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSAppVersionViewModel.h; sourceTree = "<group>"; };
+		A6FEE4FD202856BA00F55FCE /* PPSSAppVersionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSAppVersionManager.m; sourceTree = "<group>"; };
+		A6FEE4FE202856BA00F55FCE /* PPSSAppVersionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSAppVersionModel.h; sourceTree = "<group>"; };
+		A6FEE4FF202856BA00F55FCE /* PPSSAppVersionApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSAppVersionApi.h; sourceTree = "<group>"; };
+		A6FEE500202856BA00F55FCE /* PPSSAppUpdateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSAppUpdateView.h; sourceTree = "<group>"; };
 		E87CD863AE8939FCAE3A08C1 /* Pods_TXNewCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TXNewCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -472,7 +508,6 @@
 				9540D1B22015BAD5005F6751 /* Resource */,
 				9540D25F2015BB55005F6751 /* Utils */,
 				9540D1A12015B394005F6751 /* Assets.xcassets */,
-				9540D1A32015B394005F6751 /* LaunchScreen.storyboard */,
 				9540D1A62015B394005F6751 /* Info.plist */,
 				9540D1A72015B394005F6751 /* main.m */,
 			);
@@ -497,6 +532,7 @@
 		9540D1B22015BAD5005F6751 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A67490B22027FBEF0039838F /* images */,
 				958FA5882026F2F70018185C /* DateManager */,
 				9540D1B32015BAD5005F6751 /* Plist */,
 				9540D2072015BAD5005F6751 /* View */,
@@ -522,6 +558,7 @@
 		9540D2072015BAD5005F6751 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A6FEE4F6202856BA00F55FCE /* VersionManager */,
 				A67490932025916A0039838F /* SCAdView */,
 				A674907A20244F420039838F /* HSPDatePickView.h */,
 				A674907920244F420039838F /* HSPDatePickView.m */,
@@ -530,6 +567,8 @@
 				9540D30A2015D39F005F6751 /* TXXLColorManager.h */,
 				953B0AD12024B5C1001BBE41 /* TXXLPublicMethod.h */,
 				953B0AD22024B5C1001BBE41 /* TXXLPublicMethod.m */,
+				A6FEE4F32028516B00F55FCE /* TXXLWebVC.h */,
+				A6FEE4F42028516B00F55FCE /* TXXLWebVC.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,6 +584,7 @@
 		9540D22A2015BAD5005F6751 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A67490BB2027FC6F0039838F /* PublicModule */,
 				9540D2D12015C361005F6751 /* AlmanacModule */,
 				9540D2DB2015C361005F6751 /* CalculateModule */,
 				9540D2E52015C361005F6751 /* CalendarModule */,
@@ -807,6 +847,8 @@
 		9540D2DC2015C361005F6751 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A67490CF202839CC0039838F /* TXXLCalculateHomeVM.h */,
+				A67490D0202839CC0039838F /* TXXLCalculateHomeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -814,6 +856,8 @@
 		9540D2DD2015C361005F6751 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A67490D220283A0B0039838F /* TXXLCalculateHomeModel.h */,
+				A67490D320283A0B0039838F /* TXXLCalculateHomeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -849,6 +893,8 @@
 		9540D2E02015C361005F6751 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				A67490D520283A3F0039838F /* TXXLCalculateModuleAPI.h */,
+				A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1134,6 +1180,26 @@
 			path = SCAdView;
 			sourceTree = "<group>";
 		};
+		A67490B22027FBEF0039838F /* images */ = {
+			isa = PBXGroup;
+			children = (
+				A67490C8202808730039838F /* guide_0.png */,
+				A67490C7202808730039838F /* guide_1.png */,
+				A67490C9202808730039838F /* guide_2.png */,
+				A67490CA202808730039838F /* guide_3.png */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		A67490BB2027FC6F0039838F /* PublicModule */ = {
+			isa = PBXGroup;
+			children = (
+				A67490BC2027FC8F0039838F /* TXXLGuideVC.h */,
+				A67490BD2027FC8F0039838F /* TXXLGuideVC.m */,
+			);
+			path = PublicModule;
+			sourceTree = "<group>";
+		};
 		A6B5664C2021869F00E8DEFF /* CompassView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1189,6 +1255,23 @@
 				A6B566C52021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		A6FEE4F6202856BA00F55FCE /* VersionManager */ = {
+			isa = PBXGroup;
+			children = (
+				A6FEE4F7202856BA00F55FCE /* PPSSAppVersionManager.h */,
+				A6FEE4F8202856BA00F55FCE /* PPSSAppVersionViewModel.m */,
+				A6FEE4F9202856BA00F55FCE /* PPSSAppVersionModel.m */,
+				A6FEE4FA202856BA00F55FCE /* PPSSAppVersionApi.m */,
+				A6FEE4FB202856BA00F55FCE /* PPSSAppUpdateView.m */,
+				A6FEE4FC202856BA00F55FCE /* PPSSAppVersionViewModel.h */,
+				A6FEE4FD202856BA00F55FCE /* PPSSAppVersionManager.m */,
+				A6FEE4FE202856BA00F55FCE /* PPSSAppVersionModel.h */,
+				A6FEE4FF202856BA00F55FCE /* PPSSAppVersionApi.h */,
+				A6FEE500202856BA00F55FCE /* PPSSAppUpdateView.h */,
+			);
+			path = VersionManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1255,16 +1338,19 @@
 			files = (
 				95F15D072016E7B600E1340E /* earthlyBranches.plist in Resources */,
 				9540D2CA2015BB56005F6751 /* webviewmore@3x.png in Resources */,
-				9540D1A52015B394005F6751 /* LaunchScreen.storyboard in Resources */,
 				95F15D012016E67100E1340E /* chineseMonth.plist in Resources */,
 				9540D1A22015B394005F6751 /* Assets.xcassets in Resources */,
 				95EFF206201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.xib in Resources */,
 				9540D22C2015BAD5005F6751 /* TabBarSetting.plist in Resources */,
 				95CB5586201FFBF000B45447 /* TXXLMoreHeaderReusableView.xib in Resources */,
 				95F15CFF2016E5DF00E1340E /* zodiacs.plist in Resources */,
+				A67490CD202808740039838F /* guide_2.png in Resources */,
+				A67490CE202808740039838F /* guide_3.png in Resources */,
 				9540D2CB2015BB56005F6751 /* webviewmore@2x.png in Resources */,
 				A67490AB202598820039838F /* TXXLCalculateAdCell.xib in Resources */,
 				9590A67C201ACFEB0063FDDE /* Info.plist in Resources */,
+				A67490CB202808730039838F /* guide_1.png in Resources */,
+				A67490CC202808730039838F /* guide_0.png in Resources */,
 				95F15D052016E77800E1340E /* heavenlyStems.plist in Resources */,
 				95F15D032016E6CF00E1340E /* chineseDay.plist in Resources */,
 				A6B566442021671200E8DEFF /* twenty-fourSolarTerms.plist in Resources */,
@@ -1346,11 +1432,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6FEE502202856BA00F55FCE /* PPSSAppVersionModel.m in Sources */,
 				9540D3032015C51F005F6751 /* TXXLRootTabBarVC.m in Sources */,
 				953B0ACD20248BA5001BBE41 /* TXXLCalendarHomeVM.m in Sources */,
 				9540D2C92015BB56005F6751 /* LSKBaseWebViewController.m in Sources */,
 				9540D2C72015BB56005F6751 /* SKHUD.m in Sources */,
 				A67490A6202593740039838F /* TXXLBottonAdView.m in Sources */,
+				A67490D720283A3F0039838F /* TXXLCalculateModuleAPI.m in Sources */,
 				95EFF1E6201EB90A00FA27A5 /* TXXLSuitAvoidVC.m in Sources */,
 				953B0AD32024B5C1001BBE41 /* TXXLPublicMethod.m in Sources */,
 				9540D2BB2015BB56005F6751 /* UISearchBar+Extend.m in Sources */,
@@ -1369,6 +1457,7 @@
 				95F15D1C20172B7900E1340E /* TXXLAlimanacHomeLbl4View.m in Sources */,
 				9540D2B82015BB56005F6751 /* NSNotificationCenter+Extend.m in Sources */,
 				A6B5663920214B7500E8DEFF /* TXXLPublicFestivelCell.m in Sources */,
+				A67490D420283A0B0039838F /* TXXLCalculateHomeModel.m in Sources */,
 				9540D2C82015BB56005F6751 /* LSKLineTableView.m in Sources */,
 				95CB55B0202094C200B45447 /* TXXLTwentyFourSolarTermsView.m in Sources */,
 				95F15D1620172B5A00E1340E /* TXXLAlimanacHomeLbl5View.m in Sources */,
@@ -1376,6 +1465,7 @@
 				95EFF1E9201EF37E00FA27A5 /* TXXLSuitAvoidNatigationView.m in Sources */,
 				9590A672201ACFEB0063FDDE /* FSCalendar.m in Sources */,
 				9540D2CF2015BB56005F6751 /* LSKWebEventHandleManager.m in Sources */,
+				A67490D1202839CC0039838F /* TXXLCalculateHomeVM.m in Sources */,
 				A67490A02025932A0039838F /* TXXLMiddelAdView.m in Sources */,
 				9590A66E201ACFEB0063FDDE /* FSCalendarDelegationProxy.m in Sources */,
 				A6B566C12021AD3E00E8DEFF /* TXXLAlmanacHomeVM.m in Sources */,
@@ -1388,6 +1478,7 @@
 				9540D2B12015BB56005F6751 /* LSKHttpManager.m in Sources */,
 				9540D2B42015BB56005F6751 /* UIViewController+Extend.m in Sources */,
 				9590A679201ACFEB0063FDDE /* FSCalendarCalculator.m in Sources */,
+				A6FEE4F52028516B00F55FCE /* TXXLWebVC.m in Sources */,
 				9540D2B52015BB56005F6751 /* UITableView+Extend.m in Sources */,
 				9540D2D02015BB56005F6751 /* LSKActionSheetView.m in Sources */,
 				9540D2C12015BB56005F6751 /* LSKImageManager.m in Sources */,
@@ -1412,6 +1503,7 @@
 				9540D2BE2015BB56005F6751 /* LSKBaseViewModel.m in Sources */,
 				9540D2B22015BB56005F6751 /* LSKParamterEntity.m in Sources */,
 				9540D2C22015BB56005F6751 /* LSKViewFactory.m in Sources */,
+				A6FEE504202856BA00F55FCE /* PPSSAppUpdateView.m in Sources */,
 				9540D1A82015B394005F6751 /* main.m in Sources */,
 				9540D2B62015BB56005F6751 /* UIBarButtonItem+Extend.m in Sources */,
 				95CB5596202071A400B45447 /* TXXLHoursDetailVC.m in Sources */,
@@ -1421,6 +1513,7 @@
 				95CB55AA202091EB00B45447 /* TXXLFestivalListVC.m in Sources */,
 				A6B566C92021C21600E8DEFF /* TXXLAlmanacHomeModel.m in Sources */,
 				9540D3092015D368005F6751 /* TXXLViewManager.m in Sources */,
+				A67490BE2027FC8F0039838F /* TXXLGuideVC.m in Sources */,
 				95CB55B3202094E000B45447 /* TXXLHolidaysListView.m in Sources */,
 				9540D2BC2015BB56005F6751 /* NSArray+Extend.m in Sources */,
 				A6B5663F20215A0800E8DEFF /* TXXLHolidaysTableViewCell.m in Sources */,
@@ -1440,9 +1533,11 @@
 				9540D2B32015BB56005F6751 /* NSTimer+Extend.m in Sources */,
 				A6B56650202186D800E8DEFF /* TXXLCompassDetailVC.m in Sources */,
 				A6B566C62021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m in Sources */,
+				A6FEE503202856BA00F55FCE /* PPSSAppVersionApi.m in Sources */,
 				9540D2CC2015BB56005F6751 /* LSKBaseWebView.m in Sources */,
 				A6749072202412900039838F /* TXXLSearchDetailListModel.m in Sources */,
 				9590A671201ACFEB0063FDDE /* FSCalendarStickyHeader.m in Sources */,
+				A6FEE501202856BA00F55FCE /* PPSSAppVersionViewModel.m in Sources */,
 				A67490992025916A0039838F /* SCAdCollectionViewLayout.m in Sources */,
 				A674909020255F330039838F /* TXXLHolidaysListModel.m in Sources */,
 				9540D2CD2015BB56005F6751 /* LSKWebView.m in Sources */,
@@ -1464,6 +1559,7 @@
 				A67490662022F4600039838F /* TXXLSuitAvoidHeaderView.m in Sources */,
 				A6B5663C2021580C00E8DEFF /* TXXLPublicFestivelRightCell.m in Sources */,
 				9540D30D2015E335005F6751 /* TXXLAlmanacDateView.m in Sources */,
+				A6FEE505202856BA00F55FCE /* PPSSAppVersionManager.m in Sources */,
 				95CB559A2020728300B45447 /* TXXLHoursDetailCell.m in Sources */,
 				9590A67B201ACFEB0063FDDE /* FSCalendarTransitionCoordinator.m in Sources */,
 				A6749081202462D50039838F /* TXXLCalendarModuleAPI.m in Sources */,
@@ -1473,17 +1569,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9540D1A32015B394005F6751 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9540D1A42015B394005F6751 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9540D1A92015B394005F6751 /* Debug */ = {
@@ -1595,14 +1680,15 @@
 			baseConfigurationReference = 6B4AFA573DCA220505AC589C /* Pods-TXNewCalendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 776C9KS82H;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXNewCalendar/BaseConfig/TXNewCalendar_PrefixHeader.pch";
 				INFOPLIST_FILE = TXNewCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.txapp.txxl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.almanac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1613,14 +1699,15 @@
 			baseConfigurationReference = 967DCDBCBDD8C2ED20C01B01 /* Pods-TXNewCalendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 776C9KS82H;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXNewCalendar/BaseConfig/TXNewCalendar_PrefixHeader.pch";
 				INFOPLIST_FILE = TXNewCalendar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.txapp.txxl;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.almanac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -10,5 +10,7 @@ pod 'YYModel'
 pod 'FDFullscreenPopGesture'
 pod 'MJRefresh'
 pod 'TPKeyboardAvoiding'
-#pod 'FSCalendar'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+pod 'AlicloudMAN'
 end
