@@ -59,6 +59,7 @@
 - (void)loadSucess:(id)data {
     _dataArray = data;
     [self.mainTableView reloadData];
+    [self loadError];
 }
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

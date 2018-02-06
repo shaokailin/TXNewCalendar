@@ -42,6 +42,7 @@ static NSString * const kHolidaysListPlist = @"holiday.plist";
 }
 - (void)loadError {
     [self.mainTableView.mj_header endRefreshing];
+    
 }
 - (void)loadSucess:(id)data {
     if ([data isKindOfClass:[NSDictionary class]]) {
@@ -58,6 +59,7 @@ static NSString * const kHolidaysListPlist = @"holiday.plist";
         
     }
     [self.mainTableView reloadData];
+    [self loadError];
 }
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

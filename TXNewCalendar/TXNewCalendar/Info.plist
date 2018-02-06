@@ -55,15 +55,15 @@
 		<true/>
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
-	<string>是否允许天象新历访问您的日历？</string>
+	<string>是否允许天象黄历访问您的日历？</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>是否允许天象新历访问您的地理位置？</string>
+	<string>是否允许天象黄历访问您的地理位置？</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>是否允许天象新历访问您的地理位置？</string>
+	<string>是否允许天象黄历访问您的地理位置？</string>
 	<key>NSLocationUsageDescription</key>
-	<string>是否允许天象新历访问您的地理位置？</string>
+	<string>是否允许天象黄历访问您的地理位置？</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>是否允许天象新历访问您的地理位置？</string>
+	<string>是否允许天象黄历访问您的地理位置？</string>
 	<key>UIMainStoryboardFile</key>
 	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -76,9 +76,19 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>MiSDKAppID</key>
+	<string>2882303761517712375</string>
+	<key>MiSDKAppKey</key>
+	<string>5121771280375</string>
+	<key>MiSDKRun</key>
+	<string>${MiSDKRun}</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许天象黄历访问您的相机？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许天象黄历访问您的相册？</string>
 </dict>
 </plist>

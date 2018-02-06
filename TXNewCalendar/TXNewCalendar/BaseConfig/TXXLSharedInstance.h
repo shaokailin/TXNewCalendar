@@ -9,6 +9,7 @@
 #import "LSKMessageManage.h"
 
 @interface TXXLSharedInstance : LSKMessageManage
+@property (nonatomic, copy) NSString *iphoneIdentifier;
 + (TXXLSharedInstance *)sharedInstance;
 - (void)hidenAlertView;
 - (void)showAlertView:(id)alertView weight:(NSInteger)weight;
@@ -18,4 +19,5 @@
 - (void)analiticsViewDisappear:(UIViewController *)vc;
 - (void)setupViewProperties:(UIViewController *)vc url:(NSString *)url name:(NSString *)name;
 - (void)analiticsPay:(NSInteger)payType;
+
 @end

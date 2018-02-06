@@ -8,16 +8,16 @@
 
 #import "UIBarButtonItem+Extend.h"
 #import "NSString+Extend.h"
-static const CGFloat kBARBUTTONITEMHEIGHT = 25.0;//按钮的宽高
-static const CGFloat kBARBUTTONITEMWIDTH = 30;//按钮的宽高
-static const CGFloat kBARBUTTONITEMSPACEWIDTH = -15.0;//空白 UIBarButtonItem 的大小
+static const CGFloat kBARBUTTONITEMHEIGHT = 40.0;//按钮的宽高
+static const CGFloat kBARBUTTONITEMWIDTH = 45;//按钮的宽高
+static const CGFloat kBARBUTTONITEMSPACEWIDTH = -10.0;//空白 UIBarButtonItem 的大小
 
 @implementation UIBarButtonItem (Extend)
 //添加空白按钮
 + (UIBarButtonItem *)initBarButtonItemSpace
 {
     UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    negativeSpacer.width = kBARBUTTONITEMSPACEWIDTH;
+    negativeSpacer.width = -16;
     return negativeSpacer;
 }
 
@@ -52,15 +52,11 @@ static const CGFloat kBARBUTTONITEMSPACEWIDTH = -15.0;//空白 UIBarButtonItem �
     if (target && action) {
         [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
-    
-    if ([LSKPublicMethodUtil getiOSSystemVersion] >= 11.0) {
-        if (isRight) {
-            button.contentEdgeInsets =UIEdgeInsetsMake(0, 0,0, kBARBUTTONITEMSPACEWIDTH);
-        }else {
-            button.contentEdgeInsets =UIEdgeInsetsMake(0, kBARBUTTONITEMSPACEWIDTH,0, 0);
-        }
+    if (isRight) {
+        button.contentEdgeInsets =UIEdgeInsetsMake(0, 0,0, kBARBUTTONITEMSPACEWIDTH);
+    }else {
+        button.contentEdgeInsets =UIEdgeInsetsMake(0, kBARBUTTONITEMSPACEWIDTH,0, 0);
     }
-    
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     return buttonItem;
 }

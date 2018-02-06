@@ -183,11 +183,14 @@ static const NSInteger kWeb_Progress_View_Tag = 5001;
 -(void)createNavigationLeftItem {
     if (!_m_closeButton) {
         _m_closeButton = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:@"guanbi" selectedImage:nil target:self action:@selector(closeViewBack) textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
-        _m_closeButton.frame = CGRectMake(0, 0, 20, 20);
+        _m_closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+        _m_closeButton.frame = CGRectMake(0, 0, 35, 40);
         _m_closeButton.hidden = YES;
-        self.navigationItem.leftBarButtonItem = nil;
+//        self.navigationItem.leftBarButtonItem = nil;
         UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_m_closeButton];
-        UIBarButtonItem *backButtonItem = [UIBarButtonItem initBarButtonItemWithNornalImage:@"navi_back" seletedImage:nil title:nil font:0 fontColor:nil target:self action:@selector(backClick) isRight:NO];
+        UIButton *backButton = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:@"navi_back" selectedImage:nil target:self action:@selector(backClick) textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
+        backButton.frame = CGRectMake(0, 0, 35, 40);
+        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
         [self addNavigationLeftButtons:@[backButtonItem,closeButtonItem]];
     }
 }

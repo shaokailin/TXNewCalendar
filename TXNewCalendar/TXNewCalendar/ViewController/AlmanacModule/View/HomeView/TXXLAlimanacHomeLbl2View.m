@@ -30,24 +30,28 @@
 }
 - (void)_layoutMainView {
     _topLbl = [TXXLViewManager customAppLbl:nil font:14];
+    _topLbl.textAlignment = 1;
     [self addSubview:_topLbl];
     WS(ws)
     UILabel *middleLbl = [TXXLViewManager customDetailLbl:nil font:10];
     _middleLbl = middleLbl;
+    middleLbl.textAlignment = 1;
     [self addSubview:middleLbl];
     [middleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(ws);
+        make.left.equalTo(ws).with.offset(3);
+        make.right.equalTo(ws).with.offset(-3);
         make.centerY.equalTo(ws).with.offset(2);
     }];
     [_topLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(middleLbl.mas_top).with.offset(-3);
-        make.centerX.equalTo(ws);
+        make.left.right.equalTo(middleLbl);
     }];
     _bottomLbl = [TXXLViewManager customDetailLbl:nil font:10];
+    _bottomLbl.textAlignment = 1;
     [self addSubview:_bottomLbl];
     [_bottomLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(middleLbl.mas_bottom).with.offset(3);
-        make.centerX.equalTo(ws);
+        make.left.right.equalTo(middleLbl);
     }];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showDetail)];
     [self addGestureRecognizer:tap];

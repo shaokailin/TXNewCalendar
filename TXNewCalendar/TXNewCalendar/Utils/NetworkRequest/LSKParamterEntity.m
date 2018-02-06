@@ -13,7 +13,7 @@
     if (self = [super init]) {
         _requestType = HTTPRequestType_POST;
         NSInteger time = round([[NSDate date]timeIntervalSince1970]);;
-        _params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"7",@"app_id",NSStringFormat(@"%ld",time),@"request_time", nil];
+        _params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"7",@"app_id",NSStringFormat(@"%ld",time),@"request_time",kUserMessageManager.iphoneIdentifier,@"phoneId", nil];
     }
     return self;
 }

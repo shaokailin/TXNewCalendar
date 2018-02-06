@@ -44,6 +44,7 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
 - (void)loadSucess:(id)data {
     _messageArray = data;
     [self.mainCollectionView reloadData];
+     [self loadError];
 }
 #pragma mark --UICollectionViewDataSource
 //定义展示的UICollectionViewCell的个数

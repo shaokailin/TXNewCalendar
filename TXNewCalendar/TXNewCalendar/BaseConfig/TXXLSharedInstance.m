@@ -9,6 +9,8 @@
 #import "TXXLSharedInstance.h"
 #import "SynthesizeSingleton.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
+#import <AdSupport/AdSupport.h>
+NSString * const KEY_UUID_INSTEAD = @"com.tx.almanac";
 @interface TXXLSharedInstance ()
 {
     BOOL _isShow;
@@ -19,7 +21,12 @@
 @end
 @implementation TXXLSharedInstance
 SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
-
+- (instancetype)init {
+    if (self = [super init]) {
+        _iphoneIdentifier = [self getDeviceIDInKeychain];
+    }
+    return self;
+}
 
 #pragma mark -统计
 - (void)analiticsViewAppear:(UIViewController *)vc {
@@ -60,6 +67,69 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     NSDictionary *dic = [customBuilder build];
     [traker send:dic];
 }
+#pragma mark - 手机的唯一标识
+
+- (NSString *)getDeviceIDInKeychain {
+    NSString *getUDIDInKeychain = (NSString *)[self load:KEY_UUID_INSTEAD];
+    if (!getUDIDInKeychain || [getUDIDInKeychain isEqualToString:@""] || [getUDIDInKeychain isKindOfClass:[NSNull class]]) {
+        CFUUIDRef puuid = CFUUIDCreate(nil);
+        CFStringRef uuidString  = CFUUIDCreateString(nil, puuid);
+        NSString *result        = (NSString *)CFBridgingRelease(CFStringCreateCopy(NULL, uuidString));
+        CFRelease(puuid);
+        CFRelease(uuidString);
+        LSKLog(@"\n \n \n ______重新存储uuid __________\n \n \n %@",result);
+        [self save:KEY_UUID_INSTEAD data:result];
+        getUDIDInKeychain = (NSString *)[self load:KEY_UUID_INSTEAD];
+    }
+    LSKLog(@"最终——————UDID_INSTEAD %@",getUDIDInKeychain);
+    return getUDIDInKeychain;
+}
+- (void)deleteKeyChain {
+    [self delete:KEY_UUID_INSTEAD];
+}
+- (NSMutableDictionary *)getKeychainQuery:(NSString *)service {
+    return [NSMutableDictionary dictionaryWithObjectsAndKeys:
+            (__bridge_transfer id)kSecClassGenericPassword,(__bridge_transfer id)kSecClass,
+            service, (__bridge_transfer id)kSecAttrService,
+            service, (__bridge_transfer id)kSecAttrAccount,
+            (__bridge_transfer id)kSecAttrAccessibleAfterFirstUnlock,(__bridge_transfer id)kSecAttrAccessible,
+            nil];
+}
+
+- (id) load:(NSString *)service {
+    id ret = nil;
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    //Configure the search setting
+    [keychainQuery setObject:(id)kCFBooleanTrue forKey:(__bridge_transfer id)kSecReturnData];
+    [keychainQuery setObject:(__bridge_transfer id)kSecMatchLimitOne forKey:(__bridge_transfer id)kSecMatchLimit];
+    CFDataRef keyData = NULL;
+    if (SecItemCopyMatching((__bridge_retained CFDictionaryRef)keychainQuery, (CFTypeRef *)&keyData) == noErr) {
+        @try {
+            ret = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge_transfer NSData *)keyData];
+        } @catch (NSException *e) {
+            NSLog(@"Unarchive of %@ failed: %@", service, e);
+        } @finally {
+        }
+    }
+    return ret;
+}
+
+- (void)delete:(NSString *)service {
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    SecItemDelete((__bridge_retained CFDictionaryRef)keychainQuery);
+}
+
+- (void)save:(NSString *)service data:(id)data {
+    // Get search dictionary
+    NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+    // Delete old item before add new item
+    SecItemDelete((__bridge_retained CFDictionaryRef)keychainQuery);
+    // Add new object to search dictionary(Attention:the data format)
+    [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data] forKey:(__bridge_transfer id)kSecValueData];
+    // Add item to keychain with the search dictionary
+    SecItemAdd((__bridge_retained CFDictionaryRef)keychainQuery, NULL);
+}
+
 #pragma mark 提示框的控制
 //最大是3个
 - (void)showAlertView:(id)alertView weight:(NSInteger)weight {
