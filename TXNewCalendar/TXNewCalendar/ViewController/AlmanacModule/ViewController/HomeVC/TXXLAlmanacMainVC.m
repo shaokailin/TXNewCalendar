@@ -37,17 +37,19 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
     [self bindSignal];
-    
+    [kUserMessageManager setupViewProperties:self url:nil name:@"黄历首页"];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _isViewIndex = YES;
     [self.mainTimeView viewDidAppearStartHeading];
+    [kUserMessageManager analiticsViewAppear:self];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     _isViewIndex = NO;
     [self.mainTimeView viewDidDisappearStopHeading];
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 
 #pragma mark 网络请求
@@ -63,8 +65,8 @@
             }
         }
     } failure:^(NSUInteger identifier, NSError *error) {
-//        @strongify(self)
-//        self.mainTimeView
+        @strongify(self)
+        [self.mainTimeView setupNilDate];
     }];
     [self loadData:YES];
 }

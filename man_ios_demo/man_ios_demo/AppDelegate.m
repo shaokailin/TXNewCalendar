@@ -30,7 +30,6 @@
     
     // 初始化MAN
     [man initWithAppKey:testAppKey secretKey:testAppSecret];
-    
     return YES;
 }
 

@@ -12,4 +12,10 @@
 + (TXXLSharedInstance *)sharedInstance;
 - (void)hidenAlertView;
 - (void)showAlertView:(id)alertView weight:(NSInteger)weight;
+
+//统计
+- (void)analiticsViewAppear:(UIViewController *)vc;
+- (void)analiticsViewDisappear:(UIViewController *)vc;
+- (void)setupViewProperties:(UIViewController *)vc url:(NSString *)url name:(NSString *)name;
+- (void)analiticsPay:(NSInteger)payType;
 @end

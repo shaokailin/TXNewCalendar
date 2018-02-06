@@ -20,6 +20,15 @@
     self.navigationItem.title = @"古神罗盘";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"古神罗盘"];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
 }
 - (void)initializeMainView {
     TXXLCompassDetailView *compassView = [[TXXLCompassDetailView alloc]init];

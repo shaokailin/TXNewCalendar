@@ -10,6 +10,11 @@
 #import "TXXLRootTabBarVC.h"
 #import "TXXLGuideVC.h"
 #import "PPSSAppVersionManager.h"
+#import <AlicloudMobileAnalitics/ALBBMAN.h>
+static NSString * const kAliAanaliticsKey = @"24796510";
+static NSString * const kAliAanaliticsSecret = @"8530aeab85d9ed304efc98bc0afddb50";
+static NSString * const kAliAanaliticssetChannel = @"APP Store";
+static const BOOL kIsOnline = YES;
 @interface AppDelegate ()
 @property (nonatomic, strong) TXXLRootTabBarVC *rootTabBarVC;
 @property (nonatomic, strong) PPSSAppVersionManager *appVersionManager;
@@ -24,8 +29,21 @@
     //设置导航栏的全局样式
     [LSKViewFactory setupMainNavigationBgColor:KColorUtilsString(kNavigationBackground_Color) titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
     [self windowRootController];
+    [self registerAnalytics];
     [self.window makeKeyAndVisible];
     return YES;
+}
+- (void)registerAnalytics {
+    // 获取MAN服务
+    ALBBMANAnalytics *man = [ALBBMANAnalytics getInstance];
+    if (!kIsOnline) {
+        // 打开调试日志，线上建议关闭
+        [man turnOnDebug];
+    }
+    // 初始化MAN
+    [man initWithAppKey:kAliAanaliticsKey secretKey:kAliAanaliticsSecret];
+    [man setAppVersion:[LSKPublicMethodUtil getAppVersion]];
+    [man setChannel:kAliAanaliticssetChannel];
 }
 - (void)windowRootController {
     BOOL isHasShow = [kUserMessageManager getMessageManagerForBoolWithKey:kGuide_Is_Has_Show];

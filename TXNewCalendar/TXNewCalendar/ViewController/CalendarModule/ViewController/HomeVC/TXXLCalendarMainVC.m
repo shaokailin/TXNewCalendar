@@ -40,7 +40,17 @@
     [self setupDefaultDate];
     [self bindSignal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCalendarDate:) name:kCalendarDateChange object:nil];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"万年历首页"];
 }
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
+}
+
 #pragma mark - 网络加载
 - (void)bindSignal {
     @weakify(self)

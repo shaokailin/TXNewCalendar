@@ -41,14 +41,19 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
     [self initializeMainView];
     [self getSaveData];
     [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"测算首页"];
 }
+
+
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.bannerScrollerView viewDidAppearStartRun];
+    [kUserMessageManager analiticsViewAppear:self];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self.bannerScrollerView viewDidDisappearStop];
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 #pragma mark - 事件处理
 - (void)bottonActionClick:(NSInteger)type index:(NSInteger)index {
@@ -90,7 +95,7 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
 - (void)jumpWebView:(NSString *)title url:(NSString *)url {
     if (KJudgeIsNullData(url)) {
         TXXLWebVC *webVC = [[TXXLWebVC alloc]init];
-//        webVC.titleString = title;
+        webVC.titleString = title;
         webVC.loadUrl = url;
         webVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:webVC animated:YES];

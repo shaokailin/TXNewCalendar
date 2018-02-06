@@ -26,6 +26,7 @@
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"黄历现代文"];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -36,6 +37,11 @@
 //            [self.mainScrollView scrollRectToVisible:view.frame animated:YES];
         }
     }
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 - (void)bindSignal {
     @weakify(self)

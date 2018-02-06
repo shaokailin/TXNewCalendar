@@ -33,6 +33,15 @@
     [self addNavigationBackButton];
     [self bindSignal];
     [self initializeMainView];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"节日节气"];
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 #pragma mark -数据
 - (void)bindSignal {

@@ -33,6 +33,15 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:self.titleString];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
 }
 #pragma mark - 网络请求
 - (void)bindSignal {

@@ -33,6 +33,7 @@
     [self initializeNavigationTitleView];
     [self initializeMainView];
     [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"更多吉日"];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -44,12 +45,14 @@
         }
         _selectIndexPath = nil;
     }
+    [kUserMessageManager analiticsViewAppear:self];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (_titleView && _titleView.superview == nil) {
         self.navigationItem.titleView = _titleView;
     }
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 #pragma mark - 数据加载
 - (void)bindSignal {

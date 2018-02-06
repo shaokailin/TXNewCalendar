@@ -20,6 +20,15 @@
     self.navigationItem.title = @"时辰宜忌";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"时辰宜忌"];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

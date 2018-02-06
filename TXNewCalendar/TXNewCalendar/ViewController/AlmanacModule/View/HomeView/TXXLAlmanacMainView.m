@@ -142,13 +142,16 @@
 //日期修改的时候进行修改内容时间
 - (void)changeDateEvent {
     [self.dateView setupDateContent:_currentDate];
-    [self.messageView setupNilContent];
     BOOL isToday = [NSDate isTimestampToToday:[_currentDate timeIntervalSince1970]];
     if (!isToday) {
         [self.hoursView currentHourChange:-1];
     }else {
         [self.hoursView currentHourChange:_currentIndexHour];
     }
+}
+- (void)setupNilDate {
+    [self.messageView setupNilContent];
+    [self setupTimeHourDafaultValue];
 }
 //信息的点击事件
 - (void)messageViewClickEvent:(MessageEventType) type index:(NSInteger)index {
@@ -171,6 +174,7 @@
     _currentDate = [NSDate date];
     _currentIndexHour = -1;
     [self setupTimeHourDafaultValue];
+    [self.messageView setupNilContent];
     [self changeDateEvent];
 }
 #pragma mark- 时辰设置
