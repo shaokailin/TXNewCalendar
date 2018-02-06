@@ -9,6 +9,7 @@
 #import "LSKBaseViewController.h"
 #import "LSKWebViewConfig.h"
 @interface LSKBaseWebViewController : LSKBaseViewController
+@property (assign, nonatomic) BOOL isPush;
 //是否需要js交互
 @property (assign ,nonatomic,readwrite) BOOL isGetJsBrirge;
 //是否需要返回出现关闭按钮

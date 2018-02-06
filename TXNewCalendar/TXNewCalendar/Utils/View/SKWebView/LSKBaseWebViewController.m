@@ -182,16 +182,21 @@ static const NSInteger kWeb_Progress_View_Tag = 5001;
 }
 -(void)createNavigationLeftItem {
     if (!_m_closeButton) {
+        UIView *navigaionLeftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 80, self.navibarHeight)];
+        UIButton *backButton = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:@"navi_back" selectedImage:nil target:self action:@selector(backClick) textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0);
+        backButton.frame = CGRectMake(0, (self.navibarHeight - 40) / 2.0, 40, 40);
+        [navigaionLeftView addSubview:backButton];
         _m_closeButton = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:@"guanbi" selectedImage:nil target:self action:@selector(closeViewBack) textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
         _m_closeButton.imageEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
-        _m_closeButton.frame = CGRectMake(0, 0, 35, 40);
+        _m_closeButton.frame = CGRectMake(40, (self.navibarHeight - 40) / 2.0, 35, 40);
+        [navigaionLeftView addSubview:_m_closeButton];
         _m_closeButton.hidden = YES;
 //        self.navigationItem.leftBarButtonItem = nil;
-        UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_m_closeButton];
-        UIButton *backButton = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:@"navi_back" selectedImage:nil target:self action:@selector(backClick) textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
-        backButton.frame = CGRectMake(0, 0, 40, 40);
-        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
-        [self addNavigationLeftButtons:@[backButtonItem,closeButtonItem]];
+        UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc]initWithCustomView:navigaionLeftView];
+//
+//        UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
+        [self addNavigationLeftButton:closeButtonItem];
     }
 }
 - (void)closeViewBack {

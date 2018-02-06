@@ -21,8 +21,7 @@ static const BOOL kIsOnline = NO;
 @interface AppDelegate ()<MiPushSDKDelegate,UNUserNotificationCenterDelegate>
 {
     BOOL _isRegisterIphone;
-    BOOL _isRegisterApp;
-    BOOL _isRegisterToken;
+    BOOL _isFackground;
 }
 @property (nonatomic, strong) TXXLRootTabBarVC *rootTabBarVC;
 @property (nonatomic, strong) PPSSAppVersionManager *appVersionManager;
@@ -157,7 +156,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
         // Fallback on earlier versions
     }
     if (@available(iOS 10.0, *)) {
-        completionHandler(UNNotificationPresentationOptionAlert);
+        completionHandler(UNNotificationPresentationOptionSound);
     } else {
         // Fallback on earlier versions
     }
@@ -169,6 +168,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     if (@available(iOS 10.0, *)) {
         if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+            _isFackground = YES;
             [MiPushSDK handleReceiveRemoteNotification:userInfo];
             NSString *messageId = [userInfo objectForKey:@"_id_"];
             if (messageId!=nil) {
@@ -185,10 +185,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     if ([selector isEqualToString:@"registerMiPush:"]) {
         //注册成功
     }else if ([selector isEqualToString:@"registerApp"]) {
-        _isRegisterApp = YES;
-        [self registerAlias];
+        
     }else if ([selector isEqualToString:@"bindDeviceToken:"]) {
-        _isRegisterToken = YES;
         [self registerAlias];
     }else if ([selector isEqualToString:@"unregisterMiPush"]) {
         //注册失败
@@ -198,7 +196,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     }
 }
 - (void)registerAlias {
-    if (!_isRegisterIphone && _isRegisterApp && _isRegisterToken) {
+    if (!_isRegisterIphone) {
         [MiPushSDK setAlias:kUserMessageManager.iphoneIdentifier];
     }
 }
@@ -211,6 +209,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     // 1.当启动长连接时, 收到消息会回调此处
     // 2.[MiPushSDK handleReceiveRemoteNotification]
     //   当使用此方法后会把APNs消息导入到此
+    NSInteger state = [UIApplication sharedApplication].applicationState;
+    LSKLog(@"%ld",state);
     [self actionEventWithUserInfo:data];
 }
 
@@ -229,7 +229,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
             NSInteger state = [UIApplication sharedApplication].applicationState;
             NSString *content = [userInfo objectForKey:@"url"];
             if (_rootTabBarVC && KJudgeIsNullData(content)) {
-                if (state == 0) {
+                if (state == 0 && !_isFackground) {
+                    _isFackground = NO;
                     UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"收到消息" message:title delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"去查看", nil];
                     @weakify(self)
                     [alterView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
@@ -241,6 +242,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
                     }];
                     [kUserMessageManager showAlertView:alterView weight:3];
                 }else {
+                    _isFackground = NO;
                     [self jumpWebView:title url:content];
                 }
             }
