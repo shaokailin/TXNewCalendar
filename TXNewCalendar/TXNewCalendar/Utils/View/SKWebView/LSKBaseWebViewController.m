@@ -189,7 +189,7 @@ static const NSInteger kWeb_Progress_View_Tag = 5001;
 //        self.navigationItem.leftBarButtonItem = nil;
         UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_m_closeButton];
         UIButton *backButton = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:@"navi_back" selectedImage:nil target:self action:@selector(backClick) textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
-        backButton.frame = CGRectMake(0, 0, 35, 40);
+        backButton.frame = CGRectMake(0, 0, 40, 40);
         UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc]initWithCustomView:backButton];
         [self addNavigationLeftButtons:@[backButtonItem,closeButtonItem]];
     }
