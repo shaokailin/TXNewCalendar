@@ -224,6 +224,8 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
         datePick.dateBlock = ^(NSDate *date) {
             [ws datePickSelect:date];
         };
+        datePick.minDate = [NSDate date];
+        datePick.maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
         _datePickView = datePick;
         [[UIApplication sharedApplication].keyWindow addSubview:datePick];
     }

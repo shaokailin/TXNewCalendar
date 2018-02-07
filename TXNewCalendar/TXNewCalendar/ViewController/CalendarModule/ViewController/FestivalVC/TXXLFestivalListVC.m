@@ -53,7 +53,7 @@
         @strongify(self)
         [[self returnCurrentView]loadError];
     }];
-    _viewModel.time = [[NSDate date]dateTransformToString:@"yyyy-MM-dd"];
+    _viewModel.time = self.loadingTimeString;
 }
 - (void)loadData:(BOOL)isPull {
     _viewModel.type = _currentTpye;

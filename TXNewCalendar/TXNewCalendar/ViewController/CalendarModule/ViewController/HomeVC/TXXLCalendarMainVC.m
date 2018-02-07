@@ -160,6 +160,7 @@
 
 - (void)jumpMoreVC {
     TXXLFestivalListVC *festivalVC = [[TXXLFestivalListVC alloc]init];
+    festivalVC.loadingTimeString = [_currentDate dateTransformToString:kCalendarFormatter];
     festivalVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:festivalVC animated:YES];
 }
@@ -200,12 +201,12 @@
 #pragma mark 界面的初始化
 - (void)initNavigationView {
     //左按钮
-    UILabel *leftLbl = [LSKViewFactory initializeLableWithText:@"万年历" font:24 textColor:[UIColor whiteColor] textAlignment:0 backgroundColor:nil];
+    UILabel *leftLbl = [LSKViewFactory initializeLableWithText:@"万年历" font:24 textColor:[UIColor whiteColor] textAlignment:2 backgroundColor:nil];
     leftLbl.frame = CGRectMake(0, 0, 90, self.navibarHeight);
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:leftLbl];
     self.navigationItem.leftBarButtonItem = leftItem;
     //右按钮
-    TXXLNavigationRightView *rightView = [[TXXLNavigationRightView alloc]initWithFrame:CGRectMake(0, 0, 200, self.navibarHeight)];
+    TXXLNavigationRightView *rightView = [[TXXLNavigationRightView alloc]initWithFrame:CGRectMake(10, 0, 200, self.navibarHeight)];
     self.rightView = rightView;
     @weakify(self)
     rightView.selectBlock = ^(BOOL isSelect) {
@@ -283,8 +284,8 @@
         datePick.dateBlock = ^(NSDate *date) {
             [ws dateSelect:date];
         };
-        _datePickView.minDate = [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
-        _datePickView.maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
+        datePick.minDate = [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
+        datePick.maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
         _datePickView = datePick;
         [[UIApplication sharedApplication].keyWindow addSubview:datePick];
     }

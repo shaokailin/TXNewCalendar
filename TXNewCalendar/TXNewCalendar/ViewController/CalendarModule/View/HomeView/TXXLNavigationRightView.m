@@ -25,13 +25,13 @@
 }
 - (void)_layoutMainView {
     _dateDetailLbl = [LSKViewFactory initializeLableWithText:nil font:9 textColor:[UIColor whiteColor] textAlignment:2 backgroundColor:nil];
-    _dateDetailLbl.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 12 - 10, CGRectGetWidth(self.frame), 12);
+    _dateDetailLbl.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 12 - 10, CGRectGetWidth(self.frame) - 10, 12);
     [self addSubview:_dateDetailLbl];
     UIImageView *arrowImageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"calendar_arrowdown")];
-    arrowImageView.frame = CGRectMake(CGRectGetWidth(self.frame) - 12, CGRectGetHeight(self.frame) - 12 - 10 - 4 - 7, 12, 7);
+    arrowImageView.frame = CGRectMake(CGRectGetWidth(self.frame) - 12 - 10, CGRectGetHeight(self.frame) - 12 - 10 - 4 - 7, 12, 7);
     [self addSubview:arrowImageView];
     _dateTimeLbl = [LSKViewFactory initializeLableWithText:nil font:9 textColor:[UIColor whiteColor] textAlignment:2 backgroundColor:nil];
-    _dateTimeLbl.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 12 - 10 - 4 - 12 + 3, CGRectGetWidth(self.frame) - 12 - 12, 12);
+    _dateTimeLbl.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 12 - 10 - 4 - 12 + 3, CGRectGetWidth(self.frame) - 12 - 12 - 10 , 12);
     [self addSubview:_dateTimeLbl];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectTimeClick)];

@@ -59,6 +59,7 @@
         @strongify(self)
         [self.mainScrollView.mj_header endRefreshing];
     }];
+    _viewModel.dateString = self.loadingDateString;
     [_viewModel getAlmanacDetailData:NO];
 }
 - (void)pullDownRefresh {
