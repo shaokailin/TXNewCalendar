@@ -12,6 +12,7 @@ typedef NS_ENUM(NSInteger, EventType) {
     EventType_Compass,
     EventType_Hours,
     EventType_Detail,
+    EventType_SelectDate
 };
 typedef NS_ENUM(NSInteger, DirectionType) {
     DirectionType_Left = 0,
@@ -27,6 +28,7 @@ typedef void (^TimeChangeBlock)(DirectionType direction,NSDate *date);
 - (void)viewDidAppearStartHeading;
 - (void)viewDidDisappearStopHeading;
 - (void)setupNilDate;
+- (void)changeSelectDate:(NSDate *)date;
 //设置内容界面上的数据
 - (void)setupMessageContent:(TXXLAlmanacHomeModel *)model;
 @end

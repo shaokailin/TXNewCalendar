@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface TXXLGuideVC : UIViewController
+#import "LSKBaseViewController.h"
+@interface TXXLGuideVC : LSKBaseViewController
 
 @end

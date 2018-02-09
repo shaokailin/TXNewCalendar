@@ -36,6 +36,8 @@
             self.mainScrollView.contentOffset = CGPointMake(0, view.frame.origin.y);
 //            [self.mainScrollView scrollRectToVisible:view.frame animated:YES];
         }
+    }else if (_index == 1) {
+        self.mainScrollView.contentOffset = CGPointMake(0, self.avoidView.frame.origin.y);
     }
     [kUserMessageManager analiticsViewAppear:self];
 }
@@ -54,6 +56,8 @@
             if (view) {
                 self.mainScrollView.contentOffset = CGPointMake(0, view.frame.origin.y);
             }
+        }else if (_index == 1) {
+            self.mainScrollView.contentOffset = CGPointMake(0, self.avoidView.frame.origin.y);
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)

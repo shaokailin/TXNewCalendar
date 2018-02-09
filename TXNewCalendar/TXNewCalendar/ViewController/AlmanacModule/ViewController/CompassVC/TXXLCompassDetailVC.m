@@ -31,9 +31,8 @@
     [kUserMessageManager analiticsViewAppear:self];
 }
 - (void)initializeMainView {
-    TXXLCompassDetailView *compassView = [[TXXLCompassDetailView alloc]init];
+    TXXLCompassDetailView *compassView = [[TXXLCompassDetailView alloc]initWithPosition:self.position];
     self.compassView = compassView;
-    compassView.position = self.position;
     [self.view addSubview:compassView];
     WS(ws)
     [compassView mas_makeConstraints:^(MASConstraintMaker *make) {

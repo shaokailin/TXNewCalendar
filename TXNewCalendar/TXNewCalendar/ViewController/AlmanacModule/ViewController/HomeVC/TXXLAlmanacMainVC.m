@@ -16,6 +16,7 @@
 #import "TXXLCompassDetailVC.h"
 #import "TXXLAlmanacHomeVM.h"
 #import "TXXLSearchDetailVC.h"
+#import "HSPDatePickView.h"
 @interface TXXLAlmanacMainVC ()
 {
     NSInteger _changeDateEventCount;
@@ -28,6 +29,7 @@
 @property (nonatomic, weak) TXXLAlmanacSearchView *searchView;
 @property (nonatomic, weak) UIImageView *swiptImageView;
 @property (nonatomic, strong) TXXLAlmanacHomeVM *viewModel;
+@property (nonatomic, strong) HSPDatePickView *datePickView;
 @end
 
 @implementation TXXLAlmanacMainVC
@@ -97,8 +99,11 @@
         [self.navigationController pushViewController:searchDetailVC animated:YES];
     }
 }
+//跳转点击事件
 - (void)eventClick:(EventType)type index:(NSInteger)index {
-    if (type != EventType_Detail) {
+    if (type == EventType_SelectDate) {
+        [self.datePickView showInView];
+    }else if (type != EventType_Detail) {
         if (self.viewModel.messageModel != nil) {
             if (type == EventType_Hours) {
                 TXXLHoursDetailVC *hoursVC = [[TXXLHoursDetailVC alloc]init];
@@ -122,6 +127,10 @@
         suitAvoidVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:suitAvoidVC animated:YES];
     }
+}
+//pickDate 选择时间回调
+- (void)dateSelect:(NSDate *)date {
+    [self.mainTimeView changeSelectDate:date];
 }
 - (void)swiptViewEvent:(DirectionType)direction date:(NSDate *)date{
     _currentDate = date;
@@ -170,7 +179,6 @@
         [ws eventClick:type index:index];
     };
     mainView.timeBlock = ^(DirectionType direction, NSDate *date) {
-        
         [ws swiptViewEvent:direction date:date];
     };
     _currentDate = mainView.currentDate;
@@ -200,6 +208,21 @@
     [mainScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view);
     }];
+}
+- (HSPDatePickView *)datePickView {
+    if (!_datePickView) {
+        HSPDatePickView *datePick = [[HSPDatePickView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT) tabbar:self.tabbarBetweenHeight];
+        datePick.datePickerMode = UIDatePickerModeDate;
+        WS(ws)
+        datePick.dateBlock = ^(NSDate *date) {
+            [ws dateSelect:date];
+        };
+        datePick.minDate = [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
+        datePick.maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
+        _datePickView = datePick;
+        [[UIApplication sharedApplication].keyWindow addSubview:datePick];
+    }
+    return _datePickView;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

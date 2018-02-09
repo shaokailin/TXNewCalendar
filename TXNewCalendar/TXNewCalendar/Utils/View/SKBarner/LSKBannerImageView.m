@@ -20,7 +20,7 @@
         self.userInteractionEnabled = YES;
         _placeHolderImage = placeHolderImage;
         self.contentMode = UIViewContentModeScaleToFill;
-        self.backgroundColor = [UIColor lightGrayColor];
+        self.backgroundColor = KColorHexadecimal(kLineMain_Color, 1.0);;
         isHasSucess = NO;
     }
     return self;

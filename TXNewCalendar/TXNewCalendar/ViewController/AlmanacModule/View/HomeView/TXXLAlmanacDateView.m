@@ -10,7 +10,7 @@
 
 @implementation TXXLAlmanacDateView
 {
-    UILabel *_calendarNewLbl;
+    UIButton *_calendarNewBtn;
     UILabel *_calendarChinessLbl;
     UILabel *_detailLbl;
     NSDate *_date;
@@ -22,9 +22,14 @@
     }
     return self;
 }
+- (void)selectDateClick {
+    if (self.changeDateBlock) {
+        self.changeDateBlock(2);
+    }
+}
 - (void)setupDateContent:(NSDate *)date {
     _date = date;
-    _calendarNewLbl.text = NSStringFormat(@"公历%@",[date dateTransformToString:@"yyyy年MM月dd日"]);
+    [_calendarNewBtn setTitle:NSStringFormat(@"公历%@",[date dateTransformToString:@"yyyy年MM月dd日"]) forState:UIControlStateNormal];
     _calendarChinessLbl.text = NSStringFormat(@"%@%@",[date getChineseMonthString],[date getChineseDayString]);
     [self setupNilData];
 }
@@ -64,11 +69,10 @@
     return NSStringFormat(@"%@%@",[array objectAtIndex:0],(array.count > 1)?[array objectAtIndex:1]:@"");
 }
 - (void)_layoutMainView {
-    UILabel *calendarNewLbl = [TXXLViewManager customTitleLbl:nil font:16];
-    _calendarNewLbl = calendarNewLbl;
-    [self addSubview:calendarNewLbl];
+    _calendarNewBtn = [LSKViewFactory initializeButtonWithTitle:nil target:self action:@selector(selectDateClick) textfont:16 textColor:KColorHexadecimal(kText_Title_Color, 1.0)];
+    [self addSubview:_calendarNewBtn];
     WS(ws)
-    [calendarNewLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_calendarNewBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(ws);
         make.centerX.equalTo(ws);
         make.height.mas_equalTo(46);
@@ -77,7 +81,7 @@
     [self addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(ws);
-        make.top.equalTo(calendarNewLbl.mas_bottom);
+        make.top.equalTo(ws).with.offset(46);
         make.height.mas_equalTo(1);
     }];
     UILabel *calendarChinessLbl = [TXXLViewManager customTitleLbl:nil font:40];

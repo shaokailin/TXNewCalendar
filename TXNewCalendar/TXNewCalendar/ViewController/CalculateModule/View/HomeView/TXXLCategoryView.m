@@ -67,7 +67,7 @@
 - (UIButton *)customBtnWithFlag:(NSInteger)flag {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImageView *iconImageView = [[UIImageView alloc]init];
-    iconImageView.backgroundColor = [UIColor lightGrayColor];
+    iconImageView.backgroundColor = KColorHexadecimal(kLineMain_Color, 1.0);
     iconImageView.tag = 400 + flag;
     KViewBoundsRadius(iconImageView, 30);
     [btn addSubview:iconImageView];

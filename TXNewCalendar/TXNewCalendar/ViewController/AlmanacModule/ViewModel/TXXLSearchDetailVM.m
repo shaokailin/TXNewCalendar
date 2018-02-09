@@ -34,6 +34,11 @@
                 self.isChangeResult = NO;
                 [self sendSuccessResult:0 model:nil];
             }else {
+                if (model.error_code == 10002 && model.status == 0) {
+                    [SKHUD showMessageInWindowWithMessage:@"手机时间异常，请到系统时间设置，将其设为最新。"];
+                }else {
+                    [SKHUD showMessageInWindowWithMessage:model.msg];
+                }
                 [self setupErrorData];
                 [self sendFailureResult:0 error:nil];
             }

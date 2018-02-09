@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.2</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -46,9 +46,15 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>2</string>
+	<string>5</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MiSDKAppID</key>
+	<string>2882303761517712375</string>
+	<key>MiSDKAppKey</key>
+	<string>5121771280375</string>
+	<key>MiSDKRun</key>
+	<string>${MiSDKRun}</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -56,6 +62,8 @@
 	</dict>
 	<key>NSCalendarsUsageDescription</key>
 	<string>是否允许天象黄历访问您的日历？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许天象黄历访问您的相机？</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>是否允许天象黄历访问您的地理位置？</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -64,6 +72,8 @@
 	<string>是否允许天象黄历访问您的地理位置？</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>是否允许天象黄历访问您的地理位置？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许天象黄历访问您的相册？</string>
 	<key>UIMainStoryboardFile</key>
 	<string></string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -76,19 +86,9 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>MiSDKAppID</key>
-	<string>2882303761517712375</string>
-	<key>MiSDKAppKey</key>
-	<string>5121771280375</string>
-	<key>MiSDKRun</key>
-	<string>${MiSDKRun}</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>是否允许天象黄历访问您的相机？</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许天象黄历访问您的相册？</string>
 </dict>
 </plist>

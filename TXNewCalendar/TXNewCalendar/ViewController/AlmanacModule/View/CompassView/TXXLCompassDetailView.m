@@ -14,14 +14,18 @@
     NSInteger _currentSelect;
     CLLocationManager *_locationManager;
     BOOL _isStartHeading;
+    
 }
+@property (nonatomic, weak) UIScrollView *contentScrollView;
+@property (nonatomic, weak) NSDictionary *position;
 @property (nonatomic, weak) UIImageView *compassImageView;
 @property (nonatomic, weak) UILabel *directionTitleLbl;
 @end
 @implementation TXXLCompassDetailView
 
-- (instancetype)init {
+- (instancetype)initWithPosition:(NSDictionary *)position {
     if (self = [super init]) {
+        _position = position;
         [self _layoutMainView];
         [self addLocationManager];
     }
@@ -95,47 +99,56 @@
 #pragma mark -初始化界面
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];
+    UIScrollView *contentView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
+    self.contentScrollView = contentView;
+    [self addSubview:contentView];
+    WS(ws)
+    [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws);
+    }];
+    CGFloat contentHeight = 35;
     _currentSelect = -1;
     UILabel *directionTitleLbl = [TXXLViewManager customTitleLbl:nil font:17];
     self.directionTitleLbl = directionTitleLbl;
-    [self addSubview:directionTitleLbl];
-    WS(ws)
+    [contentView addSubview:directionTitleLbl];
+    contentHeight += 20;
     [directionTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ws).with.offset(10);
-        make.top.equalTo(ws).with.offset(36);
+        make.left.equalTo(contentView).with.offset(10);
+        make.top.equalTo(contentView).with.offset(35);
     }];
     _directionLbl = [TXXLViewManager customTitleLbl:nil font:17];
-    [self addSubview:_directionLbl];
+    [contentView addSubview:_directionLbl];
     [_directionLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(directionTitleLbl.mas_right).with.offset(2);
         make.centerY.equalTo(directionTitleLbl);
     }];
-    
+    contentHeight += 30;
     UIImageView *compassImage = [[UIImageView alloc]initWithImage:ImageNameInit(@"img_round")];
     self.compassImageView = compassImage;
-    [self addSubview:compassImage];
+    [contentView addSubview:compassImage];
     [compassImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(directionTitleLbl.mas_bottom).with.offset(33);
-        make.left.equalTo(ws).with.offset(25);
-        make.right.equalTo(ws).with.offset(-25);
+        make.top.equalTo(directionTitleLbl.mas_bottom).with.offset(30);
+        make.left.equalTo(contentView).with.offset(25);
+        make.width.mas_equalTo(SCREEN_WIDTH - 50);
         make.height.mas_equalTo(SCREEN_WIDTH - 50);
     }];
-    
+    contentHeight += (SCREEN_WIDTH - 50);
     UIButton *happyBtn = [self customBtn:@"喜神" flag:200];
-    [self addSubview:happyBtn];
+    [contentView addSubview:happyBtn];
     UIButton *blissBtn = [self customBtn:@"福神" flag:201];
-    [self addSubview:blissBtn];
+    [contentView addSubview:blissBtn];
     UIButton *moneyBtn = [self customBtn:@"财神" flag:202];
-    [self addSubview:moneyBtn];
+    [contentView addSubview:moneyBtn];
     UIButton *sunBtn = [self customBtn:@"阳贵" flag:203];
-    [self addSubview:sunBtn];
+    [contentView addSubview:sunBtn];
     UIButton *lunarBtn = [self customBtn:@"阴贵" flag:204];
-    [self addSubview:lunarBtn];
+    [contentView addSubview:lunarBtn];
     CGFloat width = (SCREEN_WIDTH - 20 - 5 * 4) / 5.0;
     [happyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ws).with.offset(10);
-        make.top.equalTo(compassImage.mas_bottom).with.offset(60);
+        make.left.equalTo(contentView).with.offset(10);
+        make.top.equalTo(compassImage.mas_bottom).with.offset(40);
         make.height.mas_equalTo(width);
+        make.width.mas_equalTo (width);
     }];
     [blissBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(happyBtn.mas_right).with.offset(5);
@@ -152,17 +165,20 @@
     [lunarBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(sunBtn.mas_right).with.offset(5);
         make.top.width.bottom.equalTo(sunBtn);
-        make.right.equalTo(ws).with.offset(-10);
     }];
+    contentHeight += (40 + width);
+
     _detailLbl = [TXXLViewManager customDetailLbl:nil font:12];
     _detailLbl.numberOfLines = 0;
-    [self addSubview:_detailLbl];
+    [contentView addSubview:_detailLbl];
     [_detailLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ws).with.offset(10);
-        make.right.equalTo(ws).with.offset(-15);
-        make.bottom.equalTo(ws).with.offset(-18);
+        make.left.equalTo(contentView).with.offset(10);
+        make.width.mas_equalTo(SCREEN_WIDTH - 25);
+        make.top.equalTo(happyBtn.mas_bottom).with.offset(30);
     }];
     [self btnSelect:happyBtn];
+    contentHeight += (30 + 24 + 15);
+    contentView.contentSize = CGSizeMake(SCREEN_WIDTH,contentHeight);
 }
 
 - (UIButton *)customBtn:(NSString *)title flag:(NSInteger)flag {

@@ -30,7 +30,7 @@
 - (void)_layoutMainView {
     KViewBoundsRadius(self, 4.0);
     _bgImageView = [[UIImageView alloc]init];
-    _bgImageView.backgroundColor = [UIColor lightGrayColor];
+    _bgImageView.backgroundColor = KColorHexadecimal(kLineMain_Color, 1.0);;
     [self addSubview:_bgImageView];
     WS(ws)
     [_bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {

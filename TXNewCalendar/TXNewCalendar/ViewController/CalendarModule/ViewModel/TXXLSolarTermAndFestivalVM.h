@@ -10,6 +10,6 @@
 
 @interface TXXLSolarTermAndFestivalVM : LSKBaseViewModel
 @property (nonatomic, copy) NSString *time;
-@property (nonatomic, assign) NSInteger type;//0:大众节气 1.二十四节气 2.节假日
+@property (nonatomic, assign) NSInteger type;//0:大众节日 1.二十四节气 2.节假日
 - (void)getSolarTermAndFestivalList:(BOOL)isPull;
 @end

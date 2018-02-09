@@ -66,6 +66,7 @@
     } failure:^(NSUInteger identifier, NSError *error) {
         
     }];
+    _clViewModel.isShowAlertAndHiden = NO;
     [self loadHttp];
 }
 - (void)setupMessageView {

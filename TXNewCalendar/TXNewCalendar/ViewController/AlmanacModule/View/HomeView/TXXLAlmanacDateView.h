@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSInteger, DateChangeType) {
     DateChangeType_Prev = 0,
-    DateChangeType_Next = 1
+    DateChangeType_Next = 1,
+    DateChangeType_Click = 2
 };
 typedef void (^AlimanacDateChangeBlock)(DateChangeType type);
 @interface TXXLAlmanacDateView : UIView

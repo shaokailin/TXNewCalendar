@@ -41,7 +41,7 @@
 - (void)_layoutMainView {
     _currentIndex = 0;
     self.backgroundColor = [UIColor whiteColor];
-    UIButton *leftBtn = [self customBtn:@"大众节气" flag:200];
+    UIButton *leftBtn = [self customBtn:@"大众节日" flag:200];
     leftBtn.selected = YES;
     [self addSubview:leftBtn];
     

@@ -110,14 +110,17 @@
     NSDictionary *dict = notification.userInfo;
     if (dict && [dict isKindOfClass:[NSDictionary class]]) {
         NSDate *date = [dict objectForKey:@"date"];
-        if (date) {
-            NSTimeInterval time = [_currentDate timeIntervalSinceDate:date];
-            _currentDate = date;
-            if (self.timeBlock) {
-                self.timeBlock(time > 0? 0:1,_currentDate);
-            }
-            [self changeDateEvent];
+        [self changeSelectDate:date];
+    }
+}
+- (void)changeSelectDate:(NSDate *)date {
+    if (date) {
+        NSTimeInterval time = [_currentDate timeIntervalSinceDate:date];
+        _currentDate = date;
+        if (self.timeBlock) {
+            self.timeBlock(time > 0? 0:1,_currentDate);
         }
+        [self changeDateEvent];
     }
 }
 - (void)significantTimeChange {
@@ -127,6 +130,11 @@
     
 }
 #pragma mark - 回调事件
+- (void)selectDateToPickView {
+    if (self.clickBlock) {
+        self.clickBlock(EventType_SelectDate, 0);
+    }
+}
 //时间点击修改时间
 - (void)changeDate:(DateChangeType)type {
     if (type == 0) {//前一个日期
@@ -216,7 +224,11 @@
     WS(ws)
     TXXLAlmanacDateView *dateView = [[TXXLAlmanacDateView alloc]init];
     dateView.changeDateBlock = ^(DateChangeType type) {
-        [ws changeDate:type];
+        if (type == 2) {
+            [ws selectDateToPickView];
+        }else {
+            [ws changeDate:type];
+        }
     };
     self.dateView = dateView;
     [self addSubview:dateView];

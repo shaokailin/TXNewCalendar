@@ -10,5 +10,6 @@
 typedef void (^ItemClickBlock)(BOOL isClick);
 @interface TXXLPublicFestiveItemView : UIView
 - (void)setupContentWithDate:(NSString *)date week:(NSString *)week title:(NSString *)title hasCount:(NSString *)hasCount;
+- (instancetype)initWithType:(NSInteger)type;
 @property (nonatomic, copy) ItemClickBlock itemBlock;
 @end

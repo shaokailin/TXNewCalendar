@@ -17,7 +17,7 @@ static NSString * const kAliAanaliticsKey = @"24796510";
 static NSString * const kAliAanaliticsSecret = @"8530aeab85d9ed304efc98bc0afddb50";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
 NSString * const kMiPushRegisterIphone = @"isReigsterUserIphone";
-static const BOOL kIsOnline = NO;
+static const BOOL kIsOnline = YES;
 @interface AppDelegate ()<MiPushSDKDelegate,UNUserNotificationCenterDelegate>
 {
     BOOL _isRegisterIphone;

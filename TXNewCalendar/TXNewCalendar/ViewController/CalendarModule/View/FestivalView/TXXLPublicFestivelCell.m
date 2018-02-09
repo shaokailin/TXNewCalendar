@@ -42,7 +42,7 @@
         make.bottom.equalTo(ws.contentView);
         make.width.mas_equalTo(2);
     }];
-    TXXLPublicFestiveItemView *itemView = [[TXXLPublicFestiveItemView alloc]init];
+    TXXLPublicFestiveItemView *itemView = [[TXXLPublicFestiveItemView alloc]initWithType:0];
     _itemView = itemView;
     [self.contentView addSubview:itemView];
     [itemView mas_makeConstraints:^(MASConstraintMaker *make) {

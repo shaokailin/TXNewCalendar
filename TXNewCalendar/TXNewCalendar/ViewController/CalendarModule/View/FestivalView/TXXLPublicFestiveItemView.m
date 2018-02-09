@@ -14,9 +14,9 @@
 @property (nonatomic, weak) UILabel *hasCountLbl;
 @end
 @implementation TXXLPublicFestiveItemView
-- (instancetype)init {
+- (instancetype)initWithType:(NSInteger)type {
     if (self = [super init]) {
-        [self _layoutMainView];
+        [self _layoutMainView:type];
     }
     return self;
 }
@@ -26,9 +26,9 @@
     self.timeLbl.text = date;
     self.weekLbl.text = week;
 }
-- (void)_layoutMainView {
+- (void)_layoutMainView:(NSInteger)type {
     self.backgroundColor = [UIColor whiteColor];
-    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"public_bg")];
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:type == 0?ImageNameInit(@"public_bg"):ImageNameInit(@"public_bg_r")];
     [self addSubview:bgImageView];
     WS(ws)
     [bgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
