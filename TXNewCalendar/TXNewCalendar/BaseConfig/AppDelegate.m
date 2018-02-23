@@ -33,6 +33,7 @@ static const BOOL kIsOnline = YES;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    
     //设置导航栏的全局样式
     [LSKViewFactory setupMainNavigationBgColor:KColorUtilsString(kNavigationBackground_Color) titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
     
@@ -67,6 +68,7 @@ static const BOOL kIsOnline = YES;
 - (void)registerMiPush {
     [MiPushSDK registerMiPush:self type:0 connect:YES];
 }
+
 - (void)windowRootController {
     BOOL isHasShow = [kUserMessageManager getMessageManagerForBoolWithKey:kGuide_Is_Has_Show];
     if (!isHasShow) {
@@ -209,8 +211,6 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     // 1.当启动长连接时, 收到消息会回调此处
     // 2.[MiPushSDK handleReceiveRemoteNotification]
     //   当使用此方法后会把APNs消息导入到此
-    NSInteger state = [UIApplication sharedApplication].applicationState;
-    LSKLog(@"%ld",state);
     [self actionEventWithUserInfo:data];
 }
 

@@ -200,7 +200,7 @@
     
     // 获取中间的indexpath
     NSIndexPath *indexpathNew = [collectionView indexPathForItemAtPoint:pInUnderView];
-    NSLog(@"%ld",indexpathNew.row);
+    NSLog(@"%ld",(long)indexpathNew.row);
     if (indexPath.row == indexpathNew.row)
     {
         //点击了中间的广告

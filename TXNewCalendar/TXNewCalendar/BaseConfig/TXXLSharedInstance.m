@@ -77,11 +77,11 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
         NSString *result        = (NSString *)CFBridgingRelease(CFStringCreateCopy(NULL, uuidString));
         CFRelease(puuid);
         CFRelease(uuidString);
-        LSKLog(@"\n \n \n ______重新存储uuid __________\n \n \n %@",result);
+//        LSKLog(@"\n \n \n ______重新存储uuid __________\n \n \n %@",result);
         [self save:KEY_UUID_INSTEAD data:result];
         getUDIDInKeychain = (NSString *)[self load:KEY_UUID_INSTEAD];
     }
-    LSKLog(@"最终——————UDID_INSTEAD %@",getUDIDInKeychain);
+//    LSKLog(@"最终——————UDID_INSTEAD %@",getUDIDInKeychain);
     return getUDIDInKeychain;
 }
 - (void)deleteKeyChain {
@@ -107,7 +107,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
         @try {
             ret = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge_transfer NSData *)keyData];
         } @catch (NSException *e) {
-            NSLog(@"Unarchive of %@ failed: %@", service, e);
+//            NSLog(@"Unarchive of %@ failed: %@", service, e);
         } @finally {
         }
     }

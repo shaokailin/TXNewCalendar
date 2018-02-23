@@ -10,5 +10,4 @@
 #define TXNewCalendar_PrefixHeader_h
 #import "LSKUtilsConfig.h"
 #import "Config.h"
-
 #endif /* TXNewCalendar_PrefixHeader_h */

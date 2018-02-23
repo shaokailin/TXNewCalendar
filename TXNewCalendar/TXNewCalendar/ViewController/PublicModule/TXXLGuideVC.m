@@ -64,7 +64,7 @@ static const int kGuide_count = 4;
 }
 - (void)startBtnClick {
     [kUserMessageManager setMessageManagerForBoolWithKey:kGuide_Is_Has_Show value:YES];
-    [((AppDelegate *)[UIApplication sharedApplication].delegate)windowRootController];
+    [((AppDelegate *)[UIApplication sharedApplication].delegate) windowRootController];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -239,8 +239,8 @@ static int32_t gLunarHolDay[]=
     if (arrayTimeYMD.count != 3) return;
     
     _HYC_GLYears = arrayTimeYMD[0];
-    _HYC_GLMonth = [NSString stringWithFormat:@"%02ld",[arrayTimeYMD[1] integerValue]];
-    _HYC_GLDay = [NSString stringWithFormat:@"%02ld",[arrayTimeYMD[2] integerValue]];
+    _HYC_GLMonth = [NSString stringWithFormat:@"%02ld",(long)[arrayTimeYMD[1] integerValue]];
+    _HYC_GLDay = [NSString stringWithFormat:@"%02ld",(long)[arrayTimeYMD[2] integerValue]];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *date = [dateFormatter dateFromString:str]; 

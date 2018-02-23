@@ -53,9 +53,13 @@
             [[UIApplication sharedApplication]openURL:[NSURL URLWithString:requestUrl]];
             return NO;
         }
+    }else if ([requestUrl containsString:@"mqqapi://"]){
+        if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:requestUrl]]) {
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:requestUrl]];
+            return NO;
+        }
     }
     return YES;
-//    alipay://alipayclient/?%7B%22dataString%22%3A%22h5_route_token%3D%5C%22RZ25L3RsYa6bPYSSJOyYzq9OMwdjPimobilecashierRZ25%5C%22%26is_h5_route%3D%5C%22true%5C%22%22%2C%22requestType%22%3A%22SafePay%22%2C%22fromAppUrlScheme%22%3A%22alipays%22%7D
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

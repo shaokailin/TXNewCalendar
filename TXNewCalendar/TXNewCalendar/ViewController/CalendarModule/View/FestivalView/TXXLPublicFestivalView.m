@@ -33,7 +33,8 @@
     NSString *dateString = [dict objectForKey:@"d"];
     if (KJudgeIsNullData(dateString)) {
         NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy年MM月dd日"];
-        if (date) {
+        NSDate *maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
+        if (date && [date timeIntervalSinceDate:maxDate] < 0) {
             [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kCalendarDateChange object:nil userInfo:@{@"date":date}];
             if (self.popBlock) {
                 self.popBlock(YES);
