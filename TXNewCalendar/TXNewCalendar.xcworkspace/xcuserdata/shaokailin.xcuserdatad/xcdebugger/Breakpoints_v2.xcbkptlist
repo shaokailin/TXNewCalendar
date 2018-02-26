@@ -9,14 +9,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/AlmanacModule/ViewModel/TXXLAlmanacDetailVM.m"
-            timestampString = "541046872.308005"
+            filePath = "TXNewCalendarTests/TXNewCalendarTests.m"
+            timestampString = "541156459.989293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
             endingLineNumber = "34"
-            landmarkName = "-almanacDetailCommand"
+            landmarkName = "-testPerformanceExample"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[TXNewCalendarTests testPerformanceExample]"
+                  moduleName = "TXNewCalendarTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shaokailin/Desktop/git/TXNewCalendar/TXNewCalendar/TXNewCalendarTests/TXNewCalendarTests.m"
+                  timestampString = "541156463.773174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__44-[TXNewCalendarTests testPerformanceExample]_block_invoke"
+                  moduleName = "TXNewCalendarTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shaokailin/Desktop/git/TXNewCalendar/TXNewCalendar/TXNewCalendarTests/TXNewCalendarTests.m"
+                  timestampString = "541156463.775465"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -260,6 +260,10 @@
 		A6C121C82029575B00246273 /* libMiPushSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6C121C42029575B00246273 /* libMiPushSDK.a */; };
 		A6C121CB2029AA0700246273 /* guanbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C121C92029AA0700246273 /* guanbi@2x.png */; };
 		A6C121CC2029AA0700246273 /* guanbi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C121CA2029AA0700246273 /* guanbi@3x.png */; };
+		A6C4F45C2040FC5F00997833 /* UIView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C4F45B2040FC5F00997833 /* UIView+Extend.m */; };
+		A6C4F45F2040FCBF00997833 /* UIButton+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C4F45E2040FCBF00997833 /* UIButton+Extend.m */; };
+		A6DA1C4C20415A9D0041136F /* TXNewCalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA1C4B20415A9D0041136F /* TXNewCalendarUITests.m */; };
+		A6DA1C5A20415AAF0041136F /* TXNewCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA1C5920415AAF0041136F /* TXNewCalendarTests.m */; };
 		A6E59314203136A000E99373 /* guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E593102031369F00E99373 /* guide_1.png */; };
 		A6E59315203136A000E99373 /* guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E593112031369F00E99373 /* guide_0.png */; };
 		A6E59316203136A000E99373 /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E593122031369F00E99373 /* guide_2.png */; };
@@ -271,6 +275,23 @@
 		A6FEE504202856BA00F55FCE /* PPSSAppUpdateView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4FB202856BA00F55FCE /* PPSSAppUpdateView.m */; };
 		A6FEE505202856BA00F55FCE /* PPSSAppVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A6FEE4FD202856BA00F55FCE /* PPSSAppVersionManager.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A6DA1C4E20415A9D0041136F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9540D18D2015B394005F6751 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9540D1942015B394005F6751;
+			remoteInfo = TXNewCalendar;
+		};
+		A6DA1C5C20415AAF0041136F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9540D18D2015B394005F6751 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9540D1942015B394005F6751;
+			remoteInfo = TXNewCalendar;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6B4AFA573DCA220505AC589C /* Pods-TXNewCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXNewCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TXNewCalendar/Pods-TXNewCalendar.debug.xcconfig"; sourceTree = "<group>"; };
@@ -669,6 +690,16 @@
 		A6C121C72029575B00246273 /* MiPushMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MiPushMessage.h; sourceTree = "<group>"; };
 		A6C121C92029AA0700246273 /* guanbi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guanbi@2x.png"; sourceTree = "<group>"; };
 		A6C121CA2029AA0700246273 /* guanbi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guanbi@3x.png"; sourceTree = "<group>"; };
+		A6C4F45A2040FC5F00997833 /* UIView+Extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extend.h"; sourceTree = "<group>"; };
+		A6C4F45B2040FC5F00997833 /* UIView+Extend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extend.m"; sourceTree = "<group>"; };
+		A6C4F45D2040FCBF00997833 /* UIButton+Extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extend.h"; sourceTree = "<group>"; };
+		A6C4F45E2040FCBF00997833 /* UIButton+Extend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extend.m"; sourceTree = "<group>"; };
+		A6DA1C4920415A9D0041136F /* TXNewCalendarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TXNewCalendarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6DA1C4B20415A9D0041136F /* TXNewCalendarUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXNewCalendarUITests.m; sourceTree = "<group>"; };
+		A6DA1C4D20415A9D0041136F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6DA1C5720415AAF0041136F /* TXNewCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TXNewCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6DA1C5920415AAF0041136F /* TXNewCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXNewCalendarTests.m; sourceTree = "<group>"; };
+		A6DA1C5B20415AAF0041136F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A6E593102031369F00E99373 /* guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_1.png; sourceTree = "<group>"; };
 		A6E593112031369F00E99373 /* guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_0.png; sourceTree = "<group>"; };
 		A6E593122031369F00E99373 /* guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_2.png; sourceTree = "<group>"; };
@@ -707,6 +738,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6DA1C4620415A9D0041136F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6DA1C5420415AAF0041136F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -731,6 +776,8 @@
 			isa = PBXGroup;
 			children = (
 				9540D1972015B394005F6751 /* TXNewCalendar */,
+				A6DA1C4A20415A9D0041136F /* TXNewCalendarUITests */,
+				A6DA1C5820415AAF0041136F /* TXNewCalendarTests */,
 				9540D1962015B394005F6751 /* Products */,
 				A241EB87EF2B9DD07AB677D6 /* Pods */,
 				794D24FABD5EC77F75434DA2 /* Frameworks */,
@@ -741,6 +788,8 @@
 			isa = PBXGroup;
 			children = (
 				9540D1952015B394005F6751 /* TXNewCalendar.app */,
+				A6DA1C4920415A9D0041136F /* TXNewCalendarUITests.xctest */,
+				A6DA1C5720415AAF0041136F /* TXNewCalendarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -890,6 +939,10 @@
 				9540D2792015BB55005F6751 /* UITableView+Extend.h */,
 				9540D27A2015BB55005F6751 /* NSArray+Extend.m */,
 				9540D27B2015BB55005F6751 /* UIBarButtonItem+Extend.h */,
+				A6C4F45A2040FC5F00997833 /* UIView+Extend.h */,
+				A6C4F45B2040FC5F00997833 /* UIView+Extend.m */,
+				A6C4F45D2040FCBF00997833 /* UIButton+Extend.h */,
+				A6C4F45E2040FCBF00997833 /* UIButton+Extend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -1624,6 +1677,24 @@
 			path = libMiPush;
 			sourceTree = "<group>";
 		};
+		A6DA1C4A20415A9D0041136F /* TXNewCalendarUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A6DA1C4B20415A9D0041136F /* TXNewCalendarUITests.m */,
+				A6DA1C4D20415A9D0041136F /* Info.plist */,
+			);
+			path = TXNewCalendarUITests;
+			sourceTree = "<group>";
+		};
+		A6DA1C5820415AAF0041136F /* TXNewCalendarTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6DA1C5920415AAF0041136F /* TXNewCalendarTests.m */,
+				A6DA1C5B20415AAF0041136F /* Info.plist */,
+			);
+			path = TXNewCalendarTests;
+			sourceTree = "<group>";
+		};
 		A6FEE4F6202856BA00F55FCE /* VersionManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1664,6 +1735,42 @@
 			productReference = 9540D1952015B394005F6751 /* TXNewCalendar.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A6DA1C4820415A9D0041136F /* TXNewCalendarUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6DA1C5220415A9D0041136F /* Build configuration list for PBXNativeTarget "TXNewCalendarUITests" */;
+			buildPhases = (
+				A6DA1C4520415A9D0041136F /* Sources */,
+				A6DA1C4620415A9D0041136F /* Frameworks */,
+				A6DA1C4720415A9D0041136F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6DA1C4F20415A9D0041136F /* PBXTargetDependency */,
+			);
+			name = TXNewCalendarUITests;
+			productName = TXNewCalendarUITests;
+			productReference = A6DA1C4920415A9D0041136F /* TXNewCalendarUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		A6DA1C5620415AAF0041136F /* TXNewCalendarTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A6DA1C5E20415AAF0041136F /* Build configuration list for PBXNativeTarget "TXNewCalendarTests" */;
+			buildPhases = (
+				A6DA1C5320415AAF0041136F /* Sources */,
+				A6DA1C5420415AAF0041136F /* Frameworks */,
+				A6DA1C5520415AAF0041136F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A6DA1C5D20415AAF0041136F /* PBXTargetDependency */,
+			);
+			name = TXNewCalendarTests;
+			productName = TXNewCalendarTests;
+			productReference = A6DA1C5720415AAF0041136F /* TXNewCalendarTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1689,6 +1796,16 @@
 							};
 						};
 					};
+					A6DA1C4820415A9D0041136F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9540D1942015B394005F6751;
+					};
+					A6DA1C5620415AAF0041136F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9540D1942015B394005F6751;
+					};
 				};
 			};
 			buildConfigurationList = 9540D1902015B394005F6751 /* Build configuration list for PBXProject "TXNewCalendar" */;
@@ -1705,6 +1822,8 @@
 			projectRoot = "";
 			targets = (
 				9540D1942015B394005F6751 /* TXNewCalendar */,
+				A6DA1C4820415A9D0041136F /* TXNewCalendarUITests */,
+				A6DA1C5620415AAF0041136F /* TXNewCalendarTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1833,6 +1952,20 @@
 				A6C121AA2029334400246273 /* almanace_home@2x.png in Resources */,
 				95F15D032016E6CF00E1340E /* chineseDay.plist in Resources */,
 				A6B566442021671200E8DEFF /* twenty-fourSolarTerms.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6DA1C4720415A9D0041136F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6DA1C5520415AAF0041136F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2017,6 +2150,7 @@
 				A6749072202412900039838F /* TXXLSearchDetailListModel.m in Sources */,
 				9590A671201ACFEB0063FDDE /* FSCalendarStickyHeader.m in Sources */,
 				A6FEE501202856BA00F55FCE /* PPSSAppVersionViewModel.m in Sources */,
+				A6C4F45C2040FC5F00997833 /* UIView+Extend.m in Sources */,
 				A67490992025916A0039838F /* SCAdCollectionViewLayout.m in Sources */,
 				A674909020255F330039838F /* TXXLHolidaysListModel.m in Sources */,
 				9540D2CD2015BB56005F6751 /* LSKWebView.m in Sources */,
@@ -2025,6 +2159,7 @@
 				95CB558920201CC700B45447 /* TXXLMoreAlertView.m in Sources */,
 				958FA58B2026F3060018185C /* HYCGetDateAttribute.m in Sources */,
 				A67490A3202593390039838F /* TXXLCategoryView.m in Sources */,
+				A6C4F45F2040FCBF00997833 /* UIButton+Extend.m in Sources */,
 				9590A678201ACFEB0063FDDE /* FSCalendarConstants.m in Sources */,
 				9590A64A201AC77B0063FDDE /* TXXLCalendarMessageView.m in Sources */,
 				9540D3162015E398005F6751 /* TXXLAlmanacSearchView.m in Sources */,
@@ -2047,7 +2182,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A6DA1C4520415A9D0041136F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6DA1C4C20415A9D0041136F /* TXNewCalendarUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6DA1C5320415AAF0041136F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A6DA1C5A20415AAF0041136F /* TXNewCalendarTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A6DA1C4F20415A9D0041136F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9540D1942015B394005F6751 /* TXNewCalendar */;
+			targetProxy = A6DA1C4E20415A9D0041136F /* PBXContainerItemProxy */;
+		};
+		A6DA1C5D20415AAF0041136F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9540D1942015B394005F6751 /* TXNewCalendar */;
+			targetProxy = A6DA1C5C20415AAF0041136F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9540D1A92015B394005F6751 /* Debug */ = {
@@ -2210,6 +2374,64 @@
 			};
 			name = Release;
 		};
+		A6DA1C5020415A9D0041136F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				INFOPLIST_FILE = TXNewCalendarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = linshaokai.TXNewCalendarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TXNewCalendar;
+			};
+			name = Debug;
+		};
+		A6DA1C5120415A9D0041136F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				INFOPLIST_FILE = TXNewCalendarUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = linshaokai.TXNewCalendarUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TXNewCalendar;
+			};
+			name = Release;
+		};
+		A6DA1C5F20415AAF0041136F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				INFOPLIST_FILE = TXNewCalendarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = linshaokai.TXNewCalendarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TXNewCalendar.app/TXNewCalendar";
+			};
+			name = Debug;
+		};
+		A6DA1C6020415AAF0041136F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				INFOPLIST_FILE = TXNewCalendarTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = linshaokai.TXNewCalendarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TXNewCalendar.app/TXNewCalendar";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2227,6 +2449,24 @@
 			buildConfigurations = (
 				9540D1AC2015B394005F6751 /* Debug */,
 				9540D1AD2015B394005F6751 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6DA1C5220415A9D0041136F /* Build configuration list for PBXNativeTarget "TXNewCalendarUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6DA1C5020415A9D0041136F /* Debug */,
+				A6DA1C5120415A9D0041136F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A6DA1C5E20415AAF0041136F /* Build configuration list for PBXNativeTarget "TXNewCalendarTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A6DA1C5F20415AAF0041136F /* Debug */,
+				A6DA1C6020415AAF0041136F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
