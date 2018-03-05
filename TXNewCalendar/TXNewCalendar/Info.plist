@@ -33,17 +33,6 @@
 	<string>10</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-&lt;plist version="1.0"&gt;
-&lt;string&gt;alipay&lt;/string&gt;
-&lt;/plist&gt;
-&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-&lt;plist version="1.0"&gt;
-&lt;string&gt;alipay&lt;/string&gt;
-&lt;/plist&gt;
-alipay</string>
 		<string>mqqapi</string>
 		<string>wechat</string>
 		<string>weixin</string>

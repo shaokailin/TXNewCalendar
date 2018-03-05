@@ -9,46 +9,30 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendarTests/TXNewCalendarTests.m"
-            timestampString = "541156459.989293"
+            filePath = "TXNewCalendar/Resource/DateManager/TXXLDateManager.m"
+            timestampString = "541491393.374999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-testPerformanceExample"
+            startingLineNumber = "302"
+            endingLineNumber = "302"
+            landmarkName = "-setSearchDate:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[TXNewCalendarTests testPerformanceExample]"
-                  moduleName = "TXNewCalendarTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shaokailin/Desktop/git/TXNewCalendar/TXNewCalendar/TXNewCalendarTests/TXNewCalendarTests.m"
-                  timestampString = "541156463.773174"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__44-[TXNewCalendarTests testPerformanceExample]_block_invoke"
-                  moduleName = "TXNewCalendarTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shaokailin/Desktop/git/TXNewCalendar/TXNewCalendar/TXNewCalendarTests/TXNewCalendarTests.m"
-                  timestampString = "541156463.775465"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TXNewCalendar/ViewController/AlmanacModule/ViewController/SuitAvoidVC/TXXLSuitAvoidVC.m"
+            timestampString = "541934303.190363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-setupViewContent:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

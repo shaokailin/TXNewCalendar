@@ -10,7 +10,6 @@
 typedef void (^HoursBlock)(NSInteger type);
 @interface TXXLAlmanacHoursView : UIView
 @property (nonatomic, copy) HoursBlock clickBlock;
-- (void)setupContentWithHours:(NSArray *)hours;
-- (void)setupDefaultData;
+- (void)setupContentWithHours;
 - (void)currentHourChange:(NSInteger)hour;
 @end

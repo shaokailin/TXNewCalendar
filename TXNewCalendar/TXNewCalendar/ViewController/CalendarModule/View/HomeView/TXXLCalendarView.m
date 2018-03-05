@@ -8,8 +8,7 @@
 
 #import "TXXLCalendarView.h"
 #import "FSCalendar.h"
-#import <EventKit/EventKit.h>
-#import "HYCGetDateAttribute.h"
+#import "TXXLDateManager.h"
 @interface TXXLCalendarView ()<FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance>
 {
     FSCalendar *_calendarView;
@@ -17,9 +16,7 @@
     NSDate *_maximumDate;
     
 }
-@property (nonatomic, strong) HYCGetDateAttribute *dateNew;
 @property (strong, nonatomic) NSCalendar *chineseCalendar;
-@property (strong, nonatomic) NSArray<EKEvent *> *events;
 @end
 @implementation TXXLCalendarView
 
@@ -33,7 +30,6 @@
     [_calendarView selectDate:date];
 }
 - (void)_layoutMainView {
-    _dateNew = [[HYCGetDateAttribute alloc]init];
     self.backgroundColor = [UIColor whiteColor];
     self.chineseCalendar = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierChinese];
     _calendarView = [[FSCalendar alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304)];
@@ -80,19 +76,12 @@
 //    [self getCalendar];
 }
 - (NSString *)calendar:(FSCalendar *)calendar subtitleForDate:(NSDate *)date {
-    _dateNew.HYC_GLTime = [date dateTransformToString:kCalendarFormatter];
-    NSString *event = nil;
-    if (KJudgeIsNullData(_dateNew.HYC_GLHoliday)) {//公历节日
-        event = _dateNew.HYC_GLHoliday;
-    }else if (KJudgeIsNullData(_dateNew.HYC_NLHoliday)){
-        event = _dateNew.HYC_NLHoliday;
-    }else if (KJudgeIsNullData(_dateNew.HYC_SolarTerms)) {
-        event = _dateNew.HYC_SolarTerms;
-    }
+    KDateManager.searchDate = date;
+    NSString *event = [KDateManager getHasHolidayString];
     if (KJudgeIsNullData(event)) {
         return event; // 春分、秋分、儿童节、植树节、国庆节、圣诞节...
     }
-    return [date calendarChineseString];
+    return KDateManager.calendarChineseString;
 }
 //- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date {
 //}

@@ -9,5 +9,6 @@
 #import "LSKBaseViewController.h"
 
 @interface TXXLCompassDetailVC : LSKBaseViewController
-@property (nonatomic, strong) NSDictionary *position;
+@property (nonatomic, strong) NSDate *currentDate;
+
 @end

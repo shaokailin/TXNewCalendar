@@ -14,10 +14,9 @@ typedef NS_ENUM(NSInteger, MessageEventType) {
 };
 typedef void (^MessageBlock) (MessageEventType type,NSInteger index);
 @interface TXXLAlmanacMessageView : UIView
-- (void)setupNilContent;
 @property (nonatomic, copy) MessageBlock clickBlock;
 //罗盘旋转
 - (void)compassTranform:(CGFloat)radius;
 //设置数据
-- (void)setupContentMessage:(TXXLAlmanacHomeModel *)model;
+- (void)setupContentMessage;
 @end

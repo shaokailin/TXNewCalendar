@@ -20,7 +20,8 @@
     return self;
 }
 - (void)changeTextWithDate:(NSDate *)date {
-    _dateDetailLbl.text = NSStringFormat(@"%@%@年%@%@",[date getChinessYearString],[date getZodiac],[date getChineseMonthString],[date getChineseDayString]);
+    KDateManager.searchDate = date;
+    _dateDetailLbl.text = NSStringFormat(@"%@%@年%@%@",KDateManager.tgdzString,KDateManager.zodiacString,KDateManager.chineseMonthString,KDateManager.chineseDayString);
     _dateTimeLbl.text = [date dateTransformToString:@"yyyy.MM.dd"];
 }
 - (void)_layoutMainView {

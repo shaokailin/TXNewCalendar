@@ -9,6 +9,6 @@
 #import "LSKBaseViewController.h"
 
 @interface TXXLSuitAvoidVC : LSKBaseViewController
-@property (nonatomic, copy) NSString *loadingDateString;
+@property (nonatomic, strong) NSDate *currentDate;
 @property (nonatomic, assign) NSInteger index;
 @end

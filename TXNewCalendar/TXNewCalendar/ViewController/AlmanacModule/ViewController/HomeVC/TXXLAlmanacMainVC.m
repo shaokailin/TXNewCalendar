@@ -19,16 +19,14 @@
 #import "HSPDatePickView.h"
 @interface TXXLAlmanacMainVC ()
 {
-    NSInteger _changeDateEventCount;
     NSDate *_currentDate;
-    NSInteger _jumpIndex;
     BOOL _isViewIndex;
 }
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) TXXLAlmanacMainView *mainTimeView;
 @property (nonatomic, weak) TXXLAlmanacSearchView *searchView;
 @property (nonatomic, weak) UIImageView *swiptImageView;
-@property (nonatomic, strong) TXXLAlmanacHomeVM *viewModel;
+//@property (nonatomic, strong) TXXLAlmanacHomeVM *viewModel;
 @property (nonatomic, strong) HSPDatePickView *datePickView;
 @end
 
@@ -56,26 +54,22 @@
 
 #pragma mark 网络请求
 - (void)bindSignal {
-    @weakify(self)
-    _viewModel = [[TXXLAlmanacHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        @strongify(self)
-        if (identifier == 0) {
-            [self.mainTimeView setupMessageContent:model];
-            if (_jumpIndex != -1) {
-                _jumpIndex = -1;
-                [self eventClick:_jumpIndex index:0];
-            }
-        }
-    } failure:^(NSUInteger identifier, NSError *error) {
-        @strongify(self)
-        [self.mainTimeView setupNilDate];
-    }];
-    [self loadData:YES];
+//    @weakify(self)
+//    _viewModel = [[TXXLAlmanacHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+//        @strongify(self)
+//        if (identifier == 0) {
+//            [self.mainTimeView setupMessageContent:model];
+//        }
+//    } failure:^(NSUInteger identifier, NSError *error) {
+//        @strongify(self)
+//        [self.mainTimeView setupNilDate];
+//    }];
+//    [self loadData:YES];
 }
-- (void)loadData:(BOOL)isFirst {
-    _viewModel.dateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];;
-    [_viewModel getAlmanacHomeData:isFirst];
-}
+//- (void)loadData:(BOOL)isFirst {
+//    _viewModel.dateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];;
+//    [_viewModel getAlmanacHomeData:isFirst];
+//}
 #pragma mark - 回调事件
 //吉日查询事件
 - (void)searchViewClickEvent:(SearchEventType) type{
@@ -104,25 +98,20 @@
     if (type == EventType_SelectDate) {
         [self.datePickView showInView];
     }else if (type != EventType_Detail) {
-        if (self.viewModel.messageModel != nil) {
-            if (type == EventType_Hours) {
-                TXXLHoursDetailVC *hoursVC = [[TXXLHoursDetailVC alloc]init];
-                hoursVC.hoursArray = self.viewModel.messageModel.h_detail;
-                hoursVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:hoursVC animated:YES];
-            }else if (type == EventType_Compass) {
-                TXXLCompassDetailVC *compassView = [[TXXLCompassDetailVC alloc]init];
-                compassView.position = self.viewModel.messageModel.position;
-                compassView.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:compassView animated:YES];
-            }
-        }else {
-            _jumpIndex = type;
-            [self loadData:YES];
+        if (type == EventType_Hours) {
+            TXXLHoursDetailVC *hoursVC = [[TXXLHoursDetailVC alloc]init];
+            hoursVC.currentDate = _currentDate;
+            hoursVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:hoursVC animated:YES];
+        }else if (type == EventType_Compass) {
+            TXXLCompassDetailVC *compassView = [[TXXLCompassDetailVC alloc]init];
+            compassView.currentDate = _currentDate;
+            compassView.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:compassView animated:YES];
         }
     }else if (type == EventType_Detail) {
         TXXLSuitAvoidVC *suitAvoidVC = [[TXXLSuitAvoidVC alloc]init];
-        suitAvoidVC.loadingDateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];
+        suitAvoidVC.currentDate = _currentDate;
         suitAvoidVC.index = index;
         suitAvoidVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:suitAvoidVC animated:YES];
@@ -134,7 +123,6 @@
 }
 - (void)swiptViewEvent:(DirectionType)direction date:(NSDate *)date{
     _currentDate = date;
-    [self loadData:NO];
     if (!_isViewIndex) {
         [self.mainScrollView setContentOffset:CGPointMake(0, 0) animated:YES];
         return;
@@ -162,7 +150,6 @@
 }
 #pragma mark - 界面初始化
 - (void)initializeMainView {
-    _jumpIndex = -1;
     WS(ws)
     UIScrollView *mainScrollView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
     mainScrollView.showsHorizontalScrollIndicator = NO;

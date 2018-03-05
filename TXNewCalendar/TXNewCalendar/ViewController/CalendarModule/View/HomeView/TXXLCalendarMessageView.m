@@ -24,20 +24,38 @@
     }
     return self;
 }
-- (void)setupContentWithDate:(NSDate *)date
-                     xingzuo:(NSString *)xingzuo
-                  suitAction:(NSString *)suitAction
-                 avoidAction:(NSString *)avoidAction
-                  dateDetail:(NSString *)dateDetail
-                  alertFirst:(NSString *)alertFirst
-                   alertLast:(NSString *)alertLast {
-    self.timeLbl.text = [date getChineseDayString];
-    self.suitLbl.text = suitAction;
-    self.avoidLbl.text = avoidAction;
-    self.dateMessageLbl.text = NSStringFormat(@"%@%@ %@座",[date dateTransformToString:@"MM月dd日"],[date getWeekDate],xingzuo);
-    self.dateDetailLbl.text = dateDetail;
-    self.alertFirstLbl.text = alertFirst;
-    self.alertLastLbl.text = alertLast;
+- (void)setupContentWithDate:(NSDate *)date {
+    KDateManager.searchDate = date;
+    NSDictionary *yiji = [KDateManager getTgdzYiJiXiongJi];
+    NSString *yiString = @"无";
+    NSString *jiString = @"无";
+    NSString *yi = [yiji objectForKey:@"yi"];
+    if (KJudgeIsNullData(yi)) {
+        yiString = [yi stringByReplacingOccurrencesOfString:@"、" withString:@"  "];
+    }
+    NSString *ji = [yiji objectForKey:@"ji"];
+    if (KJudgeIsNullData(ji)) {
+        jiString = [ji stringByReplacingOccurrencesOfString:@"、" withString:@"  "];
+    }
+    self.timeLbl.text = KDateManager.chineseDayString;
+    self.suitLbl.text = yiString;
+    self.avoidLbl.text = jiString;
+    self.dateMessageLbl.text = NSStringFormat(@"%@%@ %@",[date dateTransformToString:@"MM月dd日"],KDateManager.weekString,[KDateManager getXingzuo]);
+    self.dateDetailLbl.text = nil;
+    NSDictionary *jieqi = [KDateManager getBetweenSolarterm];
+    NSDictionary *firstDict = [jieqi objectForKey:@"first"];
+    if (firstDict) {
+        self.alertFirstLbl.text = [self transformTextForSolar:firstDict];
+    }
+    NSDictionary *lastDict = [jieqi objectForKey:@"last"];
+    if (lastDict) {
+        self.alertLastLbl.text = [self transformTextForSolar:lastDict];
+    }
+}
+- (NSString *)transformTextForSolar:(NSDictionary *)dict {
+    NSString *name = [dict objectForKey:@"title"];
+    NSDate *date = [dict objectForKey:@"date"];
+    return NSStringFormat(@"%@:  %@  %@  ",name,[date dateTransformToString:@"MM月dd日"],[date getWeekDate]);
 }
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];

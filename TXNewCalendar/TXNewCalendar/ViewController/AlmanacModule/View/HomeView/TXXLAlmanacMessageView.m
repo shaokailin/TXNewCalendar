@@ -38,99 +38,23 @@
     return self;
 }
 #pragma mark - 设置数据
-- (void)setupContentMessage:(TXXLAlmanacHomeModel *)model {
-    if ([model.position isKindOfClass:[NSDictionary class]]) {
-        NSString *sheng = @"    ";
-        if ([model.bamen isKindOfClass:[NSDictionary class]]) {
-            sheng = [model.bamen objectForKey:@"生"];
-        }
-        [self.compassView setupContentWithMoney:[model.position objectForKey:@"cai_shen"] happy:[model.position objectForKey:@"xi_shen"] luck:[model.position objectForKey:@"fu_shen"] live:sheng];
-    }
-    
-    if ([model.zhi_ri isKindOfClass:[NSDictionary class]]) {
-        [self.left1View setupMessage:[model.zhi_ri objectForKey:@"shen_sha"]];
-    }
-    NSString *chong = @"  ";
-    if ([model.hehai isKindOfClass:[NSDictionary class]]) {
-        chong = [model.hehai objectForKey:@"xian_chong"];
-    }
-    NSString *sha = @"煞    ";
-    if ([model.san_sha isKindOfClass:[NSDictionary class]] && KJudgeIsArrayAndHasValue([model.san_sha objectForKey:@"d"])) {
-        NSArray *array = [model.san_sha objectForKey:@"d"];
-        sha = [array objectAtIndex:0];
-    }
-    [self.right1View setupMessage:NSStringFormat(@"冲%@%@",chong,sha)];
-    if ([model.na_yin isKindOfClass:[NSDictionary class]]) {
-        //带处理
-        [self.left2View setupMessage:nil bottom:[model.na_yin objectForKey:@"d"]];
-    }
-    if (KJudgeIsArrayAndHasValue(model.peng_zu)) {
-        NSString *top = model.peng_zu.count > 0?[model.peng_zu objectAtIndex:0]:nil;
-        NSString *bottom = model.peng_zu.count > 1? [model.peng_zu objectAtIndex:1]:nil;
-        [self.right2View setupMessage:top bottom:bottom];
-    }
-    if ([model.yi_ji isKindOfClass:[NSDictionary class]]) {
-        NSArray *xiongArray = [model.yi_ji objectForKey:@"xiong"];
-        if (KJudgeIsArrayAndHasValue(xiongArray)) {
-            [self.left3View setupMessage:[TXXLPublicMethod dataAppend:xiongArray]];
-        }
-        NSArray *jishenArray = [model.yi_ji objectForKey:@"jishen"];
-        if (KJudgeIsArrayAndHasValue(jishenArray)) {
-            [self.right3View setupMessage:[TXXLPublicMethod dataAppend:jishenArray]];
-        }
-        NSArray *yiArray = [model.yi_ji objectForKey:@"yi"];
-        if (KJudgeIsArrayAndHasValue(yiArray)) {
-            [self.left4View setupLblType4Content:[TXXLPublicMethod dataAppend:yiArray]];
-        }else {
-            [self.left4View setupLblType4Content:@"无"];
-        }
-        NSArray *jiArray = [model.yi_ji objectForKey:@"ji"];
-        if (KJudgeIsArrayAndHasValue(jiArray)) {
-            [self.right4View setupLblType4Content:[TXXLPublicMethod dataAppend:jiArray]];
-        }else {
-            [self.right4View setupLblType4Content:@"无"];
-        }
-    }
-    
-    if (KJudgeIsNullData(model.jianchu)) {
-        [self.left5View setupMessage:NSStringFormat(@"%@日",model.jianchu)];
-    }
-    if ([model.hehai isKindOfClass:[NSDictionary class]]) {
-        NSArray *array = [model.hehai objectForKey:@"san_he"];
-        NSMutableString *shengxiao = [NSMutableString string];
-        if (KJudgeIsArrayAndHasValue(array)) {
-            for (NSString *value in array) {
-                [shengxiao appendString:value];
-            }
-        }
-        NSString *liuhe = [model.hehai objectForKey:@"liu_he"];
-        if (KJudgeIsNullData(liuhe)) {
-            [shengxiao appendString:liuhe];
-        }
-        [self.middle5View setupMessage:shengxiao];
-    }
-    if (KJudgeIsArrayAndHasValue(model.tai_shen)) {
-        [self.middle6View setupMessage:[model.tai_shen objectAtIndex:0]];
-    }
-    if (KJudgeIsArrayAndHasValue(model.xing_su)) {
-        [self.right5View setupMessage:[model.xing_su objectAtIndex:0]];
-    }
-    
-}
-- (void)setupNilContent {
-    [self.left1View setupMessage:@"  "];
-    [self.right1View setupMessage:@"  "];
-    [self.left2View setupMessage:nil bottom:@"  "];
-    [self.right2View setupMessage:@"  " bottom:@"  "];
-    [self.left3View setupMessage:@"  "];
-    [self.right3View setupMessage:@"  "];
-    [self.left4View setupLblType4Content:@"  "];
-    [self.right4View setupLblType4Content:@"  "];
-    [self.left5View setupMessage:nil];
-    [self.middle5View setupMessage:nil];
-    [self.middle6View setupMessage:nil];
-    [self.right5View setupMessage:nil];
-    [self.compassView setupContentWithMoney:@"  " happy:@"  " luck:@"  " live:@"  "];
+- (void)setupContentMessage {
+    [self.left5View setupMessage:NSStringFormat(@"%@日",[KDateManager getJianChu])];
+    [self.left1View setupMessage:[KDateManager getZhiShen]];
+    [self.left2View setupMessage:nil bottom:[KDateManager getNayinWithDay]];
+    [self.right5View setupMessage:[[KDateManager getXingSu] objectAtIndex:0]];
+    [self.middle6View setupMessage:[[KDateManager getTaiShen] objectAtIndex:0]];
+    NSArray *pengzu = [KDateManager getPengZuMessage];
+    [self.right2View setupMessage:[pengzu objectAtIndex:0] bottom:[pengzu objectAtIndex:1]];
+    [self.right1View setupMessage:[KDateManager getXiangChong]];
+    NSDictionary *position = [KDateManager getCompassMessage];
+    [self.compassView setupContentWithMoney:[position objectForKey:@"cai_shen"] happy:[position objectForKey:@"xi_shen"] luck:[position objectForKey:@"fu_shen"] live:[position objectForKey:@"sheng"]];
+    [self.middle5View setupMessage:[KDateManager getHomeLuckyShengxiao]];
+    NSDictionary *dict = [KDateManager getTgdzYiJiXiongJi];
+    [self.left3View setupMessage:[[dict objectForKey:@"xiong"]stringByReplacingOccurrencesOfString:@"、" withString:@"  "]];
+    [self.right3View setupMessage:[[dict objectForKey:@"jishen"]stringByReplacingOccurrencesOfString:@"、" withString:@"  "]];
+    [self.left4View setupLblType4Content:[[dict objectForKey:@"yi"]stringByReplacingOccurrencesOfString:@"、" withString:@"  "]];
+    [self.right4View setupLblType4Content:[[dict objectForKey:@"ji"]stringByReplacingOccurrencesOfString:@"、" withString:@"  "]];
 }
 - (void)setupDefaultContent {
     [self.left1View setupLblType1Content:@"值神"];
@@ -143,7 +67,6 @@
     [self.middle5View setupLblType5Content:@"幸运生肖"];
     [self.middle6View setupLblType5Content:@"今日胎神"];
     [self.right5View setupLblType5Content:@"二十八星宿"];
-    [self setupNilContent];
 }
 //罗盘旋转角度
 - (void)compassTranform:(CGFloat)radius {

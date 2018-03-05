@@ -9,27 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Extend)
-//获取到日历的农历
-- (NSString *)calendarChineseString;
-/**
- 获取生肖
-
- @return 字符串
- */
-- (NSString *)getZodiac;
-//获取天干地地支的年份
-- (NSString *)getChinessYearString;
-//获取当前的农历月份
-- (NSString *)getChineseMonthString;
-//获取当前的农历天份
-- (NSString *)getChineseDayString;
-
-//获取当前农历年数
-- (NSInteger)getChinessYear;
-//获取当前农历月数
-- (NSInteger)getChinessMonth;
-//获取当前农历日数
-- (NSInteger)getChinessDay;
 /**
  获取星期几
 

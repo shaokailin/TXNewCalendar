@@ -11,5 +11,5 @@
 @interface TXXLSuitAvoidHeaderView : UIView
 @property (nonatomic, assign) CGFloat contentHeight;
 - (instancetype)initWithHeaderType:(NSInteger)type;
-- (void)setupContent:(NSDictionary *)contentDict;
+- (void)setupContent:(NSArray *)contentDict;
 @end

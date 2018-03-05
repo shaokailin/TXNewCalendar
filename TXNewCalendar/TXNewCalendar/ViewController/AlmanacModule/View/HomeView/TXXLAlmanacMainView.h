@@ -27,8 +27,5 @@ typedef void (^TimeChangeBlock)(DirectionType direction,NSDate *date);
 @property (nonatomic, strong) NSDate *currentDate;
 - (void)viewDidAppearStartHeading;
 - (void)viewDidDisappearStopHeading;
-- (void)setupNilDate;
 - (void)changeSelectDate:(NSDate *)date;
-//设置内容界面上的数据
-- (void)setupMessageContent:(TXXLAlmanacHomeModel *)model;
 @end

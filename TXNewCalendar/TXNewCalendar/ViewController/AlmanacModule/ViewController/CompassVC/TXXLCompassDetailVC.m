@@ -31,7 +31,8 @@
     [kUserMessageManager analiticsViewAppear:self];
 }
 - (void)initializeMainView {
-    TXXLCompassDetailView *compassView = [[TXXLCompassDetailView alloc]initWithPosition:self.position];
+    KDateManager.searchDate = _currentDate;
+    TXXLCompassDetailView *compassView = [[TXXLCompassDetailView alloc]initWithPosition:[KDateManager getDayPosition]];
     self.compassView = compassView;
     [self.view addSubview:compassView];
     WS(ws)

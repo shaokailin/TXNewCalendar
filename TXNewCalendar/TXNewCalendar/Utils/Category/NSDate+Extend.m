@@ -10,13 +10,6 @@
 static NSString *const kTIMEDEFAULTFORMATTER = @"yyyy-MM-dd";//时间转换默认的格式
 static NSDateFormatter * _formatter = nil;
 static NSCalendar * _calendar = nil;
-static NSCalendar * _chinessCalendar = nil;
-static NSDateFormatter * _chinessFormatter = nil;
-static NSArray * _zodiacs = nil;
-static NSArray * _chineseMonths = nil;
-static NSArray * _chineseDays = nil;
-static NSArray * _heavenlyStems = nil;
-static NSArray * _earthlyBranches = nil;
 @implementation NSDate (Extend)
 + (NSInteger)getDaysInYear:(NSInteger)year month:(NSInteger)month {
     if((month == 0)||(month == 1)||(month == 3)||(month == 5)||(month == 7)||(month == 8)||(month == 10)||(month == 12))
@@ -195,129 +188,129 @@ static NSArray * _earthlyBranches = nil;
     return week;
 }
 #pragma mark - 农历
--(NSCalendar *)setupChinessCalendar {
-    if (_chinessCalendar == nil || [_chinessCalendar isKindOfClass:[NSNull class]]) {
-        _chinessCalendar =  [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
-        [_chinessCalendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:+28800]];
-        _chinessFormatter = [[NSDateFormatter alloc] init];
-        _chinessFormatter.calendar = _chinessCalendar;
-        _chinessFormatter.dateFormat = @"M";
-    }
-    return _chinessCalendar;
-}
-- (NSString *)getZodiac {
-    if (self) {
-        NSInteger year = [self getChinessYear];
-        if (year > 0) {
-            [self setupZodiacs];
-            NSInteger index = (year - 1) % _zodiacs.count;
-            return _zodiacs[index];
-        }
-    }
-    return nil;
-}
-- (NSString *)getChinessYearString {
-    if (self) {
-        NSInteger year = [self getChinessYear];
-        if (year > 0) {
-            [self setupHeavenlyStems];
-            [self setupEarthlyBranches];
-            NSInteger heavenlyStemIndex = (year - 1) % _heavenlyStems.count;
-            NSInteger earthlyBrancheIndex = (year - 1) % _earthlyBranches.count;
-            return NSStringFormat(@"%@%@",_heavenlyStems[heavenlyStemIndex],_earthlyBranches[earthlyBrancheIndex]);
-        }
-    }
-    return nil;
-}
-- (NSString *)getChineseMonthString {
-    if (self) {
-        NSInteger month = [self getChinessMonth];
-        if (month > 0) {
-            [self setupChineseMonth];
-            NSString *monthString = [_chinessFormatter stringFromDate:self];
-            if ([_chinessCalendar.veryShortMonthSymbols containsObject:monthString]) {
-                return _chineseMonths[month - 1];
-            }
-            // Leap month
-            monthString = [NSString stringWithFormat:@"闰%@", _chineseMonths[month - 1]];
-            return monthString;
-        }
-    }
-    return nil;
-}
-- (NSString *)calendarChineseString {
-    [self setupChinessCalendar];
-    NSInteger day = [self getChinessDay];
-    if (day != 1) {
-        return [self getChineseDayString];
-    }
-    return [self getChineseMonthString];
-}
-- (NSString *)getChineseDayString {
-    if (self) {
-        NSInteger day = [self getChinessDay];
-        if (day > 0) {
-            [self setupChineseDay];
-            return _chineseDays[day - 1];
-        }
-    }
-    return nil;
-}
-- (NSInteger)getChinessYear {
-    if (self) {
-        [self setupChinessCalendar];
-        NSDateComponents *comps = [_chinessCalendar components:NSCalendarUnitYear fromDate:self];
-        return comps.year;
-    }
-    return 0;
-}
-- (NSInteger)getChinessMonth {
-    if (self) {
-        [self setupChinessCalendar];
-        NSDateComponents *comps = [_chinessCalendar components:NSCalendarUnitMonth fromDate:self];
-        return comps.month;
-    }
-    return 0;
-}
-- (NSInteger)getChinessDay {
-    if (self) {
-        [self setupChinessCalendar];
-        NSDateComponents *comps = [_chinessCalendar components:NSCalendarUnitDay fromDate:self];
-        return comps.day;
-    }
-    return 0;
-}
-
-- (NSArray *)setupZodiacs {
-    if (_zodiacs == nil) {
-        _zodiacs = [NSArray arrayWithPlist:@"zodiacs"];
-    }
-    return _zodiacs;
-}
-- (NSArray *)setupChineseMonth {
-    if (_chineseMonths == nil) {
-        _chineseMonths = [NSArray arrayWithPlist:@"chineseMonth"];
-    }
-    return _chineseMonths;
-}
-- (NSArray *)setupChineseDay {
-    if (_chineseDays == nil) {
-        _chineseDays = [NSArray arrayWithPlist:@"chineseDay"];
-    }
-    return _chineseDays;
-}
-- (NSArray *)setupHeavenlyStems {
-    if (_heavenlyStems == nil) {
-        _heavenlyStems = [NSArray arrayWithPlist:@"heavenlyStems"];
-    }
-    return _heavenlyStems;
-}
-- (NSArray *)setupEarthlyBranches {
-    if (_earthlyBranches == nil) {
-        _earthlyBranches = [NSArray arrayWithPlist:@"earthlyBranches"];
-    }
-    return _earthlyBranches;
-}
+//-(NSCalendar *)setupChinessCalendar {
+//    if (_chinessCalendar == nil || [_chinessCalendar isKindOfClass:[NSNull class]]) {
+//        _chinessCalendar =  [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];
+//        [_chinessCalendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:+28800]];
+//        _chinessFormatter = [[NSDateFormatter alloc] init];
+//        _chinessFormatter.calendar = _chinessCalendar;
+//        _chinessFormatter.dateFormat = @"M";
+//    }
+//    return _chinessCalendar;
+//}
+//- (NSString *)getZodiac {
+//    if (self) {
+//        NSInteger year = [self getChinessYear];
+//        if (year > 0) {
+//            [self setupZodiacs];
+//            NSInteger index = (year - 1) % _zodiacs.count;
+//            return _zodiacs[index];
+//        }
+//    }
+//    return nil;
+//}
+//- (NSString *)getChinessYearString {
+//    if (self) {
+//        NSInteger year = [self getChinessYear];
+//        if (year > 0) {
+//            [self setupHeavenlyStems];
+//            [self setupEarthlyBranches];
+//            NSInteger heavenlyStemIndex = (year - 1) % _heavenlyStems.count;
+//            NSInteger earthlyBrancheIndex = (year - 1) % _earthlyBranches.count;
+//            return NSStringFormat(@"%@%@",_heavenlyStems[heavenlyStemIndex],_earthlyBranches[earthlyBrancheIndex]);
+//        }
+//    }
+//    return nil;
+//}
+//- (NSString *)getChineseMonthString {
+//    if (self) {
+//        NSInteger month = [self getChinessMonth];
+//        if (month > 0) {
+//            [self setupChineseMonth];
+//            NSString *monthString = [_chinessFormatter stringFromDate:self];
+//            if ([_chinessCalendar.veryShortMonthSymbols containsObject:monthString]) {
+//                return _chineseMonths[month - 1];
+//            }
+//            // Leap month
+//            monthString = [NSString stringWithFormat:@"闰%@", _chineseMonths[month - 1]];
+//            return monthString;
+//        }
+//    }
+//    return nil;
+//}
+//- (NSString *)calendarChineseString {
+//    [self setupChinessCalendar];
+//    NSInteger day = [self getChinessDay];
+//    if (day != 1) {
+//        return [self getChineseDayString];
+//    }
+//    return [self getChineseMonthString];
+//}
+//- (NSString *)getChineseDayString {
+//    if (self) {
+//        NSInteger day = [self getChinessDay];
+//        if (day > 0) {
+//            [self setupChineseDay];
+//            return _chineseDays[day - 1];
+//        }
+//    }
+//    return nil;
+//}
+//- (NSInteger)getChinessYear {
+//    if (self) {
+//        [self setupChinessCalendar];
+//        NSDateComponents *comps = [_chinessCalendar components:NSCalendarUnitYear fromDate:self];
+//        return comps.year;
+//    }
+//    return 0;
+//}
+//- (NSInteger)getChinessMonth {
+//    if (self) {
+//        [self setupChinessCalendar];
+//        NSDateComponents *comps = [_chinessCalendar components:NSCalendarUnitMonth fromDate:self];
+//        return comps.month;
+//    }
+//    return 0;
+//}
+//- (NSInteger)getChinessDay {
+//    if (self) {
+//        [self setupChinessCalendar];
+//        NSDateComponents *comps = [_chinessCalendar components:NSCalendarUnitDay fromDate:self];
+//        return comps.day;
+//    }
+//    return 0;
+//}
+//
+//- (NSArray *)setupZodiacs {
+//    if (_zodiacs == nil) {
+//        _zodiacs = [NSArray arrayWithPlist:@"zodiacs"];
+//    }
+//    return _zodiacs;
+//}
+//- (NSArray *)setupChineseMonth {
+//    if (_chineseMonths == nil) {
+//        _chineseMonths = [NSArray arrayWithPlist:@"chineseMonth"];
+//    }
+//    return _chineseMonths;
+//}
+//- (NSArray *)setupChineseDay {
+//    if (_chineseDays == nil) {
+//        _chineseDays = [NSArray arrayWithPlist:@"chineseDay"];
+//    }
+//    return _chineseDays;
+//}
+//- (NSArray *)setupHeavenlyStems {
+//    if (_heavenlyStems == nil) {
+//        _heavenlyStems = [NSArray arrayWithPlist:@"heavenlyStems"];
+//    }
+//    return _heavenlyStems;
+//}
+//- (NSArray *)setupEarthlyBranches {
+//    if (_earthlyBranches == nil) {
+//        _earthlyBranches = [NSArray arrayWithPlist:@"earthlyBranches"];
+//    }
+//    return _earthlyBranches;
+//}
 
 
 @end

@@ -13,20 +13,17 @@
 #import "TXXLFestivalCountDownHeaderView.h"
 #import "TXXLFestivalCountDownCell.h"
 #import "TXXLFestivalListVC.h"
-#import "TXXLCalendarHomeVM.h"
-#import "TXXLAlmanacHomeVM.h"
 #import "HSPDatePickView.h"
 @interface TXXLCalendarMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSDate *_currentDate;
+    NSArray *_festivalsList;
 }
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) UITableView *festivalTbView;
 @property (nonatomic, weak) TXXLCalendarMessageView *messageView;
 @property (nonatomic, weak) TXXLCalendarView *calendarView;
 @property (nonatomic, weak) TXXLNavigationRightView *rightView;
-@property (nonatomic, strong) TXXLAlmanacHomeVM *alViewModel;
-@property (nonatomic, strong) TXXLCalendarHomeVM *clViewModel;
 @property (nonatomic, strong) HSPDatePickView *datePickView;
 @end
 
@@ -38,7 +35,6 @@
     [self initNavigationView];
     [self initializeMainView];
     [self setupDefaultDate];
-    [self bindSignal];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCalendarDate:) name:kCalendarDateChange object:nil];
     [kUserMessageManager setupViewProperties:self url:nil name:@"万年历首页"];
 }
@@ -49,50 +45,6 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [kUserMessageManager analiticsViewDisappear:self];
-}
-
-#pragma mark - 网络加载
-- (void)bindSignal {
-    @weakify(self)
-    _alViewModel = [[TXXLAlmanacHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        @strongify(self)
-        [self setupMessageView];
-    } failure:^(NSUInteger identifier, NSError *error) {
-        
-    }];
-    _clViewModel = [[TXXLCalendarHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        @strongify(self)
-        [self.festivalTbView reloadData];
-    } failure:^(NSUInteger identifier, NSError *error) {
-        
-    }];
-    _clViewModel.isShowAlertAndHiden = NO;
-    [self loadHttp];
-}
-- (void)setupMessageView {
-    TXXLAlmanacHomeModel *model = self.alViewModel.messageModel;
-    NSString *yiString = @"无";
-    NSString *jiString = @"无";
-    if ([model.yi_ji isKindOfClass:[NSDictionary class]]) {
-        NSArray *yiArray = [model.yi_ji objectForKey:@"yi"];
-        if (KJudgeIsArrayAndHasValue(yiArray)) {
-            yiString = [TXXLPublicMethod dataAppend:yiArray];
-        }
-        NSArray *jiArray = [model.yi_ji objectForKey:@"ji"];
-        if (KJudgeIsArrayAndHasValue(jiArray)) {
-            jiString = [TXXLPublicMethod dataAppend:jiArray];
-        }
-    }
-    NSDictionary *jieqi = model.jieqi;
-    NSString *first = nil;
-    NSString *last = nil;
-    if ([jieqi isKindOfClass:[NSDictionary class]]) {
-        NSArray *current = [jieqi objectForKey:@"current"];
-        first = [self returnJieqi:current];
-        NSArray *next = [jieqi objectForKey:@"next"];
-        last = [self returnJieqi:next];
-    }
-    [self.messageView setupContentWithDate:_currentDate xingzuo:model.xing_zuo suitAction:yiString avoidAction:jiString dateDetail:nil alertFirst:first alertLast:last];
 }
 - (NSString *)returnJieqi:(NSArray *)data {
     if (KJudgeIsArrayAndHasValue(data)) {
@@ -114,16 +66,10 @@
     }
     return nil;
 }
-- (void)loadHttp{
-    NSString *dateString = [_currentDate dateTransformToString:@"yyyy-MM-dd"];
-    _alViewModel.dateString = dateString;
-    _clViewModel.time = dateString;
-    [_alViewModel getAlmanacHomeData:YES];
-    [_clViewModel getFestivalsList];
-}
 #pragma mark -初始化默认值
 - (void)setupDefaultDate {
-    _currentDate = [NSDate date];
+    NSDate *current = [NSDate stringTransToDate:[[NSDate date] dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"];
+    _currentDate = current;
     [self changeDateEvent];
 }
 #pragma mark -私有方法
@@ -138,23 +84,20 @@
     }
 }
 - (void)dateSelect:(NSDate *)date {
-    NSDate *current = [NSDate stringTransToDate:self.clViewModel.time withFormat:@"yyyy-MM-dd"];
     NSDate *select = [NSDate stringTransToDate:[date dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"];
-    if ([current compare:select] != NSOrderedSame) {
+    if ([_currentDate compare:select] != NSOrderedSame) {
         _currentDate = date;
         [self.calendarView selectDate:date];
         [self changeDateEvent];
-        [self loadHttp];
     }
 }
 - (void)changeDateEvent {
     [self.rightView changeTextWithDate:_currentDate];
     [self.calendarView selectDate:_currentDate];
-    [self.messageView setupContentWithDate:_currentDate xingzuo:@"" suitAction:@"" avoidAction:@"" dateDetail:nil alertFirst:nil alertLast:nil];
-    if (self.clViewModel && self.clViewModel.festivalsList != nil) {
-        self.clViewModel.festivalsList = nil;
-        [self.festivalTbView reloadData];
-    }
+    [self setupMessageView];
+}
+- (void)setupMessageView {
+    [self.messageView setupContentWithDate:_currentDate];
 }
 #pragma mark - 回调
 //跳转更多节假日界面
@@ -181,20 +124,20 @@
 }
 //日历选择时间
 - (void)calendarSelectDate:(NSDate *)date {
-    _currentDate = date;
+    NSDate *current = [NSDate stringTransToDate:[date dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"];
+    _currentDate = current;
     [self changeDateEvent];
-    [self loadHttp];
 }
 #pragma mark -tableview delegate】
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.clViewModel && KJudgeIsArrayAndHasValue(self.clViewModel.festivalsList)) {
-        return self.clViewModel.festivalsList.count > 5?5:self.clViewModel.festivalsList.count;
+    if (KJudgeIsArrayAndHasValue(_festivalsList)) {
+        return _festivalsList.count;
     }
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXXLFestivalCountDownCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLFestivalCountDownCell];
-    NSDictionary *dict = [self.clViewModel.festivalsList objectAtIndex:indexPath.row];
+    NSDictionary *dict = [_festivalsList objectAtIndex:indexPath.row];
     
     [cell setupCellContentWithLeft:NSStringFormat(@"%@  (公历%@)",[dict objectForKey:@"j"],[dict objectForKey:@"d"]) right:NSStringFormat(@"还有%@天",[dict objectForKey:@"l"])];
     return cell;

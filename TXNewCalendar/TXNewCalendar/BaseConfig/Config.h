@@ -17,7 +17,9 @@
 #import "TXXLViewManager.h"
 //公共方法
 #import "TXXLPublicMethod.h"
-
+//日期管理
+#import "TXXLDateManager.h"
+#define KDateManager  [TXXLDateManager sharedInstance]
 static NSString * const kGuide_Is_Has_Show = @"Guide_Is_Has_Show";
 static NSString * const kAlmanacDateChange = @"almanacDateChange";
 static NSString * const kCalendarDateChange = @"CalendarDateChange";

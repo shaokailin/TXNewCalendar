@@ -8,6 +8,9 @@
 
 #ifndef TXNewCalendar_PrefixHeader_h
 #define TXNewCalendar_PrefixHeader_h
+#ifdef __OBJC__
+//引用的文件。比如
 #import "LSKUtilsConfig.h"
 #import "Config.h"
+#endif
 #endif /* TXNewCalendar_PrefixHeader_h */

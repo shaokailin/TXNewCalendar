@@ -9,9 +9,7 @@
 #import "TXXLSuitAvoidVC.h"
 #import "TXXLSuitAvoidHeaderView.h"
 #import "TXXLSuitAvoidContentView.h"
-#import "TXXLAlmanacDetailVM.h"
 @interface TXXLSuitAvoidVC ()
-@property (nonatomic, strong) TXXLAlmanacDetailVM *viewModel;
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) TXXLSuitAvoidHeaderView *suitView;
 @property (nonatomic, weak) TXXLSuitAvoidHeaderView *avoidView;
@@ -25,7 +23,6 @@
     self.navigationItem.title = @"黄历现代文";
     [self addNavigationBackButton];
     [self initializeMainView];
-    [self bindSignal];
     [kUserMessageManager setupViewProperties:self url:nil name:@"黄历现代文"];
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -45,40 +42,18 @@
     [super viewDidDisappear:animated];
     [kUserMessageManager analiticsViewDisappear:self];
 }
-- (void)bindSignal {
-    @weakify(self)
-    _viewModel = [[TXXLAlmanacDetailVM alloc]initWithSuccessBlock:^(NSUInteger identifier, TXXLAlmanacDetailModel *model) {
-        @strongify(self)
-        [self setupViewContent:model];
-        [self.mainScrollView.mj_header endRefreshing];
-        if (self.index > 1) {
-            UIView *view = [self.mainScrollView viewWithTag:400 + self.index];
-            if (view) {
-                self.mainScrollView.contentOffset = CGPointMake(0, view.frame.origin.y);
-            }
-        }else if (_index == 1) {
-            self.mainScrollView.contentOffset = CGPointMake(0, self.avoidView.frame.origin.y);
-        }
-    } failure:^(NSUInteger identifier, NSError *error) {
-        @strongify(self)
-        [self.mainScrollView.mj_header endRefreshing];
-    }];
-    _viewModel.dateString = self.loadingDateString;
-    [_viewModel getAlmanacDetailData:NO];
-}
-- (void)pullDownRefresh {
-    [_viewModel getAlmanacDetailData:YES];
-}
-- (void)setupViewContent:(TXXLAlmanacDetailModel *)model {
+
+- (void)setupViewContent:(NSDictionary *)content {
     CGFloat contentHeight = 10;
     CGFloat viewHeight = 0;
-    [self.suitView setupContent:model.yi];
+    NSArray *yi = [content objectForKey:@"yi"];
+    [self.suitView setupContent:yi];
     viewHeight = self.suitView.contentHeight;
     self.suitView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
     contentHeight += viewHeight;
     contentHeight += 10;
-    
-    [self.avoidView setupContent:model.ji];
+    NSArray *ji = [content objectForKey:@"ji"];
+    [self.avoidView setupContent:ji];
     viewHeight = self.avoidView.contentHeight;
     self.avoidView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
     contentHeight += viewHeight;
@@ -87,25 +62,25 @@
     for (int i = 2; i < 12; i ++) {
         TXXLSuitAvoidContentView *contentView = (TXXLSuitAvoidContentView *)[self.mainScrollView viewWithTag:400 + i];
         if (i == 2) {
-            [contentView setupContentWithDic:model.lucky];
+            [contentView setupContentWithDic:[content objectForKey:@"lucky"]];
         }else if (i == 3) {
-            [contentView setupContentWithDic:model.chong_sha];
+            [contentView setupContentWithDic:[content objectForKey:@"chong_sha"]];
         }else if (i == 4) {
-            [contentView setupContentWithDic:model.zhi_shen];
+            [contentView setupContentWithDic:[content objectForKey:@"zhi_shen"]];
         }else if (i == 5) {
-            [contentView setupContentArr:model.na_yin];
+            [contentView setupContentWithDic:[content objectForKey:@"na_yin"]];
         }else if (i == 6) {
-            [contentView setupContentWithDic:model.jishen];
+            [contentView setupContentArr:[content objectForKey:@"jishen"]];
         }else if (i == 7) {
-            [contentView setupContentWithDic:model.xiong];
+            [contentView setupContentArr:[content objectForKey:@"xiong"]];
         }else if (i == 8) {
-            [contentView setupContentArr:model.tai_shen];
+            [contentView setupContentArr:[content objectForKey:@"tai_shen"]];
         }else if (i == 9) {
-            [contentView setupContentArr:model.peng_zu];
+            [contentView setupContentArr:[content objectForKey:@"peng_zu"]];
         }else if (i == 10) {
-            [contentView setupContentArr:model.jian_chu];
+            [contentView setupContentWithDic:[content objectForKey:@"jian_chu"]];
         }else if (i == 11) {
-            [contentView setupContentArr:model.xing_su];
+            [contentView setupContentArr:[content objectForKey:@"xing_su"]];
         }
         viewHeight = contentView.contentHeight;
         contentView.frame = CGRectMake(10, contentHeight, SCREEN_WIDTH - 20, viewHeight);
@@ -117,7 +92,8 @@
 }
 #pragma mark -界面初始化
 - (void)initializeMainView {
-    UIScrollView *mainScrollView = [LSKViewFactory initializeScrollViewTarget:self headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil];
+    
+    UIScrollView *mainScrollView = [LSKViewFactory initializeScrollViewTarget:self headRefreshAction:nil footRefreshAction:nil];
     mainScrollView.backgroundColor = [UIColor whiteColor];
     self.mainScrollView = mainScrollView;
     [self.view addSubview:mainScrollView];
@@ -152,6 +128,8 @@
     [mainScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
+    KDateManager.searchDate = self.currentDate;
+    [self setupViewContent:[KDateManager getCurrentModernText]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

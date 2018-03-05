@@ -17,7 +17,7 @@
     
 }
 @property (nonatomic, weak) UIScrollView *contentScrollView;
-@property (nonatomic, weak) NSDictionary *position;
+@property (nonatomic, strong) NSDictionary *position;
 @property (nonatomic, weak) UIImageView *compassImageView;
 @property (nonatomic, weak) UILabel *directionTitleLbl;
 @end

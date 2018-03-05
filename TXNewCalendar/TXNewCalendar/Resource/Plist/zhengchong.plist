@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   zhengchong.plist
+   TXNewCalendar
+
+   Created by shaokai lin on 2018/3/5.
+   Copyright (c) 2018年 厦门集网文化传播有限公司. All rights reserved.
+-->
+<plist version="1.0">
+    <dict><key>甲子</key><string>戊午</string><key>乙丑</key><string>己未</string><key>丙寅</key><string>庚申</string><key>丁卯</key><string>辛酉</string><key>戊辰</key><string>壬戌</string><key>己巳</key><string>癸亥</string><key>庚午</key><string>甲子</string><key>辛未</key><string>乙丑</string><key>壬申</key><string>丙寅</string><key>癸酉</key><string>丁卯</string><key>甲戌</key><string>戊辰</string><key>乙亥</key><string>己巳</string><key>丙子</key><string>庚午</string><key>丁丑</key><string>辛未</string><key>戊寅</key><string>壬申</string><key>己卯</key><string>癸酉</string><key>庚辰</key><string>甲戌</string><key>辛巳</key><string>乙亥</string><key>壬午</key><string>丙子</string><key>癸未</key><string>丁丑</string><key>甲申</key><string>戊寅</string><key>乙酉</key><string>己卯</string><key>丙戌</key><string>庚辰</string><key>丁亥</key><string>辛巳</string><key>戊子</key><string>壬午</string><key>己丑</key><string>癸未</string><key>庚寅</key><string>甲申</string><key>辛卯</key><string>乙酉</string><key>壬辰</key><string>丙戌</string><key>癸巳</key><string>丁亥</string><key>甲午</key><string>戊子</string><key>乙未</key><string>己丑</string><key>丙申</key><string>庚寅</string><key>丁酉</key><string>辛卯</string><key>戊戌</key><string>壬辰</string><key>己亥</key><string>癸巳</string><key>庚子</key><string>甲午</string><key>辛丑</key><string>乙未</string><key>壬寅</key><string>丙申</string><key>癸卯</key><string>丁酉</string><key>甲辰</key><string>戊戌</string><key>乙巳</key><string>己亥</string><key>丙午</key><string>庚子</string><key>丁未</key><string>辛丑</string><key>戊申</key><string>壬寅</string><key>己酉</key><string>癸卯</string><key>庚戌</key><string>甲辰</string><key>辛亥</key><string>乙巳</string><key>壬子</key><string>丙午</string><key>癸丑</key><string>丁未</string><key>甲寅</key><string>戊申</string><key>乙卯</key><string>己酉</string><key>丙辰</key><string>庚戌</string><key>丁巳</key><string>辛亥</string><key>戊午</key><string>壬子</string><key>己未</key><string>癸丑</string><key>庚申</key><string>甲寅</string><key>辛酉</key><string>乙卯</string><key>壬戌</key><string>丙辰</string><key>癸亥</key><string>丁巳</string></dict>
+</plist>

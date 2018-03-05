@@ -23,8 +23,8 @@
     }
     return self;
 }
-- (void)setupContent:(NSDictionary *)contentDict {
-    NSInteger contentCount = contentDict.allKeys.count;
+- (void)setupContent:(NSArray *)contentDict {
+    NSInteger contentCount = contentDict.count;
     CGFloat width = SCREEN_WIDTH - 20 - 40 - 2;
     NSInteger maxIndex = MAX(_currentIndex, contentCount);
     CGFloat height = _defaultHeight - 20;
@@ -33,8 +33,9 @@
         UILabel *detailLbl = [self viewWithTag:300 + i];
         if (i < contentCount) {
             height += 21;
-            NSString *titleString = [contentDict.allKeys objectAtIndex:i];
-            NSString *detailString = [contentDict objectForKey:titleString];
+            NSDictionary *dict = [contentDict objectAtIndex:i];
+            NSString *titleString = [dict objectForKey:@"name"];
+            NSString *detailString = [dict objectForKey:@"detail"];
             BOOL isTitleString = KJudgeIsNullData(titleString);
             if (isTitleString) {
                 if (titleLbl == nil) {

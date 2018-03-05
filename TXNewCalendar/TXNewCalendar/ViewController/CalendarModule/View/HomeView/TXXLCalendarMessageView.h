@@ -9,11 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TXXLCalendarMessageView : UIView
-- (void)setupContentWithDate:(NSDate *)date
-                     xingzuo:(NSString *)xingzuo
-                  suitAction:(NSString *)suitAction
-                 avoidAction:(NSString *)avoidAction
-                  dateDetail:(NSString *)dateDetail
-                  alertFirst:(NSString *)alertFirst
-                   alertLast:(NSString *)alertLast;
+- (void)setupContentWithDate:(NSDate *)date;
 @end

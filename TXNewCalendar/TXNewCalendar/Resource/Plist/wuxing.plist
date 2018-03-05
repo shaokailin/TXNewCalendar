@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   wuxing.plist
+   TXNewCalendar
+
+   Created by shaokai lin on 2018/3/1.
+   Copyright (c) 2018年 厦门集网文化传播有限公司. All rights reserved.
+-->
+<plist version="1.0">
+    <dict><key>甲子</key><string>海中金</string><key>乙丑</key><string>海中金</string><key>丙寅</key><string>炉中火</string><key>丁卯</key><string>炉中火</string><key>戊辰</key><string>大林木</string><key>己巳</key><string>大林木</string><key>庚午</key><string>路旁土</string><key>辛未</key><string>路旁土</string><key>壬申</key><string>剑锋金</string><key>癸酉</key><string>剑锋金</string><key>甲戌</key><string>山头火</string><key>乙亥</key><string>山头火</string><key>丙子</key><string>涧下水</string><key>丁丑</key><string>涧下水</string><key>戊寅</key><string>城头土</string><key>己卯</key><string>城头土</string><key>庚辰</key><string>白腊金</string><key>辛巳</key><string>白腊金</string><key>壬午</key><string>杨柳木</string><key>癸未</key><string>杨柳木</string><key>甲申</key><string>泉中水</string><key>乙酉</key><string>泉中水</string><key>丙戌</key><string>屋上土</string><key>丁亥</key><string>屋上土</string><key>戊子</key><string>霹雳火</string><key>己丑</key><string>霹雳火</string><key>庚寅</key><string>松柏木</string><key>辛卯</key><string>松柏木</string><key>壬辰</key><string>长流水</string><key>癸巳</key><string>长流水</string><key>甲午</key><string>砂石金</string><key>乙未</key><string>砂石金</string><key>丙申</key><string>山下火</string><key>丁酉</key><string>山下火</string><key>戊戌</key><string>平地木</string><key>己亥</key><string>平地木</string><key>庚子</key><string>壁上土</string><key>辛丑</key><string>壁上土</string><key>壬寅</key><string>金箔金</string><key>癸卯</key><string>金箔金</string><key>甲辰</key><string>覆灯火</string><key>乙巳</key><string>覆灯火</string><key>丙午</key><string>天河水</string><key>丁未</key><string>天河水</string><key>戊申</key><string>大驿土</string><key>己酉</key><string>大驿土</string><key>庚戌</key><string>钗环金</string><key>辛亥</key><string>钗环金</string><key>壬子</key><string>桑柘木</string><key>癸丑</key><string>桑柘木</string><key>甲寅</key><string>太溪水</string><key>乙卯</key><string>太溪水</string><key>丙辰</key><string>沙中土</string><key>丁巳</key><string>沙中土</string><key>戊午</key><string>天上火</string><key>己未</key><string>天上火</string><key>庚申</key><string>石榴木</string><key>辛酉</key><string>石榴木</string><key>壬戌</key><string>大海水</string><key>癸亥</key><string>大海水</string></dict>
+</plist>

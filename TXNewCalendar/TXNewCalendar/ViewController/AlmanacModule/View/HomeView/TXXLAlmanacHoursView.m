@@ -19,34 +19,15 @@
     }
     return self;
 }
-- (void)setupContentWithHours:(NSArray *)hours {
-    if (KJudgeIsArrayAndHasValue(hours)) {
-        NSInteger hourCount = hours.count;
-        for (int i = 0; i < 12; i++) {
-            TXXLHourView *hourView = [self viewWithTag:200 + i];
-            NSString *hourString = nil;
-            NSString *stateString = nil;
-            if (i < hourCount) {
-                NSDictionary *hourDetailDict = [hours objectAtIndex:i];
-                NSArray *hour = [hourDetailDict objectForKey:@"h"];
-                if (KJudgeIsArrayAndHasValue(hour)) {
-                    hourString = [hour componentsJoinedByString:@"\n"];
-                }
-                stateString = KNullTransformString([hourDetailDict objectForKey:@"jix"]);
-            }
-            [hourView setupContentWithHour:hourString state:stateString];
-        }
-    }else {
-        [self setupDefaultData];
-    }
-}
-- (void)setupDefaultData {
-    NSArray *hours = @[@"子",@"寅",@"丑",@"卯",@"辰",@"巳",@"午",@"未",@"申",@"酉",@"戌",@"亥"];
-    for (int i = 0; i < 12; i ++) {
+- (void)setupContentWithHours {
+    NSArray *hourMessage = [KDateManager getHourGanzhiAndState];
+    for (int i = 0; i < 12; i++) {
         TXXLHourView *hourView = [self viewWithTag:200 + i];
-        [hourView setupContentWithHour:[hours objectAtIndex:i] state:@""];
+        NSDictionary *dict = [hourMessage objectAtIndex:i];
+        [hourView setupContentWithHour:[dict objectForKey:@"name"] state:[dict objectForKey:@"state"]];
     }
 }
+
 - (void)currentHourChange:(NSInteger)hour {
     if (hour >= 0) {
         if (hour != _currentHour) {

@@ -39,10 +39,12 @@
 }
 - (void)setupStartTime:(NSDate *)startDate endTime:(NSDate *)endDate {
     if (startDate) {
-        [_startTimeBtn setTitle:NSStringFormat(@"开始%@  %@  %@%@",[startDate dateTransformToString:@"yyyy.MM.dd"],[startDate getWeekDate],[startDate getChineseMonthString],[startDate getChineseDayString]) forState: UIControlStateNormal];
+        KDateManager.searchDate = startDate;
+        [_startTimeBtn setTitle:NSStringFormat(@"开始%@  %@  %@%@",[startDate dateTransformToString:@"yyyy.MM.dd"],[startDate getWeekDate],KDateManager.chineseMonthString,KDateManager.chineseDayString) forState: UIControlStateNormal];
     }
     if (endDate) {
-        [_endTimeBtn setTitle:NSStringFormat(@"结束%@  %@  %@%@",[endDate dateTransformToString:@"yyyy.MM.dd"],[endDate getWeekDate],[endDate getChineseMonthString],[endDate getChineseDayString]) forState: UIControlStateNormal];
+        KDateManager.searchDate = endDate;
+        [_endTimeBtn setTitle:NSStringFormat(@"结束%@  %@  %@%@",[endDate dateTransformToString:@"yyyy.MM.dd"],[endDate getWeekDate],KDateManager.chineseMonthString,KDateManager.chineseDayString) forState: UIControlStateNormal];
     }
 }
 - (void)setupDescribe:(NSString *)describe count:(NSInteger)count {

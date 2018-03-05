@@ -25,6 +25,8 @@
 @property (nonatomic, weak) TXXLAlmanacDateView *dateView;
 @property (nonatomic, weak) TXXLAlmanacMessageView *messageView;
 @property (nonatomic, weak) TXXLAlmanacHoursView *hoursView;
+@property (nonatomic, weak) NSDate *maxDate;
+@property (nonatomic, weak) NSDate *minDate;
 @end
 @implementation TXXLAlmanacMainView
 
@@ -34,7 +36,7 @@
         [self _layoutMainView];
         [self setupDefaultValue];
         //监听时间变化
-        [self registerTimeChange];
+//        [self registerTimeChange];
         [self addSwipeGestureRecognizer];
         [self addLocationManager];
     }
@@ -72,12 +74,6 @@
         _isStartHeading = NO;
     }
 }
-#pragma mark - 填充内容数据
-- (void)setupMessageContent:(TXXLAlmanacHomeModel *)model {
-    [self.dateView setupChinessDateData:model.jinian week:model.week shengxiao:model.shengxiao nongli:model.nongli];
-    [self.hoursView setupContentWithHours:model.h_detail];
-    [self.messageView setupContentMessage:model];
-}
 #pragma mark -手势
 - (void)addSwipeGestureRecognizer {
     UISwipeGestureRecognizer *left = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipes:)];
@@ -104,7 +100,6 @@
     //地区区域改变的时候
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentLocaleDidChange) name:NSSystemTimeZoneDidChangeNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAlmanacDate:) name:kAlmanacDateChange object:nil];
-    
 }
 - (void)changeAlmanacDate:(NSNotification *)notification {
     NSDictionary *dict = notification.userInfo;
@@ -115,6 +110,9 @@
 }
 - (void)changeSelectDate:(NSDate *)date {
     if (date) {
+        if (![self compareTimeChange:date]) {
+            return;
+        }
         NSTimeInterval time = [_currentDate timeIntervalSinceDate:date];
         _currentDate = date;
         if (self.timeBlock) {
@@ -129,6 +127,29 @@
 - (void)currentLocaleDidChange {
     
 }
+- (BOOL)compareTimeChange:(NSDate *)date {
+    if (date) {
+        BOOL isOutMax = [date compare:self.maxDate] > 0;
+        BOOL isOutMin = [date compare:self.minDate] < 0;
+        if (isOutMax || isOutMin) {
+            return NO;
+        }
+        return YES;
+    }
+    return NO;
+}
+- (NSDate *)maxDate {
+    if (!_maxDate) {
+        _maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
+    }
+    return _maxDate;
+}
+- (NSDate *)minDate {
+    if (!_minDate) {
+        _minDate = [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
+    }
+    return _minDate;
+}
 #pragma mark - 回调事件
 - (void)selectDateToPickView {
     if (self.clickBlock) {
@@ -137,11 +158,16 @@
 }
 //时间点击修改时间
 - (void)changeDate:(DateChangeType)type {
+    NSDate *changeDate = nil;
     if (type == 0) {//前一个日期
-        _currentDate = [_currentDate dateByAddingTimeInterval:-(60 * 60 * 24)];
+        changeDate = [_currentDate dateByAddingTimeInterval:-(60 * 60 * 24)];
     }else {
-        _currentDate = [_currentDate dateByAddingTimeInterval:60 * 60 * 24];
+        changeDate = [_currentDate dateByAddingTimeInterval:60 * 60 * 24];
     }
+    if (![self compareTimeChange:changeDate]) {
+        return;
+    }
+    _currentDate = changeDate;
     if (self.timeBlock) {
         self.timeBlock(type == 0? DirectionType_Right:DirectionType_Left,_currentDate);
     }
@@ -149,17 +175,16 @@
 }
 //日期修改的时候进行修改内容时间
 - (void)changeDateEvent {
+    KDateManager.searchDate = _currentDate;
     [self.dateView setupDateContent:_currentDate];
+    [self.hoursView setupContentWithHours];
+    [self.messageView setupContentMessage];
     BOOL isToday = [NSDate isTimestampToToday:[_currentDate timeIntervalSince1970]];
     if (!isToday) {
         [self.hoursView currentHourChange:-1];
     }else {
         [self.hoursView currentHourChange:_currentIndexHour];
     }
-}
-- (void)setupNilDate {
-    [self.messageView setupNilContent];
-    [self setupTimeHourDafaultValue];
 }
 //信息的点击事件
 - (void)messageViewClickEvent:(MessageEventType) type index:(NSInteger)index {
@@ -181,15 +206,10 @@
 - (void)setupDefaultValue {
     _currentDate = [NSDate date];
     _currentIndexHour = -1;
-    [self setupTimeHourDafaultValue];
-    [self.messageView setupNilContent];
+    [self setupCurrentHour];
     [self changeDateEvent];
 }
 #pragma mark- 时辰设置
-- (void)setupTimeHourDafaultValue {
-    [self.hoursView setupDefaultData];
-    [self setupCurrentHour];
-}
 //解析出时间差
 - (void)setupCurrentHour {
     NSString *hoursString = [[NSDate date] dateTransformToString:@"HH-mm-ss"];

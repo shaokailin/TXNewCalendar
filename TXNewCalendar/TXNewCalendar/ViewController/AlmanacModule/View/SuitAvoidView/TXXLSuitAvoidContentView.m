@@ -24,20 +24,11 @@
     return self;
 }
 - (void)setupContentArr:(NSArray *)array {
-    if (_currentType == 5) {
-        [self setupType5Content:array];
-    }else if (_currentType == 8 || _currentType == 10){
-        NSString *titleString = nil;
-        NSString *detailString = nil;
-        if (KJudgeIsArrayAndHasValue(array)) {
-           titleString = [array objectAtIndex:0];
-            if (_currentType == 10 && KJudgeIsNullData(titleString)) {
-                titleString = NSStringFormat(@"%@日",titleString);
-            }
-            if (array.count > 1) {
-                detailString = [array objectAtIndex:1];
-            }
-        }
+    if (_currentType == 6 || _currentType == 7) {
+        [self setupMoreContent:array];
+    }else if (_currentType == 8){
+        NSString *titleString = [array objectAtIndex:0];
+        NSString *detailString = [array objectAtIndex:1];
         [self setupContentOneType:titleString detailString:detailString];
     }else if (_currentType == 9) {
         NSArray *titleArray = nil;
@@ -79,31 +70,29 @@
         [self setupType3Content:contentDict];
     }else if (_currentType == 4) {
         [self setupType4Content:contentDict];
-    }else if (_currentType == 6 || _currentType == 7) {
-        [self setupMoreContent:contentDict];
+    }else if (_currentType == 5) {
+        [self setupType5Content:contentDict];
+    }else if (_currentType == 10) {
+        NSString *titleString = NSStringFormat(@"%@日",[contentDict objectForKey:@"name"]);
+        NSString *detailString = [contentDict objectForKey:@"detail"];
+        [self setupContentOneType:titleString detailString:detailString];
     }
 }
-- (void)setupType5Content:(NSArray *)array {
-    NSString *titleString = nil;
-    NSString *detailString = nil;
-    if (KJudgeIsArrayAndHasValue(array)) {
-        titleString = [array objectAtIndex:0];
-        if (array.count > 1) {
-            detailString = [array objectAtIndex:1];
-        }
-    }
+- (void)setupType5Content:(NSDictionary *)dict {
+    NSString *titleString = [dict objectForKey:@"name"];
+    NSString *detailString = [dict objectForKey:@"detail"];
     [self setupContentOneType:titleString detailString:detailString];
 }
 - (void)setupType4Content:(NSDictionary *)dict {
-    NSString *titleString = [dict objectForKey:@"shen_sha"];
-    NSString *detailString = [dict objectForKey:@"shen_sha_detail"];
+    NSString *titleString = [dict objectForKey:@"name"];
+    NSString *detailString = [dict objectForKey:@"detail"];
     NSString *detail1 = @"古人认为每天都有一个星神值日，若遇青龙、明堂、金匮、天德、玉堂、司令六个吉神值日，诸事皆宜，称为“黄道吉日。\n如遇天刑、朱雀、白虎、天牢、玄武、勾陈六个凶神当道，或遇到天象异常如日食、月食、日中黑子、彗星见、变星见、陨石坠落等，这一天就是不吉日，称为“黑道凶日”。";
     [self setupMoreContentArray:@[@"",titleString] detailArray:@[detail1,detailString]];
 }
 - (void)setupType2Content:(NSDictionary *)dict {
     NSString *shengxiao = [dict objectForKey:@"shengxiao"];
     NSString *titleString = NSStringFormat(@"六合生肖：%@",shengxiao);
-    NSString *detailString = NSStringFormat(@"今日与生肖%@（%@）。六合是一种暗合，该生肖是暗中帮助你的贵人。",shengxiao,[dict objectForKey:@"ganzhi"]);
+    NSString *detailString = NSStringFormat(@"今日与生肖%@（%@）。%@",shengxiao,[dict objectForKey:@"ganzhi"],[dict objectForKey:@"info"]);
     [self setupContentOneType:titleString detailString:detailString];
 }
 - (void)setupType3Content:(NSDictionary *)dict {
@@ -142,8 +131,8 @@
     _contentHeight = heightNew;
 }
 
-- (void)setupMoreContent:(NSDictionary *)contentDict {
-    NSInteger contentCount = contentDict.allKeys.count;
+- (void)setupMoreContent:(NSArray *)content {
+    NSInteger contentCount = content.count;
     CGFloat width = SCREEN_WIDTH - 20 - 40 - 2;
     NSInteger maxIndex = MAX(_currentIndex, contentCount);
     CGFloat height = _defaultHeight - 20;
@@ -152,8 +141,9 @@
         UILabel *detailLbl = [self viewWithTag:300 + i];
         if (i < contentCount) {
             height += 21;
-            NSString *titleString = [contentDict.allKeys objectAtIndex:i];
-            NSString *detailString = [contentDict objectForKey:titleString];
+            NSDictionary *dict = [content objectAtIndex:i];
+            NSString *titleString = [dict objectForKey:@"name"];
+            NSString *detailString = [dict objectForKey:@"detail"];
             BOOL isTitleString = KJudgeIsNullData(titleString);
             if (isTitleString) {
                 if (titleLbl == nil) {

@@ -10,6 +10,7 @@
 #import "TXXLHoursDetailCell.h"
 @interface TXXLHoursDetailVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, strong) NSArray *hoursArray;
 @end
 
 @implementation TXXLHoursDetailVC
@@ -32,35 +33,31 @@
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (KJudgeIsArrayAndHasValue(self.hoursArray)) {
-        return self.hoursArray.count;
-    }
+    return self.hoursArray.count;
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXXLHoursDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLHoursDetailCell];
     NSDictionary *dict = [self.hoursArray objectAtIndex:indexPath.row];
-    NSArray *hourArr = [dict objectForKey:@"h"];
-    NSString *hour = nil;
-    if (KJudgeIsArrayAndHasValue(hourArr)) {
-        hour = NSStringFormat(@"%@时",[hourArr componentsJoinedByString:@""]);
-    }
+    NSString *hour = [dict objectForKey:@"hour"];
     NSDictionary *position = [dict objectForKey:@"position"];
-    NSArray *shiyiArr = [dict objectForKey:@"shiyi"];
+    NSArray *shiyiArr = [dict objectForKey:@"yi"];
     NSString *shiyi = @"无";
     if (KJudgeIsArrayAndHasValue(shiyiArr)) {
         shiyi = [shiyiArr componentsJoinedByString:@"  "];
     }
-    NSArray *shijiArr = [dict objectForKey:@"shiji"];
+    NSArray *shijiArr = [dict objectForKey:@"ji"];
     NSString *shiji = @"无";
     if (KJudgeIsArrayAndHasValue(shijiArr)) {
         shiji = [shijiArr componentsJoinedByString:@"  "];
     }
-    [cell setupCellContent:hour state:[dict objectForKey:@"jix"] timeBetween:[dict objectForKey:@"hour"] timeDetail:NSStringFormat(@"冲%@  (%@)  %@",[dict objectForKey:@"sx_chong"],[dict objectForKey:@"zheng_chong"],[dict objectForKey:@"sha"]) orientation:NSStringFormat(@"财神-%@  福神-%@  生门-%@  喜神-%@",[position objectForKey:@"cai_shen"],[position objectForKey:@"fu_shen"],[dict objectForKey:@"sheng"],[position objectForKey:@"xi_shen"]) suit:shiyi avoid:shiji];
+    [cell setupCellContent:hour state:[dict objectForKey:@"jix"] timeBetween:[dict objectForKey:@"time"] timeDetail:NSStringFormat(@"冲%@  (%@)  %@",[dict objectForKey:@"sx_chong"],[dict objectForKey:@"zheng_chong"],[dict objectForKey:@"sha"]) orientation:NSStringFormat(@"财神-%@  福神-%@  生门-%@  喜神-%@",[position objectForKey:@"cai_shen"],[position objectForKey:@"fu_shen"],[dict objectForKey:@"sheng"],[position objectForKey:@"xi_shen"]) suit:shiyi avoid:shiji];
     return cell;
 }
 #pragma mark - 界面
 - (void)initializeMainView {
+    KDateManager.searchDate = _currentDate;
+    self.hoursArray = [KDateManager getHoursDetail];
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:nil];
     [tableView registerClass:[TXXLHoursDetailCell class] forCellReuseIdentifier:kTXXLHoursDetailCell];
     tableView.rowHeight = 148;

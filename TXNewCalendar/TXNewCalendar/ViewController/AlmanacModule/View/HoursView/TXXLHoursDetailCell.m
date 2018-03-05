@@ -23,7 +23,7 @@
     return self;
 }
 - (void)setupCellContent:(NSString *)chinessHour state:(NSString *)state timeBetween:(NSString *)timeBetween timeDetail:(NSString *)timeDetail orientation:(NSString *)orientation suit:(NSString *)suit avoid:(NSString *)avoid {
-    self.chinessTimeLbl.text = chinessHour;
+    self.chinessTimeLbl.text = NSStringFormat(@"%@时",chinessHour);
     self.stateLbl.text = state;
     self.timeBetweenLbl.text = NSStringFormat(@"%@  %@",timeBetween,timeDetail);
     self.timeDetailLbl.text = orientation;
