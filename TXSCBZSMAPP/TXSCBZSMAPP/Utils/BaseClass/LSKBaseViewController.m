@@ -23,7 +23,6 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     //设置不全局布局
     [self setupNotFullScreen];
     self.view.backgroundColor = KColorHexadecimal(kMainBackground_Color, 1.0);
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
 - (CGFloat)viewMainHeight {
     return SCREEN_HEIGHT - STATUSBAR_HEIGHT - [self navibarHeight];
@@ -102,21 +101,7 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(void)viewDidLayoutSubviews{
-    if ([LSKPublicMethodUtil getiOSSystemVersion] < 11) return;
-    UINavigationItem * item=self.navigationItem;
-    NSArray * array=item.leftBarButtonItems;
-    if (array&&array.count!=0){
-        UIBarButtonItem * buttonItem=array[0];
-        UIView * view =[[[buttonItem.customView superview] superview] superview];
-        NSArray * arrayConstraint=view.constraints;
-        for (NSLayoutConstraint * constant in arrayConstraint) {
-            if (fabs(constant.constant)==16) {
-                constant.constant=0;
-            }
-        }
-    }
-}
+
 
 /*
 #pragma mark - Navigation

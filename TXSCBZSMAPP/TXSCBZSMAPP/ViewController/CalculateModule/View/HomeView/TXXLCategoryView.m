@@ -24,6 +24,7 @@
     return self;
 }
 - (void)_layoutMainView {
+    self.backgroundColor = [UIColor whiteColor];
     _hasViewCount = 0;
     _btnWidth = SCREEN_WIDTH / 4.0;
     _btnHeight = 158 / 2.0;

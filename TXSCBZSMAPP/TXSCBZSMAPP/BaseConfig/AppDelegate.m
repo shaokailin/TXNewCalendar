@@ -39,8 +39,9 @@ static const BOOL kIsOnline = YES;
     
     [self windowRootController];
     [self.window makeKeyAndVisible];
-    [self registerAnalytics];
-    [self registerMiPush];
+#warning  开启统计
+//    [self registerAnalytics];
+//    [self registerMiPush];
     //点击通知打开app处理逻辑
     _isRegisterIphone = [kUserMessageManager getMessageManagerForBoolWithKey:kMiPushRegisterIphone];
     NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];

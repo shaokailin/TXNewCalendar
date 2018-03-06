@@ -10,7 +10,7 @@
 #import "SynthesizeSingleton.h"
 #import <AFNetworking/AFNetworking.h>
 #import "LSKMediaParamterEntity.h"
-static NSString * const kHttpLoadingToken = @"pHYQ2g0dixMT16p2RSR4R2gNQx2AIuRh";
+static NSString * const kHttpLoadingToken = @"28Yojo9YqssouYQucaga7ZHGw12iZplf";
 static const NSInteger kRequestTimeOutTime = 10;
 static const CGFloat kImageJPEGCompressRate = 0.8;
 @interface LSKHttpManager ()

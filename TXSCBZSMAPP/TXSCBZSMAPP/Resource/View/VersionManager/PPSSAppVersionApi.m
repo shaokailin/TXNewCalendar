@@ -15,7 +15,7 @@ static NSString * const kAppVersionApi = @"getlist.html";
     entity.requestApi = kAppVersionApi;
     entity.requestType = HTTPRequestType_GET;
     entity.isCallApi2 = YES;
-    [entity.params setObject:@"12" forKey:@"bid"];
+    [entity.params setObject:@"30" forKey:@"bid"];
     [entity.params setObject:@"1" forKey:@"limit"];
     [entity.params setObject:@(300) forKey:@"cache"];
     entity.responseObject = [PPSSAppVersionModel class];

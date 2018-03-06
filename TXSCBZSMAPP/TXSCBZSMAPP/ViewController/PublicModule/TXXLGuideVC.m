@@ -35,7 +35,7 @@ static const int kGuide_count = 4;
     [self.view addSubview:scrollView];
     for (int i = 0; i < kGuide_count; i++) {
         UIImageView *imageView = [[UIImageView alloc]initWithImage:ImageFileInit(NSStringFormat(@"guide_%d",i), @"png")];
-        imageView.contentMode = UIViewContentModeScaleAspectFill | UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleAspectFill ;
         imageView.layer.masksToBounds = YES;
         imageView.frame = CGRectMake(width * i, 0, width, height);
         [scrollView addSubview:imageView];
@@ -44,7 +44,7 @@ static const int kGuide_count = 4;
         }
     }
     scrollView.delegate = self;
-    UIPageControl *pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, height - 30 - 17, width, 30)];
+    UIPageControl *pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, height - 30 - 5, width, 30)];
     pageControl.numberOfPages = kGuide_count;
     pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     pageControl.userInteractionEnabled = NO;
@@ -59,7 +59,7 @@ static const int kGuide_count = 4;
     imageView.userInteractionEnabled = YES;
     UIButton *startBtn = [LSKViewFactory initializeButtonWithTitle:@"立即体验" nornalImage:nil selectedImage:nil target:self action:@selector(startBtnClick) textfont:18 textColor:[UIColor whiteColor] backgroundColor:KColorHexadecimal(kAPP_Main_Color, 1.0) backgroundImage:nil];
     KViewRadius(startBtn, 5);
-    startBtn.frame = CGRectMake((SCREEN_WIDTH - 160) / 2.0 , CGRectGetHeight(imageView.frame) - 120 - 20, 160, 50);
+    startBtn.frame = CGRectMake((SCREEN_WIDTH - 130) / 2.0 , CGRectGetHeight(imageView.frame) - WIDTH_RACE_6S(90), 130, 40);
     [imageView addSubview:startBtn];
 }
 - (void)startBtnClick {

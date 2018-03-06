@@ -10,7 +10,7 @@
 #import "SynthesizeSingleton.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import <AdSupport/AdSupport.h>
-NSString * const KEY_UUID_INSTEAD = @"com.tx.almanac";
+NSString * const KEY_UUID_INSTEAD = @"com.tx.scbzsm";
 @interface TXXLSharedInstance ()
 {
     BOOL _isShow;

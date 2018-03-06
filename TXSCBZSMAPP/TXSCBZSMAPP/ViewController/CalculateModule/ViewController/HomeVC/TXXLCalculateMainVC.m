@@ -9,10 +9,10 @@
 #import "TXXLCalculateMainVC.h"
 #import "LSKBarnerScrollView.h"
 #import "TXXLCategoryView.h"
-#import "TXXLMiddelAdView.h"
 #import "TXXLBottonAdView.h"
 #import "TXXLCalculateHomeVM.h"
 #import "TXXLWebVC.h"
+#import "TXSMCalculateNoticeView.h"
 static NSString * const kCalculateBannerId = @"11";
 static NSString * const kCalculateNavigationId = @"13";
 static NSString * const kCalculateFeelingId = @"14";
@@ -27,8 +27,8 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
 }
 @property (nonatomic, weak) UIScrollView *mainScrollerView;
 @property (nonatomic, weak) LSKBarnerScrollView *bannerScrollerView;
-@property (nonatomic, weak) TXXLMiddelAdView *middleAdView;
 @property (nonatomic, weak) TXXLCategoryView *categoryView;
+@property (nonatomic, weak) TXSMCalculateNoticeView *noticeView;
 @property (nonatomic, strong) TXXLCalculateHomeVM *viewModel;
 @property (nonatomic, strong) NSDictionary *dataDictionary;
 @end
@@ -56,6 +56,9 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
     [kUserMessageManager analiticsViewDisappear:self];
 }
 #pragma mark - 事件处理
+- (void)noticeClickWithType:(NSInteger)type {
+    //0 最新 1热门
+}
 - (void)bottonActionClick:(NSInteger)type index:(NSInteger)index {
     NSString *key = nil;
     if (type == 0) {
@@ -141,16 +144,12 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
         CGFloat height = [self.categoryView returnHeight];
         self.categoryView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, height);
         contentHeight += height;
-        contentHeight += 10;
-        NSArray *cardArr = [dict objectForKey:kCalculateFeelingId];
-        if (KJudgeIsArrayAndHasValue(cardArr)) {
-            self.middleAdView.hidden = NO;
-            self.middleAdView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, _middleHeight);
-            [self.middleAdView setupContentWithDataArray:cardArr];
-            contentHeight += _middleHeight;
-        }else {
-            self.middleAdView.hidden = YES;
-        }
+        contentHeight += 1;
+        self.noticeView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, _middleHeight);
+        [self.noticeView setupContentWithNew:@"测试最新测试最新测试最新测试最新测试最新测试最新" hot:@"测试热门"];
+        contentHeight += _middleHeight;
+        contentHeight += 2.5;
+        
         NSArray *fortune = [dict objectForKey:kCalculateFortuneId];
         TXXLBottonAdView *fortuneView = [self.mainScrollerView viewWithTag:600];
         if (KJudgeIsArrayAndHasValue(fortune)) {
@@ -193,12 +192,11 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
 }
 - (void)initializeMainView {
     WS(ws)
-    self.view.backgroundColor = [UIColor whiteColor];
     UIScrollView *scrollView = [LSKViewFactory initializeScrollViewTarget:self headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil];
     self.mainScrollerView = scrollView;
     CGFloat contentHeight = 0;
-    _middleHeight = WIDTH_RACE_6S(220) + 50;
-    _bottonHeight = WIDTH_RACE_6S(112) + 50;
+    _middleHeight = 172 / 2.0;
+    _bottonHeight = WIDTH_RACE_6S(210) + 47;
     contentHeight = _bannerHeight = WIDTH_RACE_6S(180);
     LSKBarnerScrollView *bannerView = [[LSKBarnerScrollView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, _bannerHeight) placeHolderImage:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
         [ws bannerClick:selectedIndex];
@@ -212,16 +210,17 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
     CGFloat height = [categoryView returnHeight];
     categoryView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, height);
     contentHeight += height;
-    contentHeight += 10;
-    TXXLMiddelAdView *middleAdView = [[TXXLMiddelAdView alloc]initWithFrame:CGRectMake(0, contentHeight, SCREEN_WIDTH, _middleHeight)];
-    [middleAdView setupContentWithTitle:@"感情" english:@"Feelings"];
-    self.middleAdView = middleAdView;
-    [scrollView addSubview:middleAdView];
-    middleAdView.hidden = YES;
+    contentHeight += 1;
+    TXSMCalculateNoticeView *noticeView = [[TXSMCalculateNoticeView alloc]init];
+    noticeView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, _middleHeight);
+    noticeView.noticeBlock = ^(NSInteger type) {
+        [ws noticeClickWithType:type];
+    };
+    self.noticeView = noticeView;
+    [scrollView addSubview:noticeView];
     contentHeight += _middleHeight;
+    contentHeight += 2.5;
     
-    
-    contentHeight += 10;
     scrollView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
     [self.view addSubview:scrollView];
     
@@ -230,9 +229,6 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
     }];
     categoryView.clickBlock = ^(NSInteger index) {
         [ws navigationClick:index];
-    };
-    middleAdView.clickBlock = ^(NSString *url,NSString *title) {
-        [ws middleClickUrl:url title:title];
     };
 }
 - (void)didReceiveMemoryWarning {
