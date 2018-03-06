@@ -93,6 +93,8 @@
 		952823D4204D842A00F3758B /* tabbar_2_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 952823CE204D842A00F3758B /* tabbar_2_s@2x.png */; };
 		952823D7204D846F00F3758B /* TXSMFortuneMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 952823D6204D846F00F3758B /* TXSMFortuneMainVC.m */; };
 		952823DA204D856900F3758B /* TXSMMessageMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 952823D9204D856900F3758B /* TXSMMessageMainVC.m */; };
+		A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */; };
+		A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */; };
 		E31F0FFB5F61BF41DF33803D /* Pods_TXSCBZSMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF63E429A8E3C478BE21F11 /* Pods_TXSCBZSMAPP.framework */; };
 /* End PBXBuildFile section */
 
@@ -259,6 +261,10 @@
 		952823D6204D846F00F3758B /* TXSMFortuneMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneMainVC.m; sourceTree = "<group>"; };
 		952823D8204D856900F3758B /* TXSMMessageMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageMainVC.h; sourceTree = "<group>"; };
 		952823D9204D856900F3758B /* TXSMMessageMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageMainVC.m; sourceTree = "<group>"; };
+		A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigation+SXFixSpace.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
+		A64C2320204E724C00747AFD /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SXRuntime.h"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.h"; sourceTree = "<group>"; };
+		A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SXRuntime.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.m"; sourceTree = "<group>"; };
+		A64C2322204E724C00747AFD /* UINavigation+SXFixSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UINavigation+SXFixSpace.h"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/UINavigation+SXFixSpace.h"; sourceTree = "<group>"; };
 		D8069E23B096426F9EFC19B6 /* Pods-TXSCBZSMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXSCBZSMAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TXSCBZSMAPP/Pods-TXSCBZSMAPP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -713,6 +719,10 @@
 		95282324204D7C7500F3758B /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A64C2320204E724C00747AFD /* NSObject+SXRuntime.h */,
+				A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */,
+				A64C2322204E724C00747AFD /* UINavigation+SXFixSpace.h */,
+				A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */,
 				95282325204D7C7500F3758B /* UIView+Extend.m */,
 				95282326204D7C7500F3758B /* UIButton+Extend.m */,
 				95282327204D7C7500F3758B /* NSTimer+Extend.m */,
@@ -1037,6 +1047,7 @@
 				9528239B204D7C7500F3758B /* NSDate+Extend.m in Sources */,
 				952823A5204D7C7500F3758B /* LSKMessageManage.m in Sources */,
 				9528238F204D7C7500F3758B /* LSKMediaParamterEntity.m in Sources */,
+				A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */,
 				95282377204D7C7500F3758B /* SCAdCollectionViewLayout.m in Sources */,
 				95282395204D7C7500F3758B /* UIViewController+Extend.m in Sources */,
 				9528237A204D7C7500F3758B /* PPSSAppVersionViewModel.m in Sources */,
@@ -1067,6 +1078,7 @@
 				95282396204D7C7500F3758B /* UITableView+Extend.m in Sources */,
 				95282398204D7C7500F3758B /* UITabBarController+Extend.m in Sources */,
 				952823AA204D7C7500F3758B /* LSKBaseWebViewController.m in Sources */,
+				A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */,
 				952823B1204D7C7500F3758B /* LSKWebProgressView.m in Sources */,
 				9528238E204D7C7500F3758B /* TXXLGuideVC.m in Sources */,
 				952823A3204D7C7500F3758B /* LSKViewFactory.m in Sources */,

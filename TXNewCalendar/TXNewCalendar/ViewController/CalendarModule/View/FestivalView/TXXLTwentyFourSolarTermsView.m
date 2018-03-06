@@ -11,8 +11,7 @@
 static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
 @interface TXXLTwentyFourSolarTermsView ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
-    NSArray *_dataArray;
-    NSArray *_messageArray;
+    NSMutableArray *_dataArray;
     CGFloat _itemHeight;
     CGFloat _itemWidth;
 }
@@ -26,29 +25,31 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
     }
     return self;
 }
-- (void)pullDownRefresh {
-    if (self.loadBlock) {
-        self.loadBlock(YES);
-    }
-}
 - (void)selectCurrentView {
-    if (!KJudgeIsArrayAndHasValue(_messageArray)) {
-        if (self.loadBlock) {
-            self.loadBlock(NO);
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray arrayWithCapacity:24];
+        NSArray *data = [NSArray arrayWithPlist:kDataPlistName];
+        KDateManager.searchDate = self.date;
+        NSInteger year = KDateManager.year;
+        for (NSDictionary *dict in data) {
+            NSMutableDictionary *dict1 = [NSMutableDictionary dictionaryWithDictionary:dict];
+            int index = [[dict objectForKey:@"index"]intValue] + 1;
+            if (index == 0 || index == 1) {
+                year = KDateManager.year + 1;
+            }
+            NSDate *date = [KDateManager getSolartermDate:year index:index];
+            [dict1 setObject:[date dateTransformToString:kCalendarFormatter] forKey:@"date"];
+            [_dataArray addObject:dict1];
         }
+        [self.mainCollectionView reloadData];
     }
-}
-- (void)loadError {
-    [self.mainCollectionView.mj_header endRefreshing];
-}
-- (void)loadSucess:(id)data {
-    _messageArray = data;
-    [self.mainCollectionView reloadData];
-     [self loadError];
 }
 #pragma mark --UICollectionViewDataSource
 //定义展示的UICollectionViewCell的个数
 -( NSInteger )collectionView:( UICollectionView *)collectionView numberOfItemsInSection:( NSInteger )section{
+    if (!_dataArray) {
+        return 0;
+    }
     return _dataArray.count ;
 }
 //定义展示的Section的个数
@@ -59,18 +60,8 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
 -( UICollectionViewCell *)collectionView:( UICollectionView *)collectionView cellForItemAtIndexPath:( NSIndexPath *)indexPath{
     TXXLSolarTermsCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTXXLSolarTermsCell forIndexPath:indexPath];
     NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
-    NSString *title = nil;
-    NSString *time = nil;
-    if (_messageArray &&  indexPath.row < _messageArray.count) {
-        NSDictionary *messageDic = [_messageArray objectAtIndex:indexPath.row];
-        title = [messageDic objectForKey:@"title"];
-        NSString *timeString = [messageDic objectForKey:@"time"];
-        if (KJudgeIsNullData(timeString)) {
-            NSArray *timeArr = [timeString componentsSeparatedByString:@" "];
-             time = [timeArr objectAtIndex:0];
-        }
-       
-    }
+    NSString *title = [dict objectForKey:@"title"];
+    NSString *time = [dict objectForKey:@"date"];
     [cell setupCellContentWithIcon:[dict objectForKey:@"image"] title:title time:time];
     return cell;
 }
@@ -112,11 +103,11 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
         _itemHeight = WIDTH_RACE_6S(108) + 38;
         _itemWidth = WIDTH_RACE_6S(114);
     }
-    _dataArray = [NSArray arrayWithPlist:kDataPlistName];
+    
     self.backgroundColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *layout=[[ UICollectionViewFlowLayout alloc ] init ];
     [layout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
+    UICollectionView *collectView = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:layout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor whiteColor]];
     
     [collectView registerClass:[TXXLSolarTermsCell class] forCellWithReuseIdentifier:kTXXLSolarTermsCell];
     self.mainCollectionView = collectView;

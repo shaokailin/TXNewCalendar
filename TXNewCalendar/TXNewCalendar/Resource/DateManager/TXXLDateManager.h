@@ -61,4 +61,9 @@
 - (NSDictionary *)getCurrentModernText;
 //获取 节气期间
 - (NSDictionary *)getBetweenSolarterm;
+//获取节假日
+- (NSArray *)getHolidayList:(BOOL)isFive;
+//查询日期
+- (NSArray *)getSearshList:(NSDate *)startDate timeBetween:(NSInteger)countDate key:(NSString *)key isWeek:(BOOL)isWeek isAvoid:(BOOL)isAvoid;
+- (NSString *)getYiJiDetail:(NSString *)key;
 @end

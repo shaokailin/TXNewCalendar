@@ -30,7 +30,7 @@
 - (void)addTimeClick:(TXXLPublicFestivelCell *)cell {
     NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
     NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
-    NSString *dateString = [dict objectForKey:@"d"];
+    NSString *dateString = [dict objectForKey:@"date"];
     if (KJudgeIsNullData(dateString)) {
         NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy年MM月dd日"];
         NSDate *maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];
@@ -42,16 +42,11 @@
         }
     }
 }
-- (void)pullDownRefresh {
-    if (self.loadBlock) {
-        self.loadBlock(YES);
-    }
-}
 - (void)selectCurrentView {
     if (!KJudgeIsArrayAndHasValue(_dataArray)) {
-        if (self.loadBlock) {
-            self.loadBlock(NO);
-        }
+        KDateManager.searchDate = self.date;
+        _dataArray = [KDateManager getHolidayList:NO];
+        [self.mainTableView reloadData];
     }
 }
 - (void)loadError {
@@ -71,11 +66,10 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = [_dataArray objectAtIndex:indexPath.row];
-    NSString *timeString = [dict objectForKey:@"d"];
-    NSString *titleString = [dict objectForKey:@"j"];
-    NSString *count = [dict objectForKey:@"l"];
-    NSString *week = [dict objectForKey:@"w"];
-    NSString *hasCount = NSStringFormat(@"剩余%@天",count);
+    NSString *timeString = [dict objectForKey:@"date"];
+    NSString *titleString = [dict objectForKey:@"title"];
+    NSString *week = [dict objectForKey:@"week"];
+    NSString *hasCount = NSStringFormat(@"剩余%@天",[dict objectForKey:@"day"]);
     if (indexPath.row % 2 == 0) {
         TXXLPublicFestivelCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLPublicFestivelCell];
         @weakify(self)
@@ -99,7 +93,7 @@
 #pragma mark - 界面初始化
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];
-    UITableView *tabbleView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:nil];
+    UITableView *tabbleView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:nil];
     tabbleView.rowHeight = 190 / 2.0;
     [tabbleView registerClass:[TXXLPublicFestivelCell class] forCellReuseIdentifier:kTXXLPublicFestivelCell];
     [tabbleView registerClass:[TXXLPublicFestivelRightCell class] forCellReuseIdentifier:kTXXLPublicFestivelRightCell];

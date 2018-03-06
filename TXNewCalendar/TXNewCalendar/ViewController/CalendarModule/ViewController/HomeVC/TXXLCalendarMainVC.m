@@ -98,13 +98,15 @@
 }
 - (void)setupMessageView {
     [self.messageView setupContentWithDate:_currentDate];
+    _festivalsList = [KDateManager getHolidayList:YES];
+    [self.festivalTbView reloadData];
 }
 #pragma mark - 回调
 //跳转更多节假日界面
 
 - (void)jumpMoreVC {
     TXXLFestivalListVC *festivalVC = [[TXXLFestivalListVC alloc]init];
-    festivalVC.loadingTimeString = [_currentDate dateTransformToString:kCalendarFormatter];
+    festivalVC.date = _currentDate;
     festivalVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:festivalVC animated:YES];
 }
@@ -139,7 +141,7 @@
     TXXLFestivalCountDownCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLFestivalCountDownCell];
     NSDictionary *dict = [_festivalsList objectAtIndex:indexPath.row];
     
-    [cell setupCellContentWithLeft:NSStringFormat(@"%@  (公历%@)",[dict objectForKey:@"j"],[dict objectForKey:@"d"]) right:NSStringFormat(@"还有%@天",[dict objectForKey:@"l"])];
+    [cell setupCellContentWithLeft:NSStringFormat(@"%@  (公历%@)",[dict objectForKey:@"title"],[dict objectForKey:@"date"]) right:NSStringFormat(@"还有%@天",[dict objectForKey:@"day"])];
     return cell;
 }
 #pragma mark 界面的初始化

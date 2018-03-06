@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface TXXLFestivalListVC : LSKBaseViewController
-@property (nonatomic, copy) NSString *loadingTimeString;
+@property (nonatomic, strong) NSDate *date;
 @end

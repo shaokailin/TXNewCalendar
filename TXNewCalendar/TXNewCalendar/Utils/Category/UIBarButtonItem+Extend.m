@@ -10,7 +10,7 @@
 #import "NSString+Extend.h"
 static const CGFloat kBARBUTTONITEMHEIGHT = 40.0;//按钮的宽高
 static const CGFloat kBARBUTTONITEMWIDTH = 45;//按钮的宽高
-static const CGFloat kBARBUTTONITEMSPACEWIDTH = -10.0;//空白 UIBarButtonItem 的大小
+static const CGFloat kBARBUTTONITEMSPACEWIDTH = -5.0;//空白 UIBarButtonItem 的大小
 
 @implementation UIBarButtonItem (Extend)
 //添加空白按钮

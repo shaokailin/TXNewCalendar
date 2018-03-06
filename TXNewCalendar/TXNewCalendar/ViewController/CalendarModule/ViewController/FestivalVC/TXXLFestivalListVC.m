@@ -53,7 +53,6 @@
         @strongify(self)
         [[self returnCurrentView]loadError];
     }];
-    _viewModel.time = self.loadingTimeString;
 }
 - (void)loadData:(BOOL)isPull {
     _viewModel.type = _currentTpye;
@@ -131,10 +130,8 @@
     };
     
     TXXLPublicFestivalView *publicFestivalView = [[TXXLPublicFestivalView alloc]init];
+    publicFestivalView.date = self.date;
     self.publicFestivalView = publicFestivalView;
-    publicFestivalView.loadBlock = ^(BOOL isCanLoad) {
-        [ws loadData:isCanLoad];
-    };
     publicFestivalView.popBlock = ^(BOOL isPop) {
         [ws popViewToRoot];
     };
@@ -147,6 +144,7 @@
 - (TXXLTwentyFourSolarTermsView *)twentyFourView {
     if (!_twentyFourView) {
         TXXLTwentyFourSolarTermsView *twentyFourView = [[TXXLTwentyFourSolarTermsView alloc]init];
+        twentyFourView.date = self.date;
         _twentyFourView = twentyFourView;
         
         [self.view addSubview:twentyFourView];
@@ -154,9 +152,6 @@
         [twentyFourView mas_makeConstraints:^(MASConstraintMaker *make) {
           make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(40, 0, ws.tabbarBetweenHeight, 0));
         }];
-        twentyFourView.loadBlock = ^(BOOL isCanLoad) {
-            [ws loadData:isCanLoad];
-        };
     }
     return _twentyFourView;
 }

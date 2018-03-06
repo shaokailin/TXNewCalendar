@@ -54,19 +54,98 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     }
     return self;
 }
-
+- (NSArray *)getHolidayList:(BOOL)isFive {
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:5];
+    NSDate *searchDate1 = [NSDate stringTransToDate:[_searchDate dateTransformToString:kCalendarFormatter] withFormat:kCalendarFormatter];
+    unsigned unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay;
+    for (int i = 0; i < 366; i++) {
+        NSDate *date = [searchDate1 dateByAddingTimeInterval:(60 * 60 * 24) * i];
+        NSDateComponents *comps = [_chinessCalendar components:unitFlags fromDate:date];
+        NSString *chinessString = NSStringFormat(@"%ld-%ld",comps.month,comps.day);
+        if ([self.chineseHoliDay.allKeys containsObject:chinessString]) {
+            
+            NSString *title = [self.chineseHoliDay objectForKey:chinessString];
+            [array addObject:@{@"title":title,@"date":[date dateTransformToString:@"yyyy年MM月dd日"],@"week":[date getWeekDate],@"day":@(i)}];
+        }else {
+            
+            NSDateComponents *localeComp = [_localeCalendar components:unitFlags fromDate:date];
+            NSString *dataString = NSStringFormat(@"%ld-%ld",localeComp.month,localeComp.day);
+            if ([self.lunDic.allKeys containsObject:dataString]) {
+                NSString *title = [self.lunDic objectForKey:dataString];
+                [array addObject:@{@"title":title,@"date":[date dateTransformToString:@"yyyy年MM月dd日"],@"week":[date getWeekDate],@"day":@(i)}];
+            }else {
+                //母亲节
+                localeComp.month = 5;
+                localeComp.day = 1;
+                
+                NSInteger week_now =   [[_localeCalendar dateFromComponents:localeComp] getWeekIndex]-1;
+                NSString *motherDayStr = [NSString stringWithFormat:@"5-%ld", week_now == 0 ? 8 : 15 -week_now];
+                if ([motherDayStr isEqualToString:dataString]) {
+                    [array addObject:@{@"title":@"母亲节",@"date":[date dateTransformToString:@"yyyy年MM月dd日"],@"week":[date getWeekDate],@"day":@(i)}];
+                }else {
+                    //父亲节
+                    localeComp.month = 6;
+                    NSInteger week_now2 = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex] - 1;
+                    NSString *fatherDayStr = [NSString stringWithFormat:@"6-%ld", week_now2 == 0 ? 1 : 22 -week_now2];
+                    if ([fatherDayStr isEqualToString:dataString]) {
+                        [array addObject:@{@"title":@"父亲节",@"date":[date dateTransformToString:@"yyyy年MM月dd日"],@"week":[date getWeekDate],@"day":@(i)}];
+                    }else {
+                        //感恩节
+                        localeComp.month = 11;
+                        NSInteger week_now3 = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex] - 1;
+                        NSInteger thanksgivingDayDay = (4 >= week_now3) ? ((4 - week_now3) + 22) : (28 - (week_now3 - 5));
+                        NSString *thanksgivingDayStr = [NSString stringWithFormat:@"11-%ld",thanksgivingDayDay];
+                        if ([thanksgivingDayStr isEqualToString:dataString]) {
+                            [array addObject:@{@"title":@"感恩节",@"date":[date dateTransformToString:@"yyyy年MM月dd日"],@"week":[date getWeekDate],@"day":@(i)}];
+                        }
+                    }
+                }
+            }
+        }
+        if (array.count == 5 && isFive) {
+            break;
+        }
+    }
+    return array;
+}
 //获取日期节日
 - (NSString *)getHasHolidayString {
     NSString *chinessString = NSStringFormat(@"%ld-%ld",_chineseMonth,_chineseDay);
     if ([self.chineseHoliDay.allKeys containsObject:chinessString]) {
         return [self.chineseHoliDay objectForKey:chinessString];
     }
-    NSString *dataString = [_searchDate dateTransformToString:@"MM-dd"];
+    NSString *dataString = NSStringFormat(@"%ld-%ld",_month,_day);
     if ([self.lunDic.allKeys containsObject:dataString]) {
         return [self.lunDic objectForKey:dataString];
     }
+    unsigned unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay;
+    NSDateComponents *localeComp = [_localeCalendar components:unitFlags fromDate:_searchDate];
+    //母亲节
+    localeComp.month = 5;
+    localeComp.day = 1;
+    NSInteger week_now =   [[_localeCalendar dateFromComponents:localeComp] getWeekIndex]-1;
+    NSString *motherDayStr = [NSString stringWithFormat:@"5-%ld", week_now == 0 ? 8 : 15 -week_now];
+    if ([motherDayStr isEqualToString:dataString]) {
+        return @"母亲节";
+    }else {
+        //父亲节
+        localeComp.month = 6;
+        NSInteger week_now2 = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex] - 1;
+        NSString *fatherDayStr = [NSString stringWithFormat:@"6-%ld", week_now2 == 0 ? 1 : 22 -week_now2];
+        if ([fatherDayStr isEqualToString:dataString]) {
+            return @"父亲节";
+        }else {
+            //感恩节
+            localeComp.month = 11;
+            NSInteger week_now3 = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex] - 1;
+            NSInteger thanksgivingDayDay = (4 >= week_now3) ? ((4 - week_now3) + 22) : (28 - (week_now3 - 5));
+            NSString *thanksgivingDayStr = [NSString stringWithFormat:@"11-%ld",thanksgivingDayDay];
+            if ([thanksgivingDayStr isEqualToString:dataString]) {
+                return @"感恩节";
+              }
+            }
+        }
     return [self solartermFromDate:_searchDate];
-    return nil;
 }
 - (NSInteger)getSpringChineseYear {
     if ([_searchDate compare:self.springStartDate] < 0) {
@@ -356,7 +435,8 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     //shen_sha
     NSString *rgz = [self getGanzhiDay];
     NSArray *list4 = @[@"青龙", @"明堂", @"天刑", @"朱雀", @"金匮", @"天德", @"白虎", @"玉堂", @"天牢", @"玄武", @"司命", @"勾陈"];
-    NSArray *array = list[_chineseMonth - 1];
+    NSInteger monthDzindex = [self mouthZhiIndex];
+    NSArray *array = list[monthDzindex];
     NSInteger index = [array indexOfObject: [rgz substringFromIndex:1]];
     return list4[index];
 }
@@ -594,9 +674,35 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 #pragma mark - 获取 吉凶宜忌
 - (NSDictionary *)getTgdzYiJiXiongJi {
     NSString *ganzi = [self getGanzhiDay];
-    NSDictionary *dict = [self.dbManager selectYiJiXiongJi:ganzi month:_chineseMonth];
+    NSInteger monthDzindex = [self mouthZhiIndex] + 1;
+    NSDictionary *dict = [self.dbManager selectYiJiXiongJi:ganzi month:monthDzindex];
     return dict;
 }
+- (NSString *)getYiJiDetail:(NSString *)key {
+    NSDictionary *jixiongyijiDic = [self getDictWithPlist:@"jixiongdetail"];
+    return [jixiongyijiDic objectForKey:key];
+}
+- (NSArray *)getSearshList:(NSDate *)startDate timeBetween:(NSInteger)countDate key:(NSString *)key isWeek:(BOOL)isWeek isAvoid:(BOOL)isAvoid {
+    NSDictionary *dict = [self.dbManager selectSearch:key isAvoid:isAvoid];
+    NSArray *yueArray = dict.allKeys;
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:30];
+    for (int i = 0; i < countDate; i ++) {
+        NSDate *date = [startDate dateByAddingTimeInterval:(60 * 60 * 24) * i];
+        if (!isWeek || (isWeek && [date getWeekIndex] > 5)) {
+            self.searchDate = date;
+            NSString *gz = [self getGanzhiDay];
+            NSInteger yue = [self mouthZhiIndex] + 1;
+            if ([yueArray containsObject:@(yue)]) {
+                NSArray *gzArray = [dict objectForKey:@(yue)];
+                if ([gzArray containsObject:gz]) {
+                    [array addObject:@{@"nlmonthday":NSStringFormat(@"%@%@",[self chineseMonthString],[self chineseDayString]),@"nlYeargz":[self tgdzString],@"nlMonthgz":[self getGanzhiMouth],@"nlDaygz":[self getGanzhiDay],@"shengxiao":[self zodiacString],@"zhishen":[self getZhiShen],@"jianchu":[self getJianChu],@"xingxiu":[[self getXingSu] objectAtIndex:0],@"count":@(i),@"date":[date dateTransformToString:kCalendarFormatter],@"week":[date getWeekDate]}];
+                }
+            }
+        }
+    }
+    return array;
+}
+
 - (TXXLDBManager *)dbManager {
     if (!_dbManager) {
         _dbManager = [[TXXLDBManager alloc]init];

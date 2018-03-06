@@ -5,19 +5,25 @@
 	<key>1-1</key>
 	<string>春节</string>
 	<key>1-15</key>
-	<string>元宵</string>
+	<string>元宵节</string>
+	<key>2-2</key>
+	<string>龙抬节</string>
+	<key>3-3</key>
+	<string>上巳节</string>
 	<key>5-5</key>
-	<string>端午</string>
+	<string>端午节</string>
 	<key>7-7</key>
 	<string>七夕</string>
 	<key>7-15</key>
-	<string>中元</string>
+	<string>中元节</string>
 	<key>8-15</key>
-	<string>中秋</string>
+	<string>中秋节</string>
 	<key>9-9</key>
-	<string>重阳</string>
+	<string>重阳节</string>
+	<key>10-1</key>
+	<string>寒衣节</string>
 	<key>12-8</key>
-	<string>腊八</string>
+	<string>腊八节</string>
 	<key>12-23</key>
 	<string>北方小年</string>
 	<key>12-24</key>

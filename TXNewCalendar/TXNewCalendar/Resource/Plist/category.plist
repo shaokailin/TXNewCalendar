@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   category.plist
+   TXNewCalendar
+
+   Created by shaokai lin on 2018/3/6.
+   Copyright (c) 2018年 厦门集网文化传播有限公司. All rights reserved.
+-->
+<plist version="1.0">
+    <array><dict><key>title</key><string>常用</string><key>detail</key><array><string>嫁娶</string><string>入宅</string><string>搬家</string><string>订婚</string><string>会友</string><string>开市</string><string>装修</string><string>出行</string></array></dict><dict><key>title</key><string>婚姻</string><key>detail</key><array><string>订婚</string><string>嫁娶</string><string>安床</string><string>领养</string></array></dict><dict><key>title</key><string>生活</string><key>detail</key><array><string>入学</string><string>求医</string><string>疗病</string><string>会友</string><string>出行</string><string>搬家</string><string>剃头</string><string>渡水</string><string>栽种</string><string>捕捉</string><string>修补</string><string>会友</string><string>伐木</string><string>考试</string><string>开仓</string><string>诉讼</string></array></dict><dict><key>title</key><string>建筑</string><key>detail</key><array><string>上梁</string><string>拆屋</string><string>作灶</string><string>开渠</string><string>动土</string><string>装修</string><string>坏垣</string><string>破屋</string><string>打井</string><string>平道</string></array></dict><dict><key>title</key><string>工商</string><key>detail</key><array><string>上官</string><string>取鱼</string><string>置业</string><string>求财</string><string>签约</string><string>出货</string><string>交易</string><string>开市</string><string>立契</string><string>收购</string><string>买卖</string><string>放债</string></array></dict><dict><key>title</key><string>祭祀</string><key>detail</key><array><string>祭祀</string><string>祈福</string><string>求嗣</string><string>安葬</string><string>破土</string><string>沐浴</string></array></dict></array>
+</plist>

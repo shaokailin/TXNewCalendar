@@ -31,7 +31,6 @@
     _date = date;
     [_calendarNewBtn setTitle:NSStringFormat(@"公历%@",[date dateTransformToString:@"yyyy年MM月dd日"]) forState:UIControlStateNormal];
     _calendarChinessLbl.text = NSStringFormat(@"%@%@",KDateManager.chineseMonthString,KDateManager.chineseDayString);
-    _calendarChinessLbl.text = NSStringFormat(@"%@%@",KDateManager.chineseMonthString,KDateManager.chineseDayString);
     _detailLbl.text = NSStringFormat(@"%@[%@]年  %@月  %@日 %@",KDateManager.tgdzString,KDateManager.zodiacString,[KDateManager getGanzhiMouth],[KDateManager getGanzhiDay],[_date getWeekDate]);;
 }
 - (void)_layoutMainView {

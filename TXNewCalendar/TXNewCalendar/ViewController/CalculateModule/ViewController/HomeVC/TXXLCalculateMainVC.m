@@ -119,10 +119,10 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
     }];
     _viewModel.contactId = NSStringFormat(@"%@,%@,%@,%@,%@",kCalculateBannerId,kCalculateNavigationId,kCalculateFeelingId,kCalculateFortuneId,kCalculateCareerId);
     _viewModel.limit = @"5,8,3,3,3";
-    [_viewModel getHomeData:YES];
+    [_viewModel getHomeData:NO];
 }
 - (void)pullDownRefresh {
-    [self.viewModel getHomeData:NO];
+    [self.viewModel getHomeData:YES];
 }
 - (void)getSaveData {
     NSDictionary *saveDict = [kUserMessageManager getMessageManagerForObjectWithKey:kCalculateHomeData];

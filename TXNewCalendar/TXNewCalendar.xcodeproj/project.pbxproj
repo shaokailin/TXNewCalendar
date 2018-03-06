@@ -123,6 +123,9 @@
 		A6368C462047939E009A4C08 /* hour.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6368C452047939E009A4C08 /* hour.plist */; };
 		A6368C482047C9E0009A4C08 /* hourState.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6368C472047C9E0009A4C08 /* hourState.plist */; };
 		A6368C492047CE17009A4C08 /* hourState.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6368C472047C9E0009A4C08 /* hourState.plist */; };
+		A64C2319204E3C6500747AFD /* UINavigation+SXFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C2318204E3C6500747AFD /* UINavigation+SXFixSpace.m */; };
+		A64C231C204E3CA100747AFD /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C231B204E3CA100747AFD /* NSObject+SXRuntime.m */; };
+		A64C231E204E450F00747AFD /* category.plist in Resources */ = {isa = PBXBuildFile; fileRef = A64C231D204E450F00747AFD /* category.plist */; };
 		A64D545E202C449C0045E1CE /* public_bg_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64D545B202C449B0045E1CE /* public_bg_r@2x.png */; };
 		A64D5460202C449C0045E1CE /* public_bg_r@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64D545D202C449C0045E1CE /* public_bg_r@3x.png */; };
 		A67006632048FF85006A9384 /* TXXLDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A67006622048FF85006A9384 /* TXXLDBManager.m */; };
@@ -538,6 +541,11 @@
 		A6368C43204788CC009A4C08 /* chineseYear.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chineseYear.plist; sourceTree = "<group>"; };
 		A6368C452047939E009A4C08 /* hour.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = hour.plist; sourceTree = "<group>"; };
 		A6368C472047C9E0009A4C08 /* hourState.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = hourState.plist; sourceTree = "<group>"; };
+		A64C2317204E3C6500747AFD /* UINavigation+SXFixSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigation+SXFixSpace.h"; sourceTree = "<group>"; };
+		A64C2318204E3C6500747AFD /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
+		A64C231A204E3CA000747AFD /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SXRuntime.h"; sourceTree = "<group>"; };
+		A64C231B204E3CA100747AFD /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SXRuntime.m"; sourceTree = "<group>"; };
+		A64C231D204E450F00747AFD /* category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = category.plist; sourceTree = "<group>"; };
 		A64D545B202C449B0045E1CE /* public_bg_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "public_bg_r@2x.png"; sourceTree = "<group>"; };
 		A64D545D202C449C0045E1CE /* public_bg_r@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "public_bg_r@3x.png"; sourceTree = "<group>"; };
 		A67006612048FF85006A9384 /* TXXLDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLDBManager.h; sourceTree = "<group>"; };
@@ -927,6 +935,7 @@
 				A6700670204CEDF0006A9384 /* shenshadetail.plist */,
 				A6700672204CF1AA006A9384 /* nayindetail.plist */,
 				A6700674204CF66B006A9384 /* jixiongdetail.plist */,
+				A64C231D204E450F00747AFD /* category.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -999,6 +1008,10 @@
 		9540D2672015BB55005F6751 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A64C231A204E3CA000747AFD /* NSObject+SXRuntime.h */,
+				A64C231B204E3CA100747AFD /* NSObject+SXRuntime.m */,
+				A64C2317204E3C6500747AFD /* UINavigation+SXFixSpace.h */,
+				A64C2318204E3C6500747AFD /* UINavigation+SXFixSpace.m */,
 				9540D2682015BB55005F6751 /* NSTimer+Extend.m */,
 				9540D2692015BB55005F6751 /* NSNotificationCenter+Extend.h */,
 				9540D26A2015BB55005F6751 /* UITabBarController+Extend.h */,
@@ -2001,6 +2014,7 @@
 				95CB5586201FFBF000B45447 /* TXXLMoreHeaderReusableView.xib in Resources */,
 				95F15CFF2016E5DF00E1340E /* zodiacs.plist in Resources */,
 				A6E59316203136A000E99373 /* guide_2.png in Resources */,
+				A64C231E204E450F00747AFD /* category.plist in Resources */,
 				A6C121602029334300246273 /* greatHeat@2x.png in Resources */,
 				A6C121CC2029AA0700246273 /* guanbi@3x.png in Resources */,
 				A6C121722029334300246273 /* almanace_compass@3x.png in Resources */,
@@ -2228,6 +2242,7 @@
 				A6B566472021728700E8DEFF /* TXXLSolarTermsCell.m in Sources */,
 				A67C23EB2044EC9A0042254E /* TXXLDateManager.mm in Sources */,
 				9590A67D201ACFEB0063FDDE /* FSCalendarAppearance.m in Sources */,
+				A64C231C204E3CA100747AFD /* NSObject+SXRuntime.m in Sources */,
 				9590A647201AC75D0063FDDE /* TXXLCalendarView.m in Sources */,
 				9540D3062015C89F005F6751 /* TXXLSharedInstance.m in Sources */,
 				9540D2B92015BB56005F6751 /* NSString+Extend.m in Sources */,
@@ -2235,6 +2250,7 @@
 				95F15D1F20172C1400E1340E /* TXXLCompassView.m in Sources */,
 				9590A670201ACFEB0063FDDE /* FSCalendarCell.m in Sources */,
 				9540D2BE2015BB56005F6751 /* LSKBaseViewModel.m in Sources */,
+				A64C2319204E3C6500747AFD /* UINavigation+SXFixSpace.m in Sources */,
 				A6700688204E15B2006A9384 /* SolarDate.cpp in Sources */,
 				9540D2B22015BB56005F6751 /* LSKParamterEntity.m in Sources */,
 				9540D2C22015BB56005F6751 /* LSKViewFactory.m in Sources */,

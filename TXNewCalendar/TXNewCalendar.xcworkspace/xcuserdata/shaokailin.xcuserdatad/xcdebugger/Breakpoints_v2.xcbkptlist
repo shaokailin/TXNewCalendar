@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/AlmanacModule/ViewController/SuitAvoidVC/TXXLSuitAvoidVC.m"
-            timestampString = "541934303.190363"
+            filePath = "TXNewCalendar/Resource/DateManager/TXXLDateManager.mm"
+            timestampString = "542012456.843389"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-setupViewContent:"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-getHasHolidayString"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

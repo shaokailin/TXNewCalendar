@@ -40,9 +40,32 @@ static NSString * const kDBName = @"almanacDB";
     }
     [fmsr close];
     return dict;
-    
 }
-
+- (NSDictionary *)selectSearch:(NSString *)key isAvoid:(BOOL)isAvoid {
+    //SELECT gz,yue FROM bw_huanglijixiong WHERE yi LIKE '%嫁娶%';
+    NSString *selectSQLString = [NSString stringWithFormat:@"SELECT gz,yue FROM bw_huanglijixiong WHERE %@ LIKE '%%%@%%' ORDER BY yue",isAvoid == YES?@"ji":@"yi",key];
+    FMResultSet *fmsr = [self.fmDB executeQuery:selectSQLString];
+    if (!fmsr) {
+        return nil;
+    }
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSNumber *keyNumber;
+    NSMutableArray *array = nil;
+    while ([fmsr next]) {
+        NSString *gz = [fmsr stringForColumnIndex:0];
+        NSInteger yue = [fmsr intForColumnIndex:1];
+        if (keyNumber == nil || [keyNumber integerValue] != yue) {
+            if (keyNumber != nil) {
+                [dict setObject:array forKey:keyNumber];
+            }
+            array = [NSMutableArray array];
+            keyNumber = @(yue);
+        }
+        [array addObject:gz];
+    }
+    [fmsr close];
+    return dict;
+}
 -(void)dealloc {
     [self.fmDB close];
     self.fmDB = nil;

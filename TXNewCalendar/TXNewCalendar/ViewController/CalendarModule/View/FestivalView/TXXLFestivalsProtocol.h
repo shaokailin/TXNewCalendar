@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol TXXLFestivalsProtocol <NSObject>
+@optional
 - (void)loadError;
 - (void)loadSucess:(id)data;
 - (void)selectCurrentView;

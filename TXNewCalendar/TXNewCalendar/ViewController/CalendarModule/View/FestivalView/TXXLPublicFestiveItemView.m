@@ -43,10 +43,13 @@
     }];
     
     UILabel *titleLbl = [TXXLViewManager customTitleLbl:nil font:17];
+    titleLbl.textAlignment = 1;
+    titleLbl.adjustsFontSizeToFitWidth = YES;
     self.titleLbl = titleLbl;
     [self addSubview:titleLbl];
     [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(ws);
+        make.left.equalTo(ws).with.offset(5);
+        make.right.equalTo(ws).with.offset(-5);
         make.top.equalTo(timeLbl.mas_bottom).with.offset(5);
     }];
     

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "TXXLFestivalsProtocol.h"
 @interface TXXLTwentyFourSolarTermsView : UIView<TXXLFestivalsProtocol>
+@property (nonatomic, strong) NSDate *date;
 @property (nonatomic, copy) LoadFestivalsBlock loadBlock;
 @end

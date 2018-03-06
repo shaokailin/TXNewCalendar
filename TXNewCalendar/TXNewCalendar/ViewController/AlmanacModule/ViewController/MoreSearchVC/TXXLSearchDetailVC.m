@@ -9,7 +9,6 @@
 #import "TXXLSearchDetailVC.h"
 #import "TXXLSearchDetailCell.h"
 #import "TXXLSearchDetailHeaderView.h"
-#import "TXXLSearchDetailVM.h"
 #import "HSPDatePickView.h"
 static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
 @interface TXXLSearchDetailVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -17,10 +16,12 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     NSDate *_startDate;
     NSDate *_endDate;
     TimeState _timeState;
+    BOOL _isWeekend;
+    NSString *_titleDetail;
 }
+@property (nonatomic, strong) NSArray *dataArray;
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) TXXLSearchDetailHeaderView *headerView;
-@property (nonatomic, strong) TXXLSearchDetailVM *viewModel;
 @property (nonatomic, strong) HSPDatePickView *datePickView;
 @end
 
@@ -32,7 +33,6 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     self.navigationItem.title = NSStringFormat(@"%@%@",self.isAvoid?@"忌":@"宜",self.titleString);
     [self addNavigationBackButton];
     [self initializeMainView];
-    [self bindSignal];
     [kUserMessageManager setupViewProperties:self url:nil name:self.titleString];
 }
 - (void)viewDidDisappear:(BOOL)animated {
@@ -44,42 +44,24 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     [kUserMessageManager analiticsViewAppear:self];
 }
 #pragma mark - 网络请求
-- (void)bindSignal {
-    @weakify(self)
-    _viewModel = [[TXXLSearchDetailVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        @strongify(self)
-        [self.headerView setupDescribe:NSStringFormat(@"%@: %@",self.titleString,self.viewModel.detailModel.title) count:self.viewModel.detailModel.num];
-        [self.mainTableView reloadData];
-        [self.mainTableView.mj_header endRefreshing];
-    } failure:^(NSUInteger identifier, NSError *error) {
-        @strongify(self)
-        if (self.viewModel.detailModel) {
-            [self.headerView setupDescribe:NSStringFormat(@"%@: %@",self.titleString,self.viewModel.detailModel.title) count:self.viewModel.detailModel.num];
-        }
-        [self.mainTableView reloadData];
-        [self.mainTableView.mj_header endRefreshing];
-    }];
-    _viewModel.isAvoid = self.isAvoid;
-    _viewModel.text = self.titleString;
-    _viewModel.startTime = [_startDate dateTransformToString:@"yyyy-MM-dd"];
-    _viewModel.endTime = [_endDate dateTransformToString:@"yyyy-MM-dd"];
-    [_viewModel getSearchDetail:NO];
+- (void)getDataWithWeek {
+    NSTimeInterval time = [_endDate timeIntervalSinceDate:_startDate];
+    NSInteger count = (NSInteger)time / (60 * 60 * 24);
+    NSArray *data = [KDateManager getSearshList:_startDate timeBetween:count key:self.titleString isWeek:_isWeekend isAvoid:self.isAvoid];
+    self.dataArray = data;
+    [self.mainTableView reloadData];
+    [self.headerView setupDescribe:_titleDetail count:self.dataArray.count];
 }
-- (void)pullDownRefresh {
-    [_viewModel getSearchDetail:YES];
-}
+
 - (void)clickTimeAdd:(TXXLSearchDetailCell *)cell {
     NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
-    TXXLSearchDetailModel *model = [self.viewModel.detailModel.detail objectAtIndex:indexPath.row];
-    if ([model.time isKindOfClass:[NSDictionary class]]) {
-        NSString *dateString = NSStringFormat(@"%@-%@-%@",[model.time objectForKey:@"y"],[model.time objectForKey:@"m"],[model.time objectForKey:@"d"]);
-        NSDate *date = [NSDate stringTransToDate:dateString withFormat:kCalendarFormatter];
-        if (date) {
-            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kAlmanacDateChange object:nil userInfo:@{@"date":date}];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+    NSString *dateString = [dict objectForKey:@"date"];
+    NSDate *date = [NSDate stringTransToDate:dateString withFormat:kCalendarFormatter];
+    if (date) {
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kAlmanacDateChange object:nil userInfo:@{@"date":date}];
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }
-    
 }
 #pragma mark - 私有事件
 //选择时间事件
@@ -98,10 +80,8 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
             }else {
                 _startDate = date;
             }
-            _viewModel.startTime = [_startDate dateTransformToString:@"yyyy-MM-dd"];
-            _viewModel.endTime = [_endDate dateTransformToString:@"yyyy-MM-dd"];
             [self.headerView setupStartTime:_startDate endTime:_endDate];
-            [_viewModel getSearchDetail:NO];
+            [self getDataWithWeek];
         }
     }else {
         NSInteger state = [self compareTime:_startDate right:date];
@@ -113,10 +93,8 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
             }else {
                 _endDate = date;
             }
-            _viewModel.startTime = [_startDate dateTransformToString:@"yyyy-MM-dd"];
-            _viewModel.endTime = [_endDate dateTransformToString:@"yyyy-MM-dd"];
             [self.headerView setupStartTime:_startDate endTime:_endDate];
-            [_viewModel getSearchDetail:NO];
+            [self getDataWithWeek];
         }
     }
 }
@@ -135,62 +113,43 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
 }
 // 开关查看是否只是周末
 - (void)changeIsShowWeekend:(BOOL)isOnly {
-    self.viewModel.isShowWeenken = isOnly;
-    [self.viewModel getSearchDetail:NO];
+    _isWeekend = isOnly;
+    [self getDataWithWeek];
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.viewModel.detailModel && KJudgeIsArrayAndHasValue(self.viewModel.detailModel.detail)) {
-        return self.viewModel.detailModel.detail.count;
+    if (self.dataArray) {
+        return self.dataArray.count;
     }
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXXLSearchDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXXLSearchDetailCell];
-    BOOL isHiden = indexPath.row == self.viewModel.detailModel.detail.count - 1;
-    TXXLSearchDetailModel *model = [self.viewModel.detailModel.detail objectAtIndex:indexPath.row];
-    NSString *day = nil;
-    NSString *yearMonth = nil;
-    if ([model.time isKindOfClass:[NSDictionary class]]) {
-        day = [model.time objectForKey:@"d"];
-        yearMonth = NSStringFormat(@"%@.%@",[model.time objectForKey:@"y"],[model.time objectForKey:@"m"]);
-    }
-    NSString *nongli = nil;
-    if ([model.nongli isKindOfClass:[NSDictionary class]]) {
-        nongli = NSStringFormat(@"%@%@",[model.nongli objectForKey:@"m"],[model.nongli objectForKey:@"d"]);
-    }
-    NSMutableString *chinessYMD = [NSMutableString stringWithString:@""];
-    if ([model.jinian isKindOfClass:[NSDictionary class]]) {
-        NSArray *year = [model.jinian objectForKey:@"y"];
-        if (KJudgeIsArrayAndHasValue(year)) {
-            [chinessYMD appendFormat:@"%@[%@]年  ",[year componentsJoinedByString:@""],model.shengxiao];
-        }
-        NSArray *month = [model.jinian objectForKey:@"m"];
-        if (KJudgeIsArrayAndHasValue(month)) {
-            [chinessYMD appendFormat:@"%@月  ",[month componentsJoinedByString:@""]];
-        }
-        NSArray *dayArray = [model.jinian objectForKey:@"d"];
-        if (KJudgeIsArrayAndHasValue(dayArray)) {
-            [chinessYMD appendFormat:@"%@日",[dayArray componentsJoinedByString:@""]];
-        }
-    }
-    NSString *zhishen = nil;
-    if ([model.zhi_ri isKindOfClass:[NSDictionary class]]) {
-        zhishen = [model.zhi_ri objectForKey:@"shen_sha"];
-    }
+    BOOL isHiden = indexPath.row == self.dataArray.count - 1;
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+    NSString *date = [dict objectForKey:@"date"];
+    NSArray *dateArray = [date componentsSeparatedByString:@"-"];
+    NSString *day = [dateArray objectAtIndex:2];
+    NSString *yearMonth = NSStringFormat(@"%@.%@",[dateArray objectAtIndex:0],[dateArray objectAtIndex:1]);
+    NSString *chinessYMD = NSStringFormat(@"%@[%@]年  %@月  %@日",[dict objectForKey:@"nlYeargz"],[dict objectForKey:@"nlYeargz"],[dict objectForKey:@"shengxiao"],[dict objectForKey:@"nlDaygz"]);
+    NSString *nongli = [dict objectForKey:@"nlmonthday"];
+    NSString *zhishen = [dict objectForKey:@"zhishen"];
+    NSString *week = [dict objectForKey:@"week"];
     @weakify(self)
     cell.timeBlock = ^(id clickCell) {
        @strongify(self)
         [self clickTimeAdd:clickCell];
     };
-    [cell setupCellContentWithDay:day yearMonth:yearMonth nongli:nongli chinessYMD:chinessYMD week:model.week count:model.tian god:zhishen twelveGod:NSStringFormat(@"十二神：%@日",model.jian_chu) constellation:NSStringFormat(@"星宿：%@星",model.xing_su) isHidenLine:isHiden];
+    [cell setupCellContentWithDay:day yearMonth:yearMonth nongli:nongli chinessYMD:chinessYMD week:week count:[dict objectForKey:@"count"] god:NSStringFormat(@"值神：%@",zhishen) twelveGod:NSStringFormat(@"十二神：%@日",[dict objectForKey:@"jianchu"]) constellation:NSStringFormat(@"星宿：%@星",[dict objectForKey:@"xingxiu"]) isHidenLine:isHiden];
     return cell;
 }
 #pragma makr - 初始化界面
 - (void)initializeMainView {
+    _titleDetail = NSStringFormat(@"%@:%@",self.titleString,[KDateManager getYiJiDetail:self.titleString]);
     _startDate = [NSDate getTodayDate];
     _endDate = [_startDate dateByAddingTimeInterval:180 * (60 * 60 * 24)];
-    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:KColorHexadecimal(0xededed, 1.0)];
+    _isWeekend = NO;
+    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:KColorHexadecimal(0xededed, 1.0)];
     [tableView registerClass:[TXXLSearchDetailCell class] forCellReuseIdentifier:kTXXLSearchDetailCell];
     tableView.rowHeight = 140;
     _headerView = [[TXXLSearchDetailHeaderView alloc]init];
@@ -214,6 +173,7 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
+    [self getDataWithWeek];
 }
 - (HSPDatePickView *)datePickView {
     if (!_datePickView) {
@@ -222,7 +182,7 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
         datePick.isAutoHiden = NO;
         WS(ws)
         datePick.dateBlock = ^(NSDate *date) {
-            [ws datePickSelect:date];
+            [ws datePickSelect:[NSDate stringTransToDate:[date dateTransformToString:kCalendarFormatter] withFormat:kCalendarFormatter]];
         };
         datePick.minDate = [NSDate date];
         datePick.maxDate = [NSDate stringTransToDate:kCalendarMaxDate withFormat:kCalendarFormatter];

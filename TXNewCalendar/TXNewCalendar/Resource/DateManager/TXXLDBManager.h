@@ -10,4 +10,5 @@
 
 @interface TXXLDBManager : NSObject
 - (NSDictionary *)selectYiJiXiongJi:(NSString *)tg month:(NSInteger)month;
+- (NSDictionary *)selectSearch:(NSString *)key isAvoid:(BOOL)isAvoid;
 @end
