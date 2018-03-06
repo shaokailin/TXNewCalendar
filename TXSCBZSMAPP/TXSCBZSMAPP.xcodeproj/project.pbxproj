@@ -87,6 +87,9 @@
 		952823D4204D842A00F3758B /* tabbar_2_s@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 952823CE204D842A00F3758B /* tabbar_2_s@2x.png */; };
 		952823D7204D846F00F3758B /* TXSMFortuneMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 952823D6204D846F00F3758B /* TXSMFortuneMainVC.m */; };
 		952823DA204D856900F3758B /* TXSMMessageMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 952823D9204D856900F3758B /* TXSMMessageMainVC.m */; };
+		953AC9BC204ECFFC00190348 /* HListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9BB204ECFFC00190348 /* HListView.m */; };
+		953AC9BF204ED6D200190348 /* TXSMMessageHomeNaviCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */; };
+		953AC9C2204EE20100190348 /* PPSSCircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9C0204EE20000190348 /* PPSSCircleProgress.m */; };
 		A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */; };
 		A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */; };
 		A64C2333204E849F00747AFD /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A64C232F204E849E00747AFD /* guide_2.png */; };
@@ -262,6 +265,12 @@
 		952823D6204D846F00F3758B /* TXSMFortuneMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneMainVC.m; sourceTree = "<group>"; };
 		952823D8204D856900F3758B /* TXSMMessageMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageMainVC.h; sourceTree = "<group>"; };
 		952823D9204D856900F3758B /* TXSMMessageMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageMainVC.m; sourceTree = "<group>"; };
+		953AC9BA204ECFFB00190348 /* HListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HListView.h; sourceTree = "<group>"; };
+		953AC9BB204ECFFC00190348 /* HListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HListView.m; sourceTree = "<group>"; };
+		953AC9BD204ED6D200190348 /* TXSMMessageHomeNaviCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageHomeNaviCell.h; sourceTree = "<group>"; };
+		953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageHomeNaviCell.m; sourceTree = "<group>"; };
+		953AC9C0204EE20000190348 /* PPSSCircleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSCircleProgress.m; sourceTree = "<group>"; };
+		953AC9C1204EE20100190348 /* PPSSCircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSCircleProgress.h; sourceTree = "<group>"; };
 		A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigation+SXFixSpace.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
 		A64C2320204E724C00747AFD /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SXRuntime.h"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.h"; sourceTree = "<group>"; };
 		A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SXRuntime.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.m"; sourceTree = "<group>"; };
@@ -396,6 +405,10 @@
 		952822C2204D7C7500F3758B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				953AC9C1204EE20100190348 /* PPSSCircleProgress.h */,
+				953AC9C0204EE20000190348 /* PPSSCircleProgress.m */,
+				953AC9BA204ECFFB00190348 /* HListView.h */,
+				953AC9BB204ECFFC00190348 /* HListView.m */,
 				952822D0204D7C7500F3758B /* TXXLColorManager.h */,
 				952822C3204D7C7500F3758B /* TXXLViewManager.h */,
 				952822C7204D7C7500F3758B /* TXXLViewManager.m */,
@@ -574,6 +587,8 @@
 		952822F8204D7C7500F3758B /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
+				953AC9BD204ED6D200190348 /* TXSMMessageHomeNaviCell.h */,
+				953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1124,6 +1139,7 @@
 				9528239F204D7C7500F3758B /* LSKBaseViewModel.m in Sources */,
 				952823B0204D7C7500F3758B /* LSKWebView.m in Sources */,
 				952823A4204D7C7500F3758B /* LSKPublicMethodUtil.m in Sources */,
+				953AC9C2204EE20100190348 /* PPSSCircleProgress.m in Sources */,
 				95282384204D7C7500F3758B /* TXXLCalculateHomeModel.m in Sources */,
 				95282383204D7C7500F3758B /* TXXLCalculateHomeVM.m in Sources */,
 				9528238C204D7C7500F3758B /* TXXLCalculateModuleAPI.m in Sources */,
@@ -1136,9 +1152,11 @@
 				952823A0204D7C7500F3758B /* LSKBaseResponseModel.m in Sources */,
 				95282391204D7C7500F3758B /* LSKParamterEntity.m in Sources */,
 				9528237E204D7C7500F3758B /* PPSSAppVersionManager.m in Sources */,
+				953AC9BF204ED6D200190348 /* TXSMMessageHomeNaviCell.m in Sources */,
 				952823A9204D7C7500F3758B /* LSKLineTableView.m in Sources */,
 				95282375204D7C7500F3758B /* TXXLViewManager.m in Sources */,
 				95282393204D7C7500F3758B /* UIButton+Extend.m in Sources */,
+				953AC9BC204ECFFC00190348 /* HListView.m in Sources */,
 				95282399204D7C7500F3758B /* NSNotificationCenter+Extend.m in Sources */,
 				952823AF204D7C7500F3758B /* LSKBaseWebView.m in Sources */,
 				952823A7204D7C7500F3758B /* LSKBannerImageView.m in Sources */,
