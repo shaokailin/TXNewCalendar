@@ -414,15 +414,16 @@
     }else if (angel == 270) {
         return CGPointMake(7.5 ,_radius / 2.0);;
     }else {
-        CGFloat pointX = (_radius / 2.0) * cos(angel * M_PI / 180);
+        CGFloat radius = SCREEN_WIDTH - 50;
+        CGFloat pointX = sqrt((pow(radius / 2.0, 2) / 2.0));
         if (angel == 45) {
-            return CGPointMake(_radius / 2.0 + pointX  - 7.5 ,_radius / 2.0 - pointX);
+            return CGPointMake(_radius / 2.0 + pointX ,_radius / 2.0 - pointX);
         }else if (angel == 135) {
-            return CGPointMake(_radius / 2.0 + pointX - 7.5 ,_radius / 2.0 + pointX);
+            return CGPointMake(_radius / 2.0 + pointX  ,_radius / 2.0 + pointX);
         }else if (angel == 315) {
-            return CGPointMake(_radius / 2.0 - pointX + 7.5 ,_radius / 2.0 - pointX);
+            return CGPointMake(_radius / 2.0 - pointX  ,_radius / 2.0 - pointX);
         }else {
-            return CGPointMake(_radius / 2.0 - pointX + 7.5 ,_radius / 2.0 + pointX - 7.5);
+            return CGPointMake(_radius / 2.0 - pointX ,_radius / 2.0 + pointX);
         }
     }
     
