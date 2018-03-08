@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TXSMCalculateButton : UIButton
-
+- (void)setupContentWithImage:(NSString *)image title:(NSString *)title;
 @end

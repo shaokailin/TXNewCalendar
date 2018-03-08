@@ -9,11 +9,9 @@
 #import "TXSMMessageMainVC.h"
 #import "HListView.h"
 #import "TXSMMessageHomeNaviCell.h"
-static const CGFloat kHomeHeadButtonHeight = 45;
-@interface TXSMMessageMainVC ()<UIScrollViewDelegate,HListViewDataSource,HListViewDelegate>
-{
+
+@interface TXSMMessageMainVC ()<UIScrollViewDelegate,HListViewDataSource,HListViewDelegate> {
     BOOL isClickAnimal;
-    BOOL _isShowLine;
 }
 @property (strong ,nonatomic) HListView *m_naviListView;
 @property (strong ,nonatomic) UIView *underLineView;
@@ -44,7 +42,7 @@ static const CGFloat kHomeHeadButtonHeight = 45;
     [self.view addSubview:self.m_mainScrollView];
     for (int i = 0; i < self.m_naviTitleArray.count; i++) {
         UIView *view = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, self.view.frame.size.height - kHomeHeadButtonHeight)];
-        view.backgroundColor = [UIColor colorWithRed:(arc4random() % 256) green:(arc4random() % 256) blue:(arc4random() % 256) alpha:1.0];
+        view.backgroundColor = [UIColor colorWithRed:(arc4random() % 256) / 255.0 green:(arc4random() % 256) / 255.0 blue:(arc4random() % 256) / 255.0 alpha:1.0];
         [self.m_mainScrollView addSubview:view];
     }
 }
@@ -58,7 +56,7 @@ static const CGFloat kHomeHeadButtonHeight = 45;
     self.m_naviListView.backgroundColor = [UIColor redColor];
     [self.view addSubview:self.m_naviListView];
     self.underLineView = [[UIView alloc]initWithFrame:CGRectMake(WIDTH_RACE_6S(15.9), kHomeHeadButtonHeight - WIDTH_RACE_6S(1.5), WIDTH_RACE_6S(31.2), WIDTH_RACE_6S(1.5))];
-    _underLineView.backgroundColor = [UIColor redColor];
+    _underLineView.backgroundColor = KColorHexadecimal(kNavi_Yellow_Color, 1.0);
     [self.view addSubview:_underLineView];
 }
 #pragma mark 控制产品界面的切换

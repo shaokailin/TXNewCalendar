@@ -11,6 +11,6 @@ typedef void (^BottonAdBlock)(NSInteger flag,NSInteger type);
 @interface TXXLBottonAdView : UIView
 @property (nonatomic, copy) BottonAdBlock clickBlock;
 @property (nonatomic, assign) NSInteger flag;
-- (void)setupContentWithTitle:(NSString *)title english:(NSString *)english;
+- (void)setupContentWithTitle:(NSString *)title;
 - (void)setupContentWithData:(NSArray *)array;
 @end

@@ -7,13 +7,13 @@
 //
 
 #import "PPSSCircleProgress.h"
-#define LINE_WIDTH 6//环形宽度
+#define LINE_WIDTH 10//环形宽度
 #define TEXT_FONT 10.f
 @interface PPSSCircleProgress()
 @property (nonatomic,assign) float      radius;
 @property (nonatomic,assign) CGPoint    centerPoint;
 @property (nonatomic,strong) CAShapeLayer *lineLayer;
-@property (nonatomic,strong) UILabel  *textLbl;
+//@property (nonatomic,strong) UILabel  *textLbl;
 @end
 @implementation PPSSCircleProgress
 -(instancetype)initWithFrame:(CGRect)frame{
@@ -22,7 +22,7 @@
         _centerPoint = CGPointMake(CGRectGetWidth(frame) / 2.0, CGRectGetWidth(frame) / 2.0);
         [self createBackLine];
         [self createPercentLayer];
-        [self addPresentLable];
+//        [self addPresentLable];
     }
     return self;
 }
@@ -32,7 +32,7 @@
     }else {
         _progress = progress;
     }
-    self.textLbl.text = [NSString stringWithFormat:@"%d%%",(int)(progress * 100)];
+//    self.textLbl.text = [NSString stringWithFormat:@"%d%%",(int)(progress * 100)];
     self.lineLayer.strokeEnd = progress;
 }
 
@@ -40,7 +40,7 @@
     //绘制背景
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     shapeLayer.lineWidth = LINE_WIDTH;
-    shapeLayer.strokeColor = [KColorRGBA(246,246,246,1.0) CGColor];
+    shapeLayer.strokeColor = [KColorHexadecimal(0xdadbdb, 1.0) CGColor];
     shapeLayer.fillColor = [[UIColor clearColor] CGColor];
     UIBezierPath *path = [UIBezierPath new];
     [path addArcWithCenter:self.centerPoint radius:self.radius startAngle:-M_PI / 2.0 endAngle:M_PI / 2 * 3 clockwise:YES];
@@ -52,11 +52,11 @@
     self.lineLayer.strokeColor = strokeColor.CGColor;
 }
 - (void)addPresentLable {
-    self.textLbl = [[UILabel alloc]initWithFrame:CGRectMake(LINE_WIDTH, (CGRectGetHeight(self.bounds) - 20) / 2.0, CGRectGetWidth(self.bounds) - LINE_WIDTH * 2, 20)];
-    self.textLbl.textAlignment = 1;
-    self.textLbl.font = [UIFont systemFontOfSize:TEXT_FONT];
-    self.textLbl.textColor = [UIColor redColor];
-    [self addSubview:self.textLbl];
+//    self.textLbl = [[UILabel alloc]initWithFrame:CGRectMake(LINE_WIDTH, (CGRectGetHeight(self.bounds) - 20) / 2.0, CGRectGetWidth(self.bounds) - LINE_WIDTH * 2, 20)];
+//    self.textLbl.textAlignment = 1;
+//    self.textLbl.font = [UIFont systemFontOfSize:TEXT_FONT];
+//    self.textLbl.textColor = [UIColor redColor];
+//    [self addSubview:self.textLbl];
 }
 -(void)createPercentLayer {
     //绘制环形

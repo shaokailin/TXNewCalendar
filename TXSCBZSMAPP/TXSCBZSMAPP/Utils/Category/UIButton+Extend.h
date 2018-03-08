@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface UIButton (Extend)
-
+- (void)setVerticalLayoutWithSpace:(CGFloat)itemSpace;
 @end

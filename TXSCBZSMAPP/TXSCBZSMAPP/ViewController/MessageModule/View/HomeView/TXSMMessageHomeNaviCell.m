@@ -21,7 +21,7 @@
         self.selectionStyle = 0;
         self.backgroundColor = [UIColor whiteColor];
         
-        self.m_contentLabel = [LSKViewFactory initializeLableWithText:nil font:WIDTH_RACE_6S(13) textColor:[UIColor redColor] textAlignment:1 backgroundColor:nil];
+        self.m_contentLabel = [LSKViewFactory initializeLableWithText:nil font:14 textColor:KColorHexadecimal(kText_Detail_Color, 1.0) textAlignment:1 backgroundColor:nil];
         [self.contentView addSubview:self.m_contentLabel];
         self.m_contentLabel.adjustsFontSizeToFitWidth = YES;
         WS(ws)
@@ -35,25 +35,23 @@
 -(void)setupContentWithTitle:(NSString *)title isSeleted:(BOOL)isSeleted {
     self.m_contentLabel.text = title;
     if (isSeleted) {
-        self.m_contentLabel.textColor = [UIColor redColor];
+        self.m_contentLabel.textColor = KColorHexadecimal(kNavi_Yellow_Color, 1.0);
         [UIView animateWithDuration:0.2 animations:^{
             self.m_contentLabel.transform = CGAffineTransformMakeScale(1.155, 1.155);
         }];  
     }else
     {
-        self.m_contentLabel.textColor = [UIColor redColor];
+        self.m_contentLabel.textColor = KColorHexadecimal(kText_Detail_Color, 1.0);
         [UIView animateWithDuration:0.2 animations:^{
             self.m_contentLabel.transform = CGAffineTransformIdentity;
         }];
     }
 }
--(void)changeTitleAttribute:(CGFloat)rate
-{
+-(void)changeTitleAttribute:(CGFloat)rate {
     self.m_contentLabel.transform = CGAffineTransformMakeScale(1.0 + (0.155 * rate), 1.0 + (0.155 * rate));
-    self.m_contentLabel.textColor = KColorRGBA(ceil(153 - (141 * rate)), ceil(153 - (39 * rate)), ceil(153 + (74 * rate)), 1.0);
+    self.m_contentLabel.textColor = KColorRGBA(ceil(128 + (100 * rate)), ceil(128 + (52 * rate)), ceil(128 - (55 * rate)), 1.0);
 }
--(CGRect)getCellTitleFrame
-{
+-(CGRect)getCellTitleFrame {
     CGRect rect = [self convertRect:self.m_contentLabel.frame toView:self.superview];
     return  rect;
 }

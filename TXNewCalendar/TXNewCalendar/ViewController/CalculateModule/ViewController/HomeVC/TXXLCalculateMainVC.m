@@ -165,7 +165,7 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
         }
         NSArray *career = [dict objectForKey:kCalculateCareerId];
         TXXLBottonAdView *careerView = [self.mainScrollerView viewWithTag:601];
-        if (KJudgeIsArrayAndHasValue(fortune)) {
+        if (KJudgeIsArrayAndHasValue(career)) {
             contentHeight += 20;
             if (careerView == nil) {
                 careerView = [self customBottonViewWithFrame:CGRectMake(0, contentHeight, SCREEN_WIDTH, _bottonHeight) flag:601];

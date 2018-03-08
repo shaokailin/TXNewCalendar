@@ -128,6 +128,8 @@
 		A64C231E204E450F00747AFD /* category.plist in Resources */ = {isa = PBXBuildFile; fileRef = A64C231D204E450F00747AFD /* category.plist */; };
 		A64D545E202C449C0045E1CE /* public_bg_r@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64D545B202C449B0045E1CE /* public_bg_r@2x.png */; };
 		A64D5460202C449C0045E1CE /* public_bg_r@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64D545D202C449C0045E1CE /* public_bg_r@3x.png */; };
+		A65966C120511C080042A332 /* redcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966BF20511C080042A332 /* redcircle.png */; };
+		A65966C220511C080042A332 /* tenimage.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966C020511C080042A332 /* tenimage.png */; };
 		A67006632048FF85006A9384 /* TXXLDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A67006622048FF85006A9384 /* TXXLDBManager.m */; };
 		A6700665204920A2006A9384 /* houryiji.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6700664204920A2006A9384 /* houryiji.plist */; };
 		A67006672049272B006A9384 /* aaa.db in Resources */ = {isa = PBXBuildFile; fileRef = A67006662049272B006A9384 /* aaa.db */; };
@@ -548,6 +550,8 @@
 		A64C231D204E450F00747AFD /* category.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = category.plist; sourceTree = "<group>"; };
 		A64D545B202C449B0045E1CE /* public_bg_r@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "public_bg_r@2x.png"; sourceTree = "<group>"; };
 		A64D545D202C449C0045E1CE /* public_bg_r@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "public_bg_r@3x.png"; sourceTree = "<group>"; };
+		A65966BF20511C080042A332 /* redcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcircle.png; sourceTree = "<group>"; };
+		A65966C020511C080042A332 /* tenimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tenimage.png; sourceTree = "<group>"; };
 		A67006612048FF85006A9384 /* TXXLDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLDBManager.h; sourceTree = "<group>"; };
 		A67006622048FF85006A9384 /* TXXLDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLDBManager.m; sourceTree = "<group>"; };
 		A6700664204920A2006A9384 /* houryiji.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = houryiji.plist; sourceTree = "<group>"; };
@@ -1672,6 +1676,8 @@
 		A6C120E92029334300246273 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				A65966BF20511C080042A332 /* redcircle.png */,
+				A65966C020511C080042A332 /* tenimage.png */,
 				A6C120EA2029334300246273 /* springEquinox@2x.png */,
 				A6C120EB2029334300246273 /* more_s@3x.png */,
 				A6C120EC2029334300246273 /* winterSolstice@3x.png */,
@@ -1945,6 +1951,7 @@
 				A6700675204CF66B006A9384 /* jixiongdetail.plist in Resources */,
 				A64D5460202C449C0045E1CE /* public_bg_r@3x.png in Resources */,
 				A6C1214C2029334300246273 /* more_s@3x.png in Resources */,
+				A65966C120511C080042A332 /* redcircle.png in Resources */,
 				A6C121662029334300246273 /* calendar_more@2x.png in Resources */,
 				A6C121792029334300246273 /* calendar_arrowdown@3x.png in Resources */,
 				A67C23F12044FF400042254E /* publicHoliDay.plist in Resources */,
@@ -2031,6 +2038,7 @@
 				A67490AB202598820039838F /* TXXLCalculateAdCell.xib in Resources */,
 				A6C1214E2029334300246273 /* calendar_more@3x.png in Resources */,
 				A6C1219A2029334400246273 /* tabbar_1_n@2x.png in Resources */,
+				A65966C220511C080042A332 /* tenimage.png in Resources */,
 				A6C121692029334300246273 /* more_s@2x.png in Resources */,
 				A6C1215D2029334300246273 /* grainFull@2x.png in Resources */,
 				A60370FD2048D85E00FC238D /* pengzuDetail.plist in Resources */,
