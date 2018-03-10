@@ -88,6 +88,7 @@
 		953AC9BC204ECFFC00190348 /* HListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9BB204ECFFC00190348 /* HListView.m */; };
 		953AC9BF204ED6D200190348 /* TXSMMessageHomeNaviCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */; };
 		953AC9C2204EE20100190348 /* PPSSCircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9C0204EE20000190348 /* PPSSCircleProgress.m */; };
+		9584FBFF20517F0900A1C318 /* 640_guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9584FBFE20517F0800A1C318 /* 640_guide_3.png */; };
 		A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */; };
 		A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */; };
 		A64C2333204E849F00747AFD /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A64C232F204E849E00747AFD /* guide_2.png */; };
@@ -149,7 +150,6 @@
 		A65966B9205106710042A332 /* 1125_guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966B12051066F0042A332 /* 1125_guide_3.png */; };
 		A65966BA205106710042A332 /* 640_guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966B22051066F0042A332 /* 640_guide_0.png */; };
 		A65966BB205106710042A332 /* 640_guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966B32051066F0042A332 /* 640_guide_2.png */; };
-		A65966BC205106710042A332 /* 640_guide_4.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966B4205106700042A332 /* 640_guide_4.png */; };
 		A65966BD205106710042A332 /* 1125_guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966B5205106700042A332 /* 1125_guide_1.png */; };
 		A65966BE205106710042A332 /* 1125_guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A65966B6205106700042A332 /* 1125_guide_2.png */; };
 		E31F0FFB5F61BF41DF33803D /* Pods_TXSCBZSMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EF63E429A8E3C478BE21F11 /* Pods_TXSCBZSMAPP.framework */; };
@@ -309,6 +309,7 @@
 		953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageHomeNaviCell.m; sourceTree = "<group>"; };
 		953AC9C0204EE20000190348 /* PPSSCircleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSCircleProgress.m; sourceTree = "<group>"; };
 		953AC9C1204EE20100190348 /* PPSSCircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSCircleProgress.h; sourceTree = "<group>"; };
+		9584FBFE20517F0800A1C318 /* 640_guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_3.png; sourceTree = "<group>"; };
 		A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigation+SXFixSpace.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
 		A64C2320204E724C00747AFD /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SXRuntime.h"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.h"; sourceTree = "<group>"; };
 		A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SXRuntime.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.m"; sourceTree = "<group>"; };
@@ -390,7 +391,6 @@
 		A65966B12051066F0042A332 /* 1125_guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_3.png; sourceTree = "<group>"; };
 		A65966B22051066F0042A332 /* 640_guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_0.png; sourceTree = "<group>"; };
 		A65966B32051066F0042A332 /* 640_guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_2.png; sourceTree = "<group>"; };
-		A65966B4205106700042A332 /* 640_guide_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_4.png; sourceTree = "<group>"; };
 		A65966B5205106700042A332 /* 1125_guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_1.png; sourceTree = "<group>"; };
 		A65966B6205106700042A332 /* 1125_guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_2.png; sourceTree = "<group>"; };
 		D8069E23B096426F9EFC19B6 /* Pods-TXSCBZSMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXSCBZSMAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TXSCBZSMAPP/Pods-TXSCBZSMAPP.release.xcconfig"; sourceTree = "<group>"; };
@@ -1009,10 +1009,10 @@
 		A64C2326204E83BE00747AFD /* guide */ = {
 			isa = PBXGroup;
 			children = (
+				9584FBFE20517F0800A1C318 /* 640_guide_3.png */,
 				A65966B22051066F0042A332 /* 640_guide_0.png */,
 				A65966AF2051066E0042A332 /* 640_guide_1.png */,
 				A65966B32051066F0042A332 /* 640_guide_2.png */,
-				A65966B4205106700042A332 /* 640_guide_4.png */,
 				A65966B02051066F0042A332 /* 1125_guide_0.png */,
 				A65966B5205106700042A332 /* 1125_guide_1.png */,
 				A65966B6205106700042A332 /* 1125_guide_2.png */,
@@ -1192,6 +1192,7 @@
 				A65966B7205106710042A332 /* 640_guide_1.png in Resources */,
 				952823D3204D842A00F3758B /* tabbar_2_n@2x.png in Resources */,
 				A659668E204FB7060042A332 /* present_icon@3x.png in Resources */,
+				9584FBFF20517F0900A1C318 /* 640_guide_3.png in Resources */,
 				952823AE204D7C7500F3758B /* webviewmore@2x.png in Resources */,
 				A65966BA205106710042A332 /* 640_guide_0.png in Resources */,
 				A64C234B204E880400747AFD /* todaynotice@3x.png in Resources */,
@@ -1211,7 +1212,6 @@
 				A6596690204FB7060042A332 /* career_bg@3x.png in Resources */,
 				A64C2336204E849F00747AFD /* guide_0.png in Resources */,
 				952822B2204D77F800F3758B /* Assets.xcassets in Resources */,
-				A65966BC205106710042A332 /* 640_guide_4.png in Resources */,
 				952823AD204D7C7500F3758B /* webviewmore@3x.png in Resources */,
 				A64C2342204E87B800747AFD /* tabbar_1_s@3x.png in Resources */,
 				A64C2340204E87B800747AFD /* tabbar_0_s@3x.png in Resources */,

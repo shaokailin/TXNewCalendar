@@ -33,8 +33,15 @@ static const int kGuide_count = 4;
     scrollView.showsHorizontalScrollIndicator = NO;
     self.mainScrollView = scrollView;
     [self.view addSubview:scrollView];
+    NSInteger iphoneType = [LSKPublicMethodUtil getiPhoneType];
+    NSString *iconString = @"";
+    if (iphoneType == 0) {
+        iconString = @"640_";
+    }else if (iphoneType == 4) {
+        iconString = @"1125_";
+    }
     for (int i = 0; i < kGuide_count; i++) {
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:ImageFileInit(NSStringFormat(@"guide_%d",i), @"png")];
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:ImageFileInit(NSStringFormat(@"%@guide_%d",iconString,i), @"png")];
         imageView.contentMode = UIViewContentModeScaleAspectFill ;
         imageView.layer.masksToBounds = YES;
         imageView.frame = CGRectMake(width * i, 0, width, height);

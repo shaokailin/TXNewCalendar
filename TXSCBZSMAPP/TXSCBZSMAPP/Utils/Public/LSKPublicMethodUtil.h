@@ -22,8 +22,7 @@ typedef NS_ENUM(NSInteger , LSKiOSiPhoneType) {
     LSKiOSiPhoneType_iPhone5 = 1,
     LSKiOSiPhoneType_iPhone6 = 2,
     LSKiOSiPhoneType_iPhone6P = 3,
-    LSKiOSiPhoneType_iPhone8 = 4,
-    LSKiOSiPhoneType_iPhone8P = 5,
+    LSKiOSiPhoneType_iPhoneX = 4,
 };
 @interface LSKPublicMethodUtil : NSObject
 /**
