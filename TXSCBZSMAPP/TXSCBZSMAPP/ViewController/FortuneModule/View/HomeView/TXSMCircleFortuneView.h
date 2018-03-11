@@ -10,4 +10,5 @@
 
 @interface TXSMCircleFortuneView : UIView
 - (instancetype)initWithType:(NSInteger)type;
+- (void)setupContent:(NSDictionary *)dict name:(NSString *)name;
 @end

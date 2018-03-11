@@ -33,10 +33,14 @@
     return self;
 }
 - (void)viewDidDisappearStop {
-    [self.bannerScrollerView viewDidDisappearStop];
+    if (_bannerScrollerView) {
+        [self.bannerScrollerView viewDidDisappearStop];
+    }
 }
 - (void)viewDidAppearStartRun {
-    [self.bannerScrollerView viewDidAppearStartRun];
+    if (_bannerScrollerView) {
+        [self.bannerScrollerView viewDidAppearStartRun];
+    }
 }
 #pragma mark - 事件处理
 - (void)noticeClickWithType:(NSInteger)type {
@@ -76,11 +80,20 @@
         CGFloat height = [self.categoryView returnHeight];
         self.categoryView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, height);
         contentHeight += height;
-        contentHeight += 1;
-        self.noticeView.hidden = NO;
-        self.noticeView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, _middleHeight);
-        [self.noticeView setupContentWithNew:@"测试最新测试最新测试最新测试最新测试最新测试最新" hot:@"测试热门"];
-        contentHeight += _middleHeight;
+        NSArray *noticeArray = [dict objectForKey:kCalculateNoticeId];
+        if (KJudgeIsArrayAndHasValue(noticeArray)) {
+            contentHeight += 1;
+            self.noticeView.hidden = NO;
+            self.noticeView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, _middleHeight);
+            NSString *newTitle = nil;
+            NSString *hotTitle = nil;
+            newTitle = [[noticeArray objectAtIndex:0]objectForKey:@"title"];
+            if (noticeArray.count > 1) {
+                hotTitle = [[noticeArray objectAtIndex:1]objectForKey:@"title"];
+            }
+            [self.noticeView setupContentWithNew:newTitle hot:hotTitle];
+            contentHeight += _middleHeight;
+        }
         contentHeight += 2.5;
         CGFloat bottonPoint = contentHeight;
         NSArray *feeling = [dict objectForKey:kCalculateFeelingId];
@@ -123,9 +136,11 @@
         if (middleHeight > 0) {
             self.bottonContentView.frame = CGRectMake(5, bottonPoint + 5, SCREEN_WIDTH - 10, middleHeight - 5);
         }
-        self.hotTitleView.frame = CGRectMake(5, contentHeight, SCREEN_WIDTH - 10, 70);
-        contentHeight += 70;
-        
+        NSArray *adArray = [dict objectForKey:kCalculateAdId];
+        if (KJudgeIsArrayAndHasValue(adArray)) {
+            self.hotTitleView.frame = CGRectMake(5, contentHeight, SCREEN_WIDTH - 10, 70);
+            contentHeight += 70;
+        }
         contentHeight += 1;
         CGFloat frameHeight = CGRectGetHeight(self.frame);
         if (contentHeight != frameHeight) {

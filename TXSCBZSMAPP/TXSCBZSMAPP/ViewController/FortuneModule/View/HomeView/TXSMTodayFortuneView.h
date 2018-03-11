@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "TXSMFortuneHomeProtocol.h"
-//typedef void (^FrameChangeBlock)(CGFloat height);
 @interface TXSMTodayFortuneView : UIView<TXSMFortuneHomeProtocol>
 - (instancetype)initWithType:(NSInteger)type;
-//@property (nonatomic, copy) FrameChangeBlock frameBlock;
-- (void)setupCellContent:(NSString *)content;
 @end

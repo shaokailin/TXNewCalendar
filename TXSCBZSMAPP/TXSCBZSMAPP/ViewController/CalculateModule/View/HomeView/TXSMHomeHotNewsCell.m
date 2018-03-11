@@ -42,7 +42,7 @@
     [self.contentView addSubview:contentView];
     
     UIImageView *iconImgView = [[UIImageView alloc]init];
-    iconImgView.backgroundColor = [UIColor lightGrayColor];
+    iconImgView.backgroundColor = KColorRGBA(244, 244, 244, 1.0);
     _iconImgView = iconImgView;
     [contentView addSubview:iconImgView];
     [iconImgView mas_makeConstraints:^(MASConstraintMaker *make) {

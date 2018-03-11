@@ -18,12 +18,13 @@
 //公共方法
 #import "TXXLPublicMethod.h"
 
-static NSString * const kCalculateBannerId = @"11";
-static NSString * const kCalculateNavigationId = @"13";
-static NSString * const kCalculateFeelingId = @"14";
-static NSString * const kCalculateFortuneId = @"15";
-static NSString * const kCalculateUnbindNameId = @"17";
-static NSString * const kCalculateNoticeId = @"17";
+static NSString * const kCalculateBannerId = @"20";
+static NSString * const kCalculateNavigationId = @"21";
+static NSString * const kCalculateFeelingId = @"23";
+static NSString * const kCalculateFortuneId = @"24";
+static NSString * const kCalculateUnbindNameId = @"25";
+static NSString * const kCalculateNoticeId = @"22";
+static NSString * const kCalculateAdId = @"26";
 static const CGFloat kHomeHeadButtonHeight = 44;
 static NSString * const kGuide_Is_Has_Show = @"Guide_Is_Has_Show";
 #endif /* Config_h */

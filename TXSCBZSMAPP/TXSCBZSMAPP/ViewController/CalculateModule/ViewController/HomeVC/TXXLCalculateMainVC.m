@@ -69,25 +69,32 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
         [self.mainTableView.mj_header endRefreshing];
         if ([model isKindOfClass:[NSDictionary class]]) {
             self.dataDictionary = model;
-            [kUserMessageManager setMessageManagerForObjectWithKey:kCalculateHomeData value:model];
+            NSString *data = [LSKPublicMethodUtil dictionaryTransformToJson:model];
+            [kUserMessageManager setMessageManagerForObjectWithKey:kCalculateHomeData value:data];
             [self.tableHeaderView setupContent:model];
+            [self.mainTableView reloadData];
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
         [self.mainTableView.mj_header endRefreshing];
     }];
-    _viewModel.contactId = NSStringFormat(@"%@,%@,%@,%@,%@",kCalculateBannerId,kCalculateNavigationId,kCalculateFeelingId,kCalculateFortuneId,kCalculateUnbindNameId);
-    _viewModel.limit = @"5,8,4,4,4";
-    [_viewModel getHomeData:NO];
+    _viewModel.contactId = NSStringFormat(@"%@,%@,%@,%@,%@,%@,%@",kCalculateBannerId,kCalculateNavigationId,kCalculateFeelingId,kCalculateFortuneId,kCalculateUnbindNameId,kCalculateNoticeId,kCalculateAdId);
+    _viewModel.limit = @"5,8,4,4,4,2,3";
+    [self.mainTableView.mj_header beginRefreshing];
+//    [_viewModel getHomeData:NO];
 }
 - (void)pullDownRefresh {
     [self.viewModel getHomeData:YES];
 }
 - (void)getSaveData {
-    NSDictionary *saveDict = [kUserMessageManager getMessageManagerForObjectWithKey:kCalculateHomeData];
-    if (saveDict && [saveDict isKindOfClass:[NSDictionary class]]) {
-        self.dataDictionary = saveDict;
-        [self.tableHeaderView setupContent:saveDict];
+    NSString *saveString = [kUserMessageManager getMessageManagerForObjectWithKey:kCalculateHomeData];
+    if (KJudgeIsNullData(saveString)) {
+        NSDictionary *saveDict = [LSKPublicMethodUtil jsonDataTransformToDictionary:[saveString dataUsingEncoding:NSUTF8StringEncoding]];
+        if (saveDict && [saveDict isKindOfClass:[NSDictionary class]]) {
+            self.dataDictionary = saveDict;
+            [self.tableHeaderView setupContent:saveDict];
+            [self.mainTableView reloadData];
+        }
     }
 }
 - (void)changeFrame:(CGFloat)height {
@@ -96,11 +103,19 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
 }
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    if (_dataDictionary && [_dataDictionary objectForKey:kCalculateAdId]) {
+        NSArray *data = [_dataDictionary objectForKey:kCalculateAdId];
+        if (KJudgeIsArrayAndHasValue(data)) {
+            return data.count;
+        }
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXSMHomeHotNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMHomeHotNewsCell];
-    [cell setupCellContent:nil title:@"凯先生凯先生凯先生凯先生凯先生凯先生凯先生凯先生凯先生" detail:@"3123123"];
+    NSArray *data = [_dataDictionary objectForKey:kCalculateAdId];
+    NSDictionary *dict = [data objectAtIndex:indexPath.row];
+    [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] detail:@"3123123"];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

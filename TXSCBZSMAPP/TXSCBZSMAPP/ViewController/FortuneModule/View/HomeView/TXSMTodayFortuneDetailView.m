@@ -22,7 +22,7 @@
 }
 - (void)setupContent:(NSString *)content {
     _contentLbl.text = content;
-    CGFloat height = 45 + 25;
+    CGFloat height = 45 + 20;
     if (KJudgeIsNullData(content)) {
         CGFloat contentHeight = [content calculateTextHeight:12 width:SCREEN_WIDTH - 10 - 74];
         height += contentHeight;

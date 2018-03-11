@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950F1EAE2054CE0200A32457 /* TXSMFortuneHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F1EAD2054CE0200A32457 /* TXSMFortuneHomeVM.m */; };
+		950F1EB12054D02B00A32457 /* TXSMFortuneHomeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F1EB02054D02B00A32457 /* TXSMFortuneHomeAPI.m */; };
+		950F1EB42055179F00A32457 /* TXSMFortuneHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F1EB32055179F00A32457 /* TXSMFortuneHomeModel.m */; };
+		950F1EB72055645800A32457 /* TXSMWeekFortuneAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F1EB62055645800A32457 /* TXSMWeekFortuneAlertView.m */; };
+		950F1EBA205565CF00A32457 /* TXSMMessageHomeAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F1EB9205565CF00A32457 /* TXSMMessageHomeAPI.m */; };
+		950F1EC02055661200A32457 /* TXSMMessageHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 950F1EBF2055661200A32457 /* TXSMMessageHomeVM.m */; };
 		952822B2204D77F800F3758B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952822B1204D77F800F3758B /* Assets.xcassets */; };
 		952822B8204D77F800F3758B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 952822B7204D77F800F3758B /* main.m */; };
 		95282373204D7C7500F3758B /* TabBarSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 952822C0204D7C7500F3758B /* TabBarSetting.plist */; };
@@ -88,6 +94,13 @@
 		953AC9BC204ECFFC00190348 /* HListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9BB204ECFFC00190348 /* HListView.m */; };
 		953AC9BF204ED6D200190348 /* TXSMMessageHomeNaviCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */; };
 		953AC9C2204EE20100190348 /* PPSSCircleProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 953AC9C0204EE20000190348 /* PPSSCircleProgress.m */; };
+		954C81D12053F4F700368B20 /* TXSMMessageOneImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954C81D02053F4F700368B20 /* TXSMMessageOneImgCell.m */; };
+		954C81D42053F51B00368B20 /* TXSMMessageMoreImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954C81D32053F51B00368B20 /* TXSMMessageMoreImgCell.m */; };
+		954C81D72053F53500368B20 /* TXSMMessageAddCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954C81D62053F53500368B20 /* TXSMMessageAddCell.m */; };
+		954C81DA2053F56700368B20 /* TXSMMessageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 954C81D92053F56700368B20 /* TXSMMessageListView.m */; };
+		954C81DD2054165000368B20 /* TXSMMessageNoImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954C81DC2054165000368B20 /* TXSMMessageNoImgCell.m */; };
+		954C81E020541A4E00368B20 /* placeImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954C81DE20541A4E00368B20 /* placeImg@2x.png */; };
+		954C81E120541A4E00368B20 /* placeImg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954C81DF20541A4E00368B20 /* placeImg@3x.png */; };
 		9584FBFF20517F0900A1C318 /* 640_guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 9584FBFE20517F0800A1C318 /* 640_guide_3.png */; };
 		A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */; };
 		A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */; };
@@ -158,6 +171,18 @@
 /* Begin PBXFileReference section */
 		2EF63E429A8E3C478BE21F11 /* Pods_TXSCBZSMAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TXSCBZSMAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3078D7699819A08A65380BC6 /* Pods-TXSCBZSMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXSCBZSMAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TXSCBZSMAPP/Pods-TXSCBZSMAPP.debug.xcconfig"; sourceTree = "<group>"; };
+		950F1EAC2054CE0200A32457 /* TXSMFortuneHomeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMFortuneHomeVM.h; sourceTree = "<group>"; };
+		950F1EAD2054CE0200A32457 /* TXSMFortuneHomeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneHomeVM.m; sourceTree = "<group>"; };
+		950F1EAF2054D02B00A32457 /* TXSMFortuneHomeAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMFortuneHomeAPI.h; sourceTree = "<group>"; };
+		950F1EB02054D02B00A32457 /* TXSMFortuneHomeAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneHomeAPI.m; sourceTree = "<group>"; };
+		950F1EB22055179F00A32457 /* TXSMFortuneHomeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMFortuneHomeModel.h; sourceTree = "<group>"; };
+		950F1EB32055179F00A32457 /* TXSMFortuneHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneHomeModel.m; sourceTree = "<group>"; };
+		950F1EB52055645800A32457 /* TXSMWeekFortuneAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMWeekFortuneAlertView.h; sourceTree = "<group>"; };
+		950F1EB62055645800A32457 /* TXSMWeekFortuneAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMWeekFortuneAlertView.m; sourceTree = "<group>"; };
+		950F1EB8205565CF00A32457 /* TXSMMessageHomeAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageHomeAPI.h; sourceTree = "<group>"; };
+		950F1EB9205565CF00A32457 /* TXSMMessageHomeAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageHomeAPI.m; sourceTree = "<group>"; };
+		950F1EBE2055661100A32457 /* TXSMMessageHomeVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSMMessageHomeVM.h; sourceTree = "<group>"; };
+		950F1EBF2055661200A32457 /* TXSMMessageHomeVM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageHomeVM.m; sourceTree = "<group>"; };
 		952822A5204D77F700F3758B /* TXSCBZSMAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXSCBZSMAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		952822B1204D77F800F3758B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		952822B6204D77F800F3758B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -309,6 +334,18 @@
 		953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageHomeNaviCell.m; sourceTree = "<group>"; };
 		953AC9C0204EE20000190348 /* PPSSCircleProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSSCircleProgress.m; sourceTree = "<group>"; };
 		953AC9C1204EE20100190348 /* PPSSCircleProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSSCircleProgress.h; sourceTree = "<group>"; };
+		954C81CF2053F4F700368B20 /* TXSMMessageOneImgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageOneImgCell.h; sourceTree = "<group>"; };
+		954C81D02053F4F700368B20 /* TXSMMessageOneImgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageOneImgCell.m; sourceTree = "<group>"; };
+		954C81D22053F51B00368B20 /* TXSMMessageMoreImgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageMoreImgCell.h; sourceTree = "<group>"; };
+		954C81D32053F51B00368B20 /* TXSMMessageMoreImgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageMoreImgCell.m; sourceTree = "<group>"; };
+		954C81D52053F53500368B20 /* TXSMMessageAddCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageAddCell.h; sourceTree = "<group>"; };
+		954C81D62053F53500368B20 /* TXSMMessageAddCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageAddCell.m; sourceTree = "<group>"; };
+		954C81D82053F56700368B20 /* TXSMMessageListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageListView.h; sourceTree = "<group>"; };
+		954C81D92053F56700368B20 /* TXSMMessageListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageListView.m; sourceTree = "<group>"; };
+		954C81DB2054165000368B20 /* TXSMMessageNoImgCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageNoImgCell.h; sourceTree = "<group>"; };
+		954C81DC2054165000368B20 /* TXSMMessageNoImgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageNoImgCell.m; sourceTree = "<group>"; };
+		954C81DE20541A4E00368B20 /* placeImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeImg@2x.png"; path = "../../../../测算切图/资讯@3/placeImg@2x.png"; sourceTree = "<group>"; };
+		954C81DF20541A4E00368B20 /* placeImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeImg@3x.png"; path = "../../../../测算切图/资讯@3/placeImg@3x.png"; sourceTree = "<group>"; };
 		9584FBFE20517F0800A1C318 /* 640_guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_3.png; sourceTree = "<group>"; };
 		A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigation+SXFixSpace.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
 		A64C2320204E724C00747AFD /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SXRuntime.h"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.h"; sourceTree = "<group>"; };
@@ -492,6 +529,8 @@
 		952822C1204D7C7500F3758B /* images */ = {
 			isa = PBXGroup;
 			children = (
+				954C81DE20541A4E00368B20 /* placeImg@2x.png */,
+				954C81DF20541A4E00368B20 /* placeImg@3x.png */,
 				A6596665204FB6EE0042A332 /* fortune */,
 				A64C2344204E87F600747AFD /* calculate */,
 				A64C2343204E87C400747AFD /* tabar */,
@@ -598,6 +637,8 @@
 		952822ED204D7C7500F3758B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				950F1EAC2054CE0200A32457 /* TXSMFortuneHomeVM.h */,
+				950F1EAD2054CE0200A32457 /* TXSMFortuneHomeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -605,6 +646,8 @@
 		952822EE204D7C7500F3758B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				950F1EB22055179F00A32457 /* TXSMFortuneHomeModel.h */,
+				950F1EB32055179F00A32457 /* TXSMFortuneHomeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -643,6 +686,8 @@
 				A65966A72050C92D0042A332 /* TXSMWeekFortuneButtonView.h */,
 				A65966A82050C92D0042A332 /* TXSMWeekFortuneButtonView.m */,
 				A65966AE2050E4220042A332 /* TXSMFortuneHomeProtocol.h */,
+				950F1EB52055645800A32457 /* TXSMWeekFortuneAlertView.h */,
+				950F1EB62055645800A32457 /* TXSMWeekFortuneAlertView.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -650,6 +695,8 @@
 		952822F1204D7C7500F3758B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				950F1EAF2054D02B00A32457 /* TXSMFortuneHomeAPI.h */,
+				950F1EB02054D02B00A32457 /* TXSMFortuneHomeAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -686,6 +733,8 @@
 		952822F5204D7C7500F3758B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				950F1EBE2055661100A32457 /* TXSMMessageHomeVM.h */,
+				950F1EBF2055661200A32457 /* TXSMMessageHomeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -710,6 +759,16 @@
 			children = (
 				953AC9BD204ED6D200190348 /* TXSMMessageHomeNaviCell.h */,
 				953AC9BE204ED6D200190348 /* TXSMMessageHomeNaviCell.m */,
+				954C81CF2053F4F700368B20 /* TXSMMessageOneImgCell.h */,
+				954C81D02053F4F700368B20 /* TXSMMessageOneImgCell.m */,
+				954C81D22053F51B00368B20 /* TXSMMessageMoreImgCell.h */,
+				954C81D32053F51B00368B20 /* TXSMMessageMoreImgCell.m */,
+				954C81D52053F53500368B20 /* TXSMMessageAddCell.h */,
+				954C81D62053F53500368B20 /* TXSMMessageAddCell.m */,
+				954C81DB2054165000368B20 /* TXSMMessageNoImgCell.h */,
+				954C81DC2054165000368B20 /* TXSMMessageNoImgCell.m */,
+				954C81D82053F56700368B20 /* TXSMMessageListView.h */,
+				954C81D92053F56700368B20 /* TXSMMessageListView.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -717,6 +776,8 @@
 		952822F9204D7C7500F3758B /* API */ = {
 			isa = PBXGroup;
 			children = (
+				950F1EB8205565CF00A32457 /* TXSMMessageHomeAPI.h */,
+				950F1EB9205565CF00A32457 /* TXSMMessageHomeAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -753,8 +814,8 @@
 		952822FD204D7C7500F3758B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				952822FE204D7C7500F3758B /* TXXLCalculateHomeVM.m */,
 				952822FF204D7C7500F3758B /* TXXLCalculateHomeVM.h */,
+				952822FE204D7C7500F3758B /* TXXLCalculateHomeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1168,6 +1229,7 @@
 				A65966B8205106710042A332 /* 1125_guide_0.png in Resources */,
 				A6596687204FB7060042A332 /* job_icon@3x.png in Resources */,
 				A659667E204FB7060042A332 /* love_icon@2x.png in Resources */,
+				954C81E120541A4E00368B20 /* placeImg@3x.png in Resources */,
 				A64C2335204E849F00747AFD /* guide_3.png in Resources */,
 				A65966BE205106710042A332 /* 1125_guide_2.png in Resources */,
 				A6596691204FB7060042A332 /* career_bg@2x.png in Resources */,
@@ -1188,6 +1250,7 @@
 				A65966BB205106710042A332 /* 640_guide_2.png in Resources */,
 				A6596686204FB7060042A332 /* headlth_bg@3x.png in Resources */,
 				A6596685204FB7060042A332 /* money_icon@3x.png in Resources */,
+				954C81E020541A4E00368B20 /* placeImg@2x.png in Resources */,
 				A64C2349204E880400747AFD /* navi_back@2x.png in Resources */,
 				A65966B7205106710042A332 /* 640_guide_1.png in Resources */,
 				952823D3204D842A00F3758B /* tabbar_2_n@2x.png in Resources */,
@@ -1305,16 +1368,19 @@
 				95282394204D7C7500F3758B /* NSTimer+Extend.m in Sources */,
 				952822B8204D77F800F3758B /* main.m in Sources */,
 				9528237B204D7C7500F3758B /* PPSSAppVersionModel.m in Sources */,
+				954C81D72053F53500368B20 /* TXSMMessageAddCell.m in Sources */,
 				9528239A204D7C7500F3758B /* NSString+Extend.m in Sources */,
 				A659669A204FBF010042A332 /* TXSMCircleFortuneView.m in Sources */,
 				952823A6204D7C7500F3758B /* LSKBarnerScrollView.m in Sources */,
 				952823A8204D7C7500F3758B /* SKHUD.m in Sources */,
 				9528237C204D7C7500F3758B /* PPSSAppVersionApi.m in Sources */,
+				950F1EB42055179F00A32457 /* TXSMFortuneHomeModel.m in Sources */,
 				A64C2356204E8A2D00747AFD /* TXSMCalculateButton.m in Sources */,
 				95282379204D7C7500F3758B /* HSPDatePickView.m in Sources */,
 				95282388204D7C7500F3758B /* TXXLCategoryView.m in Sources */,
 				A65966A3204FDA7B0042A332 /* TXSMFortuneNumberButton.m in Sources */,
 				952823A2204D7C7500F3758B /* LSKImageManager.m in Sources */,
+				954C81D42053F51B00368B20 /* TXSMMessageMoreImgCell.m in Sources */,
 				9528237D204D7C7500F3758B /* PPSSAppUpdateView.m in Sources */,
 				A6596658204F80F50042A332 /* TXSMHomeHotNewsCell.m in Sources */,
 				95282397204D7C7500F3758B /* UIBarButtonItem+Extend.m in Sources */,
@@ -1335,6 +1401,7 @@
 				9528237A204D7C7500F3758B /* PPSSAppVersionViewModel.m in Sources */,
 				95282374204D7C7500F3758B /* TXXLPublicMethod.m in Sources */,
 				9528239F204D7C7500F3758B /* LSKBaseViewModel.m in Sources */,
+				954C81D12053F4F700368B20 /* TXSMMessageOneImgCell.m in Sources */,
 				952823B0204D7C7500F3758B /* LSKWebView.m in Sources */,
 				952823A4204D7C7500F3758B /* LSKPublicMethodUtil.m in Sources */,
 				953AC9C2204EE20100190348 /* PPSSCircleProgress.m in Sources */,
@@ -1346,14 +1413,19 @@
 				95282380204D7C7500F3758B /* TXXLRootTabBarVC.m in Sources */,
 				952823B3204D7C7500F3758B /* LSKActionSheetView.m in Sources */,
 				9528239C204D7C7500F3758B /* UISearchBar+Extend.m in Sources */,
+				950F1EB12054D02B00A32457 /* TXSMFortuneHomeAPI.m in Sources */,
 				95282381204D7C7500F3758B /* TXXLSharedInstance.m in Sources */,
 				952823A0204D7C7500F3758B /* LSKBaseResponseModel.m in Sources */,
 				95282391204D7C7500F3758B /* LSKParamterEntity.m in Sources */,
+				950F1EBA205565CF00A32457 /* TXSMMessageHomeAPI.m in Sources */,
 				9528237E204D7C7500F3758B /* PPSSAppVersionManager.m in Sources */,
 				953AC9BF204ED6D200190348 /* TXSMMessageHomeNaviCell.m in Sources */,
+				954C81DD2054165000368B20 /* TXSMMessageNoImgCell.m in Sources */,
 				952823A9204D7C7500F3758B /* LSKLineTableView.m in Sources */,
+				950F1EAE2054CE0200A32457 /* TXSMFortuneHomeVM.m in Sources */,
 				95282375204D7C7500F3758B /* TXXLViewManager.m in Sources */,
 				95282393204D7C7500F3758B /* UIButton+Extend.m in Sources */,
+				954C81DA2053F56700368B20 /* TXSMMessageListView.m in Sources */,
 				953AC9BC204ECFFC00190348 /* HListView.m in Sources */,
 				95282399204D7C7500F3758B /* NSNotificationCenter+Extend.m in Sources */,
 				952823AF204D7C7500F3758B /* LSKBaseWebView.m in Sources */,
@@ -1363,12 +1435,14 @@
 				95282398204D7C7500F3758B /* UITabBarController+Extend.m in Sources */,
 				A659665B204F87ED0042A332 /* TXSMCalculateHotTitleView.m in Sources */,
 				952823AA204D7C7500F3758B /* LSKBaseWebViewController.m in Sources */,
+				950F1EB72055645800A32457 /* TXSMWeekFortuneAlertView.m in Sources */,
 				A65966A0204FD04A0042A332 /* TXSMCircleMessageView.m in Sources */,
 				A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */,
 				952823B1204D7C7500F3758B /* LSKWebProgressView.m in Sources */,
 				9528238E204D7C7500F3758B /* TXXLGuideVC.m in Sources */,
 				A64C2353204E89CF00747AFD /* TXSMCalculateNoticeView.m in Sources */,
 				952823A3204D7C7500F3758B /* LSKViewFactory.m in Sources */,
+				950F1EC02055661200A32457 /* TXSMMessageHomeVM.m in Sources */,
 				952823A1204D7C7500F3758B /* LSKBaseTabBarController.m in Sources */,
 				95282382204D7C7500F3758B /* AppDelegate.m in Sources */,
 				95282392204D7C7500F3758B /* UIView+Extend.m in Sources */,

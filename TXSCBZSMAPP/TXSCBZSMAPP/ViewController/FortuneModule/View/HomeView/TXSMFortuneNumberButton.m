@@ -37,7 +37,7 @@
     self.presentValueLbl = presentLbl;
     [self addSubview:presentLbl];
     [presentLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ws.mas_centerY).with.offset(-4);
+        make.bottom.equalTo(ws.mas_centerY).with.offset(-4);
         make.centerX.equalTo(ws);
     }];
 }

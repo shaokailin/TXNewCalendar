@@ -14,7 +14,7 @@
     params.requestType = HTTPRequestType_GET;
     params.responseObject = [TXXLCalculateHomeModel class];
     params.isCallApi2 = YES;
-    params.requestApi = @"getlist.html";
+    params.requestApi = @"app.datablock/getlist.html";
     [params.params setObject:contactId forKey:@"bid"];
 //    [params.params setObject:@"list" forKey:@"type"];
     [params.params setObject:limit forKey:@"limit"];

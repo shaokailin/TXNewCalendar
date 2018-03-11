@@ -36,6 +36,12 @@
     _titleLbl.text = NSStringFormat(@"%@%@",name,[self returnTitleString]);
     _timeLbl.text = NSStringFormat(@"有效日期: %@",time);
 }
+- (void)setupContentWithScore:(NSDictionary *)dict {
+    _loveBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"love"]);
+    _healthBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"health"]);
+    _careerBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"work"]);
+    _moneyBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"fortune"]);
+}
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];
     KViewRadius(self, 4.0);

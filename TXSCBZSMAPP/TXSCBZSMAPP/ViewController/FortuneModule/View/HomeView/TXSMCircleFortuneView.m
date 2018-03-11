@@ -32,13 +32,19 @@ static const CGFloat kCircleWidth = 215;
     }
     return self;
 }
-- (void)setupContent {
-    [_messageView setupMessageWithName:@"双子座" time:@"5.21-6.20"];
-    _messageView.presentValueLbl.text = @"50";
-    _progressView.progress = 0.5;
-    _xingzuoLbl.text = NSStringFormat(@"速配星座:  %@",@"处女");
-    _luckLbl.text = NSStringFormat(@"幸运数字:  %@",@"10");
-    _colorLbl.text = NSStringFormat(@"幸运颜色:  %@",@"红");
+
+- (void)setupContent:(NSDictionary *)dict name:(NSString *)name {
+    [_messageView setupMessageWithName:name time:[dict objectForKey:@"time"]];
+    _messageView.presentValueLbl.text = [dict objectForKey:@"synthesize"];
+    _progressView.progress = [[dict objectForKey:@"synthesize"]integerValue] / 100.0;
+    _xingzuoLbl.text = NSStringFormat(@"速配星座:  %@",[dict objectForKey:@"constellation"]);
+    _luckLbl.text = NSStringFormat(@"幸运数字:  %@",[dict objectForKey:@"number"]);
+    _colorLbl.text = NSStringFormat(@"幸运颜色:  %@",[dict objectForKey:@"color"]);
+    _loveBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"love"]);
+    _healthBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"health"]);
+    _careerBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"work"]);
+    _moneyBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"fortune"]);
+    
 }
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];
@@ -111,6 +117,5 @@ static const CGFloat kCircleWidth = 215;
         make.bottom.equalTo(ws).with.offset(-10);
         make.size.mas_equalTo(CGSizeMake(width, height));
     }];
-    [self setupContent];
 }
 @end

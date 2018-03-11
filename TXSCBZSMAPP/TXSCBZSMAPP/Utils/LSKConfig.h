@@ -42,12 +42,12 @@ static const CGFloat kBannerDotScale  = 1;
 //网络请求地址
 #ifdef DEBUG
 static NSString * const SERVER_URL = @"https://toolapi.d1xz.net/v2/rili/";
-static NSString * const SERVER_URL_2 = @"https://toolapi2.d1xz.net/v1/app.datablock/";
+static NSString * const SERVER_URL_2 = @"https://toolapi2.d1xz.net/v1/";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #else
 static NSString * const SERVER_URL = @"https://toolapi.d1xz.net/v2/rili/";
-static NSString * const SERVER_URL_2 = @"https://toolapi2.d1xz.net/v1/app.datablock/";
+static NSString * const SERVER_URL_2 = @"https://toolapi2.d1xz.net/v1/";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #endif

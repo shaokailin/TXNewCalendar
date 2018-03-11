@@ -12,6 +12,7 @@
 @interface TXSMWeekFortuneView ()
 {
     NSInteger _type;
+    NSDictionary *_dataDict;
 }
 @property (nonatomic, weak) TXSMWeekFortuneMessageView *messageView;
 @end
@@ -26,11 +27,39 @@
 - (CGFloat)returnViewHeight {
     return 335 + WIDTH_RACE_6S(55) + 5 + 1 + 1 + 80;
 }
-- (void)setupContent {
-    [self.messageView setupContentWithImg:nil name:@"双子" time:@"2018/02/26 - 2018/03/04"];
+- (void)setupContent:(NSString *)name dict:(NSDictionary *)dict {
+    _dataDict = dict;
+    NSString * time = nil;
+    if (_type == 0) {
+        time = NSStringFormat(@"%@  -  %@",[dict objectForKey:@"start_time"],[dict objectForKey:@"end_time"]);
+    }else {
+        time = [dict objectForKey:@"time"];
+    }
+    [self.messageView setupContentWithImg:nil name:name time:time];
+    [self.messageView setupContentWithScore:[dict objectForKey:@"score"]];
 }
 - (void)buttonClick:(NSInteger)flag {
-    
+    NSString *title = nil;
+    switch (flag) {
+        case 0:
+            title = [_dataDict objectForKey:@"love"];
+            break;
+        case 1:
+            title = [_dataDict objectForKey:@"work"];
+            break;
+        case 2:
+            title = [_dataDict objectForKey:@"apply_job"];
+            break;
+        case 3:
+            title = [_dataDict objectForKey:@"fortune"];
+            break;
+        case 4:
+            title = [_dataDict objectForKey:@"health"];
+            break;
+            
+        default:
+            break;
+    }
 }
 - (void)_layoutMainView {
     CGFloat height = 335 + WIDTH_RACE_6S(55);
@@ -45,7 +74,5 @@
         [ws buttonClick:flag];
     };
     [self addSubview:buttonBtn];
-    
-    [self setupContent];
 }
 @end

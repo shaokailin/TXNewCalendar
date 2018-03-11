@@ -9,7 +9,7 @@
 #import "TXSMMessageMainVC.h"
 #import "HListView.h"
 #import "TXSMMessageHomeNaviCell.h"
-
+#import "TXSMMessageListView.h"
 @interface TXSMMessageMainVC ()<UIScrollViewDelegate,HListViewDataSource,HListViewDelegate> {
     BOOL isClickAnimal;
 }
@@ -41,8 +41,7 @@
     self.m_mainScrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.m_mainScrollView];
     for (int i = 0; i < self.m_naviTitleArray.count; i++) {
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, self.view.frame.size.height - kHomeHeadButtonHeight)];
-        view.backgroundColor = [UIColor colorWithRed:(arc4random() % 256) / 255.0 green:(arc4random() % 256) / 255.0 blue:(arc4random() % 256) / 255.0 alpha:1.0];
+        TXSMMessageListView *view = [[TXSMMessageListView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, self.view.frame.size.height - kHomeHeadButtonHeight)];
         [self.m_mainScrollView addSubview:view];
     }
 }
@@ -67,6 +66,8 @@
         [self.m_naviListView reloadListData];
         [self changeUnderLineFrame];
     }
+    TXSMMessageListView *listView = [self.m_mainScrollView.subviews objectAtIndex:_currentIndex];
+    [listView selectViewChange];
 }
 -(void)changeUnderLineFrame {
     TXSMMessageHomeNaviCell *cell = (TXSMMessageHomeNaviCell *)[self.m_naviListView cellForRowAtIndex:_currentIndex];
@@ -74,7 +75,6 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.underLineView.frame = CGRectMake(rect.origin.y, kHomeHeadButtonHeight - WIDTH_RACE_6S(1.5), rect.size.height, WIDTH_RACE_6S(1.5));
     }];
-    
 }
 #pragma mark scroller delegate
 -(void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
@@ -120,9 +120,8 @@
         }
     }
 }
-- (CGFloat ) decimalwithX:(CGFloat)floatX
-{
-    return (floorf(floatX*100 + 0.5))/100;
+- (CGFloat ) decimalwithX:(CGFloat)floatX {
+    return (floorf(floatX * 100 + 0.5))/100;
 }
 
 

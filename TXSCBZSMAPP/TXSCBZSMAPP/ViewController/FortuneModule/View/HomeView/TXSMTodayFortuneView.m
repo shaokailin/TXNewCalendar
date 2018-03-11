@@ -34,10 +34,11 @@
     if (CGRectGetHeight(frame) != contentHeight) {
         frame.size.height = contentHeight;
         self.frame = frame;
-//        if (self.frameBlock) {
-//            self.frameBlock(contentHeight);
-//        }
     }
+}
+- (void)setupContent:(NSString *)name dict:(NSDictionary *)dict {
+    [self.circleView setupContent:dict name:name];
+    [self setupCellContent:[dict objectForKey:@"warn"]];
 }
 - (CGFloat)returnViewHeight {
     return CGRectGetHeight(self.frame);

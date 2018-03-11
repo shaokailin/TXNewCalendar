@@ -39,7 +39,7 @@
 }
 
 - (void)setImageWebUrl:(NSString *)imageWebUrl {
-    if (![_imageWebUrl isEqualToString:imageWebUrl]) {
+    if (!KJudgeIsNullData(_imageWebUrl) ||![_imageWebUrl isEqualToString:imageWebUrl]) {
         isHasSucess = NO;
     }
     _imageWebUrl = imageWebUrl;
