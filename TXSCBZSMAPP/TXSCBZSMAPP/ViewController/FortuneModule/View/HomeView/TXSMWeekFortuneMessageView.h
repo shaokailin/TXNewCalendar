@@ -10,6 +10,7 @@
 
 @interface TXSMWeekFortuneMessageView : UIView
 - (instancetype)initWithType:(NSInteger)type;
-- (void)setupContentWithImg:(NSString *)image name:(NSString *)name time:(NSString *)time;
+- (void)setupContentWithName:(NSString *)name time:(NSString *)time;
 - (void)setupContentWithScore:(NSDictionary *)dict;
+- (void)setupImage:(NSString *)name;
 @end

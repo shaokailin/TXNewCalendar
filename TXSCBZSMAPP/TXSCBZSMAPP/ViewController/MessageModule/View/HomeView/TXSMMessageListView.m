@@ -11,65 +11,217 @@
 #import "TXSMMessageMoreImgCell.h"
 #import "TXSMMessageAddCell.h"
 #import "TXSMMessageNoImgCell.h"
+#import "TXSMMessageHomeVM.h"
+#import "TXXLWebVC.h"
+#import "TXSMMessageDetailVC.h"
 static CGFloat kOneImgCellHeight = 103;
 static CGFloat kNoImgCellHeight = 83;
 static CGFloat kAdCellHeight = 232;
 static CGFloat kMoreImgCellHeight = 139;
 @interface TXSMMessageListView ()<UITableViewDelegate, UITableViewDataSource>
+{
+    BOOL _isHasStartPull;
+    BOOL _isHasAd;
+    NSInteger _currentMoreAd;
+    NSInteger _currentOneAd;
+    UIViewController *_controller;
+}
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, strong) TXSMMessageHomeVM *viewModel;
 @end
 @implementation TXSMMessageListView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame type:(NSInteger)type {
     if (self = [super initWithFrame:frame]) {
         [self _layoutMainView];
+        [self bindSignal:type];
     }
     return self;
 }
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
+}
+- (void)bindSignal:(NSInteger)type {
+    @weakify(self)
+    _viewModel = [[TXSMMessageHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 10) {
+            if (self.viewModel.page == 0) {
+                [self.dataArray removeAllObjects];
+            }
+            [self.dataArray addObjectsFromArray:model];
+            if (self.viewModel.adDict) {
+                [self setupFooterView];
+                [self endRefreshing];
+            }
+        }else {
+            if (self.viewModel.adDict && self.viewModel.adDict.allKeys.count > 0) {
+                NSArray *adArray = [self.viewModel.adDict objectForKey:@"28"];
+                NSArray *moreArray = [self.viewModel.adDict objectForKey:@"29"];
+                if (!KJudgeIsArrayAndHasValue(adArray) && !KJudgeIsArrayAndHasValue(moreArray)) {
+                    _isHasAd = NO;
+                }else {
+                    _isHasAd = YES;
+                }
+            }
+           [self setupFooterView];
+            [self endRefreshing];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (identifier == 20) {
+            [self setupFooterView];
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+    _viewModel.contactId = @"28,29";
+    _viewModel.type = type;
+    
+}
+- (void)setupFooterView {
+    NSInteger count = self.dataArray.count;
+    if (_isHasAd) {
+        NSInteger yushu = count / 3;
+        count += yushu;
+    }
+    [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:count];
+    [self.mainTableView reloadData];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
 - (void)selectViewChange {
-    [self.mainTableView.mj_header beginRefreshing];
+    if (!KJudgeIsArrayAndHasValue(_dataArray) || !_isHasStartPull) {
+        _isHasStartPull = YES;
+        [self.mainTableView.mj_header beginRefreshing];
+    }
 }
 - (void)pullMoreData {
-    [self.mainTableView.mj_header endRefreshing];
+    self.viewModel.page += 1;
+    [self.viewModel getHomeData:YES];
 }
 - (void)pullRrfreshData {
-    [self.mainTableView.mj_header endRefreshing];
+    self.viewModel.page = 0;;
+    [self.viewModel getHomeData:YES];
 }
 #pragma  mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (KJudgeIsNullData(_dataArray)) {
+        NSInteger count = _dataArray.count;
+        if (_isHasAd) {
+            NSInteger yushu = count / 3;
+            count += yushu;
+        }
+        return count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger type = indexPath.row % 4;
-    if (type == 0) {
-        TXSMMessageOneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageOneImgCell];
-        [cell setupCellContent:nil title:@"凯学生凯学生凯学生凯学生凯学生凯学生凯学生凯学生" where:@"第一星网站" count:@"425355"];
-        return cell;
-    }else if (type == 1){
-        TXSMMessageMoreImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageMoreImgCell];
-        [cell setupCellContent:nil img2:nil img3:nil title:@"凯学生凯学生凯学生凯学生凯学生凯学生凯学生凯学生" where:@"第一星网站" count:@"425355"];
-        return cell;
-    }else if (type == 2){
-        TXSMMessageNoImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageNoImgCell];
-        [cell setupCellContentTitle:@"凯学生凯学生凯学生凯学生凯学生凯学生凯学生凯学生凯学生凯学生" where:@"第一星网站" count:@"425355"];
-        return cell;
+    NSInteger type = (indexPath.row - 3) % 4;
+    NSInteger count = (indexPath.row - 3) / 4;
+    if (indexPath.row < 3 || (type != 0) ) {
+        NSInteger index = indexPath.row < 3?indexPath.row:indexPath.row - count - 1;
+        NSDictionary *dict = [self.dataArray objectAtIndex:index];
+        NSString *image = [dict objectForKey:@"pic"];
+        NSString *title = [dict objectForKey:@"title"];
+        NSString *from = [dict objectForKey:@"from"];
+        NSString *hits = [dict objectForKey:@"hits"];
+        if (KJudgeIsNullData(image)) {
+            TXSMMessageOneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageOneImgCell];
+            [cell setupCellContent:image title:title where:from count:hits];
+            return cell;
+        }else {
+            TXSMMessageNoImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageNoImgCell];
+            [cell setupCellContentTitle:title where:from count:hits];
+            return cell;
+        }
     }else {
-        TXSMMessageAddCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageAddCell];
-        [cell setupCellContent:nil title:@"凯先生凯先生凯先生凯先生凯先生凯先生凯先生凯先生凯先生凯先生凯先生" where:@"凯先生"];
-        return cell;
+        if (count % 2 != 0) {
+            NSArray *array = [self.viewModel.adDict objectForKey:@"29"];
+            NSInteger index = (count - 1) / 2;
+            index = index % array.count;
+            NSDictionary *dict = [array objectAtIndex:index];
+            TXSMMessageMoreImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageMoreImgCell];
+            [cell setupCellContent:[dict objectForKey:@"image"] img2:[dict objectForKey:@"imageer"] img3:[dict objectForKey:@"imagesan"] title:[dict objectForKey:@"title"] where:nil count:nil];
+            return cell;
+        }else {
+            NSArray *array = [self.viewModel.adDict objectForKey:@"28"];
+            NSInteger index = count / 2;
+            index = index % array.count;
+            NSDictionary *dict = [array objectAtIndex:index];
+            TXSMMessageAddCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageAddCell];
+            [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] where:nil];
+            return cell;
+        }
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger type = indexPath.row % 4;
-    if (type == 0) {
-        return kOneImgCellHeight;
-    }else if (type == 1){
-        return kMoreImgCellHeight;
-    }else if (type == 2){
-        return kNoImgCellHeight;
+    NSInteger type = (indexPath.row - 3) % 4;
+    NSInteger count = (indexPath.row - 3) / 4;
+    if (indexPath.row < 3 || (type != 0) ) {
+        NSInteger index = indexPath.row < 3?indexPath.row:indexPath.row - count - 1;
+        NSDictionary *dict = [self.dataArray objectAtIndex:index];
+        NSString *image = [dict objectForKey:@"image"];
+        if (KJudgeIsNullData(image)) {
+            return kOneImgCellHeight;
+        }else {
+            return kNoImgCellHeight;
+        }
     }else {
-        return kAdCellHeight;
+        if (count % 2 != 0) {
+            return kMoreImgCellHeight;
+        }else {
+            return kAdCellHeight;
+        }
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger type = (indexPath.row - 3) % 4;
+    NSInteger count = (indexPath.row - 3) / 4;
+    if (!_controller) {
+        _controller = [LSKViewFactory getCurrentViewController];
+    }
+    if (indexPath.row < 3 || (type != 0) ) {
+        NSInteger index = indexPath.row < 3?indexPath.row:indexPath.row - count - 1;
+        NSDictionary *dict = [self.dataArray objectAtIndex:index];
+        TXSMMessageDetailVC *detail = [[TXSMMessageDetailVC alloc]init];
+        detail.dataDict = dict;
+        detail.hidesBottomBarWhenPushed = YES;
+        [_controller.navigationController pushViewController:detail animated:YES];
+    }else {
+        NSString *url = nil;
+        NSString *title = nil;
+        if (count % 2 != 0) {
+            NSArray *array = [self.viewModel.adDict objectForKey:@"29"];
+            NSInteger index = (count - 1) / 2;
+            index = index % array.count;
+            NSDictionary *dict = [array objectAtIndex:index];
+            url = [dict objectForKey:@"url"];
+            title = [dict objectForKey:@"title"];
+        }else {
+            NSArray *array = [self.viewModel.adDict objectForKey:@"28"];
+            NSInteger index = count / 2;
+            index = index % array.count;
+            NSDictionary *dict = [array objectAtIndex:index];
+            url = [dict objectForKey:@"url"];
+            title = [dict objectForKey:@"title"];
+        }
+        if (KJudgeIsNullData(url)) {
+            TXXLWebVC *webVC = [[TXXLWebVC alloc]init];
+            webVC.titleString = title;
+            webVC.loadUrl = url;
+            webVC.hidesBottomBarWhenPushed = YES;
+            [_controller.navigationController pushViewController:webVC animated:YES];
+        }
     }
 }
 #pragma mark - init

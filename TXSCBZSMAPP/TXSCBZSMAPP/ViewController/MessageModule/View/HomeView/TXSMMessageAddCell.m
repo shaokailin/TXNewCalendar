@@ -32,7 +32,6 @@
         _adImgView.image = nil;
     }
     _titleLbl.text = title;
-    _whereLbl.text = where;
 }
 - (void)_layoutMainView {
     UILabel *titleLbl = [TXXLViewManager customTitleLbl:nil font:14];
@@ -64,12 +63,12 @@
         make.bottom.equalTo(ws.contentView).with.offset(-8);
     }];
     
-    _whereLbl = [TXXLViewManager customDetailLbl:nil font:10];
-    [self.contentView addSubview:_whereLbl];
-    [_whereLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(adTitleLbl.mas_right).with.offset(27);
-        make.centerY.equalTo(adTitleLbl);
-    }];
+//    _whereLbl = [TXXLViewManager customDetailLbl:nil font:10];
+//    [self.contentView addSubview:_whereLbl];
+//    [_whereLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(adTitleLbl.mas_right).with.offset(27);
+//        make.centerY.equalTo(adTitleLbl);
+//    }];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

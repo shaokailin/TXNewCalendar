@@ -12,6 +12,7 @@
 #import "TXSMMessageListView.h"
 @interface TXSMMessageMainVC ()<UIScrollViewDelegate,HListViewDataSource,HListViewDelegate> {
     BOOL isClickAnimal;
+    BOOL _isHasShowView;
 }
 @property (strong ,nonatomic) HListView *m_naviListView;
 @property (strong ,nonatomic) UIView *underLineView;
@@ -27,21 +28,28 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!_isHasShowView) {
+        [self changeProductShow:YES];
+    }
+}
 - (void)initializeMainView {
     self.m_naviTitleArray = [[NSMutableArray alloc]initWithObjects:@"运势",@"命理",@"风水",@"生肖",@"星座",@"测试", nil];
     _currentIndex = 0;
     [self customHeadButtonView];
-    self.m_mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, kHomeHeadButtonHeight, SCREEN_WIDTH, self.view.frame.size.height - kHomeHeadButtonHeight)];
+    CGFloat viewHeight = self.viewMainHeight - kHomeHeadButtonHeight - self.tabbarHeight - 2.5 ;
+    self.m_mainScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, kHomeHeadButtonHeight + 2.5, SCREEN_WIDTH,viewHeight )];
     self.m_mainScrollView.delegate = self;
     self.m_mainScrollView.bounces = NO;
     self.m_mainScrollView.pagingEnabled = YES;
-    self.m_mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.m_naviTitleArray.count, self.view.frame.size.height - kHomeHeadButtonHeight);
+    self.m_mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * self.m_naviTitleArray.count, viewHeight);
     self.m_mainScrollView.layer.masksToBounds = YES;
     self.m_mainScrollView.showsVerticalScrollIndicator = NO;
     self.m_mainScrollView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:self.m_mainScrollView];
     for (int i = 0; i < self.m_naviTitleArray.count; i++) {
-        TXSMMessageListView *view = [[TXSMMessageListView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, self.view.frame.size.height - kHomeHeadButtonHeight)];
+        TXSMMessageListView *view = [[TXSMMessageListView alloc]initWithFrame:CGRectMake(SCREEN_WIDTH * i, 0, SCREEN_WIDTH, viewHeight) type:i];
         [self.m_mainScrollView addSubview:view];
     }
 }

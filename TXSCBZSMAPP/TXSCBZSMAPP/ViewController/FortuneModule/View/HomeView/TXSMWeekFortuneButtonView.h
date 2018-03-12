@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 typedef void (^ButtonClickBlock) (NSInteger flag);
 @interface TXSMWeekFortuneButtonView : UIView
+- (instancetype)initWithFrame:(CGRect)frame type:(NSInteger)type;
 @property (nonatomic, copy) ButtonClickBlock clickBlock;
 @end

@@ -9,6 +9,7 @@
 #import "TXSMWeekFortuneView.h"
 #import "TXSMWeekFortuneButtonView.h"
 #import "TXSMWeekFortuneMessageView.h"
+#import "TXSMWeekFortuneAlertView.h"
 @interface TXSMWeekFortuneView ()
 {
     NSInteger _type;
@@ -32,23 +33,42 @@
     NSString * time = nil;
     if (_type == 0) {
         time = NSStringFormat(@"%@  -  %@",[dict objectForKey:@"start_time"],[dict objectForKey:@"end_time"]);
-    }else {
+    }else if(_type == 1) {
         time = [dict objectForKey:@"time"];
+    }else {
+        time = [[NSDate date]dateTransformToString:@"yyyy年"];
     }
-    [self.messageView setupContentWithImg:nil name:name time:time];
+    [self.messageView setupContentWithName:name time:time];
     [self.messageView setupContentWithScore:[dict objectForKey:@"score"]];
+}
+- (void)setupEnglistName:(NSString *)englistName {
+    [self.messageView setupImage:englistName];
 }
 - (void)buttonClick:(NSInteger)flag {
     NSString *title = nil;
     switch (flag) {
         case 0:
-            title = [_dataDict objectForKey:@"love"];
+        {
+            if (_type == 2) {
+                title = [_dataDict objectForKey:@"synthesize"];
+            }else {
+                title = [_dataDict objectForKey:@"love"];
+            }
+        }
             break;
         case 1:
             title = [_dataDict objectForKey:@"work"];
             break;
         case 2:
-            title = [_dataDict objectForKey:@"apply_job"];
+        {
+            if (_type == 0) {
+                title = [_dataDict objectForKey:@"warn"];
+            }else if (_type == 1){
+                title = [_dataDict objectForKey:@"study"];
+            }else {
+                title = [_dataDict objectForKey:@"love"];
+            }
+        }
             break;
         case 3:
             title = [_dataDict objectForKey:@"fortune"];
@@ -60,6 +80,8 @@
         default:
             break;
     }
+    TXSMWeekFortuneAlertView *alertView = [[TXSMWeekFortuneAlertView alloc]initWithString:title];
+    [alertView show];
 }
 - (void)_layoutMainView {
     CGFloat height = 335 + WIDTH_RACE_6S(55);
@@ -68,7 +90,7 @@
     self.messageView = messageView;
     [self addSubview:messageView];
     
-    TXSMWeekFortuneButtonView *buttonBtn = [[TXSMWeekFortuneButtonView alloc]initWithFrame:CGRectMake(5, height + 5 + 1, SCREEN_WIDTH - 10, 80)];
+    TXSMWeekFortuneButtonView *buttonBtn = [[TXSMWeekFortuneButtonView alloc]initWithFrame:CGRectMake(5, height + 5 + 1, SCREEN_WIDTH - 10, 80) type:_type];
     WS(ws)
     buttonBtn.clickBlock = ^(NSInteger flag) {
         [ws buttonClick:flag];

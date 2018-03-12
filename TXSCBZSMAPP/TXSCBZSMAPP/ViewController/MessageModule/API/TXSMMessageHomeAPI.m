@@ -17,8 +17,8 @@
     params.isCallApi2 = YES;
     params.requestApi = @"app.datablock/getlist.html";
     [params.params setObject:contactId forKey:@"bid"];
-    [params.params setObject:@(300) forKey:@"cache"];
-    [params.params setObject:limit forKey:@"limit"];
+    [params.params setObject:@(1000) forKey:@"cache"];
+//    [params.params setObject:limit forKey:@"limit"];
     return params;
 }
 + (LSKParamterEntity *)getMessageHomeData:(NSInteger)page type:(NSInteger)type {

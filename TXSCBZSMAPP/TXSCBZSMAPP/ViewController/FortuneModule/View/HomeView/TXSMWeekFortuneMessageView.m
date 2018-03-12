@@ -27,20 +27,29 @@
     }
     return self;
 }
-- (void)setupContentWithImg:(NSString *)image name:(NSString *)name time:(NSString *)time {
-    if (KJudgeIsNullData(image)) {
-        [_iconImgView sd_setImageWithURL:[NSURL URLWithString:image]];
-    }else {
-        _iconImgView.image = nil;
-    }
+- (void)setupContentWithName:(NSString *)name time:(NSString *)time {
     _titleLbl.text = NSStringFormat(@"%@%@",name,[self returnTitleString]);
     _timeLbl.text = NSStringFormat(@"有效日期: %@",time);
 }
+- (void)setupImage:(NSString *)name {
+    if (KJudgeIsNullData(name)) {
+        _iconImgView.image = ImageNameInit(name);
+    }else {
+        _iconImgView.image = nil;
+    }
+}
 - (void)setupContentWithScore:(NSDictionary *)dict {
-    _loveBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"love"]);
-    _healthBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"health"]);
-    _careerBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"work"]);
-    _moneyBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"fortune"]);
+    if (_type == 2) {
+        _loveBtn.presentValueLbl.text = NSStringFormat(@"%@星",[dict objectForKey:@"love"]);
+        _healthBtn.presentValueLbl.text = NSStringFormat(@"%@星",[dict objectForKey:@"health"]);
+        _careerBtn.presentValueLbl.text = NSStringFormat(@"%@星",[dict objectForKey:@"work"]);
+        _moneyBtn.presentValueLbl.text = NSStringFormat(@"%@星",[dict objectForKey:@"fortune"]);
+    }else {
+        _loveBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"love"]);
+        _healthBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"health"]);
+        _careerBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"work"]);
+        _moneyBtn.presentValueLbl.text = NSStringFormat(@"%@%%",[dict objectForKey:@"fortune"]);
+    }
 }
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];

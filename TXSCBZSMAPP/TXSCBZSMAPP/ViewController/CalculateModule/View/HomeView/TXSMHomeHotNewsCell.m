@@ -12,7 +12,7 @@
 {
     UIImageView *_iconImgView;
     UILabel *_titleLbl;
-    UILabel *_countLbl;
+//    UILabel *_countLbl;
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -33,7 +33,7 @@
         _iconImgView.image = nil;
     }
     _titleLbl.text = title;
-    _countLbl.text = NSStringFormat(@"%@阅",detail);
+//    _countLbl.text = NSStringFormat(@"%@阅",detail);
 }
 - (void)_layoutMainView {
     self.backgroundColor = KColorHexadecimal(kMainBackground_Color, 1.0);
@@ -58,12 +58,12 @@
         make.top.equalTo(contentView).with.offset(12);
     }];
     
-    _countLbl = [TXXLViewManager customDetailLbl:nil font:14];
-    [contentView addSubview:_countLbl];
-    [_countLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(iconImgView.mas_right).with.offset(17);
-        make.bottom.equalTo(contentView).with.offset(-9);
-    }];
+//    _countLbl = [TXXLViewManager customDetailLbl:nil font:14];
+//    [contentView addSubview:_countLbl];
+//    [_countLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(iconImgView.mas_right).with.offset(17);
+//        make.bottom.equalTo(contentView).with.offset(-9);
+//    }];
     
     WS(ws)
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -56,7 +56,6 @@
         case 3:
             image = @"money_bg";
             break;
-            
         default:
             break;
     }

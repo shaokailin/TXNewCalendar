@@ -13,8 +13,8 @@
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import "MiPushSDK.h"
 #import "TXXLWebVC.h"
-static NSString * const kAliAanaliticsKey = @"24796510";
-static NSString * const kAliAanaliticsSecret = @"8530aeab85d9ed304efc98bc0afddb50";
+static NSString * const kAliAanaliticsKey = @"24819778";
+static NSString * const kAliAanaliticsSecret = @"95b4cb98a5c6f8b8cf15b30648280272";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
 NSString * const kMiPushRegisterIphone = @"isReigsterUserIphone";
 static const BOOL kIsOnline = YES;

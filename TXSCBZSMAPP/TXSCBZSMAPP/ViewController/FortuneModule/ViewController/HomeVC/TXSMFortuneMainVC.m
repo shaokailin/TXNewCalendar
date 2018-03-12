@@ -12,6 +12,7 @@
 #import "TXSMTodayFortuneView.h"
 #import "TXSMWeekFortuneView.h"
 #import "TXSMFortuneHomeVM.h"
+#import "TXXLWebVC.h"
 @interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     CGFloat _weekHeight;
@@ -67,9 +68,15 @@
     
     UIView<TXSMFortuneHomeProtocol> *view3 = [self.headerScrollerView.subviews objectAtIndex:2];
     [view3 setupContent:_currentXingZuo dict:[dict objectForKey:@"week"]];
-    
+    [view3 setupEnglistName:self.viewModel.xingzuo];
     UIView<TXSMFortuneHomeProtocol> *view4 = [self.headerScrollerView.subviews objectAtIndex:3];
     [view4 setupContent:_currentXingZuo dict:[dict objectForKey:@"month"]];
+    [view4 setupEnglistName:self.viewModel.xingzuo];
+    
+    UIView<TXSMFortuneHomeProtocol> *view5 = [self.headerScrollerView.subviews objectAtIndex:4];
+    NSDictionary *dict1 = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"xingzuo" ofType:@"plist"]];
+    [view5 setupContent:_currentXingZuo dict:[dict1 objectForKey:_currentXingZuo]];
+    [view5 setupEnglistName:self.viewModel.xingzuo];
     [self frameChange];
 }
 - (void)frameChange {
@@ -105,11 +112,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXSMFortuneHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMFortuneHomeCell];
     NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
-    [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] count:@"1231231" present:@"213%"];
+    [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] count:nil present:@"97%"];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+    NSString *url = [dict objectForKey:@"url"];
+    if (KJudgeIsNullData(url)) {
+        TXXLWebVC *webVC = [[TXXLWebVC alloc]init];
+        webVC.titleString = [dict objectForKey:@"title"];
+        webVC.loadUrl = url;
+        webVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
 }
 #pragma marak - init view
 - (void)initializeMainView {

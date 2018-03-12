@@ -12,7 +12,7 @@
 {
     UIImageView *_iconImgView;
     UILabel *_titleLbl;
-    UILabel *_countLbl;
+//    UILabel *_countLbl;
     UILabel *_percentLbl;
 }
 - (void)awakeFromNib {
@@ -33,7 +33,7 @@
         _iconImgView.image = nil;
     }
     _titleLbl.text = title;
-    _countLbl.text = count;
+//    _countLbl.text = count;
     _percentLbl.text = present;
 }
 - (void)_layoutMainView {
@@ -62,26 +62,14 @@
         make.top.equalTo(contentView).with.offset(17);
     }];
     
-    UIImageView *seeIconImg = [[UIImageView alloc]initWithImage:ImageNameInit(@"seeIcon_icon")];
-    [contentView addSubview:seeIconImg];
-    [seeIconImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(10, 6));
-        make.bottom.equalTo(contentView).with.offset(-22);
-        make.left.equalTo(iconImgView.mas_right).with.offset(12);
-    }];
-    _countLbl = [LSKViewFactory initializeLableWithText:nil font:11 textColor:KColorHexadecimal(0xadadad, 1.0) textAlignment:NSTextAlignmentLeft backgroundColor:nil];
-    [contentView addSubview:_countLbl];
-    [_countLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(seeIconImg.mas_right).with.offset(8);
-        make.centerY.equalTo(seeIconImg);
-    }];
     UIImageView *presentIconImg = [[UIImageView alloc]initWithImage:ImageNameInit(@"present_icon")];
     [contentView addSubview:presentIconImg];
     [presentIconImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(seeIconImg);
-        make.left.equalTo(seeIconImg.mas_right).with.offset(100);
+        make.bottom.equalTo(contentView).with.offset(-22);
+        make.left.equalTo(iconImgView.mas_right).with.offset(12);
         make.size.mas_equalTo(CGSizeMake(9, 9));
     }];
+    
     _percentLbl = [LSKViewFactory initializeLableWithText:nil font:11 textColor:KColorHexadecimal(0xadadad, 1.0) textAlignment:NSTextAlignmentLeft backgroundColor:nil];
     [contentView addSubview:_percentLbl];
     [_percentLbl mas_makeConstraints:^(MASConstraintMaker *make) {

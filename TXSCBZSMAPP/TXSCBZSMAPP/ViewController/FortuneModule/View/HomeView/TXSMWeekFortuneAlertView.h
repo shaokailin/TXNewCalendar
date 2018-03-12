@@ -10,4 +10,5 @@
 
 @interface TXSMWeekFortuneAlertView : UIView
 - (instancetype)initWithString:(NSString *)content;
+- (void)show;
 @end

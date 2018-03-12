@@ -11,4 +11,6 @@
 @protocol TXSMFortuneHomeProtocol <NSObject>
 - (CGFloat)returnViewHeight;
 - (void)setupContent:(NSString *)name dict:(NSDictionary *)dict;
+@optional
+- (void)setupEnglistName:(NSString *)englistName;
 @end

@@ -9,5 +9,10 @@
 #import "LSKBaseViewModel.h"
 
 @interface TXSMMessageHomeVM : LSKBaseViewModel
-
+@property (nonatomic, copy) NSString *contactId;
+@property (nonatomic, copy) NSString *limit;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSDictionary *adDict;
+- (void)getHomeData:(BOOL)isPull;
 @end

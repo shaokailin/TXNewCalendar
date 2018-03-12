@@ -10,7 +10,10 @@ pod 'YYModel'
 pod 'FDFullscreenPopGesture'
 pod 'MJRefresh'
 pod 'TPKeyboardAvoiding'
+pod 'WechatOpenSDK'
+pod 'Weibo_SDK', :git => "https://github.com/sinaweibosdk/weibo_ios_sdk.git" 
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 pod 'AlicloudMAN'
+
 end

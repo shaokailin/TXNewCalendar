@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>txcalendar</string>
+				<string>txscbzsm</string>
 			</array>
 		</dict>
 	</array>
@@ -41,9 +41,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MiSDKAppID</key>
-	<string>2882303761517712375</string>
+	<string>2882303761517738466</string>
 	<key>MiSDKAppKey</key>
-	<string>5121771280375</string>
+	<string>5951773871466</string>
 	<key>MiSDKRun</key>
 	<string>${MiSDKRun}</string>
 	<key>NSAppTransportSecurity</key>
@@ -70,7 +70,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>com.tencent.rdm.uuid</key>
-	<string>edd93a41-a8e4-4e56-92a2-0cfb6bf022a3</string>
 </dict>
 </plist>

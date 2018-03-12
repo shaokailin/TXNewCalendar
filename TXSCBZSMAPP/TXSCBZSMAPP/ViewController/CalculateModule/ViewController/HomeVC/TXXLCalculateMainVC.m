@@ -115,11 +115,11 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
     TXSMHomeHotNewsCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMHomeHotNewsCell];
     NSArray *data = [_dataDictionary objectForKey:kCalculateAdId];
     NSDictionary *dict = [data objectAtIndex:indexPath.row];
-    [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] detail:@"3123123"];
+    [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] detail:nil];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [self headerViewClick:kCalculateAdId index:indexPath.row];
 }
 #pragma mark - 界面初始化
 - (void)initializeMainView {

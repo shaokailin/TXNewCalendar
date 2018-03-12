@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TXSMMessageListView : UIView
+- (instancetype)initWithFrame:(CGRect)frame type:(NSInteger)type;
 - (void)selectViewChange;
 @end

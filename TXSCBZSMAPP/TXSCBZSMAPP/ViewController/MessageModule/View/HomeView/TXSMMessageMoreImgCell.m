@@ -33,8 +33,17 @@
     }else {
         _adImgView.image = nil;
     }
+    if (KJudgeIsNullData(img2)) {
+        [_adImgView2 sd_setImageWithURL:[NSURL URLWithString:img2]];
+    }else {
+        _adImgView2.image = nil;
+    }
+    if (KJudgeIsNullData(img3)) {
+        [_adImgView3 sd_setImageWithURL:[NSURL URLWithString:img3]];
+    }else {
+        _adImgView3.image = nil;
+    }
     _titleLbl.text = title;
-    _whereLbl.text = NSStringFormat(@"%@    %@评",where,count);
 }
 - (void)_layoutMainView {
     UILabel *titleLbl = [TXXLViewManager customTitleLbl:nil font:14];
@@ -79,7 +88,7 @@
         make.top.width.height.equalTo(adImage);
     }];
     
-    _whereLbl = [TXXLViewManager customDetailLbl:nil font:10];
+    _whereLbl = [TXXLViewManager customDetailLbl:@"广告" font:10];
     [self.contentView addSubview:_whereLbl];
     [_whereLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws.contentView).with.offset(15);
