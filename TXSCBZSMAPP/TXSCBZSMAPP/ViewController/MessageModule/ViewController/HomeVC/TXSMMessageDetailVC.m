@@ -173,8 +173,7 @@ static const CGFloat kBottonViewHeight = 49;
 
 #pragma 绑定js交互
 -(BOOL)webLoadRequest:(NSString *)url navi:(UIWebViewNavigationType)navigationType {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked && !self.hasClickLink) {
-        self.hasClickLink = YES;
+    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
         self.firstHistoryCount = [self.webView historyCount];
     }
     if (!self.hasClickLink) {

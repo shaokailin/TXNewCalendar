@@ -33,7 +33,7 @@
     }];
     
     UIButton *rightBtn = [LSKViewFactory initializeButtonNornalImage:@"right_icon" selectedImage:nil target:self action:@selector(leftClick:)];
-    leftBtn.tag = 101;
+    rightBtn.tag = 101;
     [self addSubview:rightBtn];
     [rightBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(ws).with.offset(-50);
