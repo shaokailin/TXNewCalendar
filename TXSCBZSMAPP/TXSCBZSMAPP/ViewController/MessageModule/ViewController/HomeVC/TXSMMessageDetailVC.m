@@ -16,10 +16,11 @@
 #import "TXSMDetailHeaderView.h"
 static const CGFloat kBottonViewHeight = 49;
 @interface TXSMMessageDetailVC ()
+{
+    BOOL _isChange;
+    BOOL _isNeedChange;
+}
 @property (strong ,nonatomic) LSKWebView *webView;
-@property (assign ,nonatomic) BOOL isCanBlack;
-@property (assign ,nonatomic) BOOL isClickBack;
-@property (assign ,nonatomic) BOOL hasClickLink;
 @property (assign ,nonatomic) NSInteger firstHistoryCount;
 @property (strong ,nonatomic) LSKWebProgressView *progressView;
 @property (nonatomic, strong) TXSMDetailHeaderView *headerView;
@@ -39,7 +40,7 @@ static const CGFloat kBottonViewHeight = 49;
     if (_progressView) {
         _progressView.hidden = NO;
     }
-    [self.webView loadWebViewHtml:@"<a href='http:www.baidu.com'>123</a>" baseUrl:nil];
+    [self.webView loadWebViewHtml:@"<a href='http://www.baidu.com'>123</a>" baseUrl:self.model.url];
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -49,10 +50,10 @@ static const CGFloat kBottonViewHeight = 49;
 }
 
 - (void)showShareView {
-//    if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled]) {
-//        [SKHUD showMessageInWindowWithMessage:@"暂无可分享的平台！"];
-//        return;
-//    }
+    if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled]) {
+        [SKHUD showMessageInWindowWithMessage:@"暂无可分享的平台！"];
+        return;
+    }
     TXSMShareView *shareView = [[TXSMShareView alloc]initWithTabbar:self.tabbarBetweenHeight ];
     @weakify(self)
     shareView.shareBlock = ^(NSInteger type) {
@@ -93,25 +94,58 @@ static const CGFloat kBottonViewHeight = 49;
         }
     }
 }
-- (BOOL)loadReuqestWithUrl:(NSString *)requestUrl {
-    return YES;
-}
 - (void)stopLoading {
     [self.webView stopLoading];
 }
 - (void)exitLoading:(NSInteger)type {
     if (type == 0) {
-        [self.webView goBack];
+        if ([self.webView canGoBack]) {
+            [self.webView stopLoading];
+            [self.webView goBack];
+        }else{
+            if (![self.webView.currentRequest isEqualToString:self.model.url]) {
+                self.webView.currentRequest = nil;
+                [self.webView loadWebViewHtml:@"<a href='http://www.baidu.com'>123</a>" baseUrl:self.model.url];
+            }
+        }
     }else{
         [self.webView goForward];
     }
 }
-- (void)backClick {
-    _isClickBack = YES;
-    if ([self.webView canGoBack] && [self.webView historyCount] > self.firstHistoryCount) {
-        [self.webView stopLoading];
-        [self.webView goBack];
+
+- (void)changeHeaderView:(BOOL)isFirst {
+    CGFloat height = 0;
+    if (isFirst) {
+        height = self.headerView.contentHeight;
+        self.headerView.frame = CGRectMake(0, -height, SCREEN_WIDTH, height);
+        [self.webView.scrollerView addSubview:self.headerView];
+    }else {
+        [self.headerView removeFromSuperview];
     }
+    self.webView.scrollerView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
+}
+- (void)loadStatus:(NSInteger)state {
+    if (state == 2 && _isNeedChange) {
+        _isNeedChange = NO;
+        [self changeHeaderView:_isChange];
+    }
+}
+- (void)changeHeaderViewWithUrl:(NSString *)url {
+    if ([url isEqualToString:self.model.url] && self.firstHistoryCount == 0  && self.headerView.superview == nil) {
+        _isNeedChange = YES;
+        _isChange = YES;
+    }else if (![url isEqualToString:self.model.url] && self.headerView.superview) {
+        _isNeedChange = YES;
+        _isChange = NO;
+    }
+}
+#pragma 绑定js交互
+-(BOOL)webLoadRequest:(NSString *)url navi:(UIWebViewNavigationType)navigationType {
+    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeOther) {
+        self.firstHistoryCount = [self.webView historyCount];
+        [self changeHeaderViewWithUrl:url];
+    }
+    return YES;
 }
 #pragma mark - 界面 
 - (void)initializeMainView {
@@ -125,10 +159,6 @@ static const CGFloat kBottonViewHeight = 49;
     
     self.headerView = [[TXSMDetailHeaderView alloc]init];
     [self.headerView setupArticleTitle:@"凯先生凯先生凯先生凯先生凯先生凯先生" from:@"凯先生" date:@"凯先生凯先生凯先生凯先生凯先生"];
-    CGFloat height = self.headerView.contentHeight;
-    self.headerView.frame = CGRectMake(0, -height, SCREEN_WIDTH, height);
-    self.webView.scrollerView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
-    [self.webView.scrollerView addSubview:self.headerView];
     @weakify(self)
     bottonView.loadBlock = ^(NSInteger type) {
         @strongify(self)
@@ -140,6 +170,10 @@ static const CGFloat kBottonViewHeight = 49;
     self.webView.webUrlBlock = ^BOOL(NSString *url,UIWebViewNavigationType navigationType){
         @strongify(self)
         return [self webLoadRequest:url navi:navigationType];
+    };
+    self.webView.loadStatusBlock = ^(NSInteger status) {
+        @strongify(self)
+        [self loadStatus:status];
     };
     self.progressView.hidden = NO;
     [self showLoadProgress];
@@ -171,20 +205,6 @@ static const CGFloat kBottonViewHeight = 49;
     return _progressView;
 }
 
-#pragma 绑定js交互
--(BOOL)webLoadRequest:(NSString *)url navi:(UIWebViewNavigationType)navigationType {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked) {
-        self.firstHistoryCount = [self.webView historyCount];
-    }
-    if (!self.hasClickLink) {
-        NSString *originUrl = [self.webView originRequest];
-        if ([url isEqualToString:originUrl] && _isClickBack) {
-            
-        }
-    }
-    _isClickBack = NO;
-    return [self loadReuqestWithUrl:url];
-}
 -(void)dealloc {
     if (_progressView) {
         _progressView = nil;

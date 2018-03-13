@@ -14,6 +14,7 @@
 @property (nonatomic, copy) WebLoadStatusBlock loadStatusBlock;
 @property (nonatomic, copy) LSKWebProgressBlock progressBlock;
 @property (nonatomic, strong) UIScrollView *scrollerView;
+@property (nonatomic, copy) NSString *currentRequest;
 //修改界面的大小
 - (void)changeFrame:(CGRect)rect;
 - (void)loadWebViewHtml:(NSString *)html baseUrl:(NSString *)baseurl;
@@ -23,6 +24,8 @@
 -(void)loadWebViewUrlRequest:(NSURLRequest *)requestUrl;
 //获取首个地址
 - (NSString *)originRequest;
+//获取首个地址
+
 // 浏览历史个数
 - (NSInteger)historyCount;
 //可以返回判断

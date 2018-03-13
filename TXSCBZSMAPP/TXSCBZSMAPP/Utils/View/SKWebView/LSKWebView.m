@@ -45,6 +45,9 @@
 - (NSString *)originRequest {
     return self.baseWebView.originRequest.URL.absoluteString;
 }
+- (NSString *)currentRequest {
+    return self.baseWebView.currentRequest.URL.absoluteString;
+}
 - (UIScrollView *)scrollerView {
     return self.baseWebView.scrollView;
 }
