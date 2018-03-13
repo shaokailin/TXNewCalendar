@@ -27,4 +27,6 @@ static NSString * const kCalculateNoticeId = @"22";
 static NSString * const kCalculateAdId = @"26";
 static const CGFloat kHomeHeadButtonHeight = 44;
 static NSString * const kGuide_Is_Has_Show = @"Guide_Is_Has_Show";
+
+static NSString * const kShare_Notice = @"Share_Notice";
 #endif /* Config_h */

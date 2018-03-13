@@ -35,7 +35,9 @@
         [self.baseWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
     }
 }
-
+- (void)loadWebViewHtml:(NSString *)html baseUrl:(NSString *)baseurl {
+    [self.baseWebView loadHTMLString:html baseURL:KJudgeIsNullData(baseurl)?[NSURL URLWithString:baseurl]:nil];
+}
 - (NSInteger)historyCount {
     return [self.baseWebView countOfHistory];
 }
@@ -43,7 +45,9 @@
 - (NSString *)originRequest {
     return self.baseWebView.originRequest.URL.absoluteString;
 }
-
+- (UIScrollView *)scrollerView {
+    return self.baseWebView.scrollView;
+}
 - (BOOL)canGoBack {
     return [self.baseWebView canGoBack];
 }

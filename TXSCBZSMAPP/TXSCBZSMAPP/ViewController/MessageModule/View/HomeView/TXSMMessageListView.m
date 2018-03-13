@@ -130,18 +130,14 @@ static CGFloat kMoreImgCellHeight = 139;
     NSInteger count = (indexPath.row - 3) / 4;
     if (indexPath.row < 3 || (type != 0) ) {
         NSInteger index = indexPath.row < 3?indexPath.row:indexPath.row - count - 1;
-        NSDictionary *dict = [self.dataArray objectAtIndex:index];
-        NSString *image = [dict objectForKey:@"pic"];
-        NSString *title = [dict objectForKey:@"title"];
-        NSString *from = [dict objectForKey:@"from"];
-        NSString *hits = [dict objectForKey:@"hits"];
-        if (KJudgeIsNullData(image)) {
+        TXSMMessageModel *model = [self.dataArray objectAtIndex:index];
+        if (KJudgeIsNullData(model.pic)) {
             TXSMMessageOneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageOneImgCell];
-            [cell setupCellContent:image title:title where:from count:hits];
+            [cell setupCellContent:model.pic title:model.title where:model.from count:model.hits];
             return cell;
         }else {
             TXSMMessageNoImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageNoImgCell];
-            [cell setupCellContentTitle:title where:from count:hits];
+            [cell setupCellContentTitle:model.title where:model.from count:model.hits];
             return cell;
         }
     }else {
@@ -169,9 +165,8 @@ static CGFloat kMoreImgCellHeight = 139;
     NSInteger count = (indexPath.row - 3) / 4;
     if (indexPath.row < 3 || (type != 0) ) {
         NSInteger index = indexPath.row < 3?indexPath.row:indexPath.row - count - 1;
-        NSDictionary *dict = [self.dataArray objectAtIndex:index];
-        NSString *image = [dict objectForKey:@"image"];
-        if (KJudgeIsNullData(image)) {
+        TXSMMessageModel *model = [self.dataArray objectAtIndex:index];
+        if (KJudgeIsNullData(model.pic)) {
             return kOneImgCellHeight;
         }else {
             return kNoImgCellHeight;
@@ -192,9 +187,9 @@ static CGFloat kMoreImgCellHeight = 139;
     }
     if (indexPath.row < 3 || (type != 0) ) {
         NSInteger index = indexPath.row < 3?indexPath.row:indexPath.row - count - 1;
-        NSDictionary *dict = [self.dataArray objectAtIndex:index];
+        TXSMMessageModel *model = [self.dataArray objectAtIndex:index];
         TXSMMessageDetailVC *detail = [[TXSMMessageDetailVC alloc]init];
-        detail.dataDict = dict;
+        detail.model = model;
         detail.hidesBottomBarWhenPushed = YES;
         [_controller.navigationController pushViewController:detail animated:YES];
     }else {

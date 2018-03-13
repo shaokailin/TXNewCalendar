@@ -16,6 +16,8 @@ static NSString * const kActionSheetText_Color = @"0x333333";
 //LSKActionSheet的线颜色
 static NSString * const kActionSheetLine_Color = @"0xc6c6c6";
 //WebViewProgress color
+static const CGFloat kWeb_Progress_View_Height = 4;
+static const NSInteger kWeb_Progress_View_Tag = 5001;
 static NSString * const kWebViewProgressStart_Color = @"0x00e9e6";
 static NSString * const kWebViewProgressEnd_Color = @"0x00e9e6";
 //navigation 颜色

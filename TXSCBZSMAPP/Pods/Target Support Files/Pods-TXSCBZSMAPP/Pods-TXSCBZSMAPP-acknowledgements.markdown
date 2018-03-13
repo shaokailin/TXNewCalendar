@@ -165,6 +165,15 @@ freely, subject to the following restrictions:
 3. This notice may not be removed or altered from any source
    distribution.
 
+## WechatOpenSDK
+
+Copyright 2017 tencent.com. All rights reserved.
+
+
+## Weibo_SDK
+
+
+
 ## YYModel
 
 The MIT License (MIT)

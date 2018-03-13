@@ -13,12 +13,15 @@
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import "MiPushSDK.h"
 #import "TXXLWebVC.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import <WXApi.h>
 static NSString * const kAliAanaliticsKey = @"24819778";
 static NSString * const kAliAanaliticsSecret = @"95b4cb98a5c6f8b8cf15b30648280272";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
 NSString * const kMiPushRegisterIphone = @"isReigsterUserIphone";
 static const BOOL kIsOnline = YES;
-@interface AppDelegate ()<MiPushSDKDelegate,UNUserNotificationCenterDelegate>
+@interface AppDelegate ()<MiPushSDKDelegate,UNUserNotificationCenterDelegate,QQApiInterfaceDelegate,TencentSessionDelegate,WXApiDelegate>
 {
     BOOL _isRegisterIphone;
     BOOL _isFackground;
@@ -42,6 +45,8 @@ static const BOOL kIsOnline = YES;
 #warning  开启统计
 //    [self registerAnalytics];
 //    [self registerMiPush];
+   [[TencentOAuth alloc] initWithAppId:@"1106696611" andDelegate:self];
+    [WXApi registerApp:nil];
     //点击通知打开app处理逻辑
     _isRegisterIphone = [kUserMessageManager getMessageManagerForBoolWithKey:kMiPushRegisterIphone];
     NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -91,6 +96,48 @@ static const BOOL kIsOnline = YES;
         _appVersionManager = [[PPSSAppVersionManager alloc]init];
     }
     return _appVersionManager;
+}
+#pragma mark - share
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    BOOL isQQ = [QQApiInterface handleOpenURL:url delegate:self];
+    if (!isQQ) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }else {
+        return isQQ;
+    }
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL isQQ = [QQApiInterface handleOpenURL:url delegate:self];
+    if (!isQQ) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }else {
+        return isQQ;
+    }
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    BOOL isQQ = [QQApiInterface handleOpenURL:url delegate:self];
+    if (!isQQ) {
+        return [WXApi handleOpenURL:url delegate:self];
+    }else {
+        return isQQ;
+    }
+}
+- (void)onResp:(id)resp {
+    if ([resp isKindOfClass:[QQBaseResp class]]) {
+        QQBaseResp *respQQ = (QQBaseResp *)resp;
+        NSInteger result = [respQQ.result integerValue];
+        if (result == 0) {
+            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kShare_Notice object:nil userInfo:@{@"result":@"1"}];
+        }else {
+            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kShare_Notice object:nil userInfo:@{@"result":@"0"}];
+        }
+    }else {
+        BaseResp *respWX = (BaseResp *)resp;
+    }
+    
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -293,6 +340,18 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     }
     
     return ret;
+}
+
+- (void)tencentDidLogin {
+    
+}
+
+- (void)tencentDidNotLogin:(BOOL)cancelled {
+    
+}
+
+- (void)tencentDidNotNetWork {
+    
 }
 
 @end

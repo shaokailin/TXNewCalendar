@@ -13,8 +13,10 @@
 @property (nonatomic, copy) WebUrlBlock webUrlBlock;
 @property (nonatomic, copy) WebLoadStatusBlock loadStatusBlock;
 @property (nonatomic, copy) LSKWebProgressBlock progressBlock;
+@property (nonatomic, strong) UIScrollView *scrollerView;
 //修改界面的大小
 - (void)changeFrame:(CGRect)rect;
+- (void)loadWebViewHtml:(NSString *)html baseUrl:(NSString *)baseurl;
 //加载url
 -(void)loadWebViewUrl:(NSString *)url;
 //加载request

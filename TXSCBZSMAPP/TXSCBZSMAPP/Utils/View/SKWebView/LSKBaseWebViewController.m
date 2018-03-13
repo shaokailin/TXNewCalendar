@@ -12,8 +12,6 @@
 #import "UIBarButtonItem+Extend.h"
 #import "LSKActionSheetView.h"
 #import "UIViewController+Extend.h"
-static const CGFloat kWeb_Progress_View_Height = 4;
-static const NSInteger kWeb_Progress_View_Tag = 5001;
 @interface LSKBaseWebViewController ()
 @property (strong ,nonatomic) LSKWebView *webView;
 @property (strong ,nonatomic) UIButton *m_closeButton;

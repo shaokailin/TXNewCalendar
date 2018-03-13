@@ -8,7 +8,7 @@
 
 #import "TXSMMessageHomeAPI.h"
 #import "TXXLCalculateHomeModel.h"
-#import "TXSMFortuneHomeModel.h"
+#import "TXSMMessageListModel.h"
 @implementation TXSMMessageHomeAPI
 + (LSKParamterEntity *)getMessageHomeAd:(NSString *)contactId limit:(NSString *)limit {
     LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
@@ -24,7 +24,7 @@
 + (LSKParamterEntity *)getMessageHomeData:(NSInteger)page type:(NSInteger)type {
     LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
     params.requestType = HTTPRequestType_GET;
-    params.responseObject = [TXSMFortuneHomeModel class];
+    params.responseObject = [TXSMMessageListModel class];
     params.isCallApi2 = YES;
     if (type == 0) {
         params.requestApi = @"app.scbz/yunshilist.html";

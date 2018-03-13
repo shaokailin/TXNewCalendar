@@ -33,7 +33,7 @@
     else if (CGSizeEqualToSize(CGSizeMake(640, 1136), screenSize)) iPhoneType = LSKiOSiPhoneType_iPhone5;
     else if (CGSizeEqualToSize(CGSizeMake(750, 1334), screenSize)) iPhoneType = LSKiOSiPhoneType_iPhone6;
     else if ([[UIScreen mainScreen] scale] >=3) {
-        if (screenSize.width == 375) {
+        if (screenSize.width != 1242) {
             iPhoneType = LSKiOSiPhoneType_iPhoneX;
         }else {
             iPhoneType = LSKiOSiPhoneType_iPhone6P;

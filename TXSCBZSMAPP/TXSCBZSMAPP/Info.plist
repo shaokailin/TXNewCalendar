@@ -28,11 +28,49 @@
 				<string>txscbzsm</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1106696611</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ41f6d9a3</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>tencentapi.qzone.reqContent</string>
+		<string>tencentapi.qq.reqContent</string>
+		<string>mqqopensdkgrouptribeshare</string>
+		<string>mqqgamebindinggroup</string>
+		<string>mqqopensdkdataline</string>
+		<string>mqqopensdkfriend</string>
+		<string>mqqapiwallet</string>
+		<string>mqzoneopensdkapiV2</string>
+		<string>mqzoneopensdkapi19</string>
+		<string>mqzoneopensdkapi</string>
+		<string>mqzoneopensdk</string>
+		<string>wtloginmqq2</string>
+		<string>mqqopensdkapiV4</string>
+		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV2</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mttbrowser</string>
+		<string>mqqbrowser</string>
+		<string>mqqwpa</string>
+		<string>mqqbrowser</string>
+		<string>mqzone</string>
+		<string>mqq</string>
 		<string>mqqapi</string>
 		<string>wechat</string>
 		<string>weixin</string>

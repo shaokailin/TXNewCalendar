@@ -33,7 +33,7 @@
             @strongify(self)
             [self sendFailureResult:0 error:nil];
         }];
-        [_messageCommand.executionSignals.flatten subscribeNext:^(TXXLCalculateHomeModel *model) {
+        [_messageCommand.executionSignals.flatten subscribeNext:^(TXSMMessageListModel *model) {
             @strongify(self)
             if (model.status == 0) {
                 if (model.error_code == 10002 && model.status == 0) {

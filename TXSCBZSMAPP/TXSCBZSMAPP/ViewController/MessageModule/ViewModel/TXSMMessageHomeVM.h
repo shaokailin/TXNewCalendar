@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "TXSMMessageListModel.h"
 @interface TXSMMessageHomeVM : LSKBaseViewModel
 @property (nonatomic, copy) NSString *contactId;
 @property (nonatomic, copy) NSString *limit;

@@ -7,7 +7,8 @@
 //
 
 #import "LSKBaseViewController.h"
-
+#import "TXSMMessageListModel.h"
 @interface TXSMMessageDetailVC : LSKBaseViewController
-@property (nonatomic, strong) NSDictionary *dataDict;
+@property (nonatomic, strong) TXSMMessageModel *model;
+
 @end
