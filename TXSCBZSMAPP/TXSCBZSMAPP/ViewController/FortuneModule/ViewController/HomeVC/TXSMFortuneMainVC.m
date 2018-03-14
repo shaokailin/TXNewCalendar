@@ -157,7 +157,7 @@
 }
 - (UIScrollView *)headerScrollerView {
     if (!_headerScrollerView) {
-        _headerScrollerView = [[UIScrollView alloc]initWithFrame:CGRectZero];
+        _headerScrollerView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
         _headerScrollerView.showsHorizontalScrollIndicator = NO;
         _headerScrollerView.showsVerticalScrollIndicator = NO;
 //        _headerScrollerView.pagingEnabled = YES;
