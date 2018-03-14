@@ -8,7 +8,7 @@
 
 #import "TXXLCalculateMainVC.h"
 #import "TXXLCalculateHomeVM.h"
-#import "TXXLWebVC.h"
+#import "TXSMMessageDetailVC.h"
 #import "TXSMCalculateHomeHeaderView.h"
 #import "TXSMHomeHotNewsCell.h"
 static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
@@ -47,15 +47,16 @@ static NSString * const kCalculateHomeData = @"kCalculateHomeData_save";
         NSArray *array = [self.dataDictionary objectForKey:key];
         if (KJudgeIsArrayAndHasValue(array) && index < array.count) {
             NSDictionary *dict = [array objectAtIndex:index];
-            [self jumpWebView:[dict objectForKey:@"title"] url:[dict objectForKey:@"url"]];
+            [self jumpWebView:[dict objectForKey:@"title"] url:[dict objectForKey:@"url"] image:[dict objectForKey:@"image"]];
         }
     }
 }
-- (void)jumpWebView:(NSString *)title url:(NSString *)url {
+- (void)jumpWebView:(NSString *)title url:(NSString *)url image:(NSString *)image {
     if (KJudgeIsNullData(url)) {
-        TXXLWebVC *webVC = [[TXXLWebVC alloc]init];
+        TXSMMessageDetailVC *webVC = [[TXSMMessageDetailVC alloc]init];
         webVC.titleString = title;
         webVC.loadUrl = url;
+        webVC.pic = image;
         webVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:webVC animated:YES];
     }

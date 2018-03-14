@@ -9,7 +9,6 @@
 #import "TXSMMessageHomeVM.h"
 #import "TXSMMessageHomeAPI.h"
 #import "TXXLCalculateHomeModel.h"
-#import "TXSMFortuneHomeModel.h"
 @interface TXSMMessageHomeVM ()
 @property (nonatomic, strong) RACCommand *homeCommand;
 @property (nonatomic, strong) RACCommand *messageCommand;

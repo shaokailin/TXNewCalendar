@@ -11,4 +11,5 @@
 @interface TXSMMessageHomeAPI : NSObject
 + (LSKParamterEntity *)getMessageHomeData:(NSInteger)page type:(NSInteger)type;
 + (LSKParamterEntity *)getMessageHomeAd:(NSString *)contactId limit:(NSString *)limit;
++ (LSKParamterEntity *)getMessageDetail:(NSString *)article_id;
 @end

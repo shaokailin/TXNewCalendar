@@ -43,6 +43,17 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     }
     [[ALBBMANPageHitHelper getInstance] updatePageProperties:vc properties:dict];
 }
+- (void)analiticsEvent:(NSString *)eventName viewName:(NSString *)viewName {
+    ALBBMANCustomHitBuilder *customBuilder = [[ALBBMANCustomHitBuilder alloc] init];
+    // 设置自定义事件标签
+    [customBuilder setEventLabel:eventName];
+    // 设置自定义事件页面名称
+    [customBuilder setEventPage:viewName];
+    ALBBMANTracker *traker = [[ALBBMANAnalytics getInstance] getDefaultTracker];
+    // 组装日志并发送
+    NSDictionary *dic = [customBuilder build];
+    [traker send:dic];
+}
 - (void)analiticsPay:(NSInteger)payType {
     ALBBMANCustomHitBuilder *customBuilder = [[ALBBMANCustomHitBuilder alloc] init];
     // 设置自定义事件标签

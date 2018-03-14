@@ -12,7 +12,7 @@
 #import "TXSMMessageAddCell.h"
 #import "TXSMMessageNoImgCell.h"
 #import "TXSMMessageHomeVM.h"
-#import "TXXLWebVC.h"
+#import "TXSMMessageDetailVC.h"
 #import "TXSMMessageDetailVC.h"
 static CGFloat kOneImgCellHeight = 103;
 static CGFloat kNoImgCellHeight = 83;
@@ -195,25 +195,28 @@ static CGFloat kMoreImgCellHeight = 139;
     }else {
         NSString *url = nil;
         NSString *title = nil;
+        NSString *image = nil;
+        NSDictionary *dict = nil;
         if (count % 2 != 0) {
             NSArray *array = [self.viewModel.adDict objectForKey:@"29"];
             NSInteger index = (count - 1) / 2;
             index = index % array.count;
-            NSDictionary *dict = [array objectAtIndex:index];
-            url = [dict objectForKey:@"url"];
-            title = [dict objectForKey:@"title"];
+            dict = [array objectAtIndex:index];
+            
         }else {
             NSArray *array = [self.viewModel.adDict objectForKey:@"28"];
             NSInteger index = count / 2;
             index = index % array.count;
-            NSDictionary *dict = [array objectAtIndex:index];
-            url = [dict objectForKey:@"url"];
-            title = [dict objectForKey:@"title"];
+            dict = [array objectAtIndex:index];
         }
+        url = [dict objectForKey:@"url"];
+        title = [dict objectForKey:@"title"];
+        image = [dict objectForKey:@"image"];
         if (KJudgeIsNullData(url)) {
-            TXXLWebVC *webVC = [[TXXLWebVC alloc]init];
+            TXSMMessageDetailVC *webVC = [[TXSMMessageDetailVC alloc]init];
             webVC.titleString = title;
             webVC.loadUrl = url;
+            webVC.pic = image;
             webVC.hidesBottomBarWhenPushed = YES;
             [_controller.navigationController pushViewController:webVC animated:YES];
         }

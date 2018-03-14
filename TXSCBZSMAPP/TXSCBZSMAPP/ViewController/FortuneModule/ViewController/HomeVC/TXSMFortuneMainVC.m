@@ -12,7 +12,7 @@
 #import "TXSMTodayFortuneView.h"
 #import "TXSMWeekFortuneView.h"
 #import "TXSMFortuneHomeVM.h"
-#import "TXXLWebVC.h"
+#import "TXSMMessageDetailVC.h"
 @interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     CGFloat _weekHeight;
@@ -33,6 +33,15 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
     [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"运势首页"];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 - (void)bindSignal {
     @weakify(self)
@@ -85,8 +94,8 @@
     CGFloat scrollHeight = CGRectGetHeight(self.headerScrollerView.frame);
     if (contentHeight != scrollHeight) {
         self.headerScrollerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, contentHeight);
-        self.headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
-        self.mainTableView.tableHeaderView = nil;
+//        self.headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
+//        self.mainTableView.tableHeaderView = nil;
         self.mainTableView.tableHeaderView = self.headerScrollerView;
         [self.headerScrollerView setContentOffset:CGPointMake(SCREEN_WIDTH * _index, 0)];
     }
@@ -119,9 +128,10 @@
     NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
     NSString *url = [dict objectForKey:@"url"];
     if (KJudgeIsNullData(url)) {
-        TXXLWebVC *webVC = [[TXXLWebVC alloc]init];
+        TXSMMessageDetailVC *webVC = [[TXSMMessageDetailVC alloc]init];
         webVC.titleString = [dict objectForKey:@"title"];
         webVC.loadUrl = url;
+        webVC.pic = [dict objectForKey:@"image"];
         webVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:webVC animated:YES];
     }
@@ -150,8 +160,8 @@
         _headerScrollerView = [[UIScrollView alloc]initWithFrame:CGRectZero];
         _headerScrollerView.showsHorizontalScrollIndicator = NO;
         _headerScrollerView.showsVerticalScrollIndicator = NO;
-        _headerScrollerView.pagingEnabled = YES;
-        _headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT / 2.0);
+//        _headerScrollerView.pagingEnabled = YES;
+//        _headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT / 2.0);
         _headerScrollerView.scrollEnabled = NO;
         for (int i = 0; i < 5; i++) {
             if (i < 2) {

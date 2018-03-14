@@ -21,7 +21,7 @@
         self.selectionStyle = 0;
         self.backgroundColor = [UIColor whiteColor];
         
-        self.m_contentLabel = [LSKViewFactory initializeLableWithText:nil font:14 textColor:KColorHexadecimal(kText_Detail_Color, 1.0) textAlignment:1 backgroundColor:nil];
+        self.m_contentLabel = [LSKViewFactory initializeLableWithText:nil font:WIDTH_RACE_6S(13) textColor:KColorHexadecimal(kText_Detail_Color, 1.0) textAlignment:1 backgroundColor:nil];
         [self.contentView addSubview:self.m_contentLabel];
         self.m_contentLabel.adjustsFontSizeToFitWidth = YES;
         WS(ws)

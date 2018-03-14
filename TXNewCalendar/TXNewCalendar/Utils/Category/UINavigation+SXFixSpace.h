@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #ifndef sx_defaultFixSpace
-#define sx_defaultFixSpace 0
+#define sx_defaultFixSpace 3
 #endif
 
 @interface UINavigationController (SXFixSpace)

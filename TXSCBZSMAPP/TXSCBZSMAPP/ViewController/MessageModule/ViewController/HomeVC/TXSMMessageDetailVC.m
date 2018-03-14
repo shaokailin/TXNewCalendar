@@ -14,16 +14,22 @@
 #import <TencentOpenAPI/QQApiInterfaceObject.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import "TXSMDetailHeaderView.h"
+#import "TXSMMessageDetailVM.h"
+#import "UIImageView+WebCache.h"
 static const CGFloat kBottonViewHeight = 49;
 @interface TXSMMessageDetailVC ()
 {
     BOOL _isChange;
     BOOL _isNeedChange;
+    BOOL _isHasLoading;
 }
+@property (nonatomic, strong) UIImageView *shareImgView;
+@property (nonatomic, strong) NSString *contentHtmlString;
 @property (strong ,nonatomic) LSKWebView *webView;
 @property (assign ,nonatomic) NSInteger firstHistoryCount;
 @property (strong ,nonatomic) LSKWebProgressView *progressView;
 @property (nonatomic, strong) TXSMDetailHeaderView *headerView;
+@property (nonatomic, strong) TXSMMessageDetailVM *viewModel;
 @end
 
 @implementation TXSMMessageDetailVC
@@ -33,22 +39,67 @@ static const CGFloat kBottonViewHeight = 49;
     // Do any additional setup after loading the view.
     [self addNavigationBackButton];
     [self initializeMainView];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (_progressView) {
-        _progressView.hidden = NO;
+    if (self.model) {
+        [kUserMessageManager setupViewProperties:self url:self.model.url name:KJudgeIsNullData(self.model.title)?self.model.title:@"h5"];
+        self.pic = self.model.pic;
+    }else {
+        [kUserMessageManager setupViewProperties:self url:self.loadUrl name:KJudgeIsNullData(self.titleString)?self.titleString:@"h5"];
     }
-    [self.webView loadWebViewHtml:@"<a href='http://www.baidu.com'>123</a>" baseUrl:self.model.url];
 }
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
     if (_progressView) {
         _progressView.hidden = YES;
     }
 }
-
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
+    if (_progressView) {
+        _progressView.hidden = NO;
+    }
+    if (!_isHasLoading) {
+        _isHasLoading = YES;
+        if (self.model) {
+            [self bindSignal];
+        }else {
+            [self.webView loadWebViewUrl:self.loadUrl];
+        }
+    }
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[TXSMMessageDetailVM alloc]initWithSuccessBlock:^(NSUInteger identifier, NSDictionary *model) {
+        @strongify(self)
+        self.contentHtmlString = NSStringFormat(@"<!DOCTYPE html> \
+                                                <html lang=\"en\"> \
+                                                <head> \
+                                                <style>img{width:%.0fpx !important;}</style>\
+                                               <meta charset=\"UTF-8\"> \
+                                                <meta content=\"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0\" name=\"viewport\" /> \
+                                                </head> \
+                                                <body> \
+                                                %@ \
+                                                </body>\
+                                                <html>;",SCREEN_WIDTH,[model objectForKey:@"content"]);
+        self.model.url = [model objectForKey:@"url"];
+        NSString *dateString = [model objectForKey:@"article_date"];
+        if (KJudgeIsNullData(dateString)) {
+            NSArray *dateArray = [dateString componentsSeparatedByString:@" "];
+            if (KJudgeIsArrayAndHasValue(dateArray)) {
+                dateString = [dateArray objectAtIndex:0];
+            }
+        }
+        [self.headerView setupArticleTitle:[model objectForKey:@"title"] from:[model objectForKey:@"from"] date:dateString];
+        [self.webView loadWebViewHtml:self.contentHtmlString baseUrl:self.model.url];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        
+    }];
+    _viewModel.article_id = self.model.article_id;
+    [_viewModel getDetailData:NO];
+}
+#pragma mark - 分享
 - (void)showShareView {
     if (![WXApi isWXAppInstalled] && ![TencentOAuth iphoneQQInstalled]) {
         [SKHUD showMessageInWindowWithMessage:@"暂无可分享的平台！"];
@@ -63,28 +114,44 @@ static const CGFloat kBottonViewHeight = 49;
     [shareView showInView];
 }
 - (void)shareContentWithType:(NSInteger)type {
-    if (type < 2) {
-        WXMediaMessage *message = [WXMediaMessage message];
-        message.title = self.model.title;
-        message.description = nil;
-        [message setThumbData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.model.pic]]];
-        
-        WXWebpageObject *ext = [WXWebpageObject object];
-        ext.webpageUrl = self.model.url;
-        message.mediaObject = ext;
-        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-        req.bText = NO;
-        req.message = message;
-        if (type == 0) {
-            req.scene = WXSceneSession;
-        }else {
-            req.scene = WXSceneTimeline;
-        }
-        [WXApi sendReq:req];
+    NSString *title = nil;
+    NSString *url = nil;
+    if (self.model) {
+        title = self.model.title;
+        url = self.model.url;
     }else {
-        NSURL *previewURL = [NSURL URLWithString:self.model.pic];
-        NSURL* url = [NSURL URLWithString:self.model.url];
-        QQApiNewsObject* img = [QQApiNewsObject objectWithURL:url title:self.model.title description:nil previewImageURL:previewURL];
+        title = self.titleString;
+        url = self.loadUrl;
+    }
+    if (type < 2) {
+        if (KJudgeIsNullData(self.pic)) {
+            if (_shareImgView.image) {
+                [self shareForWX:type image:_shareImgView.image title:title url:url];
+            }else {
+                [SKHUD showLoadingDotInView:self.view];
+                [self.shareImgView sd_setImageWithURL:[NSURL URLWithString:self.pic] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [SKHUD dismiss];
+                        if (image) {
+                            self.shareImgView.image = image;
+                            [self shareForWX:type image:_shareImgView.image title:title url:url];
+                        }else {
+                            [self shareForWX:type image:nil title:title url:url];
+                        }
+                    });
+                }];
+            }
+            
+        }else {
+            [self shareForWX:type image:nil title:title url:url];
+        }
+    }else {
+        NSURL *previewURL = nil;
+        if (self.pic) {
+            previewURL = [NSURL URLWithString:self.pic];
+        }
+        NSURL* urlUrl = [NSURL URLWithString:url];
+        QQApiNewsObject* img = [QQApiNewsObject objectWithURL:urlUrl title:title description:nil previewImageURL:previewURL];
         img.shareDestType = ShareDestTypeQQ;
         SendMessageToQQReq* req = [SendMessageToQQReq reqWithContent:img];
         if (type == 2) {
@@ -94,6 +161,35 @@ static const CGFloat kBottonViewHeight = 49;
         }
     }
 }
+- (void)shareForWX:(NSInteger)type image:(UIImage *)image title:(NSString *)title url:(NSString *)url {
+    WXMediaMessage *message = [WXMediaMessage message];
+    message.title = title;
+    message.description = nil;
+    if (image) {
+         [message setThumbImage:image];
+    }else {
+        [message setThumbImage:ImageNameInit(@"appicon")];
+    }
+    WXWebpageObject *ext = [WXWebpageObject object];
+    ext.webpageUrl = url;
+    message.mediaObject = ext;
+    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+    req.bText = NO;
+    req.message = message;
+    if (type == 0) {
+        req.scene = WXSceneSession;
+    }else {
+        req.scene = WXSceneTimeline;
+    }
+    [WXApi sendReq:req];
+}
+- (UIImageView *)shareImgView {
+    if (!_shareImgView) {
+        _shareImgView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
+    }
+    return _shareImgView;
+}
+#pragma mark - 网络前后
 - (void)stopLoading {
     [self.webView stopLoading];
 }
@@ -102,10 +198,10 @@ static const CGFloat kBottonViewHeight = 49;
         if ([self.webView canGoBack]) {
             [self.webView stopLoading];
             [self.webView goBack];
-        }else{
+        }else if(self.model){
             if (![self.webView.currentRequest isEqualToString:self.model.url]) {
                 self.webView.currentRequest = nil;
-                [self.webView loadWebViewHtml:@"<a href='http://www.baidu.com'>123</a>" baseUrl:self.model.url];
+                [self.webView loadWebViewHtml:self.contentHtmlString baseUrl:self.model.url];
             }
         }
     }else{
@@ -141,9 +237,25 @@ static const CGFloat kBottonViewHeight = 49;
 }
 #pragma 绑定js交互
 -(BOOL)webLoadRequest:(NSString *)url navi:(UIWebViewNavigationType)navigationType {
-    if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeOther) {
-        self.firstHistoryCount = [self.webView historyCount];
-        [self changeHeaderViewWithUrl:url];
+    if (self.model) {
+        if (navigationType == UIWebViewNavigationTypeLinkClicked || navigationType == UIWebViewNavigationTypeOther) {
+            self.firstHistoryCount = [self.webView historyCount];
+            [self changeHeaderViewWithUrl:url];
+        }
+    }
+    if ([url containsString:@"alipay://"]) {
+        [kUserMessageManager analiticsPay:0];
+    }else if ([url containsString:@"weixin://"]) {
+        [kUserMessageManager analiticsPay:1];
+        if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:url]]) {
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+            return NO;
+        }
+    }else if ([url containsString:@"mqqapi://"]){
+        if ([[UIApplication sharedApplication]canOpenURL:[NSURL URLWithString:url]]) {
+            [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+            return NO;
+        }
     }
     return YES;
 }
@@ -152,21 +264,22 @@ static const CGFloat kBottonViewHeight = 49;
     [self addRightNavigationButtonWithNornalImage:@"share_icon" seletedIamge:nil target:self action:@selector(showShareView)];
     self.firstHistoryCount = 0;
     self.webView = [[LSKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.viewMainHeight - kBottonViewHeight - self.tabbarBetweenHeight)];
+    self.webView.backgroundColor = KColorHexadecimal(0xf5f5f5, 1.0);
     [self.view addSubview:self.webView];
     
     TXSMDetailBottonView *bottonView = [[TXSMDetailBottonView alloc]initWithFrame:CGRectMake(0, self.viewMainHeight - kBottonViewHeight - self.tabbarBetweenHeight, SCREEN_WIDTH, kBottonViewHeight)];
     [self.view addSubview:bottonView];
-    
-    self.headerView = [[TXSMDetailHeaderView alloc]init];
-    [self.headerView setupArticleTitle:@"凯先生凯先生凯先生凯先生凯先生凯先生" from:@"凯先生" date:@"凯先生凯先生凯先生凯先生凯先生"];
     @weakify(self)
     bottonView.loadBlock = ^(NSInteger type) {
         @strongify(self)
         [self exitLoading:type];
     };
-    self.webView.webTitleBlock = ^(NSString *title) {
-        
-    };
+    if (!self.model) {
+        self.webView.webTitleBlock = ^(NSString *title) {
+             @strongify(self)
+            self.title = title;
+        };
+    }
     self.webView.webUrlBlock = ^BOOL(NSString *url,UIWebViewNavigationType navigationType){
         @strongify(self)
         return [self webLoadRequest:url navi:navigationType];
@@ -177,6 +290,12 @@ static const CGFloat kBottonViewHeight = 49;
     };
     self.progressView.hidden = NO;
     [self showLoadProgress];
+}
+- (TXSMDetailHeaderView *)headerView {
+    if (!_headerView) {
+        _headerView = [[TXSMDetailHeaderView alloc]init];
+    }
+    return _headerView;
 }
 #pragma mark 加载导航栏
 - (void)showLoadProgress {

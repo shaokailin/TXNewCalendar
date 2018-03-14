@@ -90,7 +90,7 @@ static CGFloat kContentViewHeight = 203;
         wxSpaceBtn.frame = CGRectMake([self returnPoint:i between:betweenWidth], topHeight, width, height);
         [contentView addSubview:wxSpaceBtn];
     }
-    if (![TencentOAuth iphoneQQInstalled]) {
+    if ([TencentOAuth iphoneQQInstalled]) {
         i ++;
         UIButton *qqBtn = [self customBtnView:@"qq_icon" flag:302 title:@"QQ"];
         qqBtn.frame = CGRectMake([self returnPoint:i between:betweenWidth], topHeight, width, height);

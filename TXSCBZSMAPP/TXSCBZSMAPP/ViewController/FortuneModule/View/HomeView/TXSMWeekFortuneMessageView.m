@@ -119,7 +119,7 @@
     NSString *title = nil;
     switch (_type) {
         case 0:
-            title = @"运势";
+            title = @"本周运势";
             break;
         case 1:
             title = @"本月运势";

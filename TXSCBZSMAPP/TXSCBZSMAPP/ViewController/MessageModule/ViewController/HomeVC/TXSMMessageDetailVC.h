@@ -10,5 +10,7 @@
 #import "TXSMMessageListModel.h"
 @interface TXSMMessageDetailVC : LSKBaseViewController
 @property (nonatomic, strong) TXSMMessageModel *model;
-
+@property (nonatomic, copy) NSString *titleString;
+@property (nonatomic, copy) NSString *loadUrl;
+@property (nonatomic, copy) NSString *pic;
 @end

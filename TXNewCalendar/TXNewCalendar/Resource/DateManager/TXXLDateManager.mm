@@ -31,6 +31,7 @@ static const CGFloat kSpringStartCoefficient = 0.2422;
 @property (nonatomic, strong)NSDictionary *publicHoliDay;//中国节假日
 @property (nonatomic, copy, readwrite) NSDate *springStartDate;
 @property (nonatomic, assign) NSInteger chinesSYear;//系统获取的
+@property (nonatomic, strong) NSMutableArray *solartermDateArray;
 @end
 @implementation TXXLDateManager
 SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
@@ -123,7 +124,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     //母亲节
     localeComp.month = 5;
     localeComp.day = 1;
-    NSInteger week_now =   [[_localeCalendar dateFromComponents:localeComp] getWeekIndex]-1;
+    NSInteger week_now = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex]-1;
     NSString *motherDayStr = [NSString stringWithFormat:@"5-%ld", week_now == 0 ? 8 : 15 -week_now];
     if ([motherDayStr isEqualToString:dataString]) {
         return @"母亲节";
@@ -195,7 +196,13 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     NSDate * date = [_localeCalendar dateFromComponents:components];
     return date;
 }
-
+- (void)getSolartermDateListWithYear:(NSInteger)year {
+    for (int i = 0; i < 24; i++) {
+        if (i == 0) {
+            <#statements#>
+        }
+    }
+}
 #pragma mark 节气
 - (NSString *)solartermFromDate:(NSDate *)date {
     NSInteger array_index = (_year - START_YEAR) * 12 + _month - 1;

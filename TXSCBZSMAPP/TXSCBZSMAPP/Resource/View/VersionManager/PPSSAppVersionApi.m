@@ -8,7 +8,7 @@
 
 #import "PPSSAppVersionApi.h"
 #import "PPSSAppVersionModel.h"
-static NSString * const kAppVersionApi = @"getlist.html";
+static NSString * const kAppVersionApi = @"app.datablock/getlist.html";
 @implementation PPSSAppVersionApi
 + (LSKParamterEntity *)getAppVersionData {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];

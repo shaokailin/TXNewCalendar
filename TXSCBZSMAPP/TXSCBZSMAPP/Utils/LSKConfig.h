@@ -25,7 +25,7 @@ static NSString * const kNavigationBarButtonTitle_Color = @"0x323232";
 static NSString * const kNavigationBackground_Color = @"0xffffff";
 static NSString * const kNavigationTitle_Color = kNavigationBarButtonTitle_Color;
 static NSString * const kNavigationLine_Color = nil;
-static const NSInteger kNavigationTitle_Font = 24;
+static const NSInteger kNavigationTitle_Font = 20;
 //tabbar 颜色
 static NSString * const kTabBarBackground_Color = kNavigationBackground_Color;
 static NSString * const kTabBarTitleNornal_Color = kNavigationBarButtonTitle_Color;

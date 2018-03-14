@@ -10,6 +10,16 @@
 #import "TXXLCalculateHomeModel.h"
 #import "TXSMMessageListModel.h"
 @implementation TXSMMessageHomeAPI
++(LSKParamterEntity *)getMessageDetail:(NSString *)article_id {
+    LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
+    params.requestType = HTTPRequestType_GET;
+    params.responseObject = [TXXLCalculateHomeModel class];
+    params.isCallApi2 = YES;
+    params.requestApi = @"app.scbz/info.html";
+    [params.params setObject:article_id forKey:@"article_id"];
+    return params;
+}
+
 + (LSKParamterEntity *)getMessageHomeAd:(NSString *)contactId limit:(NSString *)limit {
     LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
     params.requestType = HTTPRequestType_GET;

@@ -44,7 +44,15 @@
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
     preferences.minimumFontSize = 10;
     configuration.preferences = preferences;
+    NSString *jSString = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
     
+    WKUserScript *wkUserScript = [[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    
+    // 添加自适应屏幕宽度js调用的方法
+    if (configuration.userContentController == nil) {
+        configuration.userContentController = [WKUserContentController new];
+    }
+    [configuration.userContentController addUserScript:wkUserScript];   
     WKWebView* webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:configuration];
     webView.UIDelegate = self;
     webView.navigationDelegate = self;
@@ -53,6 +61,7 @@
     webView.opaque = NO;
     _wkWebView = webView;
     [self addSubview:_wkWebView];
+    
 }
 
 #pragma mark - WKNavigationDelegate 跟webview 一样

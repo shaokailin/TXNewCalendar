@@ -12,7 +12,7 @@
 #import "PPSSAppVersionManager.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import "MiPushSDK.h"
-#import "TXXLWebVC.h"
+#import "TXSMMessageDetailVC.h"
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <WXApi.h>
@@ -42,11 +42,11 @@ static const BOOL kIsOnline = YES;
     
     [self windowRootController];
     [self.window makeKeyAndVisible];
-#warning  开启统计
-//    [self registerAnalytics];
-//    [self registerMiPush];
-   [[TencentOAuth alloc] initWithAppId:@"1106696611" andDelegate:self];
-    [WXApi registerApp:nil];
+    [self registerAnalytics];
+    [self registerMiPush];
+    id value = [[TencentOAuth alloc] initWithAppId:@"1106696611" andDelegate:self];
+    LSKLog(@"%@",value);
+    [WXApi registerApp:@"wxbf12394f3a0f5811"];
     //点击通知打开app处理逻辑
     _isRegisterIphone = [kUserMessageManager getMessageManagerForBoolWithKey:kMiPushRegisterIphone];
     NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
@@ -299,7 +299,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 }
 - (void)jumpWebView:(NSString *)title url:(NSString *)url {
     UINavigationController *navi = _rootTabBarVC.selectedViewController;
-    TXXLWebVC *web = [[TXXLWebVC alloc]init];
+    TXSMMessageDetailVC *web = [[TXSMMessageDetailVC alloc]init];
     web.titleString = title;
     web.loadUrl = url;
     if (navi.viewControllers.count == 1) {

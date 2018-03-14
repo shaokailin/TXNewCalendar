@@ -27,12 +27,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+     [kUserMessageManager setupViewProperties:self url:nil name:@"资讯首页"];
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (!_isHasShowView) {
         [self changeProductShow:YES];
     }
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
 }
 - (void)initializeMainView {
     self.m_naviTitleArray = [[NSMutableArray alloc]initWithObjects:@"运势",@"命理",@"风水",@"生肖",@"星座",@"测试", nil];
@@ -74,6 +80,7 @@
         [self.m_naviListView reloadListData];
         [self changeUnderLineFrame];
     }
+    [kUserMessageManager analiticsEvent:[self.m_naviTitleArray objectAtIndex:_currentIndex] viewName:@"资讯"];
     TXSMMessageListView *listView = [self.m_mainScrollView.subviews objectAtIndex:_currentIndex];
     [listView selectViewChange];
 }
