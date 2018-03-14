@@ -55,7 +55,7 @@
 - (NSString *)transformTextForSolar:(NSDictionary *)dict {
     NSString *name = [dict objectForKey:@"title"];
     NSDate *date = [dict objectForKey:@"date"];
-    return NSStringFormat(@"%@:  %@  %@  ",name,[date dateTransformToString:@"MM月dd日"],[date getWeekDate]);
+    return NSStringFormat(@"%@:  %@  %@  %@",name,[date dateTransformToString:@"MM月dd日"],[date getWeekDate],[date dateTransformToString:@"HH:mm"]);
 }
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];

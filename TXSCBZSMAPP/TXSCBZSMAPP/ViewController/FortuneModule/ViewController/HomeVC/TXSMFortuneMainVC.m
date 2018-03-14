@@ -13,7 +13,7 @@
 #import "TXSMWeekFortuneView.h"
 #import "TXSMFortuneHomeVM.h"
 #import "TXSMMessageDetailVC.h"
-@interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     CGFloat _weekHeight;
     NSInteger _index;
@@ -94,8 +94,6 @@
     CGFloat scrollHeight = CGRectGetHeight(self.headerScrollerView.frame);
     if (contentHeight != scrollHeight) {
         self.headerScrollerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, contentHeight);
-//        self.headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
-//        self.mainTableView.tableHeaderView = nil;
         self.mainTableView.tableHeaderView = self.headerScrollerView;
         [self.headerScrollerView setContentOffset:CGPointMake(SCREEN_WIDTH * _index, 0)];
     }
@@ -111,6 +109,7 @@
         
     }
 }
+
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (KJudgeIsArrayAndHasValue(self.dataArray)) {
@@ -160,8 +159,7 @@
         _headerScrollerView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
         _headerScrollerView.showsHorizontalScrollIndicator = NO;
         _headerScrollerView.showsVerticalScrollIndicator = NO;
-//        _headerScrollerView.pagingEnabled = YES;
-//        _headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT / 2.0);
+        _headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH * 5, SCREEN_HEIGHT * 2);
         _headerScrollerView.scrollEnabled = NO;
         for (int i = 0; i < 5; i++) {
             if (i < 2) {

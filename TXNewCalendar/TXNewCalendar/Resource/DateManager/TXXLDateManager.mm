@@ -12,7 +12,7 @@
 #import "ChineseDate.h"
 #import "ChineseCalendarDB.h"
 #import "TXXLDBManager.h"
-static const CGFloat kSpringStartCoefficient = 0.2422;
+//static const CGFloat kSpringStartCoefficient = 0.2422;
 @interface TXXLDateManager ()
 {
     NSCalendar * _chinessCalendar;
@@ -32,6 +32,7 @@ static const CGFloat kSpringStartCoefficient = 0.2422;
 @property (nonatomic, copy, readwrite) NSDate *springStartDate;
 @property (nonatomic, assign) NSInteger chinesSYear;//系统获取的
 @property (nonatomic, strong) NSMutableArray *solartermDateArray;
+@property (nonatomic, assign) NSInteger solartermDateYear;
 @end
 @implementation TXXLDateManager
 SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
@@ -148,60 +149,79 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         }
     return [self solartermFromDate:_searchDate];
 }
-- (NSInteger)getSpringChineseYear {
-    if ([_searchDate compare:self.springStartDate] < 0) {
-        if (_chineseYear == _year) {
-            return (_chineseYear - 1);
-        }else if (_chineseMonth == 12) {
-            return (_chineseYear + 1);
-        }
-    }
-    return _chineseYear;
-}
-- (NSInteger)getCurrentChinessYear {
-     // 参考日期：农历2000年1月1日就是公元2000年2月5日
-    SolarDate solarDate=SolarDate(_year, _month, _day);
-    ChineseDate chineseDate;
-    //从公历对象转为农历对象
-    solarDate.ToChineseDate(chineseDate);
-    return chineseDate.GetYear();
-}
+//获取立春年
+//- (NSInteger)getSpringChineseYear {
+//    if ([_searchDate compare:self.springStartDate] < 0) {
+//        if (_chineseYear == _year) {
+//            return (_chineseYear - 1);
+//        }else if (_chineseMonth == 12) {
+//            return (_chineseYear + 1);
+//        }
+//    }
+//    return _chineseYear;
+//}
+//- (NSInteger)getCurrentChinessYear {
+//     // 参考日期：农历2000年1月1日就是公元2000年2月5日
+//    SolarDate solarDate=SolarDate(_year, _month, _day);
+//    ChineseDate chineseDate;
+//    //从公历对象转为农历对象
+//    solarDate.ToChineseDate(chineseDate);
+//    return chineseDate.GetYear();
+//}
 //获取立春公历
 - (NSDate *)getSpringStart {
-    CGFloat yearCoefficient = 0;
-    NSInteger lastYear = 0;
-    if (_year < 1901 || _year > 2201) {
-        return nil;
-    }
-    if (_year >= 1901 && _year<=2000) {
-        lastYear = _year - 1900;
-        yearCoefficient = 4.6295;
-    }else if (_year >= 2001 && _year <= 2100) {
-        lastYear = _year - 2000;
-        yearCoefficient = 3.87;
-    }else {
-        lastYear = _year - 2100;
-        yearCoefficient = 4.15;
-    }
-    //闰年数= 年数后2位 - 1 的差  除以4.0
-    CGFloat  leapYearCount = (lastYear - 1) / 4;
-    //年数后2位 * 固定系数 + 世纪系数 - 润年数
-    CGFloat yearFloat = (lastYear * kSpringStartCoefficient + yearCoefficient);
-    NSInteger yearCount = floor(yearFloat);
-    NSInteger day = yearCount - leapYearCount;
-    NSDateComponents * components = [[NSDateComponents alloc] init];
-    components.year = _year;
-    components.month = 2;
-    components.day = day;
-    NSDate * date = [_localeCalendar dateFromComponents:components];
-    return date;
+//    CGFloat yearCoefficient = 0;
+//    NSInteger lastYear = 0;
+//    if (_year < 1901 || _year > 2201) {
+//        return nil;
+//    }
+//    if (_year >= 1901 && _year<=2000) {
+//        lastYear = _year - 1900;
+//        yearCoefficient = 4.6295;
+//    }else if (_year >= 2001 && _year <= 2100) {
+//        lastYear = _year - 2000;
+//        yearCoefficient = 3.87;
+//    }else {
+//        lastYear = _year - 2100;
+//        yearCoefficient = 4.15;
+//    }
+//    //闰年数= 年数后2位 - 1 的差  除以4.0
+//    CGFloat  leapYearCount = (lastYear - 1) / 4;
+//    //年数后2位 * 固定系数 + 世纪系数 - 润年数
+//    CGFloat yearFloat = (lastYear * kSpringStartCoefficient + yearCoefficient);
+//    NSInteger yearCount = floor(yearFloat);
+//    NSInteger day = yearCount - leapYearCount;
+//    NSDateComponents * components = [[NSDateComponents alloc] init];
+//    components.year = _year;
+//    components.month = 2;
+//    components.day = day;
+//    NSDate * date = [_localeCalendar dateFromComponents:components];
+//    return date;
+    return [self getSolartermDateWithYear:_year index:0];
 }
 - (void)getSolartermDateListWithYear:(NSInteger)year {
-    for (int i = 0; i < 24; i++) {
-        if (i == 0) {
-            <#statements#>
-        }
+    if (_solartermDateYear == year) {
+        return;
     }
+    [self.solartermDateArray removeAllObjects];
+    for (int i = 0; i < 24; i++) {
+        _solartermDateYear = year;
+        [self.solartermDateArray addObject:[self getSolartermDateWithYear:year index:i]];
+    }
+}
+- (NSMutableArray *)solartermDateArray {
+    if (!_solartermDateArray) {
+        _solartermDateArray = [NSMutableArray array];
+    }
+    return _solartermDateArray;
+}
+- (NSDate *)getSolartermDateWithYear:(NSInteger)year index:(NSInteger)index {
+    NSString *patch = [[NSBundle mainBundle]pathForResource:NSStringFormat(@"%ld",index) ofType:@"dat"];
+    NSString *content = [NSString stringWithContentsOfFile:patch encoding:NSUTF8StringEncoding error:nil];
+    NSArray *data = [content componentsSeparatedByString:@"\r\n"];
+    NSString *dateString = [data objectAtIndex:year];
+    NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy-MM-dd HH:mm:ss"];
+    return date;
 }
 #pragma mark 节气
 - (NSString *)solartermFromDate:(NSDate *)date {
@@ -257,33 +277,12 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     }
     return mouth_ganzhi;
 }
-- (NSDate *)getSolartermDate:(int)year index:(int)index {
-    int day= ChineseCalendarDB::GetSolarTerm(year, index);
-    div_t dt = div(index, 2);
-    int month = dt.rem+dt.quot;
-    NSDateComponents * components = [[NSDateComponents alloc] init];
-    components.year = year;
-    components.month = month;
-    components.day = day;
-    components.hour = 0;
-    components.minute = 0;
-    components.second = 0;
-    NSDate * date = [_localeCalendar dateFromComponents:components];
-    return date;
-}
 - (NSInteger)mouthZhiIndex{
-    NSMutableArray * jieArr = [NSMutableArray array];
-    for (int i = 0; i < self.solartermArray.count; i++) {
-        NSDictionary *dict = [self.solartermArray objectAtIndex:i];
-        int index = [[dict objectForKey:@"index"]intValue];
-        NSDate *date = [self getSolartermDate:_year index:index + 1];
-        [jieArr addObject:date];
-    }
+    [self getSolartermDateListWithYear:_year];
     int index = 0;
-    NSDate *searchDate1 = [NSDate stringTransToDate:[_searchDate dateTransformToString:@"YYYY-MM-DD"] withFormat:@"YYYY-MM-DD"];
-    for (int i  = 0;i < jieArr.count ;i++ ) {
-        NSDate *date = jieArr[i];
-        NSComparisonResult res = [searchDate1 compare:date];
+    for (int i  = 0;i < self.solartermDateArray.count ;i++ ) {
+        NSDate *date = self.solartermDateArray[i];
+        NSComparisonResult res = [_searchDate compare:date];
         if (res == NSOrderedAscending) {
             break;
         }else{
@@ -772,44 +771,44 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 - (NSDictionary *)getBetweenSolarterm {
     NSMutableDictionary * jieArr = [NSMutableDictionary dictionary];
     NSDate *lastDate = nil;
-    int lastIndex = -1;
+    NSInteger lastIndex = -1;
     NSDate *maxDate = nil;
     int maxIndex = -1;
-    NSDate *searchDate1 = [NSDate stringTransToDate:[_searchDate dateTransformToString:kCalendarFormatter] withFormat:kCalendarFormatter];
+    [self getSolartermDateListWithYear:_year];
     for (int i = 0; i < self.solartermArray.count; i++) {
         NSDictionary *dict = [self.solartermArray objectAtIndex:i];
         int index = [[dict objectForKey:@"index"]intValue];
-        NSDate *date = [self getSolartermDate:_year index:index + 1];
-        if ([searchDate1 compare:date] <= 0) {
+        NSDate *date = [self.solartermDateArray objectAtIndex:i];
+        if ([_searchDate compare:date] <= 0) {
             maxIndex = index;
             maxDate = date;
             if (i == 0) {
-                int otherIndex = 23;
-                int year = _year - 1;
+                NSInteger otherIndex = 23;
+                NSInteger year = _year - 1;
                 if (year > START_YEAR) {
-                    NSDate *date1 = [self getSolartermDate:year index:otherIndex + 1];
+                    NSDate *date1 = [self getSolartermDateWithYear:year index:otherIndex];
                     lastDate = date1;
                     lastIndex = otherIndex;
                 }
             }else {
-                NSDate *date1 = [self getSolartermDate:_year index:index];
+                NSDate *date1 = [self.solartermDateArray objectAtIndex:index - 1];
                 lastDate = date1;
                 lastIndex = index - 1;
             }
             break;
         }
         if (maxIndex == -1 && i == self.solartermArray.count - 1) {
-            int otherIndex = 23;
-            NSDate *date1 = [self getSolartermDate:_year index:otherIndex + 1];
+            NSInteger otherIndex = 23;
+            NSDate *date1 = [self.solartermDateArray objectAtIndex:otherIndex];
             lastDate = date1;
             lastIndex = otherIndex;
             
-            int maxIndex = 0;
-            int year = _year + 1;
+            NSInteger maxIndex = 0;
+            NSInteger year = _year + 1;
             if (year > END_YEAR) {
                 maxIndex = -1;
             }else {
-                NSDate *date2 = [self getSolartermDate:year index:maxIndex + 1];
+                NSDate *date2 = [self getSolartermDateWithYear:year index:maxIndex];
                 maxDate = date2;
             }
         }
@@ -885,7 +884,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         _year = localeComp.year;
         _month = localeComp.month;
         _day = localeComp.day;
-        _chineseYear = [self getCurrentChinessYear];
+//        _chineseYear = [self getCurrentChinessYear];
     }
     
 }

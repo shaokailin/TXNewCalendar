@@ -37,7 +37,7 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
             if (index == 0 || index == 1) {
                 year = KDateManager.year + 1;
             }
-            NSDate *date = [KDateManager getSolartermDate:year index:index];
+            NSDate *date = [KDateManager getSolartermDateWithYear:year index:index];
             [dict1 setObject:[date dateTransformToString:kCalendarFormatter] forKey:@"date"];
             [_dataArray addObject:dict1];
         }

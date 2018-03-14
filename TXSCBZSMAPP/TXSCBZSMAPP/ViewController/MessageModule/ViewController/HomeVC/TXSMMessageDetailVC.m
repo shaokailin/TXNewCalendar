@@ -72,6 +72,7 @@ static const CGFloat kBottonViewHeight = 49;
     @weakify(self)
     _viewModel = [[TXSMMessageDetailVM alloc]initWithSuccessBlock:^(NSUInteger identifier, NSDictionary *model) {
         @strongify(self)
+        [self.webView.scrollerView.mj_header endRefreshing];
         self.contentHtmlString = NSStringFormat(@"<!DOCTYPE html> \
                                                 <html lang=\"en\"> \
                                                 <head> \
@@ -93,11 +94,22 @@ static const CGFloat kBottonViewHeight = 49;
         }
         [self.headerView setupArticleTitle:[model objectForKey:@"title"] from:[model objectForKey:@"from"] date:dateString];
         [self.webView loadWebViewHtml:self.contentHtmlString baseUrl:self.model.url];
-    } failure:^(NSUInteger identifier, NSError *error) {
         
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.webView.scrollerView.mj_header endRefreshing];
     }];
     _viewModel.article_id = self.model.article_id;
     [_viewModel getDetailData:NO];
+}
+- (void)pullDownRefresh {
+    if (self.model && !KJudgeIsNullData(self.contentHtmlString)) {
+        [_viewModel getDetailData:YES];
+    }else {
+        [self stopLoading];
+        [self.webView reload];
+        [self.webView.scrollerView.mj_header endRefreshing];
+    }
 }
 #pragma mark - 分享
 - (void)showShareView {
@@ -218,6 +230,7 @@ static const CGFloat kBottonViewHeight = 49;
     }else {
         [self.headerView removeFromSuperview];
     }
+    self.webView.scrollerView.mj_header.ignoredScrollViewContentInsetTop = height;
     self.webView.scrollerView.contentInset = UIEdgeInsetsMake(height, 0, 0, 0);
 }
 - (void)loadStatus:(NSInteger)state {
@@ -266,7 +279,8 @@ static const CGFloat kBottonViewHeight = 49;
     self.webView = [[LSKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.viewMainHeight - kBottonViewHeight - self.tabbarBetweenHeight)];
     self.webView.backgroundColor = KColorHexadecimal(0xf5f5f5, 1.0);
     [self.view addSubview:self.webView];
-    
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownRefresh)];
+    self.webView.scrollerView.mj_header = header;
     TXSMDetailBottonView *bottonView = [[TXSMDetailBottonView alloc]initWithFrame:CGRectMake(0, self.viewMainHeight - kBottonViewHeight - self.tabbarBetweenHeight, SCREEN_WIDTH, kBottonViewHeight)];
     [self.view addSubview:bottonView];
     @weakify(self)

@@ -34,7 +34,7 @@
 //获取时辰的详情
 - (NSArray *)getHoursDetail;
 //24节气时间
-- (NSDate *)getSolartermDate:(int)year index:(int)index;
+- (NSDate *)getSolartermDateWithYear:(NSInteger)year index:(NSInteger)index;
 //建除
 - (NSString *)getJianChu;
 //获取 值神
@@ -66,4 +66,5 @@
 //查询日期
 - (NSArray *)getSearshList:(NSDate *)startDate timeBetween:(NSInteger)countDate key:(NSString *)key isWeek:(BOOL)isWeek isAvoid:(BOOL)isAvoid;
 - (NSString *)getYiJiDetail:(NSString *)key;
+- (void)getSolartermDateListWithYear:(NSInteger)year;
 @end
