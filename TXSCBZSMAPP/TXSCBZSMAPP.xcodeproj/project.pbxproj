@@ -97,6 +97,7 @@
 		954C81DD2054165000368B20 /* TXSMMessageNoImgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 954C81DC2054165000368B20 /* TXSMMessageNoImgCell.m */; };
 		954C81E020541A4E00368B20 /* placeImg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954C81DE20541A4E00368B20 /* placeImg@2x.png */; };
 		954C81E120541A4E00368B20 /* placeImg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 954C81DF20541A4E00368B20 /* placeImg@3x.png */; };
+		957BFDB5205A97F800824BF0 /* TXSMFortuneHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 957BFDB4205A97F800824BF0 /* TXSMFortuneHeaderView.m */; };
 		A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */; };
 		A64C2324204E724C00747AFD /* NSObject+SXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */; };
 		A64C2333204E849F00747AFD /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A64C232F204E849E00747AFD /* guide_2.png */; };
@@ -384,6 +385,8 @@
 		954C81DC2054165000368B20 /* TXSMMessageNoImgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageNoImgCell.m; sourceTree = "<group>"; };
 		954C81DE20541A4E00368B20 /* placeImg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeImg@2x.png"; path = "../../../../测算切图/资讯@3/placeImg@2x.png"; sourceTree = "<group>"; };
 		954C81DF20541A4E00368B20 /* placeImg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeImg@3x.png"; path = "../../../../测算切图/资讯@3/placeImg@3x.png"; sourceTree = "<group>"; };
+		957BFDB3205A97F800824BF0 /* TXSMFortuneHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMFortuneHeaderView.h; sourceTree = "<group>"; };
+		957BFDB4205A97F800824BF0 /* TXSMFortuneHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneHeaderView.m; sourceTree = "<group>"; };
 		A64C231F204E724B00747AFD /* UINavigation+SXFixSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UINavigation+SXFixSpace.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/UINavigation+SXFixSpace.m"; sourceTree = "<group>"; };
 		A64C2320204E724C00747AFD /* NSObject+SXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SXRuntime.h"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.h"; sourceTree = "<group>"; };
 		A64C2321204E724C00747AFD /* NSObject+SXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SXRuntime.m"; path = "../../../../TXNewCalendar/TXNewCalendar/Utils/Category/NSObject+SXRuntime.m"; sourceTree = "<group>"; };
@@ -788,6 +791,8 @@
 				950F1EB62055645800A32457 /* TXSMWeekFortuneAlertView.m */,
 				A6754F13205A59AE00C7C04D /* TXSMNewNavigationTitleView.h */,
 				A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */,
+				957BFDB3205A97F800824BF0 /* TXSMFortuneHeaderView.h */,
+				957BFDB4205A97F800824BF0 /* TXSMFortuneHeaderView.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1637,6 +1642,7 @@
 				952823B3204D7C7500F3758B /* LSKActionSheetView.m in Sources */,
 				9528239C204D7C7500F3758B /* UISearchBar+Extend.m in Sources */,
 				950F1EB12054D02B00A32457 /* TXSMFortuneHomeAPI.m in Sources */,
+				957BFDB5205A97F800824BF0 /* TXSMFortuneHeaderView.m in Sources */,
 				A668E85D20576C1A0037C1F7 /* TXSMMessageListModel.m in Sources */,
 				95282381204D7C7500F3758B /* TXXLSharedInstance.m in Sources */,
 				952823A0204D7C7500F3758B /* LSKBaseResponseModel.m in Sources */,

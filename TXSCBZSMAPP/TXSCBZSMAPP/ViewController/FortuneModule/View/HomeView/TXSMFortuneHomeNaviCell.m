@@ -37,7 +37,7 @@
     if (isSeleted) {
         self.m_contentLabel.textColor = KColorHexadecimal(kNavi_Yellow_Color, 1.0);
         [UIView animateWithDuration:0.2 animations:^{
-            self.m_contentLabel.transform = CGAffineTransformMakeScale(1.1, 1.1);
+            self.m_contentLabel.transform = CGAffineTransformMakeScale(1.13, 1.13);
         }];
     }else
     {
@@ -46,6 +46,10 @@
             self.m_contentLabel.transform = CGAffineTransformIdentity;
         }];
     }
+}
+-(void)changeTitleAttribute:(CGFloat)rate {
+    self.m_contentLabel.transform = CGAffineTransformMakeScale(1.0 + (0.13 * rate), 1.0 + (0.13 * rate));
+    self.m_contentLabel.textColor = KColorRGBA(ceil(128 + (100 * rate)), ceil(128 + (52 * rate)), ceil(128 - (55 * rate)), 1.0);
 }
 -(CGRect)getCellTitleFrame {
     CGRect rect = [self convertRect:self.m_contentLabel.frame toView:self.superview];

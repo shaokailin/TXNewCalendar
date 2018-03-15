@@ -11,4 +11,5 @@ static NSString * const kTXSMFortuneHomeNaviCell = @"TXSMFortuneHomeNaviCell";
 @interface TXSMFortuneHomeNaviCell : UITableViewCell
 -(void)setupContentWithTitle:(NSString *)title isSeleted:(BOOL)isSeleted;
 -(CGRect)getCellTitleFrame;
+-(void)changeTitleAttribute:(CGFloat)rate;
 @end
