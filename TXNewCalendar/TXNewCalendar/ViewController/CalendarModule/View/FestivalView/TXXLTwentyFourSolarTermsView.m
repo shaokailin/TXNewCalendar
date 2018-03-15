@@ -33,7 +33,7 @@ static NSString * const kDataPlistName = @"twenty-fourSolarTerms";
         NSInteger year = KDateManager.year;
         for (NSDictionary *dict in data) {
             NSMutableDictionary *dict1 = [NSMutableDictionary dictionaryWithDictionary:dict];
-            int index = [[dict objectForKey:@"index"]intValue] + 1;
+            NSInteger index = [[dict objectForKey:@"index"]integerValue];
             if (index == 0 || index == 1) {
                 year = KDateManager.year + 1;
             }

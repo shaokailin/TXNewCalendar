@@ -163,9 +163,6 @@
 		A6700671204CEDF0006A9384 /* shenshadetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6700670204CEDF0006A9384 /* shenshadetail.plist */; };
 		A6700673204CF1AA006A9384 /* nayindetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6700672204CF1AA006A9384 /* nayindetail.plist */; };
 		A6700675204CF66B006A9384 /* jixiongdetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6700674204CF66B006A9384 /* jixiongdetail.plist */; };
-		A6700687204E15B2006A9384 /* ChineseCalendarDB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6700681204E15B2006A9384 /* ChineseCalendarDB.cpp */; };
-		A6700688204E15B2006A9384 /* SolarDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6700683204E15B2006A9384 /* SolarDate.cpp */; };
-		A6700689204E15B2006A9384 /* ChineseDate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A6700686204E15B2006A9384 /* ChineseDate.cpp */; };
 		A67490602022E9AF0039838F /* TXXLAlmanacDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A674905F2022E9AF0039838F /* TXXLAlmanacDetailVM.m */; };
 		A67490632022EA0E0039838F /* TXXLAlmanacDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490622022EA0E0039838F /* TXXLAlmanacDetailModel.m */; };
 		A67490662022F4600039838F /* TXXLSuitAvoidHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490652022F4600039838F /* TXXLSuitAvoidHeaderView.m */; };
@@ -191,6 +188,7 @@
 		A67490D1202839CC0039838F /* TXXLCalculateHomeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D0202839CC0039838F /* TXXLCalculateHomeVM.m */; };
 		A67490D420283A0B0039838F /* TXXLCalculateHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D320283A0B0039838F /* TXXLCalculateHomeModel.m */; };
 		A67490D720283A3F0039838F /* TXXLCalculateModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */; };
+		A6754F12205A20DD00C7C04D /* searchNameDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6754F11205A20DD00C7C04D /* searchNameDetail.plist */; };
 		A67C23EB2044EC9A0042254E /* TXXLDateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */; };
 		A67C23EF2044FE590042254E /* chineseHoliDay.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C23EE2044FE590042254E /* chineseHoliDay.plist */; };
 		A67C23F12044FF400042254E /* publicHoliDay.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C23F02044FF400042254E /* publicHoliDay.plist */; };
@@ -610,12 +608,6 @@
 		A6700670204CEDF0006A9384 /* shenshadetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = shenshadetail.plist; sourceTree = "<group>"; };
 		A6700672204CF1AA006A9384 /* nayindetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = nayindetail.plist; sourceTree = "<group>"; };
 		A6700674204CF66B006A9384 /* jixiongdetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = jixiongdetail.plist; sourceTree = "<group>"; };
-		A6700681204E15B2006A9384 /* ChineseCalendarDB.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChineseCalendarDB.cpp; sourceTree = "<group>"; };
-		A6700682204E15B2006A9384 /* SolarDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolarDate.h; sourceTree = "<group>"; };
-		A6700683204E15B2006A9384 /* SolarDate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SolarDate.cpp; sourceTree = "<group>"; };
-		A6700684204E15B2006A9384 /* ChineseDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseDate.h; sourceTree = "<group>"; };
-		A6700685204E15B2006A9384 /* ChineseCalendarDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseCalendarDB.h; sourceTree = "<group>"; };
-		A6700686204E15B2006A9384 /* ChineseDate.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChineseDate.cpp; sourceTree = "<group>"; };
 		A674905E2022E9AF0039838F /* TXXLAlmanacDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacDetailVM.h; sourceTree = "<group>"; };
 		A674905F2022E9AF0039838F /* TXXLAlmanacDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacDetailVM.m; sourceTree = "<group>"; };
 		A67490612022EA0E0039838F /* TXXLAlmanacDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLAlmanacDetailModel.h; sourceTree = "<group>"; };
@@ -667,6 +659,7 @@
 		A67490D320283A0B0039838F /* TXXLCalculateHomeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateHomeModel.m; sourceTree = "<group>"; };
 		A67490D520283A3F0039838F /* TXXLCalculateModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalculateModuleAPI.h; sourceTree = "<group>"; };
 		A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateModuleAPI.m; sourceTree = "<group>"; };
+		A6754F11205A20DD00C7C04D /* searchNameDetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = searchNameDetail.plist; sourceTree = "<group>"; };
 		A67C23E92044EC9A0042254E /* TXXLDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLDateManager.h; sourceTree = "<group>"; };
 		A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TXXLDateManager.mm; sourceTree = "<group>"; };
 		A67C23EE2044FE590042254E /* chineseHoliDay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chineseHoliDay.plist; sourceTree = "<group>"; };
@@ -988,6 +981,7 @@
 				A6700672204CF1AA006A9384 /* nayindetail.plist */,
 				A6700674204CF66B006A9384 /* jixiongdetail.plist */,
 				A64C231D204E450F00747AFD /* category.plist */,
+				A6754F11205A20DD00C7C04D /* searchNameDetail.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -1424,7 +1418,6 @@
 			isa = PBXGroup;
 			children = (
 				95B91AA220595F55008BCCDA /* data */,
-				A6700680204E15B2006A9384 /* solar_chinese_calendar */,
 				A67C23E92044EC9A0042254E /* TXXLDateManager.h */,
 				A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */,
 				A67006612048FF85006A9384 /* TXXLDBManager.h */,
@@ -1618,19 +1611,6 @@
 				967DCDBCBDD8C2ED20C01B01 /* Pods-TXNewCalendar.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		A6700680204E15B2006A9384 /* solar_chinese_calendar */ = {
-			isa = PBXGroup;
-			children = (
-				A6700681204E15B2006A9384 /* ChineseCalendarDB.cpp */,
-				A6700682204E15B2006A9384 /* SolarDate.h */,
-				A6700683204E15B2006A9384 /* SolarDate.cpp */,
-				A6700684204E15B2006A9384 /* ChineseDate.h */,
-				A6700685204E15B2006A9384 /* ChineseCalendarDB.h */,
-				A6700686204E15B2006A9384 /* ChineseDate.cpp */,
-			);
-			path = solar_chinese_calendar;
 			sourceTree = "<group>";
 		};
 		A674907C202462B70039838F /* API */ = {
@@ -2062,6 +2042,7 @@
 				A6C121942029334400246273 /* autumnalEquinox@2x.png in Resources */,
 				A6C121882029334300246273 /* beginningWinter@2x.png in Resources */,
 				A670066F204CEDE0006A9384 /* jianchudetail.plist in Resources */,
+				A6754F12205A20DD00C7C04D /* searchNameDetail.plist in Resources */,
 				95B91ABD20595F55008BCCDA /* 13.dat in Resources */,
 				95B91AC920595F55008BCCDA /* 23.dat in Resources */,
 				A6C121852029334300246273 /* beginningWinter@3x.png in Resources */,
@@ -2303,7 +2284,6 @@
 				9540D2FD2015C4C0005F6751 /* TXXLCalculateMainVC.m in Sources */,
 				9590A674201ACFEB0063FDDE /* FSCalendarScopeHandle.m in Sources */,
 				A674907B20244F420039838F /* HSPDatePickView.m in Sources */,
-				A6700687204E15B2006A9384 /* ChineseCalendarDB.cpp in Sources */,
 				95F15D0D20172B0800E1340E /* TXXLAlimanacHomeLbl2View.m in Sources */,
 				9590A680201AD1FD0063FDDE /* TXXLFestivalCountDownCell.m in Sources */,
 				A67490B12025ABC10039838F /* TXXLCalculateMinButton.m in Sources */,
@@ -2363,7 +2343,6 @@
 				9590A670201ACFEB0063FDDE /* FSCalendarCell.m in Sources */,
 				9540D2BE2015BB56005F6751 /* LSKBaseViewModel.m in Sources */,
 				A64C2319204E3C6500747AFD /* UINavigation+SXFixSpace.m in Sources */,
-				A6700688204E15B2006A9384 /* SolarDate.cpp in Sources */,
 				9540D2B22015BB56005F6751 /* LSKParamterEntity.m in Sources */,
 				9540D2C22015BB56005F6751 /* LSKViewFactory.m in Sources */,
 				A6FEE504202856BA00F55FCE /* PPSSAppUpdateView.m in Sources */,
@@ -2398,7 +2377,6 @@
 				A6B566C62021ADDF00E8DEFF /* TXXLAlmanacModuleAPI.m in Sources */,
 				A6FEE503202856BA00F55FCE /* PPSSAppVersionApi.m in Sources */,
 				9540D2CC2015BB56005F6751 /* LSKBaseWebView.m in Sources */,
-				A6700689204E15B2006A9384 /* ChineseDate.cpp in Sources */,
 				A6749072202412900039838F /* TXXLSearchDetailListModel.m in Sources */,
 				9590A671201ACFEB0063FDDE /* FSCalendarStickyHeader.m in Sources */,
 				A6FEE501202856BA00F55FCE /* PPSSAppVersionViewModel.m in Sources */,

@@ -101,7 +101,7 @@
         if (KJudgeIsArrayAndHasValue(feeling)) {
             self.bottonContentView.hidden = NO;
             if (feelingView == nil) {
-                feelingView = [self customBottonViewWithFrame:CGRectMake(5, contentHeight, SCREEN_WIDTH - 10, _bottonHeight) flag:600];
+                feelingView = [self customBottonViewWithFrame:CGRectMake(0, contentHeight, SCREEN_WIDTH , _bottonHeight) flag:600];
             }
             [feelingView setupContentWithData:feeling];
             contentHeight += _bottonHeight;
@@ -113,7 +113,7 @@
         if (KJudgeIsArrayAndHasValue(fortune)) {
             self.bottonContentView.hidden = NO;
             if (fortuneView == nil) {
-                fortuneView = [self customBottonViewWithFrame:CGRectMake(5, contentHeight, SCREEN_WIDTH - 10, _bottonHeight) flag:601];
+                fortuneView = [self customBottonViewWithFrame:CGRectMake(0, contentHeight, SCREEN_WIDTH , _bottonHeight) flag:601];
             }
             [fortuneView setupContentWithData:fortune];
             contentHeight += _bottonHeight;
@@ -125,7 +125,7 @@
         if (KJudgeIsArrayAndHasValue(name)) {
             self.bottonContentView.hidden = NO;
             if (nameView == nil) {
-                nameView = [self customBottonViewWithFrame:CGRectMake(5, contentHeight, SCREEN_WIDTH - 10, _bottonHeight) flag:602];
+                nameView = [self customBottonViewWithFrame:CGRectMake(0, contentHeight, SCREEN_WIDTH , _bottonHeight) flag:602];
             }
             [nameView setupContentWithData:name];
             contentHeight += _bottonHeight;
@@ -134,11 +134,11 @@
         }
         CGFloat middleHeight = contentHeight - bottonPoint;
         if (middleHeight > 0) {
-            self.bottonContentView.frame = CGRectMake(5, bottonPoint + 5, SCREEN_WIDTH - 10, middleHeight - 5);
+            self.bottonContentView.frame = CGRectMake(0, bottonPoint + 5, SCREEN_WIDTH , middleHeight - 5);
         }
         NSArray *adArray = [dict objectForKey:kCalculateAdId];
         if (KJudgeIsArrayAndHasValue(adArray)) {
-            self.hotTitleView.frame = CGRectMake(5, contentHeight, SCREEN_WIDTH - 10, 70);
+            self.hotTitleView.frame = CGRectMake(0, contentHeight, SCREEN_WIDTH, 70);
             contentHeight += 70;
         }
         contentHeight += 1;

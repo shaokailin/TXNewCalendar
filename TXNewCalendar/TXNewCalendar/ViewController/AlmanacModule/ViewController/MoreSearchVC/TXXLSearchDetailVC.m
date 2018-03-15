@@ -145,7 +145,8 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
 }
 #pragma makr - 初始化界面
 - (void)initializeMainView {
-    _titleDetail = NSStringFormat(@"%@:%@",self.titleString,[KDateManager getYiJiDetail:self.titleString]);
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"searchNameDetail" ofType:@"plist"]];
+    _titleDetail = NSStringFormat(@"%@:%@",self.titleString,[dict objectForKey:self.titleString]);
     _startDate = [NSDate getTodayDate];
     _endDate = [_startDate dateByAddingTimeInterval:180 * (60 * 60 * 24)];
     _isWeekend = NO;

@@ -13,17 +13,21 @@
 #import "TXSMWeekFortuneView.h"
 #import "TXSMFortuneHomeVM.h"
 #import "TXSMMessageDetailVC.h"
+#import "TXSMNewNavigationTitleView.h"
 @interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     CGFloat _weekHeight;
     NSInteger _index;
     NSString *_currentXingZuo;
+    BOOL _isClickAnimal;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
-@property (nonatomic, strong) TXSMFortuneHomeNaviTitleView *naviView;
+@property (nonatomic, strong) TXSMNewNavigationTitleView *naviTitleView;
+@property (nonatomic, weak) TXSMFortuneHomeNaviTitleView *naviView;
 @property (nonatomic, strong) UIScrollView *headerScrollerView;
 @property (nonatomic, strong) TXSMFortuneHomeVM *viewModel;
 @property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UIView *headerView;
 @end
 
 @implementation TXSMFortuneMainVC
@@ -60,7 +64,6 @@
     }];
     _viewModel.contactId = @"27";
     _viewModel.limit = @"5";
-    _currentXingZuo = [self getXingzuo];
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"aries",@"白羊座",@"taurus",@"金牛座",@"gemini",@"双子座",@"cancer",@"巨蟹座",@"leo",@"狮子座",@"virgo",@"处女座",@"libra",@"天秤座",@"scorpius",@"天蝎座",@"sagittarius",@"射手座",@"capricoenus",@"摩羯座",@"aquarius",@"水瓶座",@"pisces",@"双鱼座", nil];
     _viewModel.xingzuo = [dict objectForKey:_currentXingZuo];
     [self.mainTableView.mj_header beginRefreshing];
@@ -93,8 +96,12 @@
     CGFloat contentHeight = [view returnViewHeight];
     CGFloat scrollHeight = CGRectGetHeight(self.headerScrollerView.frame);
     if (contentHeight != scrollHeight) {
-        self.headerScrollerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, contentHeight);
-        self.mainTableView.tableHeaderView = self.headerScrollerView;
+        self.naviView.hidden = NO;
+        self.headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, contentHeight + kHomeHeadButtonHeight);
+        CGRect frame = self.headerScrollerView.frame;
+        frame.size.height = contentHeight;
+        self.headerScrollerView.frame = frame;
+        self.mainTableView.tableHeaderView = self.headerView;
         [self.headerScrollerView setContentOffset:CGPointMake(SCREEN_WIDTH * _index, 0)];
     }
 }
@@ -106,10 +113,11 @@
         }completion:^(BOOL finished) {
             [self frameChange];
         }];
-        
     }
 }
-
+- (void)showXingZuoListView {
+    
+}
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (KJudgeIsArrayAndHasValue(self.dataArray)) {
@@ -138,29 +146,55 @@
 #pragma marak - init view
 - (void)initializeMainView {
     _index = 0;
-    self.naviView = [[TXSMFortuneHomeNaviTitleView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHomeHeadButtonHeight)];
+    _currentXingZuo = [self getXingzuo];
     WS(ws)
-    self.naviView.selectBlock = ^(NSInteger index) {
-        [ws changeSelectShow:index];
+    self.naviTitleView = [[TXSMNewNavigationTitleView alloc]initWithFrame:CGRectMake(0, 0, 150, 44)];
+    [self.naviTitleView setupXingZuoName:_currentXingZuo];
+    self.naviTitleView.clickBlock = ^(BOOL isClick) {
+        [ws showXingZuoListView];
     };
-    self.navigationItem.titleView = self.naviView;
+    self.navigationItem.titleView = self.naviTitleView;
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:nil];
     [tableView registerClass:[TXSMFortuneHomeCell class] forCellReuseIdentifier:kTXSMFortuneHomeCell];
     tableView.rowHeight = 192 / 2.0;
     self.mainTableView = tableView;
-    tableView.tableHeaderView = self.headerScrollerView;
+    tableView.tableHeaderView = self.headerView;;
     [self.view addSubview:tableView];
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view);
     }];
 }
+- (UIView *)headerView {
+    if (!_headerView) {
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+        
+    }
+    return _headerView;
+}
+- (TXSMFortuneHomeNaviTitleView *)naviView {
+    if (!_naviView) {
+        TXSMFortuneHomeNaviTitleView *naviView = [[TXSMFortuneHomeNaviTitleView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, kHomeHeadButtonHeight)];
+        naviView.backgroundColor = [UIColor whiteColor];
+        self.naviView = naviView;
+        WS(ws)
+        naviView.selectBlock = ^(NSInteger index) {
+            [ws changeSelectShow:index];
+        };
+        [_headerView addSubview:naviView];
+    }
+    return _naviView;
+}
 - (UIScrollView *)headerScrollerView {
     if (!_headerScrollerView) {
         _headerScrollerView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
+        _headerScrollerView.frame = CGRectMake(0, kHomeHeadButtonHeight, SCREEN_WIDTH, 0);
         _headerScrollerView.showsHorizontalScrollIndicator = NO;
         _headerScrollerView.showsVerticalScrollIndicator = NO;
         _headerScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH * 5, SCREEN_HEIGHT * 2);
-        _headerScrollerView.scrollEnabled = NO;
+        _headerScrollerView.pagingEnabled = YES;
+        _headerScrollerView.layer.masksToBounds = YES;
+        _headerScrollerView.delegate = self;
+        _headerScrollerView.bounces = NO;
         for (int i = 0; i < 5; i++) {
             if (i < 2) {
                 TXSMTodayFortuneView *view = [[TXSMTodayFortuneView alloc]initWithType:i];
@@ -172,6 +206,7 @@
                 [_headerScrollerView addSubview:view];
             }
         }
+        [self.headerView addSubview:_headerScrollerView];
     }
     return _headerScrollerView;
 }

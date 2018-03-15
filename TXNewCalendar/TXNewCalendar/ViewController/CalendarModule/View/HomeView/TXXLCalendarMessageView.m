@@ -46,10 +46,14 @@
     NSDictionary *firstDict = [jieqi objectForKey:@"first"];
     if (firstDict) {
         self.alertFirstLbl.text = [self transformTextForSolar:firstDict];
+    }else {
+        self.alertFirstLbl.text = nil;
     }
     NSDictionary *lastDict = [jieqi objectForKey:@"last"];
     if (lastDict) {
         self.alertLastLbl.text = [self transformTextForSolar:lastDict];
+    }else {
+        self.alertLastLbl.text = nil;
     }
 }
 - (NSString *)transformTextForSolar:(NSDictionary *)dict {

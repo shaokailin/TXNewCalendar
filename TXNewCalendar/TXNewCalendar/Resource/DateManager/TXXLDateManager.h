@@ -24,6 +24,7 @@
 @property (nonatomic, copy, readonly) NSString *zodiacString;
 @property (nonatomic, copy, readonly) NSDate *springStartDate;
 @property (nonatomic, copy, readwrite) NSString *tgdzString;//天干地支
+@property (nonatomic, copy, readwrite) NSString *dtgdzString;
 - (NSString *)getHasHolidayString;
 - (NSString *)calendarChineseString;
 - (NSString *)getXingzuo;

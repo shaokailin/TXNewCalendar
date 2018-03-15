@@ -35,11 +35,15 @@
     UIView *conView = [[UIView alloc]init];
     KViewRadius(conView, 4.0);
     KViewBorderLayer(conView, KColorHexadecimal(kLineMain_Color, 1.), 1.0);
-    UILabel *chinessTimeLbl = [TXXLViewManager customTitleLbl:nil font:24];
+    UILabel *chinessTimeLbl = [TXXLViewManager customTitleLbl:nil font:23];
+    chinessTimeLbl.textAlignment = 1;
+//    chinessTimeLbl.adjustsFontSizeToFitWidth = YES;
+    chinessTimeLbl.lineBreakMode = NSLineBreakByCharWrapping;
     self.chinessTimeLbl = chinessTimeLbl;
     [conView addSubview:chinessTimeLbl];
     [chinessTimeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(conView).with.offset(33);
+        make.left.equalTo(conView).with.offset(10);
+        make.width.mas_equalTo (80);
         make.top.equalTo(conView).with.offset(42);
     }];
     UILabel *stateLbl = [TXXLViewManager customTitleLbl:nil font:17];
@@ -55,7 +59,7 @@
     self.timeBetweenLbl = timeBetweenLbl;
     [conView addSubview:timeBetweenLbl];
     [timeBetweenLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(chinessTimeLbl.mas_right).with.offset(29);
+        make.left.equalTo(chinessTimeLbl.mas_right).with.offset(10);
         make.right.lessThanOrEqualTo(conView).with.offset(-10);
         make.top.equalTo(conView).with.offset(18);
     }];
@@ -74,7 +78,7 @@
     [conView addSubview:avoidIconLbl];
     [avoidIconLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(timeBetweenLbl);
-        make.bottom.equalTo(conView).with.offset(-10);
+        make.bottom.equalTo(conView).with.offset(-13);
         make.size.mas_equalTo(CGSizeMake(15, 17));
     }];
     

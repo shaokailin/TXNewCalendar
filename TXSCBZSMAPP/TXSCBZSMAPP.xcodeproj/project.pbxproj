@@ -170,6 +170,9 @@
 		A668E87020577B5C0037C1F7 /* qqspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A668E86B20577B5C0037C1F7 /* qqspace_icon@2x.png */; };
 		A668E87120577B5C0037C1F7 /* weibo_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A668E86C20577B5C0037C1F7 /* weibo_icon@2x.png */; };
 		A668E87220577B5C0037C1F7 /* wx_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A668E86D20577B5C0037C1F7 /* wx_icon@2x.png */; };
+		A6754F15205A59AE00C7C04D /* TXSMNewNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */; };
+		A6754F18205A5E6A00C7C04D /* arrowdown_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F16205A5E6900C7C04D /* arrowdown_icon@2x.png */; };
+		A6754F19205A5E6A00C7C04D /* arrowdown_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F17205A5E6A00C7C04D /* arrowdown_icon@3x.png */; };
 		A6AF71772058A7600070BC44 /* TXSMMessageDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AF71762058A7600070BC44 /* TXSMMessageDetailVM.m */; };
 		A6AF71842058B3D00070BC44 /* webviewmore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF71802058B3CF0070BC44 /* webviewmore@2x.png */; };
 		A6AF71852058B3D00070BC44 /* guanbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF71812058B3CF0070BC44 /* guanbi@2x.png */; };
@@ -478,6 +481,10 @@
 		A668E86B20577B5C0037C1F7 /* qqspace_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qqspace_icon@2x.png"; sourceTree = "<group>"; };
 		A668E86C20577B5C0037C1F7 /* weibo_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibo_icon@2x.png"; sourceTree = "<group>"; };
 		A668E86D20577B5C0037C1F7 /* wx_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F13205A59AE00C7C04D /* TXSMNewNavigationTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMNewNavigationTitleView.h; sourceTree = "<group>"; };
+		A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMNewNavigationTitleView.m; sourceTree = "<group>"; };
+		A6754F16205A5E6900C7C04D /* arrowdown_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowdown_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F17205A5E6A00C7C04D /* arrowdown_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowdown_icon@3x.png"; sourceTree = "<group>"; };
 		A6AF71752058A7600070BC44 /* TXSMMessageDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageDetailVM.h; sourceTree = "<group>"; };
 		A6AF71762058A7600070BC44 /* TXSMMessageDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageDetailVM.m; sourceTree = "<group>"; };
 		A6AF71802058B3CF0070BC44 /* webviewmore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webviewmore@2x.png"; sourceTree = "<group>"; };
@@ -779,6 +786,8 @@
 				A65966AE2050E4220042A332 /* TXSMFortuneHomeProtocol.h */,
 				950F1EB52055645800A32457 /* TXSMWeekFortuneAlertView.h */,
 				950F1EB62055645800A32457 /* TXSMWeekFortuneAlertView.m */,
+				A6754F13205A59AE00C7C04D /* TXSMNewNavigationTitleView.h */,
+				A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1221,6 +1230,8 @@
 		A6596665204FB6EE0042A332 /* fortune */ = {
 			isa = PBXGroup;
 			children = (
+				A6754F16205A5E6900C7C04D /* arrowdown_icon@2x.png */,
+				A6754F17205A5E6A00C7C04D /* arrowdown_icon@3x.png */,
 				A6FFD8C1205654C0005DDA0D /* allMessage@2x.png */,
 				A6FFD8BF205654BF005DDA0D /* allMessage@3x.png */,
 				A6FFD8C0205654C0005DDA0D /* study@2x.png */,
@@ -1442,7 +1453,9 @@
 				952823D3204D842A00F3758B /* tabbar_2_n@2x.png in Resources */,
 				A6FFD8B620564D9F005DDA0D /* gemini@2x.png in Resources */,
 				A6AF71872058B3D00070BC44 /* guanbi@3x.png in Resources */,
+				A6754F19205A5E6A00C7C04D /* arrowdown_icon@3x.png in Resources */,
 				A6FFD8B720564D9F005DDA0D /* pisces@2x.png in Resources */,
+				A6754F18205A5E6A00C7C04D /* arrowdown_icon@2x.png in Resources */,
 				A659668E204FB7060042A332 /* present_icon@3x.png in Resources */,
 				A668E86E20577B5C0037C1F7 /* wxspace_icon@2x.png in Resources */,
 				A65966BA205106710042A332 /* 640_guide_0.png in Resources */,
@@ -1569,6 +1582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6754F15205A59AE00C7C04D /* TXSMNewNavigationTitleView.m in Sources */,
 				952823B2204D7C7500F3758B /* LSKWebEventHandleManager.m in Sources */,
 				95282394204D7C7500F3758B /* NSTimer+Extend.m in Sources */,
 				952822B8204D77F800F3758B /* main.m in Sources */,

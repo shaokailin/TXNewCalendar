@@ -37,6 +37,7 @@
         [self setupDefaultValue];
         //监听时间变化
 //        [self registerTimeChange];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAlmanacDate:) name:kAlmanacDateChange object:nil];
         [self addSwipeGestureRecognizer];
         [self addLocationManager];
     }
@@ -99,7 +100,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(significantTimeChange) name:NSSystemClockDidChangeNotification object:nil];
     //地区区域改变的时候
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(currentLocaleDidChange) name:NSSystemTimeZoneDidChangeNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAlmanacDate:) name:kAlmanacDateChange object:nil];
 }
 - (void)changeAlmanacDate:(NSNotification *)notification {
     NSDictionary *dict = notification.userInfo;

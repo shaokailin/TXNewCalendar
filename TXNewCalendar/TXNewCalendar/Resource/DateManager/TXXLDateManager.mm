@@ -8,9 +8,6 @@
 
 #import "TXXLDateManager.h"
 #import "SynthesizeSingleton.h"
-#import "SolarDate.h"
-#import "ChineseDate.h"
-#import "ChineseCalendarDB.h"
 #import "TXXLDBManager.h"
 //static const CGFloat kSpringStartCoefficient = 0.2422;
 @interface TXXLDateManager ()
@@ -33,6 +30,7 @@
 @property (nonatomic, assign) NSInteger chinesSYear;//系统获取的
 @property (nonatomic, strong) NSMutableArray *solartermDateArray;
 @property (nonatomic, assign) NSInteger solartermDateYear;
+@property (nonatomic, assign) NSInteger monthDiZhi;
 @end
 @implementation TXXLDateManager
 SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
@@ -49,7 +47,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         _chineseYear = -1;
         _chineseDay = -1;
         _chineseMonth = -1;
-        
+        _monthDiZhi = -1;
         _year = -1;
         _day = -1;
         _month = -1;
@@ -149,56 +147,6 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         }
     return [self solartermFromDate:_searchDate];
 }
-//获取立春年
-//- (NSInteger)getSpringChineseYear {
-//    if ([_searchDate compare:self.springStartDate] < 0) {
-//        if (_chineseYear == _year) {
-//            return (_chineseYear - 1);
-//        }else if (_chineseMonth == 12) {
-//            return (_chineseYear + 1);
-//        }
-//    }
-//    return _chineseYear;
-//}
-//- (NSInteger)getCurrentChinessYear {
-//     // 参考日期：农历2000年1月1日就是公元2000年2月5日
-//    SolarDate solarDate=SolarDate(_year, _month, _day);
-//    ChineseDate chineseDate;
-//    //从公历对象转为农历对象
-//    solarDate.ToChineseDate(chineseDate);
-//    return chineseDate.GetYear();
-//}
-//获取立春公历
-- (NSDate *)getSpringStart {
-//    CGFloat yearCoefficient = 0;
-//    NSInteger lastYear = 0;
-//    if (_year < 1901 || _year > 2201) {
-//        return nil;
-//    }
-//    if (_year >= 1901 && _year<=2000) {
-//        lastYear = _year - 1900;
-//        yearCoefficient = 4.6295;
-//    }else if (_year >= 2001 && _year <= 2100) {
-//        lastYear = _year - 2000;
-//        yearCoefficient = 3.87;
-//    }else {
-//        lastYear = _year - 2100;
-//        yearCoefficient = 4.15;
-//    }
-//    //闰年数= 年数后2位 - 1 的差  除以4.0
-//    CGFloat  leapYearCount = (lastYear - 1) / 4;
-//    //年数后2位 * 固定系数 + 世纪系数 - 润年数
-//    CGFloat yearFloat = (lastYear * kSpringStartCoefficient + yearCoefficient);
-//    NSInteger yearCount = floor(yearFloat);
-//    NSInteger day = yearCount - leapYearCount;
-//    NSDateComponents * components = [[NSDateComponents alloc] init];
-//    components.year = _year;
-//    components.month = 2;
-//    components.day = day;
-//    NSDate * date = [_localeCalendar dateFromComponents:components];
-//    return date;
-    return [self getSolartermDateWithYear:_year index:0];
-}
 - (void)getSolartermDateListWithYear:(NSInteger)year {
     if (_solartermDateYear == year) {
         return;
@@ -220,11 +168,14 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     NSString *content = [NSString stringWithContentsOfFile:patch encoding:NSUTF8StringEncoding error:nil];
     NSArray *data = [content componentsSeparatedByString:@"\r\n"];
     NSString *dateString = [data objectAtIndex:year];
-    NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSArray *dateArray = [dateString componentsSeparatedByString:@":"];
+    dateString = NSStringFormat(@"%@:%@",[dateArray objectAtIndex:0],[dateArray objectAtIndex:1]);
+    NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy-MM-dd HH:mm"];
     return date;
 }
 #pragma mark 节气
 - (NSString *)solartermFromDate:(NSDate *)date {
+    
     NSInteger array_index = (_year - START_YEAR) * 12 + _month - 1;
     int64_t flag = gLunarHolDay[array_index];
     
@@ -243,18 +194,56 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 }
 #pragma mark -获取天干地支 年柱
 - (NSInteger)getHeavenlyStems {
-    NSInteger index = (_year - 3) % 10 - 1;
-    if ([_searchDate compare:self.springStartDate] < 0) {
-        index -= 1;
+    NSInteger index = (_year - 3) % 10;
+    index += [self compareSringStartDate];
+    if (index < 0) {
+        index = 9;
+    }
+    index -= 1;
+    if (index < 0) {
+        index = 9;
     }
     return index;
 }
 - (NSInteger)getEarthlyBranches {
-    NSInteger index = (_year - 3) % 12 - 1;
-    if ([_searchDate compare:self.springStartDate] < 0) {
-        index -= 1;
+    NSInteger index = (_year - 3) % 12;
+    index += [self compareSringStartDate];
+    if (index < 0) {
+        index = 11;
+    }
+    index -= 1;
+    if (index < 0) {
+        index = 11;
     }
     return index;
+}
+//大于12 上一年  小于12为新
+- (NSInteger)compareSringStartDate {
+    unsigned unitFlags = NSCalendarUnitHour|NSCalendarUnitMonth|NSCalendarUnitDay;
+    NSDateComponents *searchComp = [_localeCalendar components:unitFlags fromDate:_searchDate];
+    NSInteger currentMonth = searchComp.month;
+    NSInteger currentDay = searchComp.day;
+    
+    NSDateComponents *dateComp = [_localeCalendar components:unitFlags fromDate:self.springStartDate];
+    NSInteger dateMonth = dateComp.month;
+    NSInteger dateDay = dateComp.day;
+    
+    if (currentMonth > dateMonth) {
+        return 0;
+    }else if (currentMonth < dateMonth) {
+        return -1;
+    }else {
+        if (currentDay > dateDay) {
+            return 0;
+        }else if (currentDay < dateDay) {
+            return -1;
+        }else {
+            if (dateComp.hour > 12) {
+                return -1;
+            }
+        }
+    }
+    return 0;
 }
 #pragma mark -获取天干地支 月柱
 - (NSString *)getGanzhiMouth{
@@ -266,7 +255,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
                                   @"戊&癸":@[@"甲寅",@"乙卯",@"丙辰",@"丁巳",@"戊午",@"己未",@"庚申",@"辛酉",@"壬戌",@"癸亥",@"甲子",@"乙丑"]
                                   };
     NSString * year_ganzhi = [self tgdzString];
-    NSInteger mouth_zhi_index = [self mouthZhiIndex];
+    NSInteger mouth_zhi_index = self.monthDiZhi;
     NSArray * dizhi_arr = [mouthDizhi allKeys];
     NSString * mouth_ganzhi;
     for (NSString * str in dizhi_arr) {
@@ -280,14 +269,35 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 - (NSInteger)mouthZhiIndex{
     [self getSolartermDateListWithYear:_year];
     int index = 0;
-    for (int i  = 0;i < self.solartermDateArray.count ;i++ ) {
+    unsigned unitFlags = NSCalendarUnitHour|NSCalendarUnitMonth|NSCalendarUnitDay;
+    NSDateComponents *searchComp = [_localeCalendar components:unitFlags fromDate:_searchDate];
+    NSInteger currentMonth = searchComp.month;
+    NSInteger currentDay = searchComp.day;
+    BOOL isLast = NO;
+    for (int i  = 0;i < self.solartermDateArray.count ;i++) {
         NSDate *date = self.solartermDateArray[i];
-        NSComparisonResult res = [_searchDate compare:date];
-        if (res == NSOrderedAscending) {
-            break;
-        }else{
+        NSDateComponents *dateComp = [_localeCalendar components:unitFlags fromDate:date];
+        NSInteger dateMonth = dateComp.month;
+        NSInteger dateDay = dateComp.day;
+        if (currentMonth > dateMonth) {
             index++;
+        }else if (currentMonth < dateMonth) {
+            break;
+        }else {
+            if (currentDay > dateDay) {
+                index++;
+            }else if (currentDay < dateDay) {
+                break;
+            }else {
+                if (dateComp.hour <= 12) {
+                    isLast = YES;
+                }
+                break;
+            }
         }
+    }
+    if (isLast) {
+        index ++;
     }
     NSInteger zhi_id = (index+1)/2;
     if (zhi_id == 0) {
@@ -301,40 +311,43 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 }
 #pragma mark - 日干支
 - (NSString *)getGanzhiDay{
-    NSInteger y = _year % 100 + 100;
-    NSInteger m = _month;
-    NSInteger d = _day;
-    
-    NSInteger gan_index = y*5 + y/4 + 9 + d;
-    if (m%2 == 0) {
-        gan_index = gan_index + 30;
-    }
-    NSInteger offset = 0;
-    if(m == 1 || m == 2){
-        offset = m;
-        if(y%4 == 0){
-            offset--;
+    if (!_dtgdzString) {
+        NSInteger y = _year % 100 + 100;
+        NSInteger m = _month;
+        NSInteger d = _day;
+        
+        NSInteger gan_index = y*5 + y/4 + 9 + d;
+        if (m%2 == 0) {
+            gan_index = gan_index + 30;
         }
-    }else if (m == 4||m == 5) {
-        offset = 1;
-    }else if(m == 6||m == 7){
-        offset = 2;
-    }else if (m == 8){
-        offset = 3;
-    }else if(m == 9||m == 10){
-        offset = 4;
-    }else if (m == 11||m == 12){
-        offset = 5;
+        NSInteger offset = 0;
+        if(m == 1 || m == 2){
+            offset = m;
+            if(y%4 == 0){
+                offset--;
+            }
+        }else if (m == 4||m == 5) {
+            offset = 1;
+        }else if(m == 6||m == 7){
+            offset = 2;
+        }else if (m == 8){
+            offset = 3;
+        }else if(m == 9||m == 10){
+            offset = 4;
+        }else if (m == 11||m == 12){
+            offset = 5;
+        }
+        gan_index = gan_index + offset;
+        gan_index = gan_index % 60;
+        if (gan_index == 0) {
+            gan_index = 59;
+        }else{
+            gan_index--;
+        }
+        NSArray *ganzhi_Arr = [NSArray arrayWithPlist:@"chineseYear"];
+        _dtgdzString = ganzhi_Arr[gan_index];
     }
-    gan_index = gan_index + offset;
-    gan_index = gan_index % 60;
-    if (gan_index == 0) {
-        gan_index = 59;
-    }else{
-        gan_index--;
-    }
-    NSArray *ganzhi_Arr = [NSArray arrayWithPlist:@"chineseYear"];
-    return ganzhi_Arr[gan_index];
+    return _dtgdzString;
 }
 #pragma mark - 时干支
 - (NSString *)getLunarTianganHour:(NSString *)dizhi{
@@ -386,6 +399,10 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     if (jiString == nil) {
         jiString = [stateDict objectForKey:@"甲子"];//天时辰的吉凶
     }
+    NSDictionary *houryiji = [yijiDict objectForKey:dgz];
+    if (houryiji == nil) {
+        houryiji = [yijiDict objectForKey:@"甲子"];
+    }
     NSMutableArray *array = [NSMutableArray array];
     for (int i = 0; i < hour.count; i++) {
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -395,13 +412,15 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         NSString *hourGZ = NSStringFormat(@"%@%@",tiangan,hourName);
         [dict setObject:hourGZ forKey:@"hour"];
         [dict setObject:[hourDetail objectForKey:@"time"] forKey:@"time"];
-        NSDictionary *houryiji = [yijiDict objectForKey:dgz];
-        if (houryiji == nil) {
-            houryiji = [yijiDict objectForKey:@"甲子"];
-        }
+        
         NSDictionary *shiyiji = [houryiji objectForKey:hourName];
         [dict addEntriesFromDictionary:shiyiji];
-        NSString *state = [jiString rangeOfString:hourName].location != NSNotFound ? @"吉":@"凶";
+        NSString *state = nil;
+        if ([jiString rangeOfString:hourName].location == NSNotFound) {
+            state = @"凶";
+        }else {
+            state = @"吉";
+        }
         [dict setObject:state forKey:@"jix"];
         NSString *zhengchong = [self getZhengChong:hourGZ];
         [dict setObject:zhengchong forKey:@"zheng_chong"];
@@ -441,7 +460,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     //shen_sha
     NSString *rgz = [self getGanzhiDay];
     NSArray *list4 = @[@"青龙", @"明堂", @"天刑", @"朱雀", @"金匮", @"天德", @"白虎", @"玉堂", @"天牢", @"玄武", @"司命", @"勾陈"];
-    NSInteger monthDzindex = [self mouthZhiIndex];
+    NSInteger monthDzindex = self.monthDiZhi;
     NSArray *array = list[monthDzindex];
     NSInteger index = [array indexOfObject: [rgz substringFromIndex:1]];
     return list4[index];
@@ -680,7 +699,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 #pragma mark - 获取 吉凶宜忌
 - (NSDictionary *)getTgdzYiJiXiongJi {
     NSString *ganzi = [self getGanzhiDay];
-    NSInteger monthDzindex = [self mouthZhiIndex] + 1;
+    NSInteger monthDzindex = self.monthDiZhi + 1;
     NSDictionary *dict = [self.dbManager selectYiJiXiongJi:ganzi month:monthDzindex];
     return dict;
 }
@@ -697,7 +716,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         if (!isWeek || (isWeek && [date getWeekIndex] > 5)) {
             self.searchDate = date;
             NSString *gz = [self getGanzhiDay];
-            NSInteger yue = [self mouthZhiIndex] + 1;
+            NSInteger yue = self.monthDiZhi + 1;
             if ([yueArray containsObject:@(yue)]) {
                 NSArray *gzArray = [dict objectForKey:@(yue)];
                 if ([gzArray containsObject:gz]) {
@@ -775,13 +794,15 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     NSDate *maxDate = nil;
     int maxIndex = -1;
     [self getSolartermDateListWithYear:_year];
+   NSDate *searchDate1 = [NSDate stringTransToDate:[_searchDate dateTransformToString:kCalendarFormatter] withFormat:kCalendarFormatter];
     for (int i = 0; i < self.solartermArray.count; i++) {
         NSDictionary *dict = [self.solartermArray objectAtIndex:i];
         int index = [[dict objectForKey:@"index"]intValue];
-        NSDate *date = [self.solartermDateArray objectAtIndex:i];
-        if ([_searchDate compare:date] <= 0) {
+        NSDate *solartermDate = [self.solartermDateArray objectAtIndex:i];
+        NSDate *date = [NSDate stringTransToDate:[solartermDate dateTransformToString:kCalendarFormatter] withFormat:kCalendarFormatter];
+        if ([searchDate1 compare:date] <= 0) {
             maxIndex = index;
-            maxDate = date;
+            maxDate = solartermDate;
             if (i == 0) {
                 NSInteger otherIndex = 23;
                 NSInteger year = _year - 1;
@@ -803,11 +824,12 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
             lastDate = date1;
             lastIndex = otherIndex;
             
-            NSInteger maxIndex = 0;
+            maxIndex = 0;
             NSInteger year = _year + 1;
             if (year > END_YEAR) {
                 maxIndex = -1;
             }else {
+                maxIndex = 0;
                 NSDate *date2 = [self getSolartermDateWithYear:year index:maxIndex];
                 maxDate = date2;
             }
@@ -864,7 +886,10 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     return nil;
 }
 - (NSString *)tgdzString {
-    return NSStringFormat(@"%@%@",[self.heavenlyStems objectAtIndex:[self getHeavenlyStems]],[self.earthlyBranches objectAtIndex:[self getEarthlyBranches]]);
+    if (!_tgdzString) {
+        _tgdzString = NSStringFormat(@"%@%@",[self.heavenlyStems objectAtIndex:[self getHeavenlyStems]],[self.earthlyBranches objectAtIndex:[self getEarthlyBranches]]);
+    }
+    return _tgdzString;
 }
 #pragma mark - 数据的初始化
 - (void)setSearchDate:(NSDate *)searchDate {
@@ -884,13 +909,22 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
         _year = localeComp.year;
         _month = localeComp.month;
         _day = localeComp.day;
+        _monthDiZhi = -1;
+        _tgdzString = nil;
+        _dtgdzString = nil;
 //        _chineseYear = [self getCurrentChinessYear];
     }
     
 }
+- (NSInteger)monthDiZhi {
+    if (_monthDiZhi == -1) {
+        _monthDiZhi = [self mouthZhiIndex];
+    }
+    return _monthDiZhi;
+}
 - (NSDate *)springStartDate {
     if (!_springStartDate) {
-        _springStartDate = [self getSpringStart];
+        _springStartDate = [self getSolartermDateWithYear:_year index:2];
     }
     return _springStartDate;
 }

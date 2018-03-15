@@ -67,7 +67,7 @@
     
     WS(ws)
     [contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ws.contentView).with.insets(UIEdgeInsetsMake(0, 5, 0, 5));
+        make.edges.equalTo(ws.contentView).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

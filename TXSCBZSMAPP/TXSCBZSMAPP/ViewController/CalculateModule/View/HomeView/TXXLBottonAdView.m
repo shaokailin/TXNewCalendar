@@ -51,10 +51,9 @@
     }
 }
 - (void)_latoutMainView {
-    KViewRadius(self, 5.0);
     self.backgroundColor = [UIColor whiteColor];
     _titleLbl = [TXXLViewManager customTitleLbl:nil font:18];
-    CGFloat leftMargin = WIDTH_RACE_6S(20);
+    CGFloat leftMargin = WIDTH_RACE_6S(25);
     _titleLbl.frame = CGRectMake(leftMargin, 15, SCREEN_WIDTH - WIDTH_RACE_6S(leftMargin * 2), 18);
     [self addSubview:_titleLbl];
     CGFloat width = WIDTH_RACE_6S(160);
