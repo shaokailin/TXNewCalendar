@@ -19,6 +19,9 @@
     }
     return self;
 }
+- (void)setupYearStar:(NSInteger)star {
+    
+}
 - (void)_layoutMainView {
     UIImageView *bgImageView = [[UIImageView alloc]initWithImage:ImageNameInit([self returnImageName])];
     [self addSubview:bgImageView];

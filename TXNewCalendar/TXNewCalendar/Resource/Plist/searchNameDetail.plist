@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>装修</key>
+	<string>指阳宅之建造与修理。</string>
 	<key>领养</key>
 	<string>指收纳养子养女</string>
 	<key>入宅</key>

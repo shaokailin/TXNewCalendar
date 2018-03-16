@@ -41,28 +41,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/AlmanacModule/ViewController/MoreSearchVC/TXXLSearchDetailVC.m"
-            timestampString = "542790940.009496"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-clickTimeAdd:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "TXNewCalendar/Resource/DateManager/TXXLDateManager.mm"
-            timestampString = "542798317.8625261"
+            timestampString = "542878587.678854"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "822"
-            endingLineNumber = "822"
+            startingLineNumber = "840"
+            endingLineNumber = "840"
             landmarkName = "-getBetweenSolarterm"
             landmarkType = "7">
          </BreakpointContent>
@@ -73,45 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/CalendarModule/ViewController/HomeVC/TXXLCalendarMainVC.m"
-            timestampString = "542789275.614799"
+            filePath = "TXNewCalendar/ViewController/AlmanacModule/View/HomeView/TXXLAlmanacMainView.m"
+            timestampString = "542872562.434691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "-changeDateEvent"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/ViewController/CalendarModule/View/HomeView/TXXLNavigationRightView.m"
-            timestampString = "542790940.009895"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-changeTextWithDate:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TXNewCalendar/Resource/DateManager/TXXLDateManager.mm"
-            timestampString = "542798327.369586"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "662"
-            endingLineNumber = "662"
-            landmarkName = "-getCompassMessage"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-changeAlmanacDate:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,9 +15,11 @@
 #import "TXSMMessageDetailVC.h"
 #import "TXSMNewNavigationTitleView.h"
 #import "TXSMFortuneHeaderView.h"
+#import "TXSMXingzuoListView.h"
 @interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
-    NSString *_currentXingZuo;
+    NSString *_currentCXingzuo;
+    NSString *_currentEXingzuo;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) TXSMNewNavigationTitleView *naviTitleView;
@@ -50,6 +52,9 @@
     _viewModel = [[TXSMFortuneHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
         if (identifier == 10) {
+            _currentEXingzuo = self.viewModel.xingzuo;
+            _currentCXingzuo = self.viewModel.cXingzuo;
+            [self.naviTitleView setupXingZuoName:_currentCXingzuo];
             [self setupContent:model];
         }else {
             [self.mainTableView.mj_header endRefreshing];
@@ -62,15 +67,22 @@
     }];
     _viewModel.contactId = @"27";
     _viewModel.limit = @"5";
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"aries",@"白羊座",@"taurus",@"金牛座",@"gemini",@"双子座",@"cancer",@"巨蟹座",@"leo",@"狮子座",@"virgo",@"处女座",@"libra",@"天秤座",@"scorpius",@"天蝎座",@"sagittarius",@"射手座",@"capricoenus",@"摩羯座",@"aquarius",@"水瓶座",@"pisces",@"双鱼座", nil];
-    _viewModel.xingzuo = [dict objectForKey:_currentXingZuo];
+    _viewModel.xingzuo = _currentEXingzuo;
+    _viewModel.cXingzuo = _currentCXingzuo;
     [self.mainTableView.mj_header beginRefreshing];
+}
+- (void)changeShowXingzuo:(NSString *)xingzuo english:(NSString *)english {
+    if (![_currentCXingzuo isEqualToString:xingzuo]) {
+        _viewModel.xingzuo = english;
+        _viewModel.cXingzuo = xingzuo;
+         [self.viewModel getHomeData:NO];
+    }
 }
 - (void)pullDownRefresh {
     [self.viewModel getHomeData:YES];
 }
 - (void)setupContent:(NSDictionary *)dict {
-    self.headerView.xzChineseName = _currentXingZuo;
+    self.headerView.xzChineseName = _currentCXingzuo;
     self.headerView.xzEnglishName = self.viewModel.xingzuo;
     [self.headerView setupContent:dict];
 }
@@ -80,7 +92,13 @@
 }
 
 - (void)showXingZuoListView {
-    
+    TXSMXingzuoListView *listView = [[TXSMXingzuoListView alloc]init];
+    @weakify(self)
+    listView.changeBlock = ^(NSString *xingzuo, NSString *english) {
+        @strongify(self)
+        [self changeShowXingzuo:xingzuo english:english];
+    };
+    [listView show];
 }
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -109,10 +127,12 @@
 }
 #pragma marak - init view
 - (void)initializeMainView {
-    _currentXingZuo = [self getXingzuo];
+    _currentCXingzuo = [self getXingzuo];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"aries",@"白羊座",@"taurus",@"金牛座",@"gemini",@"双子座",@"cancer",@"巨蟹座",@"leo",@"狮子座",@"virgo",@"处女座",@"libra",@"天秤座",@"scorpio",@"天蝎座",@"sagittarius",@"射手座",@"capricorn",@"摩羯座",@"aquarius",@"水瓶座",@"pisces",@"双鱼座", nil];
+    _currentEXingzuo = [dict objectForKey:_currentCXingzuo];
     WS(ws)
     self.naviTitleView = [[TXSMNewNavigationTitleView alloc]initWithFrame:CGRectMake(0, 0, 150, 44)];
-    [self.naviTitleView setupXingZuoName:_currentXingZuo];
+    [self.naviTitleView setupXingZuoName:_currentCXingzuo];
     self.naviTitleView.clickBlock = ^(BOOL isClick) {
         [ws showXingZuoListView];
     };

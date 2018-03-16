@@ -174,6 +174,42 @@
 		A6754F15205A59AE00C7C04D /* TXSMNewNavigationTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */; };
 		A6754F18205A5E6A00C7C04D /* arrowdown_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F16205A5E6900C7C04D /* arrowdown_icon@2x.png */; };
 		A6754F19205A5E6A00C7C04D /* arrowdown_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F17205A5E6A00C7C04D /* arrowdown_icon@3x.png */; };
+		A6754F1C205B49D600C7C04D /* TXSMXingzuoListView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6754F1B205B49D600C7C04D /* TXSMXingzuoListView.m */; };
+		A6754F35205B4EA300C7C04D /* aquarius_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F1D205B4EA100C7C04D /* aquarius_icon@2x.png */; };
+		A6754F36205B4EA300C7C04D /* aries_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F1E205B4EA100C7C04D /* aries_icon@2x.png */; };
+		A6754F37205B4EA300C7C04D /* aries_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F1F205B4EA100C7C04D /* aries_icon@3x.png */; };
+		A6754F38205B4EA300C7C04D /* taurus_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F20205B4EA100C7C04D /* taurus_icon@3x.png */; };
+		A6754F39205B4EA300C7C04D /* pisces_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F21205B4EA100C7C04D /* pisces_icon@2x.png */; };
+		A6754F3A205B4EA300C7C04D /* sagittarius_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F22205B4EA100C7C04D /* sagittarius_icon@2x.png */; };
+		A6754F3B205B4EA300C7C04D /* taurus_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F23205B4EA200C7C04D /* taurus_icon@2x.png */; };
+		A6754F3C205B4EA300C7C04D /* gemini_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F24205B4EA200C7C04D /* gemini_icon@3x.png */; };
+		A6754F3D205B4EA300C7C04D /* leo_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F25205B4EA200C7C04D /* leo_icon@2x.png */; };
+		A6754F3E205B4EA300C7C04D /* cancer_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F26205B4EA200C7C04D /* cancer_icon@3x.png */; };
+		A6754F3F205B4EA300C7C04D /* cancer_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F27205B4EA200C7C04D /* cancer_icon@2x.png */; };
+		A6754F40205B4EA300C7C04D /* libra_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F28205B4EA200C7C04D /* libra_icon@3x.png */; };
+		A6754F41205B4EA300C7C04D /* scorpius_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F29205B4EA200C7C04D /* scorpius_icon@2x.png */; };
+		A6754F42205B4EA300C7C04D /* capricoenus_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F2A205B4EA200C7C04D /* capricoenus_icon@2x.png */; };
+		A6754F43205B4EA300C7C04D /* scorpius_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F2B205B4EA200C7C04D /* scorpius_icon@3x.png */; };
+		A6754F44205B4EA300C7C04D /* sagittarius_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F2C205B4EA200C7C04D /* sagittarius_icon@3x.png */; };
+		A6754F45205B4EA300C7C04D /* libra_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F2D205B4EA200C7C04D /* libra_icon@2x.png */; };
+		A6754F46205B4EA300C7C04D /* virgo_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F2E205B4EA300C7C04D /* virgo_icon@2x.png */; };
+		A6754F47205B4EA300C7C04D /* gemini_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F2F205B4EA300C7C04D /* gemini_icon@2x.png */; };
+		A6754F48205B4EA300C7C04D /* pisces_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F30205B4EA300C7C04D /* pisces_icon@3x.png */; };
+		A6754F49205B4EA300C7C04D /* aquarius_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F31205B4EA300C7C04D /* aquarius_icon@3x.png */; };
+		A6754F4A205B4EA300C7C04D /* virgo_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F32205B4EA300C7C04D /* virgo_icon@3x.png */; };
+		A6754F4B205B4EA300C7C04D /* leo_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F33205B4EA300C7C04D /* leo_icon@3x.png */; };
+		A6754F4C205B4EA300C7C04D /* capricoenus_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F34205B4EA300C7C04D /* capricoenus_icon@3x.png */; };
+		A6754F4E205B566600C7C04D /* xingzuoList.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6754F4D205B566600C7C04D /* xingzuoList.plist */; };
+		A6754F51205B628A00C7C04D /* closelist@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F4F205B628A00C7C04D /* closelist@2x.png */; };
+		A6754F52205B628A00C7C04D /* closelist@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F50205B628A00C7C04D /* closelist@3x.png */; };
+		A6754F55205B659300C7C04D /* TXSMXingzuoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6754F54205B659300C7C04D /* TXSMXingzuoListCell.m */; };
+		A6754F58205BB22700C7C04D /* TXSMFortuneYearButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6754F57205BB22700C7C04D /* TXSMFortuneYearButton.m */; };
+		A6754F5D205BB67A00C7C04D /* star_no_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F59205BB67A00C7C04D /* star_no_icon@2x.png */; };
+		A6754F5E205BB67A00C7C04D /* star_yes_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F5A205BB67A00C7C04D /* star_yes_icon@2x.png */; };
+		A6754F5F205BB67A00C7C04D /* star_no_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F5B205BB67A00C7C04D /* star_no_icon@3x.png */; };
+		A6754F60205BB67A00C7C04D /* star_yes_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F5C205BB67A00C7C04D /* star_yes_icon@3x.png */; };
+		A6754F63205BBDEC00C7C04D /* scorpio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F61205BBDEC00C7C04D /* scorpio@2x.png */; };
+		A6754F64205BBDEC00C7C04D /* capricorn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F62205BBDEC00C7C04D /* capricorn@2x.png */; };
 		A6AF71772058A7600070BC44 /* TXSMMessageDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AF71762058A7600070BC44 /* TXSMMessageDetailVM.m */; };
 		A6AF71842058B3D00070BC44 /* webviewmore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF71802058B3CF0070BC44 /* webviewmore@2x.png */; };
 		A6AF71852058B3D00070BC44 /* guanbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF71812058B3CF0070BC44 /* guanbi@2x.png */; };
@@ -185,8 +221,6 @@
 		A6FFD8B120564D9F005DDA0D /* taurus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8A520564D9E005DDA0D /* taurus@2x.png */; };
 		A6FFD8B220564D9F005DDA0D /* libra@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8A620564D9E005DDA0D /* libra@2x.png */; };
 		A6FFD8B320564D9F005DDA0D /* aquarius@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8A720564D9E005DDA0D /* aquarius@2x.png */; };
-		A6FFD8B420564D9F005DDA0D /* scorpius@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8A820564D9E005DDA0D /* scorpius@2x.png */; };
-		A6FFD8B520564D9F005DDA0D /* capricoenus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8A920564D9E005DDA0D /* capricoenus@2x.png */; };
 		A6FFD8B620564D9F005DDA0D /* gemini@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8AA20564D9F005DDA0D /* gemini@2x.png */; };
 		A6FFD8B720564D9F005DDA0D /* pisces@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8AB20564D9F005DDA0D /* pisces@2x.png */; };
 		A6FFD8B820564D9F005DDA0D /* leo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FFD8AC20564D9F005DDA0D /* leo@2x.png */; };
@@ -488,6 +522,45 @@
 		A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMNewNavigationTitleView.m; sourceTree = "<group>"; };
 		A6754F16205A5E6900C7C04D /* arrowdown_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowdown_icon@2x.png"; sourceTree = "<group>"; };
 		A6754F17205A5E6A00C7C04D /* arrowdown_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowdown_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F1A205B49D600C7C04D /* TXSMXingzuoListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMXingzuoListView.h; sourceTree = "<group>"; };
+		A6754F1B205B49D600C7C04D /* TXSMXingzuoListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMXingzuoListView.m; sourceTree = "<group>"; };
+		A6754F1D205B4EA100C7C04D /* aquarius_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aquarius_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F1E205B4EA100C7C04D /* aries_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aries_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F1F205B4EA100C7C04D /* aries_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aries_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F20205B4EA100C7C04D /* taurus_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taurus_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F21205B4EA100C7C04D /* pisces_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisces_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F22205B4EA100C7C04D /* sagittarius_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sagittarius_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F23205B4EA200C7C04D /* taurus_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taurus_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F24205B4EA200C7C04D /* gemini_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemini_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F25205B4EA200C7C04D /* leo_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leo_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F26205B4EA200C7C04D /* cancer_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancer_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F27205B4EA200C7C04D /* cancer_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancer_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F28205B4EA200C7C04D /* libra_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "libra_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F29205B4EA200C7C04D /* scorpius_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scorpius_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F2A205B4EA200C7C04D /* capricoenus_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capricoenus_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F2B205B4EA200C7C04D /* scorpius_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scorpius_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F2C205B4EA200C7C04D /* sagittarius_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sagittarius_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F2D205B4EA200C7C04D /* libra_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "libra_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F2E205B4EA300C7C04D /* virgo_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "virgo_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F2F205B4EA300C7C04D /* gemini_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemini_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F30205B4EA300C7C04D /* pisces_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisces_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F31205B4EA300C7C04D /* aquarius_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aquarius_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F32205B4EA300C7C04D /* virgo_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "virgo_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F33205B4EA300C7C04D /* leo_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leo_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F34205B4EA300C7C04D /* capricoenus_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capricoenus_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F4D205B566600C7C04D /* xingzuoList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = xingzuoList.plist; sourceTree = "<group>"; };
+		A6754F4F205B628A00C7C04D /* closelist@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closelist@2x.png"; sourceTree = "<group>"; };
+		A6754F50205B628A00C7C04D /* closelist@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closelist@3x.png"; sourceTree = "<group>"; };
+		A6754F53205B659300C7C04D /* TXSMXingzuoListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMXingzuoListCell.h; sourceTree = "<group>"; };
+		A6754F54205B659300C7C04D /* TXSMXingzuoListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMXingzuoListCell.m; sourceTree = "<group>"; };
+		A6754F56205BB22700C7C04D /* TXSMFortuneYearButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMFortuneYearButton.h; sourceTree = "<group>"; };
+		A6754F57205BB22700C7C04D /* TXSMFortuneYearButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMFortuneYearButton.m; sourceTree = "<group>"; };
+		A6754F59205BB67A00C7C04D /* star_no_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_no_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F5A205BB67A00C7C04D /* star_yes_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yes_icon@2x.png"; sourceTree = "<group>"; };
+		A6754F5B205BB67A00C7C04D /* star_no_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_no_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F5C205BB67A00C7C04D /* star_yes_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yes_icon@3x.png"; sourceTree = "<group>"; };
+		A6754F61205BBDEC00C7C04D /* scorpio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scorpio@2x.png"; sourceTree = "<group>"; };
+		A6754F62205BBDEC00C7C04D /* capricorn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capricorn@2x.png"; sourceTree = "<group>"; };
 		A6AF71752058A7600070BC44 /* TXSMMessageDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageDetailVM.h; sourceTree = "<group>"; };
 		A6AF71762058A7600070BC44 /* TXSMMessageDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageDetailVM.m; sourceTree = "<group>"; };
 		A6AF71802058B3CF0070BC44 /* webviewmore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webviewmore@2x.png"; sourceTree = "<group>"; };
@@ -500,8 +573,6 @@
 		A6FFD8A520564D9E005DDA0D /* taurus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "taurus@2x.png"; sourceTree = "<group>"; };
 		A6FFD8A620564D9E005DDA0D /* libra@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "libra@2x.png"; sourceTree = "<group>"; };
 		A6FFD8A720564D9E005DDA0D /* aquarius@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aquarius@2x.png"; sourceTree = "<group>"; };
-		A6FFD8A820564D9E005DDA0D /* scorpius@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scorpius@2x.png"; sourceTree = "<group>"; };
-		A6FFD8A920564D9E005DDA0D /* capricoenus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capricoenus@2x.png"; sourceTree = "<group>"; };
 		A6FFD8AA20564D9F005DDA0D /* gemini@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gemini@2x.png"; sourceTree = "<group>"; };
 		A6FFD8AB20564D9F005DDA0D /* pisces@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pisces@2x.png"; sourceTree = "<group>"; };
 		A6FFD8AC20564D9F005DDA0D /* leo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "leo@2x.png"; sourceTree = "<group>"; };
@@ -618,6 +689,7 @@
 			children = (
 				952822C0204D7C7500F3758B /* TabBarSetting.plist */,
 				A6FFD8C720565C27005DDA0D /* xingzuo.plist */,
+				A6754F4D205B566600C7C04D /* xingzuoList.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -793,6 +865,12 @@
 				A6754F14205A59AE00C7C04D /* TXSMNewNavigationTitleView.m */,
 				957BFDB3205A97F800824BF0 /* TXSMFortuneHeaderView.h */,
 				957BFDB4205A97F800824BF0 /* TXSMFortuneHeaderView.m */,
+				A6754F1A205B49D600C7C04D /* TXSMXingzuoListView.h */,
+				A6754F1B205B49D600C7C04D /* TXSMXingzuoListView.m */,
+				A6754F53205B659300C7C04D /* TXSMXingzuoListCell.h */,
+				A6754F54205B659300C7C04D /* TXSMXingzuoListCell.m */,
+				A6754F56205BB22700C7C04D /* TXSMFortuneYearButton.h */,
+				A6754F57205BB22700C7C04D /* TXSMFortuneYearButton.m */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -1235,6 +1313,12 @@
 		A6596665204FB6EE0042A332 /* fortune */ = {
 			isa = PBXGroup;
 			children = (
+				A6754F59205BB67A00C7C04D /* star_no_icon@2x.png */,
+				A6754F5B205BB67A00C7C04D /* star_no_icon@3x.png */,
+				A6754F5A205BB67A00C7C04D /* star_yes_icon@2x.png */,
+				A6754F5C205BB67A00C7C04D /* star_yes_icon@3x.png */,
+				A6754F4F205B628A00C7C04D /* closelist@2x.png */,
+				A6754F50205B628A00C7C04D /* closelist@3x.png */,
 				A6754F16205A5E6900C7C04D /* arrowdown_icon@2x.png */,
 				A6754F17205A5E6A00C7C04D /* arrowdown_icon@3x.png */,
 				A6FFD8C1205654C0005DDA0D /* allMessage@2x.png */,
@@ -1295,16 +1379,40 @@
 		A6FFD8A220564D6C005DDA0D /* twelveConstellations */ = {
 			isa = PBXGroup;
 			children = (
+				A6754F62205BBDEC00C7C04D /* capricorn@2x.png */,
+				A6754F61205BBDEC00C7C04D /* scorpio@2x.png */,
+				A6754F1D205B4EA100C7C04D /* aquarius_icon@2x.png */,
+				A6754F31205B4EA300C7C04D /* aquarius_icon@3x.png */,
+				A6754F1E205B4EA100C7C04D /* aries_icon@2x.png */,
+				A6754F1F205B4EA100C7C04D /* aries_icon@3x.png */,
+				A6754F27205B4EA200C7C04D /* cancer_icon@2x.png */,
+				A6754F26205B4EA200C7C04D /* cancer_icon@3x.png */,
+				A6754F2A205B4EA200C7C04D /* capricoenus_icon@2x.png */,
+				A6754F34205B4EA300C7C04D /* capricoenus_icon@3x.png */,
+				A6754F2F205B4EA300C7C04D /* gemini_icon@2x.png */,
+				A6754F24205B4EA200C7C04D /* gemini_icon@3x.png */,
+				A6754F25205B4EA200C7C04D /* leo_icon@2x.png */,
+				A6754F33205B4EA300C7C04D /* leo_icon@3x.png */,
+				A6754F2D205B4EA200C7C04D /* libra_icon@2x.png */,
+				A6754F28205B4EA200C7C04D /* libra_icon@3x.png */,
+				A6754F21205B4EA100C7C04D /* pisces_icon@2x.png */,
+				A6754F30205B4EA300C7C04D /* pisces_icon@3x.png */,
+				A6754F22205B4EA100C7C04D /* sagittarius_icon@2x.png */,
+				A6754F2C205B4EA200C7C04D /* sagittarius_icon@3x.png */,
+				A6754F29205B4EA200C7C04D /* scorpius_icon@2x.png */,
+				A6754F2B205B4EA200C7C04D /* scorpius_icon@3x.png */,
+				A6754F23205B4EA200C7C04D /* taurus_icon@2x.png */,
+				A6754F20205B4EA100C7C04D /* taurus_icon@3x.png */,
+				A6754F2E205B4EA300C7C04D /* virgo_icon@2x.png */,
+				A6754F32205B4EA300C7C04D /* virgo_icon@3x.png */,
 				A6FFD8A720564D9E005DDA0D /* aquarius@2x.png */,
 				A6FFD8AE20564D9F005DDA0D /* aries@2x.png */,
 				A6FFD8A320564D9D005DDA0D /* cancer@2x.png */,
-				A6FFD8A920564D9E005DDA0D /* capricoenus@2x.png */,
 				A6FFD8AA20564D9F005DDA0D /* gemini@2x.png */,
 				A6FFD8AC20564D9F005DDA0D /* leo@2x.png */,
 				A6FFD8A620564D9E005DDA0D /* libra@2x.png */,
 				A6FFD8AB20564D9F005DDA0D /* pisces@2x.png */,
 				A6FFD8A420564D9E005DDA0D /* sagittarius@2x.png */,
-				A6FFD8A820564D9E005DDA0D /* scorpius@2x.png */,
 				A6FFD8A520564D9E005DDA0D /* taurus@2x.png */,
 				A6FFD8AD20564D9F005DDA0D /* virgo@2x.png */,
 			);
@@ -1413,48 +1521,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				A65966B8205106710042A332 /* 1125_guide_0.png in Resources */,
+				A6754F3F205B4EA300C7C04D /* cancer_icon@2x.png in Resources */,
 				A6596687204FB7060042A332 /* job_icon@3x.png in Resources */,
 				A668E852205756300037C1F7 /* guide_3.png in Resources */,
 				A659667E204FB7060042A332 /* love_icon@2x.png in Resources */,
 				954C81E120541A4E00368B20 /* placeImg@3x.png in Resources */,
 				A668E85A20576ADB0037C1F7 /* 1125_guide_3.png in Resources */,
-				A6FFD8B420564D9F005DDA0D /* scorpius@2x.png in Resources */,
+				A6754F5D205BB67A00C7C04D /* star_no_icon@2x.png in Resources */,
 				A6FFD8BD20565020005DDA0D /* close@2x.png in Resources */,
 				A6FFD8B920564D9F005DDA0D /* virgo@2x.png in Resources */,
 				A65966BE205106710042A332 /* 1125_guide_2.png in Resources */,
 				A6596691204FB7060042A332 /* career_bg@2x.png in Resources */,
 				A6FFD8D320566D80005DDA0D /* share_icon@3x.png in Resources */,
+				A6754F40205B4EA300C7C04D /* libra_icon@3x.png in Resources */,
 				A6FFD8B020564D9F005DDA0D /* sagittarius@2x.png in Resources */,
 				A668E86F20577B5C0037C1F7 /* qq_icon@2x.png in Resources */,
 				A6FFD8D720566D80005DDA0D /* right_icon@2x.png in Resources */,
+				A6754F41205B4EA300C7C04D /* scorpius_icon@2x.png in Resources */,
 				A668E87220577B5C0037C1F7 /* wx_icon@2x.png in Resources */,
 				952823CF204D842A00F3758B /* tabbar_1_s@2x.png in Resources */,
 				A64C234C204E880400747AFD /* todaynotice@2x.png in Resources */,
 				A65966AD2050DEBE0042A332 /* health_icon@3x.png in Resources */,
 				A6FFD8BA20564D9F005DDA0D /* aries@2x.png in Resources */,
+				A6754F3E205B4EA300C7C04D /* cancer_icon@3x.png in Resources */,
 				A64C2341204E87B800747AFD /* tabbar_1_n@3x.png in Resources */,
 				A668E87120577B5C0037C1F7 /* weibo_icon@2x.png in Resources */,
+				A6754F37205B4EA300C7C04D /* aries_icon@3x.png in Resources */,
 				A6FFD8D520566D80005DDA0D /* right_icon@3x.png in Resources */,
 				952823D0204D842A00F3758B /* tabbar_1_n@2x.png in Resources */,
 				A6FFD8D820566D80005DDA0D /* share_icon@2x.png in Resources */,
+				A6754F60205BB67A00C7C04D /* star_yes_icon@3x.png in Resources */,
+				A6754F5F205BB67A00C7C04D /* star_no_icon@3x.png in Resources */,
+				A6754F38205B4EA300C7C04D /* taurus_icon@3x.png in Resources */,
 				952823D1204D842A00F3758B /* tabbar_0_n@2x.png in Resources */,
 				A6FFD8C4205654C0005DDA0D /* study@2x.png in Resources */,
 				A659668A204FB7060042A332 /* love_icon@3x.png in Resources */,
+				A6754F64205BBDEC00C7C04D /* capricorn@2x.png in Resources */,
 				A6FFD8D620566D80005DDA0D /* left_icon@2x.png in Resources */,
 				A659668C204FB7060042A332 /* money_icon@2x.png in Resources */,
+				A6754F39205B4EA300C7C04D /* pisces_icon@2x.png in Resources */,
 				952823D4204D842A00F3758B /* tabbar_2_s@2x.png in Resources */,
 				A6596683204FB7060042A332 /* money_bg@3x.png in Resources */,
 				A64C233E204E87B800747AFD /* tabbar_0_n@3x.png in Resources */,
 				A6FFD8B320564D9F005DDA0D /* aquarius@2x.png in Resources */,
 				A668E87020577B5C0037C1F7 /* qqspace_icon@2x.png in Resources */,
 				A6AF71842058B3D00070BC44 /* webviewmore@2x.png in Resources */,
+				A6754F5E205BB67A00C7C04D /* star_yes_icon@2x.png in Resources */,
 				A6FFD8D420566D80005DDA0D /* left_icon@3x.png in Resources */,
+				A6754F49205B4EA300C7C04D /* aquarius_icon@3x.png in Resources */,
 				A65966BB205106710042A332 /* 640_guide_2.png in Resources */,
+				A6754F4B205B4EA300C7C04D /* leo_icon@3x.png in Resources */,
 				A6596686204FB7060042A332 /* headlth_bg@3x.png in Resources */,
 				A6596685204FB7060042A332 /* money_icon@3x.png in Resources */,
 				954C81E020541A4E00368B20 /* placeImg@2x.png in Resources */,
 				A64C2349204E880400747AFD /* navi_back@2x.png in Resources */,
+				A6754F36205B4EA300C7C04D /* aries_icon@2x.png in Resources */,
 				A65966B7205106710042A332 /* 640_guide_1.png in Resources */,
+				A6754F3B205B4EA300C7C04D /* taurus_icon@2x.png in Resources */,
+				A6754F3D205B4EA300C7C04D /* leo_icon@2x.png in Resources */,
+				A6754F4C205B4EA300C7C04D /* capricoenus_icon@3x.png in Resources */,
 				952823D3204D842A00F3758B /* tabbar_2_n@2x.png in Resources */,
 				A6FFD8B620564D9F005DDA0D /* gemini@2x.png in Resources */,
 				A6AF71872058B3D00070BC44 /* guanbi@3x.png in Resources */,
@@ -1470,7 +1595,7 @@
 				A64C2350204E88B100747AFD /* titlebgimage@3x.png in Resources */,
 				A6FFD8C5205654C0005DDA0D /* allMessage@2x.png in Resources */,
 				A6FFD8B820564D9F005DDA0D /* leo@2x.png in Resources */,
-				A6FFD8B520564D9F005DDA0D /* capricoenus@2x.png in Resources */,
+				A6754F4E205B566600C7C04D /* xingzuoList.plist in Resources */,
 				A6FFD8DD20567DB1005DDA0D /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A65966BD205106710042A332 /* 1125_guide_1.png in Resources */,
 				A659668D204FB7060042A332 /* present_icon@2x.png in Resources */,
@@ -1482,13 +1607,18 @@
 				A6596681204FB7060042A332 /* compass_icon@3x.png in Resources */,
 				A64C233F204E87B800747AFD /* tabbar_2_n@3x.png in Resources */,
 				A6FFD8C3205654C0005DDA0D /* allMessage@3x.png in Resources */,
+				A6754F45205B4EA300C7C04D /* libra_icon@2x.png in Resources */,
+				A6754F3C205B4EA300C7C04D /* gemini_icon@3x.png in Resources */,
 				A64C2334204E849F00747AFD /* guide_1.png in Resources */,
 				A6596682204FB7060042A332 /* job_icon@2x.png in Resources */,
 				A64C2333204E849F00747AFD /* guide_2.png in Resources */,
 				A6596690204FB7060042A332 /* career_bg@3x.png in Resources */,
+				A6754F44205B4EA300C7C04D /* sagittarius_icon@3x.png in Resources */,
 				A64C2336204E849F00747AFD /* guide_0.png in Resources */,
 				952822B2204D77F800F3758B /* Assets.xcassets in Resources */,
 				A668E85920576ADB0037C1F7 /* 640_guide_3.png in Resources */,
+				A6754F47205B4EA300C7C04D /* gemini_icon@2x.png in Resources */,
+				A6754F51205B628A00C7C04D /* closelist@2x.png in Resources */,
 				A6FFD8B220564D9F005DDA0D /* libra@2x.png in Resources */,
 				A64C2342204E87B800747AFD /* tabbar_1_s@3x.png in Resources */,
 				A64C2340204E87B800747AFD /* tabbar_0_s@3x.png in Resources */,
@@ -1496,14 +1626,23 @@
 				95282373204D7C7500F3758B /* TabBarSetting.plist in Resources */,
 				952823D2204D842A00F3758B /* tabbar_0_s@2x.png in Resources */,
 				A659667C204FB7060042A332 /* seeIcon_icon@2x.png in Resources */,
+				A6754F52205B628A00C7C04D /* closelist@3x.png in Resources */,
+				A6754F3A205B4EA300C7C04D /* sagittarius_icon@2x.png in Resources */,
 				A64C233D204E87B800747AFD /* tabbar_2_s@3x.png in Resources */,
 				A6FFD8B120564D9F005DDA0D /* taurus@2x.png in Resources */,
 				A6FFD8C820565C27005DDA0D /* xingzuo.plist in Resources */,
 				A6AF71892058DAF30070BC44 /* appicon@2x.png in Resources */,
+				A6754F42205B4EA300C7C04D /* capricoenus_icon@2x.png in Resources */,
 				A6AF71862058B3D00070BC44 /* webviewmore@3x.png in Resources */,
+				A6754F4A205B4EA300C7C04D /* virgo_icon@3x.png in Resources */,
+				A6754F63205BBDEC00C7C04D /* scorpio@2x.png in Resources */,
+				A6754F48205B4EA300C7C04D /* pisces_icon@3x.png in Resources */,
+				A6754F35205B4EA300C7C04D /* aquarius_icon@2x.png in Resources */,
+				A6754F43205B4EA300C7C04D /* scorpius_icon@3x.png in Resources */,
 				A6FFD8C6205654C0005DDA0D /* study@3x.png in Resources */,
 				A659668B204FB7060042A332 /* feeling_bg@3x.png in Resources */,
 				A6596689204FB7060042A332 /* feeling_bg@2x.png in Resources */,
+				A6754F46205B4EA300C7C04D /* virgo_icon@2x.png in Resources */,
 				A6FFD8AF20564D9F005DDA0D /* cancer@2x.png in Resources */,
 				A659667F204FB7060042A332 /* seeIcon_icon@3x.png in Resources */,
 			);
@@ -1594,6 +1733,7 @@
 				9528237B204D7C7500F3758B /* PPSSAppVersionModel.m in Sources */,
 				954C81D72053F53500368B20 /* TXSMMessageAddCell.m in Sources */,
 				A668E861205774760037C1F7 /* TXSMDetailBottonView.m in Sources */,
+				A6754F1C205B49D600C7C04D /* TXSMXingzuoListView.m in Sources */,
 				9528239A204D7C7500F3758B /* NSString+Extend.m in Sources */,
 				A659669A204FBF010042A332 /* TXSMCircleFortuneView.m in Sources */,
 				952823A6204D7C7500F3758B /* LSKBarnerScrollView.m in Sources */,
@@ -1620,6 +1760,7 @@
 				A6596697204FBDB10042A332 /* TXSMWeekFortuneView.m in Sources */,
 				952823A5204D7C7500F3758B /* LSKMessageManage.m in Sources */,
 				A6FFD8CB20566CBE005DDA0D /* TXSMMessageDetailVC.m in Sources */,
+				A6754F58205BB22700C7C04D /* TXSMFortuneYearButton.m in Sources */,
 				9528238F204D7C7500F3758B /* LSKMediaParamterEntity.m in Sources */,
 				A64C2323204E724C00747AFD /* UINavigation+SXFixSpace.m in Sources */,
 				A6AF71772058A7600070BC44 /* TXSMMessageDetailVM.m in Sources */,
@@ -1631,6 +1772,7 @@
 				9528239F204D7C7500F3758B /* LSKBaseViewModel.m in Sources */,
 				954C81D12053F4F700368B20 /* TXSMMessageOneImgCell.m in Sources */,
 				952823B0204D7C7500F3758B /* LSKWebView.m in Sources */,
+				A6754F55205B659300C7C04D /* TXSMXingzuoListCell.m in Sources */,
 				952823A4204D7C7500F3758B /* LSKPublicMethodUtil.m in Sources */,
 				953AC9C2204EE20100190348 /* PPSSCircleProgress.m in Sources */,
 				95282384204D7C7500F3758B /* TXXLCalculateHomeModel.m in Sources */,

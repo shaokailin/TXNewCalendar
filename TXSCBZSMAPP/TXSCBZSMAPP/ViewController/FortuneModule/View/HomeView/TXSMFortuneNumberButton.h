@@ -11,4 +11,5 @@
 @interface TXSMFortuneNumberButton : UIButton
 @property (nonatomic, weak) UILabel *presentValueLbl;
 - (instancetype)initWithType:(NSInteger)type;
+- (void)setupYearStar:(NSInteger)star;
 @end

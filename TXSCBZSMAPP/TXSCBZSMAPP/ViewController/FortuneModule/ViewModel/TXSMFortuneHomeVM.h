@@ -12,5 +12,6 @@
 @property (nonatomic, copy) NSString *contactId;
 @property (nonatomic, copy) NSString *limit;
 @property (nonatomic, copy) NSString *xingzuo;
+@property (nonatomic, copy) NSString *cXingzuo;
 - (void)getHomeData:(BOOL)isPull;
 @end

@@ -34,7 +34,7 @@ static const CGFloat kCircleWidth = 215;
 }
 
 - (void)setupContent:(NSDictionary *)dict name:(NSString *)name {
-    [_messageView setupMessageWithName:name time:[dict objectForKey:@"time"]];
+//    [_messageView setupMessageWithName:name time:[dict objectForKey:@"time"]];
     _messageView.presentValueLbl.text = [dict objectForKey:@"synthesize"];
     _progressView.progress = [[dict objectForKey:@"synthesize"]integerValue] / 100.0;
     _xingzuoLbl.text = NSStringFormat(@"速配星座:  %@",[dict objectForKey:@"constellation"]);

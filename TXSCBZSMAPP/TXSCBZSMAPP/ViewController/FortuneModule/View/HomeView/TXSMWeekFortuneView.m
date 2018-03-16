@@ -26,7 +26,7 @@
     return self;
 }
 - (CGFloat)returnViewHeight {
-    return 335 + WIDTH_RACE_6S(55) + 5 + 1 + 1 + 80;
+    return 285 + WIDTH_RACE_6S(55) + 5 + 1 + 1 + 80;
 }
 - (void)setupContent:(NSString *)name dict:(NSDictionary *)dict {
     _dataDict = dict;
@@ -84,7 +84,7 @@
     [alertView show];
 }
 - (void)_layoutMainView {
-    CGFloat height = 335 + WIDTH_RACE_6S(55);
+    CGFloat height = 285 + WIDTH_RACE_6S(55);
     TXSMWeekFortuneMessageView *messageView = [[TXSMWeekFortuneMessageView alloc]initWithType:_type];
     messageView.frame = CGRectMake(5, 5, SCREEN_WIDTH - 10, height);
     self.messageView = messageView;
