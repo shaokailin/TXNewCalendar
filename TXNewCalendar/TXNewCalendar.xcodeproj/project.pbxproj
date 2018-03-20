@@ -84,7 +84,6 @@
 		959EF32620187481003FE057 /* TXXLAlmanacMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959EF32520187481003FE057 /* TXXLAlmanacMainView.m */; };
 		95B91ABB20595F55008BCCDA /* 9.dat in Resources */ = {isa = PBXBuildFile; fileRef = 95B91AA320595F55008BCCDA /* 9.dat */; };
 		95B91ABC20595F55008BCCDA /* 8.dat in Resources */ = {isa = PBXBuildFile; fileRef = 95B91AA420595F55008BCCDA /* 8.dat */; };
-		95B91ABD20595F55008BCCDA /* 13.dat in Resources */ = {isa = PBXBuildFile; fileRef = 95B91AA520595F55008BCCDA /* 13.dat */; };
 		95B91ABE20595F55008BCCDA /* 12.dat in Resources */ = {isa = PBXBuildFile; fileRef = 95B91AA620595F55008BCCDA /* 12.dat */; };
 		95B91ABF20595F55008BCCDA /* 10.dat in Resources */ = {isa = PBXBuildFile; fileRef = 95B91AA720595F55008BCCDA /* 10.dat */; };
 		95B91AC020595F55008BCCDA /* 11.dat in Resources */ = {isa = PBXBuildFile; fileRef = 95B91AA820595F55008BCCDA /* 11.dat */; };
@@ -189,6 +188,8 @@
 		A67490D420283A0B0039838F /* TXXLCalculateHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D320283A0B0039838F /* TXXLCalculateHomeModel.m */; };
 		A67490D720283A3F0039838F /* TXXLCalculateModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */; };
 		A6754F12205A20DD00C7C04D /* searchNameDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6754F11205A20DD00C7C04D /* searchNameDetail.plist */; };
+		A67600AF205F729A008FD2E5 /* 13.dat in Resources */ = {isa = PBXBuildFile; fileRef = A67600AE205F729A008FD2E5 /* 13.dat */; };
+		A67600E52060F9E4008FD2E5 /* TXSMUrlRouteInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A67600E32060F9E3008FD2E5 /* TXSMUrlRouteInstance.m */; };
 		A67C23EB2044EC9A0042254E /* TXXLDateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */; };
 		A67C23EF2044FE590042254E /* chineseHoliDay.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C23EE2044FE590042254E /* chineseHoliDay.plist */; };
 		A67C23F12044FF400042254E /* publicHoliDay.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C23F02044FF400042254E /* publicHoliDay.plist */; };
@@ -504,7 +505,6 @@
 		959EF32520187481003FE057 /* TXXLAlmanacMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLAlmanacMainView.m; sourceTree = "<group>"; };
 		95B91AA320595F55008BCCDA /* 9.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 9.dat; sourceTree = "<group>"; };
 		95B91AA420595F55008BCCDA /* 8.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 8.dat; sourceTree = "<group>"; };
-		95B91AA520595F55008BCCDA /* 13.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 13.dat; sourceTree = "<group>"; };
 		95B91AA620595F55008BCCDA /* 12.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 12.dat; sourceTree = "<group>"; };
 		95B91AA720595F55008BCCDA /* 10.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 10.dat; sourceTree = "<group>"; };
 		95B91AA820595F55008BCCDA /* 11.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 11.dat; sourceTree = "<group>"; };
@@ -660,6 +660,10 @@
 		A67490D520283A3F0039838F /* TXXLCalculateModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLCalculateModuleAPI.h; sourceTree = "<group>"; };
 		A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateModuleAPI.m; sourceTree = "<group>"; };
 		A6754F11205A20DD00C7C04D /* searchNameDetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = searchNameDetail.plist; sourceTree = "<group>"; };
+		A67600AE205F729A008FD2E5 /* 13.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 13.dat; sourceTree = "<group>"; };
+		A67600E32060F9E3008FD2E5 /* TXSMUrlRouteInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXSMUrlRouteInstance.m; path = ../../../TXSCBZSMAPP/TXSCBZSMAPP/BaseConfig/TXSMUrlRouteInstance.m; sourceTree = "<group>"; };
+		A67600E42060F9E4008FD2E5 /* TXSMUrlRouteInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXSMUrlRouteInstance.h; path = ../../../TXSCBZSMAPP/TXSCBZSMAPP/BaseConfig/TXSMUrlRouteInstance.h; sourceTree = "<group>"; };
+		A67600E72061032B008FD2E5 /* TXXLCalendarDateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXXLCalendarDateProtocol.h; sourceTree = "<group>"; };
 		A67C23E92044EC9A0042254E /* TXXLDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLDateManager.h; sourceTree = "<group>"; };
 		A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TXXLDateManager.mm; sourceTree = "<group>"; };
 		A67C23EE2044FE590042254E /* chineseHoliDay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chineseHoliDay.plist; sourceTree = "<group>"; };
@@ -932,6 +936,8 @@
 				9540D3022015C51F005F6751 /* TXXLRootTabBarVC.m */,
 				9540D3042015C89F005F6751 /* TXXLSharedInstance.h */,
 				9540D3052015C89F005F6751 /* TXXLSharedInstance.m */,
+				A67600E42060F9E4008FD2E5 /* TXSMUrlRouteInstance.h */,
+				A67600E32060F9E3008FD2E5 /* TXSMUrlRouteInstance.m */,
 			);
 			path = BaseConfig;
 			sourceTree = "<group>";
@@ -1256,6 +1262,7 @@
 		9540D2D92015C361005F6751 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A67600E72061032B008FD2E5 /* TXXLCalendarDateProtocol.h */,
 				A6B5664D202186B500E8DEFF /* CompassVC */,
 				95CB55932020718F00B45447 /* HoursVC */,
 				95EFF1F6201F1D5200FA27A5 /* MoreSearchVC */,
@@ -1469,9 +1476,9 @@
 		95B91AA220595F55008BCCDA /* data */ = {
 			isa = PBXGroup;
 			children = (
+				A67600AE205F729A008FD2E5 /* 13.dat */,
 				95B91AA320595F55008BCCDA /* 9.dat */,
 				95B91AA420595F55008BCCDA /* 8.dat */,
-				95B91AA520595F55008BCCDA /* 13.dat */,
 				95B91AA620595F55008BCCDA /* 12.dat */,
 				95B91AA720595F55008BCCDA /* 10.dat */,
 				95B91AA820595F55008BCCDA /* 11.dat */,
@@ -2017,6 +2024,7 @@
 				A6C121792029334300246273 /* calendar_arrowdown@3x.png in Resources */,
 				A67C23F12044FF400042254E /* publicHoliDay.plist in Resources */,
 				A6C1218B2029334300246273 /* date_arrow_left@2x.png in Resources */,
+				A67600AF205F729A008FD2E5 /* 13.dat in Resources */,
 				A6C121512029334300246273 /* tabbar_0_s@3x.png in Resources */,
 				A6C121752029334300246273 /* question@3x.png in Resources */,
 				A60370F72047F42500FC238D /* wuxing.plist in Resources */,
@@ -2043,7 +2051,6 @@
 				A6C121882029334300246273 /* beginningWinter@2x.png in Resources */,
 				A670066F204CEDE0006A9384 /* jianchudetail.plist in Resources */,
 				A6754F12205A20DD00C7C04D /* searchNameDetail.plist in Resources */,
-				95B91ABD20595F55008BCCDA /* 13.dat in Resources */,
 				95B91AC920595F55008BCCDA /* 23.dat in Resources */,
 				A6C121852029334300246273 /* beginningWinter@3x.png in Resources */,
 				9540D2CA2015BB56005F6751 /* webviewmore@3x.png in Resources */,
@@ -2406,6 +2413,7 @@
 				A6FEE505202856BA00F55FCE /* PPSSAppVersionManager.m in Sources */,
 				95CB559A2020728300B45447 /* TXXLHoursDetailCell.m in Sources */,
 				9590A67B201ACFEB0063FDDE /* FSCalendarTransitionCoordinator.m in Sources */,
+				A67600E52060F9E4008FD2E5 /* TXSMUrlRouteInstance.m in Sources */,
 				A6749081202462D50039838F /* TXXLCalendarModuleAPI.m in Sources */,
 				A674906F202412140039838F /* TXXLSearchMoreVM.m in Sources */,
 				9540D2BD2015BB56005F6751 /* LSKBaseViewController.m in Sources */,
@@ -2568,7 +2576,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TXNewCalendar/Resource/Vendor/MiPushSDK",
 					"$(PROJECT_DIR)/TXNewCalendar/Resource/Vendor/libMiPush",
 				);
 				MiSDKRun = debug;
@@ -2599,7 +2606,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/TXNewCalendar/Resource/Vendor/MiPushSDK",
 					"$(PROJECT_DIR)/TXNewCalendar/Resource/Vendor/libMiPush",
 				);
 				MiSDKRun = online;

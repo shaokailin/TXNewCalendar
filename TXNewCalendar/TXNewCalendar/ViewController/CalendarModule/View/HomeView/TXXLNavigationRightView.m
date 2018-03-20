@@ -21,12 +21,12 @@
 }
 - (void)changeTextWithDate:(NSDate *)date {
     KDateManager.searchDate = date;
-    _dateDetailLbl.text = NSStringFormat(@"%@%@年%@%@",KDateManager.tgdzString,KDateManager.zodiacString,KDateManager.chineseMonthString,KDateManager.chineseDayString);
+    _dateDetailLbl.text = NSStringFormat(@"%@年%@%@",KDateManager.tgdzString,KDateManager.chineseMonthString,KDateManager.chineseDayString);
     _dateTimeLbl.text = [date dateTransformToString:@"yyyy.MM.dd"];
 }
 - (void)_layoutMainView {
     _dateDetailLbl = [LSKViewFactory initializeLableWithText:nil font:9 textColor:[UIColor whiteColor] textAlignment:2 backgroundColor:nil];
-    _dateDetailLbl.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 12 - 10, CGRectGetWidth(self.frame) - 10, 12);
+    _dateDetailLbl.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 12 - 10, CGRectGetWidth(self.frame) - 18, 12);
     [self addSubview:_dateDetailLbl];
     UIImageView *arrowImageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"calendar_arrowdown")];
     arrowImageView.frame = CGRectMake(CGRectGetWidth(self.frame) - 12 - 10, CGRectGetHeight(self.frame) - 12 - 10 - 4 - 7, 12, 7);

@@ -117,6 +117,9 @@
         [self.navigationController pushViewController:suitAvoidVC animated:YES];
     }
 }
+- (void)changeShowDate:(NSDate *)date {
+    [self.mainTimeView changeSelectDate:date];
+}
 //pickDate 选择时间回调
 - (void)dateSelect:(NSDate *)date {
     [self.mainTimeView changeSelectDate:date];

@@ -26,7 +26,7 @@ static NSString * const kDBName = @"almanacDB";
 }
 #pragma mark - 查询语句
 - (NSDictionary *)selectYiJiXiongJi:(NSString *)tg month:(NSInteger)month {
-    NSString *selectSQLString = [NSString stringWithFormat:@"select * from bw_huanglijixiong where gz = '%@' and yue=%ld",tg,month];
+    NSString *selectSQLString = [NSString stringWithFormat:@"select * from bw_huanglijixiong where gz = '%@' and yue=%zd",tg,month];
     FMResultSet *fmsr = [self.fmDB executeQuery:selectSQLString];
     if (!fmsr) {
         return nil;

@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseViewController.h"
-
-@interface TXXLCalendarMainVC : LSKBaseViewController
+#import "TXXLCalendarDateProtocol.h"
+@interface TXXLCalendarMainVC : LSKBaseViewController<TXXLCalendarDateProtocol>
 
 @end

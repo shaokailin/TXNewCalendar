@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "TXXLRootTabBarVC.h"
 #import "TXXLGuideVC.h"
 #import "PPSSAppVersionManager.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
@@ -16,6 +15,7 @@
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <WXApi.h>
+#import "TXSMUrlRouteInstance.h"
 static NSString * const kAliAanaliticsKey = @"24819778";
 static NSString * const kAliAanaliticsSecret = @"95b4cb98a5c6f8b8cf15b30648280272";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
@@ -26,7 +26,7 @@ static const BOOL kIsOnline = YES;
     BOOL _isRegisterIphone;
     BOOL _isFackground;
 }
-@property (nonatomic, strong) TXXLRootTabBarVC *rootTabBarVC;
+
 @property (nonatomic, strong) PPSSAppVersionManager *appVersionManager;
 @end
 
@@ -44,8 +44,8 @@ static const BOOL kIsOnline = YES;
     [self.window makeKeyAndVisible];
     [self registerAnalytics];
     [self registerMiPush];
-    id value = [[TencentOAuth alloc] initWithAppId:@"1106696611" andDelegate:self];
-    LSKLog(@"%@",value);
+    TencentOAuth *author = [[TencentOAuth alloc] initWithAppId:@"1106696611" andDelegate:self];
+    LSKLog(@"%@",author);
     [WXApi registerApp:@"wxbf12394f3a0f5811"];
     //点击通知打开app处理逻辑
     _isRegisterIphone = [kUserMessageManager getMessageManagerForBoolWithKey:kMiPushRegisterIphone];
@@ -98,45 +98,44 @@ static const BOOL kIsOnline = YES;
     return _appVersionManager;
 }
 #pragma mark - share
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [self handleOpenUrl:url];
+}
+- (BOOL)handleOpenUrl:(NSURL *)url {
     BOOL isQQ = [QQApiInterface handleOpenURL:url delegate:self];
     if (!isQQ) {
-        return [WXApi handleOpenURL:url delegate:self];
+        BOOL isWx = [WXApi handleOpenURL:url delegate:self];
+        if (!isWx) {
+            return [TXSMUrlRouteInstance handleOpenURL:url];
+        }else {
+            return isWx;
+        }
     }else {
         return isQQ;
     }
 }
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    BOOL isQQ = [QQApiInterface handleOpenURL:url delegate:self];
-    if (!isQQ) {
-        return [WXApi handleOpenURL:url delegate:self];
-    }else {
-        return isQQ;
-    }
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [self handleOpenUrl:url];
 }
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    BOOL isQQ = [QQApiInterface handleOpenURL:url delegate:self];
-    if (!isQQ) {
-        return [WXApi handleOpenURL:url delegate:self];
-    }else {
-        return isQQ;
-    }
+    return [self handleOpenUrl:url];
 }
 - (void)onResp:(id)resp {
+    BOOL isSuccess = NO;
     if ([resp isKindOfClass:[QQBaseResp class]]) {
         QQBaseResp *respQQ = (QQBaseResp *)resp;
         NSInteger result = [respQQ.result integerValue];
         if (result == 0) {
-            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kShare_Notice object:nil userInfo:@{@"result":@"1"}];
-        }else {
-            [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kShare_Notice object:nil userInfo:@{@"result":@"0"}];
+            
+            isSuccess= YES;
         }
     }else {
         BaseResp *respWX = (BaseResp *)resp;
+        if (respWX.errCode == 0) {
+            isSuccess = YES;
+        }
     }
+    [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kShare_Notice object:nil userInfo:@{@"result":@(isSuccess)}];
     
 }
 - (void)applicationWillResignActive:(UIApplication *)application {

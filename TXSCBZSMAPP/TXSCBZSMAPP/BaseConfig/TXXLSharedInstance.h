@@ -20,4 +20,6 @@
 - (void)setupViewProperties:(UIViewController *)vc url:(NSString *)url name:(NSString *)name;
 - (void)analiticsPay:(NSInteger)payType;
 - (void)analiticsEvent:(NSString *)eventName viewName:(NSString *)viewName;
+
+
 @end

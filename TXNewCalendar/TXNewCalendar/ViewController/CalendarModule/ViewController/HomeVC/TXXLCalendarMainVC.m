@@ -68,8 +68,14 @@
 }
 #pragma mark -初始化默认值
 - (void)setupDefaultDate {
-    NSDate *current = [NSDate stringTransToDate:[[NSDate date] dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"];
-    _currentDate = current;
+    if (!_currentDate) {
+        NSDate *current = [NSDate stringTransToDate:[[NSDate date] dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"];
+        _currentDate = current;
+    }
+    [self changeDateEvent];
+}
+- (void)changeShowDate:(NSDate *)date {
+    _currentDate = date;
     [self changeDateEvent];
 }
 #pragma mark -私有方法

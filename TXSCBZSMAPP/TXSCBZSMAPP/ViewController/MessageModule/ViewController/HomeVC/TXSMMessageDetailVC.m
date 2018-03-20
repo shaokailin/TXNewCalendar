@@ -45,6 +45,7 @@ static const CGFloat kBottonViewHeight = 49;
     }else {
         [kUserMessageManager setupViewProperties:self url:self.loadUrl name:KJudgeIsNullData(self.titleString)?self.titleString:@"h5"];
     }
+    [self addNotificationWithSelector:@selector(showShareResult:) name:kShare_Notice];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -125,6 +126,14 @@ static const CGFloat kBottonViewHeight = 49;
     };
     [shareView showInView];
 }
+- (void)showShareResult:(NSNotification *)notice {
+    BOOL isReuslt = [[notice.userInfo objectForKey:@"result"] boolValue];
+    if (isReuslt) {
+        [SKHUD showMessageInView:self.view withMessage:@"分享成功"];
+    }else {
+        [SKHUD showMessageInView:self.view withMessage:@"分享失败"];
+    }
+}
 - (void)shareContentWithType:(NSInteger)type {
     NSString *title = nil;
     NSString *url = nil;
@@ -151,6 +160,7 @@ static const CGFloat kBottonViewHeight = 49;
                             [self shareForWX:type image:nil title:title url:url];
                         }
                     });
+                    
                 }];
             }
             
@@ -158,42 +168,47 @@ static const CGFloat kBottonViewHeight = 49;
             [self shareForWX:type image:nil title:title url:url];
         }
     }else {
-        NSURL *previewURL = nil;
-        if (self.pic) {
-            previewURL = [NSURL URLWithString:self.pic];
-        }
-        NSURL* urlUrl = [NSURL URLWithString:url];
-        QQApiNewsObject* img = [QQApiNewsObject objectWithURL:urlUrl title:title description:nil previewImageURL:previewURL];
-        img.shareDestType = ShareDestTypeQQ;
-        SendMessageToQQReq* req = [SendMessageToQQReq reqWithContent:img];
-        if (type == 2) {
-             [QQApiInterface sendReq:req];
-        }else {
-             [QQApiInterface SendReqToQZone:req];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSURL *previewURL = nil;
+            if (self.pic) {
+                previewURL = [NSURL URLWithString:self.pic];
+            }
+            NSURL* urlUrl = [NSURL URLWithString:url];
+            QQApiNewsObject* img = [QQApiNewsObject objectWithURL:urlUrl title:title description:nil previewImageURL:previewURL];
+            img.shareDestType = ShareDestTypeQQ;
+            SendMessageToQQReq* req = [SendMessageToQQReq reqWithContent:img];
+            if (type == 2) {
+                [QQApiInterface sendReq:req];
+            }else {
+                [QQApiInterface SendReqToQZone:req];
+            }
+        });
+        
     }
 }
 - (void)shareForWX:(NSInteger)type image:(UIImage *)image title:(NSString *)title url:(NSString *)url {
-    WXMediaMessage *message = [WXMediaMessage message];
-    message.title = title;
-    message.description = nil;
-    if (image) {
-         [message setThumbImage:image];
-    }else {
-        [message setThumbImage:ImageNameInit(@"appicon")];
-    }
-    WXWebpageObject *ext = [WXWebpageObject object];
-    ext.webpageUrl = url;
-    message.mediaObject = ext;
-    SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
-    req.bText = NO;
-    req.message = message;
-    if (type == 0) {
-        req.scene = WXSceneSession;
-    }else {
-        req.scene = WXSceneTimeline;
-    }
-    [WXApi sendReq:req];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        WXMediaMessage *message = [WXMediaMessage message];
+        message.title = title;
+        message.description = nil;
+        if (image) {
+            [message setThumbImage:image];
+        }else {
+            [message setThumbImage:ImageNameInit(@"appicon")];
+        }
+        WXWebpageObject *ext = [WXWebpageObject object];
+        ext.webpageUrl = url;
+        message.mediaObject = ext;
+        SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
+        req.bText = NO;
+        req.message = message;
+        if (type == 0) {
+            req.scene = WXSceneSession;
+        }else {
+            req.scene = WXSceneTimeline;
+        }
+        [WXApi sendReq:req];
+    });
 }
 - (UIImageView *)shareImgView {
     if (!_shareImgView) {

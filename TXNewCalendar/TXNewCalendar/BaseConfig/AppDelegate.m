@@ -7,12 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "TXXLRootTabBarVC.h"
+
 #import "TXXLGuideVC.h"
 #import "PPSSAppVersionManager.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import "MiPushSDK.h"
 #import "TXXLWebVC.h"
+#import "TXSMUrlRouteInstance.h"
 static NSString * const kAliAanaliticsKey = @"24796510";
 static NSString * const kAliAanaliticsSecret = @"8530aeab85d9ed304efc98bc0afddb50";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
@@ -23,7 +24,7 @@ static const BOOL kIsOnline = YES;
     BOOL _isRegisterIphone;
     BOOL _isFackground;
 }
-@property (nonatomic, strong) TXXLRootTabBarVC *rootTabBarVC;
+
 @property (nonatomic, strong) PPSSAppVersionManager *appVersionManager;
 @end
 
@@ -96,7 +97,19 @@ static const BOOL kIsOnline = YES;
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
-
+#pragma mark - share
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [self handleOpenUrl:url];
+}
+- (BOOL)handleOpenUrl:(NSURL *)url {
+    return [TXSMUrlRouteInstance handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [self handleOpenUrl:url];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    return [self handleOpenUrl:url];
+}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.

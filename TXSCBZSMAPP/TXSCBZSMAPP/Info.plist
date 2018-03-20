@@ -54,7 +54,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>19</string>
+	<string>22</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>tencentapi.qzone.reqContent</string>
@@ -97,6 +97,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许八字算命婚恋大师允许访问你的相处？</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

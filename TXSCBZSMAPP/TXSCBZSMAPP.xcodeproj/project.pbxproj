@@ -210,6 +210,7 @@
 		A6754F60205BB67A00C7C04D /* star_yes_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F5C205BB67A00C7C04D /* star_yes_icon@3x.png */; };
 		A6754F63205BBDEC00C7C04D /* scorpio@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F61205BBDEC00C7C04D /* scorpio@2x.png */; };
 		A6754F64205BBDEC00C7C04D /* capricorn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6754F62205BBDEC00C7C04D /* capricorn@2x.png */; };
+		A67600E22060E162008FD2E5 /* TXSMUrlRouteInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A67600E12060E161008FD2E5 /* TXSMUrlRouteInstance.m */; };
 		A6AF71772058A7600070BC44 /* TXSMMessageDetailVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6AF71762058A7600070BC44 /* TXSMMessageDetailVM.m */; };
 		A6AF71842058B3D00070BC44 /* webviewmore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF71802058B3CF0070BC44 /* webviewmore@2x.png */; };
 		A6AF71852058B3D00070BC44 /* guanbi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6AF71812058B3CF0070BC44 /* guanbi@2x.png */; };
@@ -561,6 +562,8 @@
 		A6754F5C205BB67A00C7C04D /* star_yes_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_yes_icon@3x.png"; sourceTree = "<group>"; };
 		A6754F61205BBDEC00C7C04D /* scorpio@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scorpio@2x.png"; sourceTree = "<group>"; };
 		A6754F62205BBDEC00C7C04D /* capricorn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "capricorn@2x.png"; sourceTree = "<group>"; };
+		A67600E02060E161008FD2E5 /* TXSMUrlRouteInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMUrlRouteInstance.h; sourceTree = "<group>"; };
+		A67600E12060E161008FD2E5 /* TXSMUrlRouteInstance.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMUrlRouteInstance.m; sourceTree = "<group>"; };
 		A6AF71752058A7600070BC44 /* TXSMMessageDetailVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXSMMessageDetailVM.h; sourceTree = "<group>"; };
 		A6AF71762058A7600070BC44 /* TXSMMessageDetailVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXSMMessageDetailVM.m; sourceTree = "<group>"; };
 		A6AF71802058B3CF0070BC44 /* webviewmore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "webviewmore@2x.png"; sourceTree = "<group>"; };
@@ -780,6 +783,8 @@
 				952822EA204D7C7500F3758B /* TXXLSharedInstance.h */,
 				952822E7204D7C7500F3758B /* TXXLSharedInstance.m */,
 				952823B4204D7DA400F3758B /* TXSCBZSMAPP_PrefixHeader.pch */,
+				A67600E02060E161008FD2E5 /* TXSMUrlRouteInstance.h */,
+				A67600E12060E161008FD2E5 /* TXSMUrlRouteInstance.m */,
 			);
 			path = BaseConfig;
 			sourceTree = "<group>";
@@ -1759,6 +1764,7 @@
 				A659669D204FC0D40042A332 /* TXSMTodayFortuneDetailView.m in Sources */,
 				A6596697204FBDB10042A332 /* TXSMWeekFortuneView.m in Sources */,
 				952823A5204D7C7500F3758B /* LSKMessageManage.m in Sources */,
+				A67600E22060E162008FD2E5 /* TXSMUrlRouteInstance.m in Sources */,
 				A6FFD8CB20566CBE005DDA0D /* TXSMMessageDetailVC.m in Sources */,
 				A6754F58205BB22700C7C04D /* TXSMFortuneYearButton.m in Sources */,
 				9528238F204D7C7500F3758B /* LSKMediaParamterEntity.m in Sources */,

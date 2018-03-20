@@ -46,7 +46,7 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
 #pragma mark - 网络请求
 - (void)getDataWithWeek {
     NSTimeInterval time = [_endDate timeIntervalSinceDate:_startDate];
-    NSInteger count = (NSInteger)time / (60 * 60 * 24);
+    NSInteger count = (NSInteger)time / (60 * 60 * 24) + 1;
     NSArray *data = [KDateManager getSearshList:_startDate timeBetween:count key:self.titleString isWeek:_isWeekend isAvoid:self.isAvoid];
     self.dataArray = data;
     [self.mainTableView reloadData];
@@ -131,7 +131,7 @@ static const CGFloat kMaxTimeBetween = 180 * 24 * 60 * 60;
     NSArray *dateArray = [date componentsSeparatedByString:@"-"];
     NSString *day = [dateArray objectAtIndex:2];
     NSString *yearMonth = NSStringFormat(@"%@.%@",[dateArray objectAtIndex:0],[dateArray objectAtIndex:1]);
-    NSString *chinessYMD = NSStringFormat(@"%@[%@]年  %@月  %@日",[dict objectForKey:@"nlYeargz"],[dict objectForKey:@"nlYeargz"],[dict objectForKey:@"shengxiao"],[dict objectForKey:@"nlDaygz"]);
+    NSString *chinessYMD = NSStringFormat(@"%@年  %@月  %@日",[dict objectForKey:@"nlYeargz"],[dict objectForKey:@"nlMonthgz"],[dict objectForKey:@"nlDaygz"]);
     NSString *nongli = [dict objectForKey:@"nlmonthday"];
     NSString *zhishen = [dict objectForKey:@"zhishen"];
     NSString *week = [dict objectForKey:@"week"];

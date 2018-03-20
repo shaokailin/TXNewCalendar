@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TXXLRootTabBarVC.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
+@property (nonatomic, strong) TXXLRootTabBarVC *rootTabBarVC;
 @property (strong, nonatomic) UIWindow *window;
 - (void)windowRootController;
 @end

@@ -37,7 +37,7 @@
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];
     KViewRadius(self, 4.0);
-    UILabel *titleLbl = [TXXLViewManager customTitleLbl:_type == 0?@"今日详情":@"明日详情" font:12];
+    UILabel *titleLbl = [TXXLViewManager customTitleLbl:_type == 0?@"今日详解":@"明日详解" font:12];
     [self addSubview:titleLbl];
     WS(ws)
     [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
