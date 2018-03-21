@@ -142,6 +142,7 @@
 		A60370FB2047FECE00FC238D /* taishen.plist in Resources */ = {isa = PBXBuildFile; fileRef = A60370FA2047FECE00FC238D /* taishen.plist */; };
 		A60370FD2048D85E00FC238D /* pengzuDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A60370FC2048D85E00FC238D /* pengzuDetail.plist */; };
 		A60370FF2048E84200FC238D /* bamenPosition.plist in Resources */ = {isa = PBXBuildFile; fileRef = A60370FE2048E84200FC238D /* bamenPosition.plist */; };
+		A62652272061E33C00602050 /* TXSMUrlRouteInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A62652252061E33C00602050 /* TXSMUrlRouteInstance.m */; };
 		A6368C44204788CC009A4C08 /* chineseYear.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6368C43204788CC009A4C08 /* chineseYear.plist */; };
 		A6368C462047939E009A4C08 /* hour.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6368C452047939E009A4C08 /* hour.plist */; };
 		A6368C482047C9E0009A4C08 /* hourState.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6368C472047C9E0009A4C08 /* hourState.plist */; };
@@ -189,7 +190,6 @@
 		A67490D720283A3F0039838F /* TXXLCalculateModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */; };
 		A6754F12205A20DD00C7C04D /* searchNameDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6754F11205A20DD00C7C04D /* searchNameDetail.plist */; };
 		A67600AF205F729A008FD2E5 /* 13.dat in Resources */ = {isa = PBXBuildFile; fileRef = A67600AE205F729A008FD2E5 /* 13.dat */; };
-		A67600E52060F9E4008FD2E5 /* TXSMUrlRouteInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = A67600E32060F9E3008FD2E5 /* TXSMUrlRouteInstance.m */; };
 		A67C23EB2044EC9A0042254E /* TXXLDateManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */; };
 		A67C23EF2044FE590042254E /* chineseHoliDay.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C23EE2044FE590042254E /* chineseHoliDay.plist */; };
 		A67C23F12044FF400042254E /* publicHoliDay.plist in Resources */ = {isa = PBXBuildFile; fileRef = A67C23F02044FF400042254E /* publicHoliDay.plist */; };
@@ -586,6 +586,8 @@
 		A60370FA2047FECE00FC238D /* taishen.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = taishen.plist; sourceTree = "<group>"; };
 		A60370FC2048D85E00FC238D /* pengzuDetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = pengzuDetail.plist; sourceTree = "<group>"; };
 		A60370FE2048E84200FC238D /* bamenPosition.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = bamenPosition.plist; sourceTree = "<group>"; };
+		A62652252061E33C00602050 /* TXSMUrlRouteInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXSMUrlRouteInstance.m; sourceTree = "<group>"; };
+		A62652262061E33C00602050 /* TXSMUrlRouteInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXSMUrlRouteInstance.h; sourceTree = "<group>"; };
 		A6368C43204788CC009A4C08 /* chineseYear.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = chineseYear.plist; sourceTree = "<group>"; };
 		A6368C452047939E009A4C08 /* hour.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = hour.plist; sourceTree = "<group>"; };
 		A6368C472047C9E0009A4C08 /* hourState.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = hourState.plist; sourceTree = "<group>"; };
@@ -661,8 +663,6 @@
 		A67490D620283A3F0039838F /* TXXLCalculateModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLCalculateModuleAPI.m; sourceTree = "<group>"; };
 		A6754F11205A20DD00C7C04D /* searchNameDetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = searchNameDetail.plist; sourceTree = "<group>"; };
 		A67600AE205F729A008FD2E5 /* 13.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 13.dat; sourceTree = "<group>"; };
-		A67600E32060F9E3008FD2E5 /* TXSMUrlRouteInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TXSMUrlRouteInstance.m; path = ../../../TXSCBZSMAPP/TXSCBZSMAPP/BaseConfig/TXSMUrlRouteInstance.m; sourceTree = "<group>"; };
-		A67600E42060F9E4008FD2E5 /* TXSMUrlRouteInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TXSMUrlRouteInstance.h; path = ../../../TXSCBZSMAPP/TXSCBZSMAPP/BaseConfig/TXSMUrlRouteInstance.h; sourceTree = "<group>"; };
 		A67600E72061032B008FD2E5 /* TXXLCalendarDateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXXLCalendarDateProtocol.h; sourceTree = "<group>"; };
 		A67C23E92044EC9A0042254E /* TXXLDateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLDateManager.h; sourceTree = "<group>"; };
 		A67C23EA2044EC9A0042254E /* TXXLDateManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TXXLDateManager.mm; sourceTree = "<group>"; };
@@ -928,6 +928,8 @@
 		9540D1AE2015BAD5005F6751 /* BaseConfig */ = {
 			isa = PBXGroup;
 			children = (
+				A62652262061E33C00602050 /* TXSMUrlRouteInstance.h */,
+				A62652252061E33C00602050 /* TXSMUrlRouteInstance.m */,
 				9540D1AF2015BAD5005F6751 /* AppDelegate.h */,
 				9540D1B12015BAD5005F6751 /* AppDelegate.m */,
 				9540D1B02015BAD5005F6751 /* Config.h */,
@@ -936,8 +938,6 @@
 				9540D3022015C51F005F6751 /* TXXLRootTabBarVC.m */,
 				9540D3042015C89F005F6751 /* TXXLSharedInstance.h */,
 				9540D3052015C89F005F6751 /* TXXLSharedInstance.m */,
-				A67600E42060F9E4008FD2E5 /* TXSMUrlRouteInstance.h */,
-				A67600E32060F9E3008FD2E5 /* TXSMUrlRouteInstance.m */,
 			);
 			path = BaseConfig;
 			sourceTree = "<group>";
@@ -2413,7 +2413,7 @@
 				A6FEE505202856BA00F55FCE /* PPSSAppVersionManager.m in Sources */,
 				95CB559A2020728300B45447 /* TXXLHoursDetailCell.m in Sources */,
 				9590A67B201ACFEB0063FDDE /* FSCalendarTransitionCoordinator.m in Sources */,
-				A67600E52060F9E4008FD2E5 /* TXSMUrlRouteInstance.m in Sources */,
+				A62652272061E33C00602050 /* TXSMUrlRouteInstance.m in Sources */,
 				A6749081202462D50039838F /* TXXLCalendarModuleAPI.m in Sources */,
 				A674906F202412140039838F /* TXXLSearchMoreVM.m in Sources */,
 				9540D2BD2015BB56005F6751 /* LSKBaseViewController.m in Sources */,
