@@ -151,7 +151,7 @@
         make.width.mas_equalTo(SCREEN_WIDTH - 65);
         make.height.mas_equalTo(SCREEN_WIDTH - 65);
     }];
-    UIImageView *circleImgView = [[UIImageView alloc]initWithImage:ImageFileInit(@"redcircle", @"png")];
+    UIImageView *circleImgView = [[UIImageView alloc]initWithImage:ImageNameInit(@"redcircle")];
     [compassView addSubview:circleImgView];
     [circleImgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(compassView);
@@ -164,7 +164,7 @@
     _iconLbl.center = CGPointMake(_radius / 2.0 + 120.208153 ,_radius / 2.0 - 120.208153);
     [compassView addSubview:_iconLbl];
     
-    UIImageView *tenImg = [[UIImageView alloc]initWithImage:ImageFileInit(@"tenimage", @"png")];
+    UIImageView *tenImg = [[UIImageView alloc]initWithImage:ImageNameInit(@"tenimage")];
     [contentView addSubview:tenImg];
     [tenImg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(compassView);

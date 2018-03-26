@@ -1,0 +1,297 @@
+//
+//  TXSMFortuneMainVC.m
+//  TXSCBZSMAPP
+//
+//  Created by linshaokai on 2018/3/5.
+//  Copyright © 2018年 厦门集网文化传播有限公司. All rights reserved.
+//
+
+#import "TXSMFortuneMainVC.h"
+#import "TXSMFortuneHomeNaviTitleView.h"
+#import "TXSMFortuneHomeCell.h"
+#import "TXSMTodayFortuneView.h"
+#import "TXSMWeekFortuneView.h"
+#import "TXSMFortuneHomeVM.h"
+#import "TXSMMessageDetailVC.h"
+#import "TXSMNewNavigationTitleView.h"
+#import "TXSMFortuneHeaderView.h"
+#import "TXSMXingzuoListView.h"
+@interface TXSMFortuneMainVC ()<UITableViewDelegate,UITableViewDataSource>
+{
+    NSString *_currentCXingzuo;
+    NSString *_currentEXingzuo;
+}
+@property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, strong) TXSMNewNavigationTitleView *naviTitleView;
+@property (nonatomic, weak) TXSMFortuneHomeNaviTitleView *naviView;
+@property (nonatomic, strong) UIScrollView *headerScrollerView;
+@property (nonatomic, strong) TXSMFortuneHomeVM *viewModel;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) TXSMFortuneHeaderView *headerView;
+@end
+
+@implementation TXSMFortuneMainVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    [self initializeMainView];
+    [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"运势首页"];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[TXSMFortuneHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 10) {
+            _currentEXingzuo = self.viewModel.xingzuo;
+            _currentCXingzuo = self.viewModel.cXingzuo;
+            [self.naviTitleView setupXingZuoName:_currentCXingzuo];
+            [self setupContent:model];
+        }else {
+            [self.mainTableView.mj_header endRefreshing];
+            self.dataArray = model;
+            [self.mainTableView reloadData];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainTableView.mj_header endRefreshing];
+    }];
+    _viewModel.contactId = @"27";
+    _viewModel.limit = @"5";
+    _viewModel.xingzuo = _currentEXingzuo;
+    _viewModel.cXingzuo = _currentCXingzuo;
+    [self.mainTableView.mj_header beginRefreshing];
+}
+- (void)changeShowXingzuo:(NSString *)xingzuo english:(NSString *)english {
+    if (![_currentCXingzuo isEqualToString:xingzuo]) {
+        _viewModel.xingzuo = english;
+        _viewModel.cXingzuo = xingzuo;
+         [self.viewModel getHomeData:NO];
+    }
+}
+- (void)pullDownRefresh {
+    [self.viewModel getHomeData:YES];
+}
+- (void)setupContent:(NSDictionary *)dict {
+    self.headerView.xzChineseName = _currentCXingzuo;
+    self.headerView.xzEnglishName = self.viewModel.xingzuo;
+    [self.headerView setupContent:dict];
+}
+- (void)changeFrame:(CGFloat)height {
+    self.headerView.frame = CGRectMake(0, 0, SCREEN_WIDTH, height);
+    self.mainTableView.tableHeaderView = self.headerView;
+}
+
+- (void)showXingZuoListView {
+    TXSMXingzuoListView *listView = [[TXSMXingzuoListView alloc]init];
+    @weakify(self)
+    listView.changeBlock = ^(NSString *xingzuo, NSString *english) {
+        @strongify(self)
+        [self changeShowXingzuo:xingzuo english:english];
+    };
+    [listView show];
+}
+#pragma mark - delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (KJudgeIsArrayAndHasValue(self.dataArray)) {
+        return self.dataArray.count;
+    }
+    return 0;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    TXSMFortuneHomeCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMFortuneHomeCell];
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+    [cell setupCellContent:[dict objectForKey:@"image"] title:[dict objectForKey:@"title"] count:nil present:@"97%"];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dict = [self.dataArray objectAtIndex:indexPath.row];
+    NSString *url = [dict objectForKey:@"url"];
+    if (KJudgeIsNullData(url)) {
+        TXSMMessageDetailVC *webVC = [[TXSMMessageDetailVC alloc]init];
+        webVC.titleString = [dict objectForKey:@"title"];
+        webVC.loadUrl = url;
+        webVC.pic = [dict objectForKey:@"image"];
+        webVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
+}
+#pragma marak - init view
+- (void)initializeMainView {
+    _currentCXingzuo = [self getXingzuo];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"aries",@"白羊座",@"taurus",@"金牛座",@"gemini",@"双子座",@"cancer",@"巨蟹座",@"leo",@"狮子座",@"virgo",@"处女座",@"libra",@"天秤座",@"scorpio",@"天蝎座",@"sagittarius",@"射手座",@"capricorn",@"摩羯座",@"aquarius",@"水瓶座",@"pisces",@"双鱼座", nil];
+    _currentEXingzuo = [dict objectForKey:_currentCXingzuo];
+    WS(ws)
+    self.naviTitleView = [[TXSMNewNavigationTitleView alloc]initWithFrame:CGRectMake(0, 0, 150, 44)];
+    [self.naviTitleView setupXingZuoName:_currentCXingzuo];
+    self.naviTitleView.clickBlock = ^(BOOL isClick) {
+        [ws showXingZuoListView];
+    };
+    self.navigationItem.titleView = self.naviTitleView;
+    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:nil];
+    [tableView registerClass:[TXSMFortuneHomeCell class] forCellReuseIdentifier:kTXSMFortuneHomeCell];
+    tableView.rowHeight = 192 / 2.0;
+    self.mainTableView = tableView;
+//    tableView.tableHeaderView = self.headerView;;
+    [self.view addSubview:tableView];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws.view);
+    }];
+}
+- (UIView *)headerView {
+    if (!_headerView) {
+        _headerView = [[TXSMFortuneHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0)];
+        WS(ws)
+        _headerView.frameBlock = ^(CGFloat height) {
+            [ws changeFrame:height];
+        };
+        
+    }
+    return _headerView;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+-(NSString *)getXingzuo {
+    NSString *retStr=@"";
+    NSCalendar *calendar =  [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    [calendar setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:+28800]];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    NSInteger i_month = comps.month;
+    NSInteger i_day = comps.day;
+    /*
+     摩羯座 12月22日------1月19日
+     水瓶座 1月20日-------2月18日
+     双鱼座 2月19日-------3月20日
+     白羊座 3月21日-------4月19日
+     金牛座 4月20日-------5月20日
+     双子座 5月21日-------6月21日
+     巨蟹座 6月22日-------7月22日
+     狮子座 7月23日-------8月22日
+     处女座 8月23日-------9月22日
+     天秤座 9月23日------10月23日
+     天蝎座 10月24日-----11月21日
+     射手座 11月22日-----12月21日
+     */
+    switch (i_month) {
+        case 1:
+            if(i_day>=20 && i_day<=31){
+                retStr=@"水瓶座";
+            }
+            if(i_day>=1 && i_day<=19){
+                retStr=@"摩羯座";
+            }
+            break;
+        case 2:
+            if(i_day>=1 && i_day<=18){
+                retStr=@"水瓶座";
+            }
+            if(i_day>=19 && i_day<=31){
+                retStr=@"双鱼座";
+            }
+            break;
+        case 3:
+            if(i_day>=1 && i_day<=20){
+                retStr=@"双鱼座";
+            }
+            if(i_day>=21 && i_day<=31){
+                retStr=@"白羊座";
+            }
+            break;
+        case 4:
+            if(i_day>=1 && i_day<=19){
+                retStr=@"白羊座";
+            }
+            if(i_day>=20 && i_day<=31){
+                retStr=@"金牛座";
+            }
+            break;
+        case 5:
+            if(i_day>=1 && i_day<=20){
+                retStr=@"金牛座";
+            }
+            if(i_day>=21 && i_day<=31){
+                retStr=@"双子座";
+            }
+            break;
+        case 6:
+            if(i_day>=1 && i_day<=21){
+                retStr=@"双子座";
+            }
+            if(i_day>=22 && i_day<=31){
+                retStr=@"巨蟹座";
+            }
+            break;
+        case 7:
+            if(i_day>=1 && i_day<=22){
+                retStr=@"巨蟹座";
+            }
+            if(i_day>=23 && i_day<=31){
+                retStr=@"狮子座";
+            }
+            break;
+        case 8:
+            if(i_day>=1 && i_day<=22){
+                retStr=@"狮子座";
+            }
+            if(i_day>=23 && i_day<=31){
+                retStr=@"处女座";
+            }
+            break;
+        case 9:
+            if(i_day>=1 && i_day<=22){
+                retStr=@"处女座";
+            }
+            if(i_day>=23 && i_day<=31){
+                retStr=@"天秤座";
+            }
+            break;
+        case 10:
+            if(i_day>=1 && i_day<=23){
+                retStr=@"天秤座";
+            }
+            if(i_day>=24 && i_day<=31){
+                retStr=@"天蝎座";
+            }
+            break;
+        case 11:
+            if(i_day>=1 && i_day<=21){
+                retStr=@"天蝎座";
+            }
+            if(i_day>=22 && i_day<=31){
+                retStr=@"射手座";
+            }
+            break;
+        case 12:
+            if(i_day>=1 && i_day<=21){
+                retStr=@"射手座";
+            }
+            if(i_day>=21 && i_day<=31){
+                retStr=@"摩羯座";
+            }
+            break;
+    }
+    return retStr;
+}
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
