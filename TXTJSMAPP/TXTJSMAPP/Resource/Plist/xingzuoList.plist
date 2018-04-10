@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>description</key>
+		<string>长不大的孩子</string>
+		<key>info</key>
+		<string>出生于阳历3月21日-4月19日，白羊座的内心一直是个孩子，保有天真的一面，即使长大了，他还是相信世界上有小精灵存在。有时白羊座的人相对幼稚，可是他绝不是不聪明，他的反应可快得很呢！</string>
+		<key>english</key>
+		<string>aries</string>
+		<key>image</key>
+		<string>aries_icon</string>
+		<key>title</key>
+		<string>白羊座</string>
+		<key>time</key>
+		<string>3.21~4.19</string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>出生于阳历4月20日-5月20日，金牛座的性格平稳、有毅力和耐力，勤劳智慧，富有实干精神。他的突出特点就是执着，家庭观念较强，思想趋于保守担又十分大胆，但善于理财，是个自我要求完美</string>
+		<key>description</key>
+		<string>型靠得住</string>
+		<key>english</key>
+		<string>taurus</string>
+		<key>image</key>
+		<string>taurus_icon</string>
+		<key>title</key>
+		<string>金牛座</string>
+		<key>time</key>
+		<string>4.20~5.20 </string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>变变变</string>
+		<key>info</key>
+		<string>出生于阳历5月21日-6月21日，双子座的人无拘无束，对外界的事物有永无休止的好奇心。有典型的大城市人气质，生活节奏快，每天有各种各样的活动和安排。弱点是好动和缺乏耐心。</string>
+		<key>english</key>
+		<string>gemini</string>
+		<key>image</key>
+		<string>gemini_icon</string>
+		<key>title</key>
+		<string>双子座</string>
+		<key>time</key>
+		<string> 5.21~6.21 </string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>出生于阳历6月22日-7月22日，超群的直觉和敏感是巨蟹座人的主要性格特征，喜欢收集储存东西，对任何事情都不舍不弃。他们充满爱心，感情真挚、坦诚，但性格比较脆弱，不善于在公众面前表现自己。</string>
+		<key>description</key>
+		<string>月亮的小孩</string>
+		<key>english</key>
+		<string>cancer</string>
+		<key>image</key>
+		<string>cancer_icon</string>
+		<key>title</key>
+		<string>巨蟹座</string>
+		<key>time</key>
+		<string> 6.22~7.22 </string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>阳光之子</string>
+		<key>info</key>
+		<string>出生于阳历7月23日-8月22日，狮子座毫无复杂或隐藏难解之处。是王者，是上司，总之，在团体中他就是Leader且其深知自己此种操纵和领导别人的能力。天生具有戏剧天分，相当敏感，容易受到伤害。</string>
+		<key>english</key>
+		<string>leo</string>
+		<key>image</key>
+		<string>leo_icon</string>
+		<key>title</key>
+		<string>狮子座</string>
+		<key>time</key>
+		<string> 7.23~8.22 </string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>出生于阳历8月23日-9月22日，丰富的知性，做事一丝不苟，有旺盛的批判精神，是个完美主义者，极度的厌恶虚伪与不正当的事。做事周到、细心、谨慎而有条理，并非常理性，甚至冷酷。
+出生于阳历8月23日-9月22日，丰富的知性，做事一丝不苟，有旺盛的批判精神，是个完美主义者，极度的厌恶虚伪与不正当的事。做事周到、细心、谨慎而有条理，并非常理性，甚至冷酷。
+</string>
+		<key>description</key>
+		<string>反复思索</string>
+		<key>english</key>
+		<string>virgo</string>
+		<key>image</key>
+		<string>virgo_icon</string>
+		<key>title</key>
+		<string>处女座</string>
+		<key>time</key>
+		<string> 8.23~9.22 </string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>爱要理想家</string>
+		<key>info</key>
+		<string>出生于阳历9月23日-10月23 日，天秤座的人温柔、娴雅，富有魅力、性格平稳、目光敏锐，具有合作精神，是和平主义者。不足之处是优柔寡断，缺乏坦率、难于理解。</string>
+		<key>english</key>
+		<string>libra</string>
+		<key>image</key>
+		<string>libra_icon</string>
+		<key>title</key>
+		<string>天秤座</string>
+		<key>time</key>
+		<string> 9.23~10.23 </string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>出生于阳历10月24日-11月22日，这个星座的人有着强烈的第六感、神秘的探视能力及吸引力，做事常凭直觉；虽然有着敏锐的观察力，但往往仍靠感觉来决定一切。</string>
+		<key>description</key>
+		<string>性感的复仇者</string>
+		<key>english</key>
+		<string>scorpio</string>
+		<key>image</key>
+		<string>scorpius_icon</string>
+		<key>title</key>
+		<string>天蝎座</string>
+		<key>time</key>
+		<string> 10.24~11.22 </string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>自由流浪者</string>
+		<key>info</key>
+		<string>出生于阳历11月23日-12月21日，崇尚自由，生命过程中的理想和憧憬，往往比目的更重要。他们大多数都有自由奔放，豪爽大方，无惧无畏的性格，但缺乏细腻的情感和责任感。</string>
+		<key>english</key>
+		<string>sagittarius</string>
+		<key>image</key>
+		<string>sagittarius_icon</string>
+		<key>title</key>
+		<string>射手座</string>
+		<key>time</key>
+		<string> 11.23~12.21 </string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>出生于阳历12月22日-1月19日，有独立精神和阴柔的个性，追求高难度的理想,使得摩羯座人充满斗志。喜欢控制全局，有时间观念、有责任感、重视权威和名声。</string>
+		<key>description</key>
+		<string>权威反权威</string>
+		<key>english</key>
+		<string>capricorn</string>
+		<key>image</key>
+		<string>capricoenus_icon</string>
+		<key>title</key>
+		<string>摩羯座</string>
+		<key>time</key>
+		<string> 12.22~1.19 </string>
+	</dict>
+	<dict>
+		<key>description</key>
+		<string>冷静深情</string>
+		<key>info</key>
+		<string>出生于阳历1月19日-2月18日，讨厌束缚、追求自由,富有开拓精神，思维能力高于本能，是个先锋派人物。不能忍受任何约束，具有前瞻性、有独创性、聪慧、富理性，喜欢追求新的事物及生活方式。</string>
+		<key>english</key>
+		<string>aquarius</string>
+		<key>image</key>
+		<string>aquarius_icon</string>
+		<key>title</key>
+		<string>水瓶座</string>
+		<key>time</key>
+		<string> 1.20~2.18 </string>
+	</dict>
+	<dict>
+		<key>info</key>
+		<string>出生于阳历2月19日-3月20日，充满着幻想，温情，灵活而且神秘;情绪起伏非常大，有自己独特的幽默方式，对世界上发生的一切，乃至虚无缥缈的事物都有浓厚的兴趣。总保持着一种天真、忠厚的气质。</string>
+		<key>description</key>
+		<string>多情种</string>
+		<key>english</key>
+		<string>pisces</string>
+		<key>image</key>
+		<string>pisces_icon</string>
+		<key>title</key>
+		<string>双鱼座</string>
+		<key>time</key>
+		<string> 2.19~3.20 </string>
+	</dict>
+</array>
+</plist>
