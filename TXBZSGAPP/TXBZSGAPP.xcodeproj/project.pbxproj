@@ -189,6 +189,7 @@
 		A6BC15C3207C6C4700DFA2CA /* fortune_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC15C0207C6C4700DFA2CA /* fortune_6@2x.png */; };
 		A6BC15C4207C6C4700DFA2CA /* fortune_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC15C1207C6C4700DFA2CA /* fortune_1@2x.png */; };
 		A6BC15C5207C6C4700DFA2CA /* fortune_0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC15C2207C6C4700DFA2CA /* fortune_0@2x.png */; };
+		A6BC15C7207C97CB00DFA2CA /* fefaultImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6BC15C6207C97CB00DFA2CA /* fefaultImage@2x.png */; };
 		A6F2B4CE207AFC82002DD0D3 /* yellowtopBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6F2B4CD207AFC82002DD0D3 /* yellowtopBg@2x.png */; };
 		A6F2B4DB207B011D002DD0D3 /* aquarius_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6F2B4CF207B011C002DD0D3 /* aquarius_icon@2x.png */; };
 		A6F2B4DC207B011D002DD0D3 /* aries_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6F2B4D0207B011C002DD0D3 /* aries_icon@2x.png */; };
@@ -516,6 +517,7 @@
 		A6BC15C0207C6C4700DFA2CA /* fortune_6@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fortune_6@2x.png"; sourceTree = "<group>"; };
 		A6BC15C1207C6C4700DFA2CA /* fortune_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fortune_1@2x.png"; sourceTree = "<group>"; };
 		A6BC15C2207C6C4700DFA2CA /* fortune_0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fortune_0@2x.png"; sourceTree = "<group>"; };
+		A6BC15C6207C97CB00DFA2CA /* fefaultImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fefaultImage@2x.png"; sourceTree = "<group>"; };
 		A6F2B4CD207AFC82002DD0D3 /* yellowtopBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowtopBg@2x.png"; sourceTree = "<group>"; };
 		A6F2B4CF207B011C002DD0D3 /* aquarius_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aquarius_icon@2x.png"; sourceTree = "<group>"; };
 		A6F2B4D0207B011C002DD0D3 /* aries_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aries_icon@2x.png"; sourceTree = "<group>"; };
@@ -852,6 +854,7 @@
 		A63B88532071D2CB00840706 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A6BC15C6207C97CB00DFA2CA /* fefaultImage@2x.png */,
 				A6560000207A18B300EB4AB6 /* bgbotton@2x.png */,
 				A6560001207A18B300EB4AB6 /* bgtop@2x.png */,
 				A63B88542071D2CB00840706 /* guide */,
@@ -1458,7 +1461,7 @@
 					952822A4204D77F700F3758B = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0930;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1574,6 +1577,7 @@
 				A63B8A112071D2CB00840706 /* weibo_icon@2x.png in Resources */,
 				A6BC1563207C458100DFA2CA /* health_icon@2x.png in Resources */,
 				A63B89ED2071D2CB00840706 /* appicon@2x.png in Resources */,
+				A6BC15C7207C97CB00DFA2CA /* fefaultImage@2x.png in Resources */,
 				A63B89B12071D2CB00840706 /* navi_back@3x.png in Resources */,
 				A6BC1592207C5F0900DFA2CA /* navi_4@2x.png in Resources */,
 				A6BC15A7207C60B400DFA2CA /* good_3@2x.png in Resources */,
@@ -1897,9 +1901,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = LQ9TJK85D2;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXBZSGAPP/BaseConfig/TXSCBZSMAPP_PrefixHeader.pch";
@@ -1907,10 +1911,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tx.tjms;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.bazisuangua.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "99d7ca14-b33c-4909-9803-a74afe1e29de";
+				PROVISIONING_PROFILE_SPECIFIER = bazisuanguaDis;
 				SWIFT_OBJC_BRIDGING_HEADER = "TXBZSGAPP/BaseConfig/TXBZSGAPP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -1925,9 +1929,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = LQ9TJK85D2;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/TXBZSGAPP/BaseConfig/TXSCBZSMAPP_PrefixHeader.pch";
@@ -1935,10 +1939,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.tx.tjms;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.bazisuangua.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "99d7ca14-b33c-4909-9803-a74afe1e29de";
+				PROVISIONING_PROFILE_SPECIFIER = bazisuanguaDis;
 				SWIFT_OBJC_BRIDGING_HEADER = "TXBZSGAPP/BaseConfig/TXBZSGAPP-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

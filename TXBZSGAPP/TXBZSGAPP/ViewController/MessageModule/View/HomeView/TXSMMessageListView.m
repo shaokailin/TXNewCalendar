@@ -8,11 +8,9 @@
 
 #import "TXSMMessageListView.h"
 #import "TXSMMessageOneImgCell.h"
-#import "TXSMMessageNoImgCell.h"
 #import "TXSMMessageHomeVM.h"
 #import "TXSMMessageDetailVC.h"
 static CGFloat kOneImgCellHeight = 103;
-static CGFloat kNoImgCellHeight = 83;
 @interface TXSMMessageListView ()<UITableViewDelegate, UITableViewDataSource>
 {
     BOOL _isHasStartPull;
@@ -98,24 +96,11 @@ static CGFloat kNoImgCellHeight = 83;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXSMMessageModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    if (KJudgeIsNullData(model.pic)) {
-        TXSMMessageOneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageOneImgCell];
-        [cell setupCellContent:model.pic title:model.title where:model.from count:model.hits];
-        return cell;
-    }else {
-        TXSMMessageNoImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageNoImgCell];
-        [cell setupCellContentTitle:model.title where:model.from count:model.hits];
-        return cell;
-    }
+    TXSMMessageOneImgCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXSMMessageOneImgCell];
+    [cell setupCellContent:model.pic title:model.title where:model.from count:model.hits];
+    return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TXSMMessageModel *model = [self.dataArray objectAtIndex:indexPath.row];
-    if (KJudgeIsNullData(model.pic)) {
-        return kOneImgCellHeight;
-    }else {
-        return kNoImgCellHeight;
-    }
-}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!_controller) {
         _controller = [LSKViewFactory getCurrentViewController];
@@ -130,7 +115,7 @@ static CGFloat kNoImgCellHeight = 83;
 - (void)_layoutMainView {
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullRrfreshData) footRefreshAction:@selector(pullMoreData) separatorColor:[UIColor clearColor] backgroundColor:[UIColor clearColor]];
     [tableView registerClass:[TXSMMessageOneImgCell class] forCellReuseIdentifier:kTXSMMessageOneImgCell];
-    [tableView registerClass:[TXSMMessageNoImgCell class] forCellReuseIdentifier:kTXSMMessageNoImgCell];
+    tableView.rowHeight = kOneImgCellHeight;
     self.mainTableView = tableView;
     [self addSubview:tableView];
     WS(ws)

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   hourState.plist
+   TXNewCalendar
+
+   Created by shaokai lin on 2018/3/1.
+   Copyright (c) 2018年 厦门集网文化传播有限公司. All rights reserved.
+-->
+<plist version="1.0">
+    <dict><key>甲子</key><string>子丑卯午申酉</string><key>甲寅</key><string>子丑辰巳未戌</string><key>甲辰</key><string>寅辰巳申酉亥</string><key>甲午</key><string>子丑卯午申酉</string><key>甲申</key><string>子丑辰巳未戌</string><key>甲戌</key><string>寅辰巳未申酉亥</string><key>己丑</key><string>寅卯巳申戌</string><key>己卯</key><string>子寅卯午未酉</string><key>己巳</key><string>丑辰午未戌亥</string><key>己未</key><string>寅卯巳申戌亥</string><key>己酉</key><string>子寅卯午未酉</string><key>己亥</key><string>丑辰午未戌亥</string><key>乙丑</key><string>寅卯巳申戌亥</string><key>乙卯</key><string>子寅卯午未酉</string><key>乙巳</key><string>丑辰午戌亥</string><key>乙未</key><string>寅卯巳申戌亥</string><key>乙酉</key><string>子寅卯午未酉</string><key>乙亥</key><string>丑辰午戌亥</string><key>庚子</key><string>子丑卯午申酉</string><key>庚寅</key><string>子丑辰巳未戌</string><key>庚辰</key><string>寅辰巳酉亥</string><key>庚午</key><string>子丑卯午申酉</string><key>庚申</key><string>子丑辰巳午未戌</string><key>庚戌</key><string>寅辰巳申酉亥</string><key>丙子</key><string>子丑卯午申酉</string><key>丙寅</key><string>子丑辰巳未戌</string><key>丙辰</key><string>寅辰巳申酉亥</string><key>丙午</key><string>子丑卯午申</string><key>丙申</key><string>子丑辰巳未戌</string><key>丙戌</key><string>寅辰巳申酉亥</string><key>辛丑</key><string>寅卯巳申戌亥</string><key>辛卯</key><string>子寅卯午未酉</string><key>辛巳</key><string>丑辰午未戌</string><key>辛未</key><string>寅卯巳申戌亥</string><key>辛酉</key><string>子寅卯午未酉</string><key>辛亥</key><string>丑辰午戌亥</string><key>丁丑</key><string>寅卯巳申戌亥</string><key>丁卯</key><string>子寅卯午未酉</string><key>丁巳</key><string>丑辰午未戌亥</string><key>丁未</key><string>寅卯巳申戌亥</string><key>丁酉</key><string>子寅卯午未酉</string><key>丁亥</key><string>丑辰午未戌亥</string><key>壬子</key><string>子丑卯午申酉</string><key>壬寅</key><string>子丑辰巳未戌</string><key>壬辰</key><string>寅辰巳申酉亥</string><key>壬午</key><string>子丑卯午申酉</string><key>壬申</key><string>子丑辰巳未戌</string><key>壬戌</key><string>寅辰巳申酉亥</string><key>戊子</key><string>子丑卯午申酉</string><key>戊寅</key><string>子丑辰巳未戌</string><key>戊辰</key><string>寅辰巳申酉亥</string><key>戊午</key><string>子丑卯午申酉</string><key>戊申</key><string>子丑辰巳未戌</string><key>戊戌</key><string>寅辰巳申酉亥</string><key>癸丑</key><string>寅卯巳申戌亥</string><key>癸卯</key><string>子寅卯午酉</string><key>癸巳</key><string>丑辰午未戌亥</string><key>癸未</key><string>寅卯巳申戌亥</string><key>癸酉</key><string>子寅卯午未酉</string><key>癸亥</key><string>丑辰午未戌亥</string></dict>
+</plist>

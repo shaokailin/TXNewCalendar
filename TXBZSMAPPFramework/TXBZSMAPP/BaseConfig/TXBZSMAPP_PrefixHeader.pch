@@ -1,0 +1,16 @@
+//
+//  TXBZSMAPP_PrefixHeader.pch
+//  TXBZSMAPP
+//
+//  Created by shaokai lin on 2018/4/25.
+//  Copyright © 2018年 厦门天象文化传播有限公司. All rights reserved.
+//
+
+#ifndef TXBZSMAPP_PrefixHeader_h
+#define TXBZSMAPP_PrefixHeader_h
+#define TXSCBZSMAPP_PrefixHeader_hw
+
+#import "LSKUtilsConfig.h"
+#import "Config.h"
+
+#endif /* TXBZSMAPP_PrefixHeader_h */

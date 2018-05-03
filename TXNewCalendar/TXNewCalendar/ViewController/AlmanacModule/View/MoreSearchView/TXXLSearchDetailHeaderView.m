@@ -52,7 +52,7 @@
     [self setupCountAttribute:count];
 }
 - (void)setupCountAttribute:(NSInteger)count {
-    NSString *content = NSStringFormat(@"近期%@的日子共有%zd天",self.titleString,count);
+    NSString *content = NSStringFormat(@"近期%@的日子共有%ld天",self.titleString,(long)count);
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:content];
     [attributedString addAttribute:NSForegroundColorAttributeName value:KColorHexadecimal(kAPP_Main_Color, 1.0) range:NSMakeRange(7 + self.titleString.length , content.length - 1 - 7 - self.titleString.length)];
     _countLbl.attributedText = attributedString;

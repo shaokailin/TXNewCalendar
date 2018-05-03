@@ -51,7 +51,7 @@ static const CGFloat kBottonViewHeight = 49;
     [super viewDidDisappear:animated];
     [kUserMessageManager analiticsViewDisappear:self];
     if (_progressView) {
-        _progressView.hidden = YES;
+        [_progressView hiddenProgress];
     }
 }
 - (void)viewDidAppear:(BOOL)animated {

@@ -14,6 +14,7 @@
     FSCalendar *_calendarView;
     NSDate *_minimumDate;
     NSDate *_maximumDate;
+    BOOL _isReload;
     
 }
 @property (strong, nonatomic) NSCalendar *chineseCalendar;
@@ -42,7 +43,7 @@
     
     _calendarView.appearance.weekdayFont = FontNornalInit(9);
     _calendarView.appearance.titleFont = FontNornalInit(20);
-    _calendarView.appearance.subtitleFont = FontNornalInit(9);
+    _calendarView.appearance.subtitleFont = FontNornalInit(8);
     _calendarView.appearance.borderRadius = 0.1;
     _calendarView.appearance.titleOffset = CGPointMake(0, 2);
     _calendarView.appearance.subtitleOffset = CGPointMake(0, 8);
@@ -57,6 +58,8 @@
     _calendarView.appearance.subtitlePlaceholderColor = KColorHexadecimal(0xb7b7b7, 1.0);
     _calendarView.appearance.titleTodayColor = KColorHexadecimal(kText_Title_Color, 1.0);
     _calendarView.appearance.subtitleTodayColor = KColorHexadecimal(kText_Title_Color, 1.0);
+    _calendarView.appearance.titleWeekendColor = KColorHexadecimal(kAPP_Main_Color, 1.0);
+    _calendarView.appearance.subtitleWeekendColor = KColorHexadecimal(kAPP_Main_Color, 1.0);
     _calendarView.appearance.todayColor = [UIColor clearColor];
     _calendarView.appearance.caseOptions = FSCalendarCaseOptionsWeekdayUsesDefaultCase;
     _calendarView.appearance.headerMinimumDissolvedAlpha = 0.0;
@@ -73,7 +76,8 @@
     }
 }
 - (void)calendarCurrentPageDidChange:(FSCalendar *)calendar {
-//    [self getCalendar];
+    _isReload = YES;
+    [calendar reloadData];
 }
 - (NSString *)calendar:(FSCalendar *)calendar subtitleForDate:(NSDate *)date {
     KDateManager.searchDate = date;
@@ -83,8 +87,31 @@
     }
     return KDateManager.calendarChineseString;
 }
-//- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date {
-//}
+
+- (void)calendar:(FSCalendar *)calendar willDisplayCell:(FSCalendarCell *)cell forDate:(NSDate *)date atMonthPosition:(FSCalendarMonthPosition)monthPosition {
+    if (monthPosition == FSCalendarMonthPositionCurrent) {
+        UIColor *color = nil;
+        if ([KDateManager getHoliday:date]) {
+            color = KColorHexadecimal(kText_Green_Color, 1);
+        }else if ([KDateManager solartermFromDate:date]) {
+            color =  KColorHexadecimal(kAPP_Main_Color, 1);
+        }else {
+            if ([date getWeekIndex] > 5) {
+                color =  KColorHexadecimal(kAPP_Main_Color, 1);
+            }else {
+                if (date == calendar.selectedDate || date == calendar.today) {
+                    color =  KColorHexadecimal(kAPP_Main_Color, 1);
+                }else {
+                    color =  KColorHexadecimal(kText_Title_Color, 1.0);
+                }
+            }
+        }
+        cell.subtitleLabel.textColor = color;
+    }else {
+        cell.subtitleLabel.textColor = KColorHexadecimal(0xb7b7b7, 1.0);
+    }
+}
+
 - (NSDate *)minimumDateForCalendar:(FSCalendar *)calendar {
     return [NSDate stringTransToDate:kCalendarMinDate withFormat:kCalendarFormatter];
 }
@@ -100,29 +127,4 @@
         _calendarView.frame = bounds;
     }
 }
-//- (void)getCalendar {
-//    @weakify(self)
-//    EKEventStore *store = [[EKEventStore alloc] init];
-//    [store requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
-//        @strongify(self)
-//        if(granted) {
-//            NSDate *startDate = self->_minimumDate; // 开始日期
-//            NSDate *endDate = self->_maximumDate; // 截止日期
-//            NSPredicate *fetchCalendarEvents = [store predicateForEventsWithStartDate:startDate endDate:endDate calendars:nil];
-//            NSArray<EKEvent *> *eventList = [store eventsMatchingPredicate:fetchCalendarEvents];
-//            NSArray<EKEvent *> *events = [eventList filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(EKEvent * _Nullable event, NSDictionary<NSString *,id> * _Nullable bindings) {
-//                return event.calendar.subscribed;
-//            }]];
-//            self.events = events;
-//        }
-//    }];
-//}
-//// 某个日期的所有事件
-//- (NSArray<EKEvent *> *)eventsForDate:(NSDate *)date
-//{
-//    NSArray<EKEvent *> *filteredEvents = [self.events filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(EKEvent * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-//        return [evaluatedObject.occurrenceDate isEqualToDate:date];
-//    }]];
-//    return filteredEvents;
-//}
 @end

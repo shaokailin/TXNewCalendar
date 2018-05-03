@@ -1,0 +1,6 @@
+framework module Pods_TXBZSMAPP {
+  umbrella header "Pods-TXBZSMAPP-umbrella.h"
+
+  export *
+  module * { export * }
+}

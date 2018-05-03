@@ -30,7 +30,7 @@
     if (KJudgeIsNullData(img)) {
         [_adImgView sd_setImageWithURL:[NSURL URLWithString:img]];
     }else {
-        _adImgView.image = nil;
+        _adImgView.image = ImageNameInit(@"fefaultImage");
     }
     _titleLbl.text = title;
     _whereLbl.text = where;

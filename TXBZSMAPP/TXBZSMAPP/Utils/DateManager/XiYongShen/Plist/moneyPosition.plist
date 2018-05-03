@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>东北</key>
+	<string>今天你的财神爷在东北方，那里有好财运等你来遇见。</string>
+	<key>正北</key>
+	<string>今天会在正北方遇见财神爷，一路向北有助于财运亨通。</string>
+	<key>正南</key>
+	<string>你的财神爷在正南方，愿你今日怀里抱着聚宝盆，财源滚滚好运来。</string>
+	<key>正西</key>
+	<string>财神爷爷今日在正西,向师傅请教下开运，一夜暴富并不是梦想。</string>
+	<key>正东</key>
+	<string>你的财神爷爷就在正东方，愿你今日朝着东走就能财源滚滚来。</string>
+</dict>
+</plist>

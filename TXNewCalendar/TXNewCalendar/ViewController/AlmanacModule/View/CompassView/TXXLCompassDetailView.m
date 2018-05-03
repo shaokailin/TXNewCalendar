@@ -140,8 +140,8 @@
     [compassView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(directionTitleLbl.mas_bottom).with.offset(30 + 7.5);
         make.centerX.equalTo(contentView);
-        make.width.mas_equalTo(_radius);
-        make.height.mas_equalTo(_radius);
+        make.width.mas_equalTo(self->_radius);
+        make.height.mas_equalTo(self->_radius);
     }];
     UIImageView *compassImage = [[UIImageView alloc]initWithImage:ImageNameInit(@"img_round")];
     self.compassImageView = compassImage;

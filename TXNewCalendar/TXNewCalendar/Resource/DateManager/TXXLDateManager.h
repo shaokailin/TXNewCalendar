@@ -26,6 +26,10 @@
 @property (nonatomic, copy, readwrite) NSString *tgdzString;//天干地支
 @property (nonatomic, copy, readwrite) NSString *dtgdzString;
 - (NSString *)getHasHolidayString;
+
+- (NSString *)getHoliday:(NSDate *)date;
+- (NSString *)solartermFromDate:(NSDate *)date;
+
 - (NSString *)calendarChineseString;
 - (NSString *)getXingzuo;
 - (NSString *)getGanzhiMouth;

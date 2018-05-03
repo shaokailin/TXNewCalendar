@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>tabbar_title</key>
+		<string>命理</string>
+		<key>navigation_title</key>
+		<string></string>
+		<key>nornal_img</key>
+		<string>tabbar_0_n</string>
+		<key>selected_img</key>
+		<string>tabbar_0_s</string>
+		<key>class_name</key>
+		<string>TXXLCalculateMainVC</string>
+	</dict>
+	<dict>
+		<key>tabbar_title</key>
+		<string>运势</string>
+		<key>navigation_title</key>
+		<string></string>
+		<key>nornal_img</key>
+		<string>tabbar_1_n</string>
+		<key>selected_img</key>
+		<string>tabbar_1_s</string>
+		<key>class_name</key>
+		<string>TXSMFortuneMainVC</string>
+	</dict>
+	<dict>
+		<key>tabbar_title</key>
+		<string>资讯</string>
+		<key>navigation_title</key>
+		<string></string>
+		<key>nornal_img</key>
+		<string>tabbar_2_n</string>
+		<key>selected_img</key>
+		<string>tabbar_2_s</string>
+		<key>class_name</key>
+		<string>TXSMMessageMainVC</string>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>子</string>
+	<string>丑</string>
+	<string>寅</string>
+	<string>卯</string>
+	<string>辰</string>
+	<string>巳</string>
+	<string>午</string>
+	<string>未</string>
+	<string>申</string>
+	<string>酉</string>
+	<string>戌</string>
+	<string>亥</string>
+</array>
+</plist>

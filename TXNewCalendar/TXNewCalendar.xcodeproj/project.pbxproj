@@ -157,7 +157,6 @@
 		A64D5460202C449C0045E1CE /* public_bg_r@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A64D545D202C449C0045E1CE /* public_bg_r@3x.png */; };
 		A67006632048FF85006A9384 /* TXXLDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A67006622048FF85006A9384 /* TXXLDBManager.m */; };
 		A6700665204920A2006A9384 /* houryiji.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6700664204920A2006A9384 /* houryiji.plist */; };
-		A67006672049272B006A9384 /* aaa.db in Resources */ = {isa = PBXBuildFile; fileRef = A67006662049272B006A9384 /* aaa.db */; };
 		A6700669204CDFCF006A9384 /* zhengchong.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6700668204CDFCF006A9384 /* zhengchong.plist */; };
 		A670066B204CEB73006A9384 /* xingxiuDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A670066A204CEB73006A9384 /* xingxiuDetail.plist */; };
 		A670066F204CEDE0006A9384 /* jianchudetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A670066E204CEDE0006A9384 /* jianchudetail.plist */; };
@@ -318,6 +317,7 @@
 		A6D809CC2047DB0400088BDF /* jianchu.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6D809CB2047DB0400088BDF /* jianchu.plist */; };
 		A6DA1C4C20415A9D0041136F /* TXNewCalendarUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA1C4B20415A9D0041136F /* TXNewCalendarUITests.m */; };
 		A6DA1C5A20415AAF0041136F /* TXNewCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6DA1C5920415AAF0041136F /* TXNewCalendarTests.m */; };
+		A6DC2AA3209ADE2C0058202B /* huanli.db in Resources */ = {isa = PBXBuildFile; fileRef = A6DC2AA2209ADE2C0058202B /* huanli.db */; };
 		A6E59314203136A000E99373 /* guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E593102031369F00E99373 /* guide_1.png */; };
 		A6E59315203136A000E99373 /* guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E593112031369F00E99373 /* guide_0.png */; };
 		A6E59316203136A000E99373 /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6E593122031369F00E99373 /* guide_2.png */; };
@@ -604,7 +604,6 @@
 		A67006612048FF85006A9384 /* TXXLDBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXXLDBManager.h; sourceTree = "<group>"; };
 		A67006622048FF85006A9384 /* TXXLDBManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXXLDBManager.m; sourceTree = "<group>"; };
 		A6700664204920A2006A9384 /* houryiji.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = houryiji.plist; sourceTree = "<group>"; };
-		A67006662049272B006A9384 /* aaa.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = aaa.db; sourceTree = "<group>"; };
 		A6700668204CDFCF006A9384 /* zhengchong.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = zhengchong.plist; sourceTree = "<group>"; };
 		A670066A204CEB73006A9384 /* xingxiuDetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = xingxiuDetail.plist; sourceTree = "<group>"; };
 		A670066E204CEDE0006A9384 /* jianchudetail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = jianchudetail.plist; sourceTree = "<group>"; };
@@ -813,6 +812,7 @@
 		A6DA1C5720415AAF0041136F /* TXNewCalendarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TXNewCalendarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6DA1C5920415AAF0041136F /* TXNewCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXNewCalendarTests.m; sourceTree = "<group>"; };
 		A6DA1C5B20415AAF0041136F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6DC2AA2209ADE2C0058202B /* huanli.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = huanli.db; sourceTree = "<group>"; };
 		A6E593102031369F00E99373 /* guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_1.png; sourceTree = "<group>"; };
 		A6E593112031369F00E99373 /* guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_0.png; sourceTree = "<group>"; };
 		A6E593122031369F00E99373 /* guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_2.png; sourceTree = "<group>"; };
@@ -958,7 +958,7 @@
 		9540D1B32015BAD5005F6751 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
-				A67006662049272B006A9384 /* aaa.db */,
+				A6DC2AA2209ADE2C0058202B /* huanli.db */,
 				9540D1B42015BAD5005F6751 /* TabBarSetting.plist */,
 				95F15CFE2016E5DF00E1340E /* zodiacs.plist */,
 				95F15D002016E67100E1340E /* chineseMonth.plist */,
@@ -1960,7 +1960,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TXXL;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "厦门集网文化传播有限公司";
 				TargetAttributes = {
 					9540D1942015B394005F6751 = {
@@ -2061,6 +2061,7 @@
 				A60370F32047EC6100FC238D /* zhishen.plist in Resources */,
 				95B91ACD20595F55008BCCDA /* 0.dat in Resources */,
 				95B91AD120595F55008BCCDA /* 6.dat in Resources */,
+				A6DC2AA3209ADE2C0058202B /* huanli.db in Resources */,
 				A6C121622029334300246273 /* tabbar_1_s@2x.png in Resources */,
 				A6C1216A2029334300246273 /* almanace_marry@2x.png in Resources */,
 				A6C1215B2029334300246273 /* almanace_all@3x.png in Resources */,
@@ -2083,7 +2084,6 @@
 				A6C1219C2029334400246273 /* grainInEar@3x.png in Resources */,
 				A6C121A02029334400246273 /* frostDescent@3x.png in Resources */,
 				9540D1A22015B394005F6751 /* Assets.xcassets in Resources */,
-				A67006672049272B006A9384 /* aaa.db in Resources */,
 				95EFF206201F1FE700FA27A5 /* TXXLMoreCollectionViewCell.xib in Resources */,
 				A6C1217B2029334300246273 /* open_showweak@3x.png in Resources */,
 				A6C121902029334400246273 /* greatCold@2x.png in Resources */,
@@ -2466,6 +2466,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -2473,6 +2474,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -2521,6 +2523,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -2528,6 +2531,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

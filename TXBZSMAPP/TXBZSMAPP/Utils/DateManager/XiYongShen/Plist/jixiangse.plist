@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>紫色</key>
+	<string>今天适合穿戴紫色的衣服、鞋子、配饰，可以提升个人形象和整日运势。</string>
+	<key>咖啡色</key>
+	<string>今天适合穿戴咖啡色的衣服、鞋子、配饰，可以提升个人形象和整日运势。</string>
+	<key>黄色</key>
+	<string>黄色具有治愈心灵的作用，穿黄色衣服、鞋子，可以助你调节心情。</string>
+	<key>茶色</key>
+	<string>贴近自然的茶色能让你更加脱俗，茶色的服饰可以清新一整天。</string>
+	<key>红色</key>
+	<string>今天你的幸运颜色是红色，穿红色衣服会让你今天变得红红火火。</string>
+	<key>绿色</key>
+	<string>今天绿色可以帮助你开运，多接触绿色会让你内心更安静、平和。</string>
+	<key>青色</key>
+	<string>贴近自然的青色能让你更脱俗，青色的服饰可以清新一整天。</string>
+	<key>翠色</key>
+	<string>翠色是你今天的幸运颜色，可以尝试佩戴翡翠首饰，有助于开运。</string>
+	<key>白色</key>
+	<string>白色象征纯洁、清明，今天多接触白色的东西有助于开运。</string>
+	<key>银色</key>
+	<string>银色象征着纯洁、清明，今天可以尝试佩戴银饰，有助于开运。</string>
+	<key>金色</key>
+	<string>充满贵气的金色是你今天的新云色，不妨佩戴金首饰来开运。</string>
+	<key>黑色</key>
+	<string>今天适合穿戴黑色的衣服鞋子、配饰，可以提升个人形象和整日运势</string>
+	<key>灰色</key>
+	<string>今天适合穿戴灰色的衣服、鞋子、配饰，可以提升个人形象和整日运势。</string>
+	<key>蓝色</key>
+	<string>今天适合穿戴蓝色的衣服、鞋子、配饰，蓝色也可以平和心境</string>
+	<key>褐色</key>
+	<string>褐色代表着沉稳，今天穿着褐色的服装有助于稳定你的好运气。</string>
+</dict>
+</plist>

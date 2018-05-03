@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+inhibit_all_warnings!
+use_frameworks!
+target 'TXBZSMAPP' do 
+pod 'AFNetworking'
+pod 'ReactiveObjC'
+pod 'Masonry'
+pod 'YYModel'
+pod 'FDFullscreenPopGesture'
+pod 'MJRefresh'
+pod 'SDWebImage/Core'
+pod 'WechatOpenSDK'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/aliyun/aliyun-specs.git'
+pod 'AlicloudMAN'
+
+end

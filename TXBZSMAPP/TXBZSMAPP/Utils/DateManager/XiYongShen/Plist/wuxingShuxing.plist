@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   wuxingShuxing.plist
+   TXBZSMAPP
+
+   Created by shaokai lin on 2018/5/2.
+   Copyright (c) 2018年 厦门天象文化传播有限公司. All rights reserved.
+-->
+<plist version="1.0">
+    <dict><key>甲</key><string>木</string><key>乙</key><string>木</string><key>丙</key><string>火</string><key>丁</key><string>火</string><key>戊</key><string>土</string><key>己</key><string>土</string><key>庚</key><string>金</string><key>辛</key><string>金</string><key>壬</key><string>水</string><key>癸</key><string>水</string><key>子</key><string>水</string><key>丑</key><string>土</string><key>寅</key><string>木</string><key>卯</key><string>木</string><key>辰</key><string>土</string><key>巳</key><string>火</string><key>午</key><string>火</string><key>未</key><string>土</string><key>申</key><string>金</string><key>酉</key><string>金</string><key>戌</key><string>土</string><key>亥</key><string>水</string></dict>
+</plist>
