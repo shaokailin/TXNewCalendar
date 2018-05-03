@@ -1,6 +1,0 @@
-framework module Pods_TXTJSMAPP {
-  umbrella header "Pods-TXTJSMAPP-umbrella.h"
-
-  export *
-  module * { export * }
-}
