@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Extend)
+-(NSInteger)getXingzuo;
 /**
  获取星期几
 

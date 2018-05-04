@@ -113,30 +113,31 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     }
     return array;
 }
-//获取日期节日
-- (NSString *)getHasHolidayString {
-    NSString *dataString = NSStringFormat(@"%zd-%zd",_month,_day);
+- (NSString *)getHoliday:(NSDate *)date {
+    unsigned unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay;
+    NSDateComponents *localeComp = [_localeCalendar components:unitFlags fromDate:date];
+    NSDateComponents *comps = [_chinessCalendar components:unitFlags fromDate:date];
+    
+    NSString *dataString = NSStringFormat(@"%ld-%zd",(long)localeComp.month,localeComp.day);
     if ([self.lunDic.allKeys containsObject:dataString]) {
         return [self.lunDic objectForKey:dataString];
     }
-    NSString *chinessString = NSStringFormat(@"%zd-%zd",_chineseMonth,_chineseDay);
+    NSString *chinessString = NSStringFormat(@"%ld-%zd",(long)comps.month,comps.day);
     if ([self.chineseHoliDay.allKeys containsObject:chinessString]) {
         return [self.chineseHoliDay objectForKey:chinessString];
     }
-    unsigned unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay;
-    NSDateComponents *localeComp = [_localeCalendar components:unitFlags fromDate:_searchDate];
     //母亲节
     localeComp.month = 5;
     localeComp.day = 1;
     NSInteger week_now = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex]-1;
-    NSString *motherDayStr = [NSString stringWithFormat:@"5-%zd", week_now == 0 ? 8 : 15 -week_now];
+    NSString *motherDayStr = [NSString stringWithFormat:@"5-%ld", (week_now == 0 ? 8 : 15 -week_now)];
     if ([motherDayStr isEqualToString:dataString]) {
         return @"母亲节";
     }else {
         //父亲节
         localeComp.month = 6;
         NSInteger week_now2 = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex] - 1;
-        NSString *fatherDayStr = [NSString stringWithFormat:@"6-%zd", week_now2 == 0 ? 1 : 22 -week_now2];
+        NSString *fatherDayStr = [NSString stringWithFormat:@"6-%ld", (week_now2 == 0 ? 1 : 22 -week_now2)];
         if ([fatherDayStr isEqualToString:dataString]) {
             return @"父亲节";
         }else {
@@ -144,13 +145,22 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
             localeComp.month = 11;
             NSInteger week_now3 = [[_localeCalendar dateFromComponents:localeComp] getWeekIndex] - 1;
             NSInteger thanksgivingDayDay = (4 >= week_now3) ? ((4 - week_now3) + 22) : (28 - (week_now3 - 5));
-            NSString *thanksgivingDayStr = [NSString stringWithFormat:@"11-%zd",thanksgivingDayDay];
+            NSString *thanksgivingDayStr = [NSString stringWithFormat:@"11-%ld",(long)thanksgivingDayDay];
             if ([thanksgivingDayStr isEqualToString:dataString]) {
                 return @"感恩节";
-              }
             }
         }
-    return [self solartermFromDate:_searchDate];
+    }
+    return nil;
+}
+//获取日期节日
+- (NSString *)getHasHolidayString {
+    NSString *holiday = [self getHoliday:_searchDate];
+    if (holiday == nil) {
+        return [self solartermFromDate:_searchDate];
+    }else {
+        return holiday;
+    }
 }
 - (void)getSolartermDateListWithYear:(NSInteger)year {
     if (_solartermDateYear == year) {
@@ -934,6 +944,31 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
     _dtgdzString = nil;
     
 }
+- (void)setBirthdayDate:(NSDate *)birthdayDate {
+    unsigned unitFlags = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute;
+    NSDateComponents *localeComp = [_localeCalendar components:unitFlags fromDate:birthdayDate];
+    _searchDate = birthdayDate;
+    if (localeComp.year != _year || localeComp.month != _month || localeComp.day != _day ) {
+        NSDateComponents *comps = [_chinessCalendar components:unitFlags fromDate:_searchDate];
+        _chinesSYear = comps.year;
+        
+        _chineseDay = comps.day;
+        _chineseMonth = comps.month;
+        _weekString = [birthdayDate getWeekDate];
+        if (_year != localeComp.year) {
+            _springStartDate = nil;
+        }
+        _year = localeComp.year;
+        _month = localeComp.month;
+        _day = localeComp.day;
+    }
+    _hour = localeComp.hour;
+    _monthDiZhi = -1;
+    _tgdzString = nil;
+    _dtgdzString = nil;
+}
+
+
 - (NSInteger)monthDiZhi {
     if (_monthDiZhi == -1) {
         _monthDiZhi = [self mouthZhiIndex];

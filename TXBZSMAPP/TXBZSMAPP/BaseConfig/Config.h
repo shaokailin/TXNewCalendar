@@ -11,13 +11,21 @@
 //单利对象
 #import "TXXLSharedInstance.h"
 #define kUserMessageManager [TXXLSharedInstance sharedInstance]
+
 //颜色
 #import "TXXLColorManager.h"
 //自定义View
 #import "TXXLViewManager.h"
 //公共方法
 #import "TXXLPublicMethod.h"
+
+#import "TXBZSMHappyManager.h"
+
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
+
+static NSString * const kFortuneHomeHot = @"61";
+static NSString * const kFortuneHomeAd = @"62";
+
 static NSString * const kCalculateBannerId = @"43";
 static NSString * const kCalculateNavigationId = @"45";
 static NSString * const kCalculateFeelingId = @"44";

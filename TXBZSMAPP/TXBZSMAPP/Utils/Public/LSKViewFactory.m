@@ -188,7 +188,16 @@
     }
     [[UINavigationBar appearance] setShadowImage:[LSKImageManager imageWithColor:lineColor size:CGSizeMake(SCREEN_WIDTH, 0.5)]];
 }
-
++ (void)setupMainNavigationBgImage:(UIImage *)bgImage titleFont:(CGFloat)font titleColor:(UIColor *)titleColor lineColor:(UIColor *)lineColor{
+    UINavigationBar *navigationBar = [UINavigationBar appearance];
+    navigationBar.translucent = NO;
+    navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : titleColor,NSFontAttributeName : FontNornalInit(font)};
+    [[UINavigationBar appearance]  setBackgroundImage:bgImage forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    if (lineColor == nil) {
+        lineColor = [UIColor clearColor];
+    }
+    [[UINavigationBar appearance] setShadowImage:[LSKImageManager imageWithColor:lineColor size:CGSizeMake(SCREEN_WIDTH, 0.5)]];
+}
 + (UIViewController *)getCurrentViewController {
     UIViewController *resultVC;
     resultVC = [[self class] _topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];

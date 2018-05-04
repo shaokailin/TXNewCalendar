@@ -135,7 +135,7 @@
  @param lineColor 线颜色
  */
 + (void)setupMainNavigationBgColor:(UIColor *)bgColor titleFont:(CGFloat)font titleColor:(UIColor *)titleColor lineColor:(UIColor *)lineColor;
-
++ (void)setupMainNavigationBgImage:(UIImage *)bgImage titleFont:(CGFloat)font titleColor:(UIColor *)titleColor lineColor:(UIColor *)lineColor;
 /**
  获取当前的控制器
 

@@ -10,7 +10,7 @@
 #import "SynthesizeSingleton.h"
 #import "TXSMMessageDetailVC.h"
 #import "AppDelegate.h"
-NSString * const kAppOpenKey = @"txbzsm://";
+NSString * const kAppOpenKey = @"txyyyc://";
 
 //type = 1 跳转url  type == 2 tabbar select :index
 @implementation TXSMUrlRouteInstance

@@ -22,8 +22,10 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     // Do any additional setup after loading the view.
     //设置不全局布局
     [self setupNotFullScreen];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.view.backgroundColor = KColorHexadecimal(kMainBackground_Color, 1.0);
 }
+
 - (CGFloat)viewMainHeight {
     return SCREEN_HEIGHT - STATUSBAR_HEIGHT - [self navibarHeight];
 }

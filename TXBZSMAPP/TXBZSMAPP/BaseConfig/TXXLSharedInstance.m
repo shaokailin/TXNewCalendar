@@ -10,7 +10,12 @@
 #import "SynthesizeSingleton.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import <AdSupport/AdSupport.h>
-NSString * const KEY_UUID_INSTEAD = @"com.tx.tjms";
+static NSString * const kBirthdayFormatter = @"yyyy-MM-dd HH:mm";
+static NSString * const KEY_UUID_INSTEAD = @"com.tx.yyyc";
+static NSString * const kUserPhotoName = @"userPhoto12";
+static NSString * const kUserNickname = @"Nickname34";
+static NSString * const kUserBirthday = @"Birthday23";
+static NSString * const kUserSex = @"Sex45";
 @interface TXXLSharedInstance ()
 {
     BOOL _isShow;
@@ -24,10 +29,53 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
 - (instancetype)init {
     if (self = [super init]) {
         _iphoneIdentifier = [self getDeviceIDInKeychain];
+        [self getUserMessage];
     }
     return self;
 }
-
+- (void)getUserMessage {
+    NSString *birthday = [self getMessageManagerForObjectWithKey:kUserBirthday];
+    if (KJudgeIsNullData(birthday)) {
+        _isBoy = [self getMessageManagerForBoolWithKey:kUserSex];
+        NSString *string = [NSString stringWithContentsOfFile:[self returnPhotoPath] encoding:NSUTF8StringEncoding error:nil];
+        NSData *data = [[NSData alloc]initWithBase64EncodedString:string options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        if (data) {
+            _userPhoto = [UIImage imageWithData:data];
+        }else {
+            _userPhoto = _isBoy == YES? ImageNameInit(@"boy"):ImageNameInit(@"girl");
+        }
+        _nickName = [self getMessageManagerForObjectWithKey:kUserNickname];
+    }else {
+        birthday = @"1991-06-06 21:30";
+        _isBoy = YES;
+        _userPhoto = _isBoy == YES? ImageNameInit(@"boy"):ImageNameInit(@"girl");
+        _nickName = _isBoy == YES? @"小帅":@"小靓";
+    }
+    _birthDay = [NSDate stringTransToDate:birthday withFormat:kBirthdayFormatter];
+    
+}
+- (void)setBirthDay:(NSDate *)birthDay {
+    _birthDay = birthDay;
+    [self setMessageManagerForObjectWithKey:kUserBirthday value:[birthDay dateTransformToString:kBirthdayFormatter]];
+}
+- (void)changeUserPhoto:(UIImage *)image {
+    self.userPhoto = image;
+    NSData *data = UIImageJPEGRepresentation(image, 0.8);
+    NSData *base64Data = [data base64EncodedDataWithOptions:0];
+    NSString *baseString = [[NSString alloc]initWithData:base64Data encoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    [baseString writeToFile:[self returnPhotoPath] atomically:YES encoding:NSUTF8StringEncoding error:&error];
+    if (error == nil) {
+        LSKLog(@"成功");
+    }else {
+        LSKLog(@"失败----%@",error);
+    }
+}
+- (NSString *)returnPhotoPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = NSStringFormat(@"%@%@",[paths lastObject],kUserPhotoName);
+    return path;
+}
 #pragma mark -统计
 - (void)analiticsViewAppear:(UIViewController *)vc {
     [[ALBBMANPageHitHelper getInstance] pageAppear:vc];

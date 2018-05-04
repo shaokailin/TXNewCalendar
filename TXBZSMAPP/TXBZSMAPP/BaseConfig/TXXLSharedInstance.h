@@ -9,6 +9,14 @@
 #import "LSKMessageManage.h"
 
 @interface TXXLSharedInstance : LSKMessageManage
+#pragma mark - 用户资料
+//
+@property (nonatomic, strong) NSDate *birthDay;
+@property (nonatomic, assign) BOOL isBoy;
+@property (nonatomic, copy) NSString *nickName;
+@property (nonatomic, strong) UIImage *userPhoto;
+- (void)changeUserPhoto:(UIImage *)image;
+
 @property (nonatomic, copy) NSString *iphoneIdentifier;
 + (TXXLSharedInstance *)sharedInstance;
 - (void)hidenAlertView;

@@ -187,5 +187,124 @@ static NSCalendar * _calendar = nil;
     }
     return week;
 }
-
+-(NSInteger)getXingzuo {
+    [self setupCalendar];
+    NSDateComponents *comps = [_calendar components:NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    NSInteger i_month = comps.month;
+    NSInteger i_day = comps.day;
+    NSInteger index = 0;
+    /*
+     摩羯座 12月22日------1月19日
+     水瓶座 1月20日-------2月18日
+     双鱼座 2月19日-------3月20日
+     白羊座 3月21日-------4月19日
+     金牛座 4月20日-------5月20日
+     双子座 5月21日-------6月21日
+     巨蟹座 6月22日-------7月22日
+     狮子座 7月23日-------8月22日
+     处女座 8月23日-------9月22日
+     天秤座 9月23日------10月23日
+     天蝎座 10月24日-----11月21日
+     射手座 11月22日-----12月21日
+     */
+    switch (i_month) {
+        case 1:
+            if(i_day>=20 && i_day<=31){
+                index = 10;
+            }
+            if(i_day>=1 && i_day<=19){
+                index = 9;
+            }
+            break;
+        case 2:
+            if(i_day>=1 && i_day<=18){
+                index = 10;
+            }
+            if(i_day>=19 && i_day<=31){
+                index = 11;
+            }
+            break;
+        case 3:
+            if(i_day>=1 && i_day<=20){
+                index = 11;
+            }
+            if(i_day>=21 && i_day<=31){
+                index = 0;
+            }
+            break;
+        case 4:
+            if(i_day>=1 && i_day<=19){
+                index = 0;
+            }
+            if(i_day>=20 && i_day<=31){
+                index = 1;
+            }
+            break;
+        case 5:
+            if(i_day>=1 && i_day<=20){
+                index = 1;
+            }
+            if(i_day>=21 && i_day<=31){
+                index = 2;
+            }
+            break;
+        case 6:
+            if(i_day>=1 && i_day<=21){
+                index = 2;
+            }
+            if(i_day>=22 && i_day<=31){
+                index = 3;
+            }
+            break;
+        case 7:
+            if(i_day>=1 && i_day<=22){
+                index = 3;
+            }
+            if(i_day>=23 && i_day<=31){
+                index = 4;
+            }
+            break;
+        case 8:
+            if(i_day>=1 && i_day<=22){
+                index = 4;
+            }
+            if(i_day>=23 && i_day<=31){
+                index = 5;
+            }
+            break;
+        case 9:
+            if(i_day>=1 && i_day<=22){
+                index = 5;
+            }
+            if(i_day>=23 && i_day<=31){
+                index = 6;
+            }
+            break;
+        case 10:
+            if(i_day>=1 && i_day<=23){
+                index = 6;
+            }
+            if(i_day>=24 && i_day<=31){
+                index = 7;
+            }
+            break;
+        case 11:
+            if(i_day>=1 && i_day<=21){
+                index = 7;
+            }
+            if(i_day>=22 && i_day<=31){
+                index = 8;
+            }
+            break;
+        case 12:
+            if(i_day>=1 && i_day<=21){
+                index = 8;
+            }
+            if(i_day>=21 && i_day<=31){
+                index = 9;
+            }
+            break;
+    }
+    return index;
+}
 @end

@@ -12,6 +12,7 @@
 + (TXXLDateManager *)sharedInstance;
 
 @property (nonatomic, strong) NSDate *searchDate;
+@property (nonatomic, strong) NSDate *birthdayDate;
 @property (nonatomic, assign, readonly) NSInteger chineseYear;
 @property (nonatomic, assign, readonly) NSInteger chineseMonth;
 @property (nonatomic, assign, readonly) NSInteger chineseDay;
@@ -37,6 +38,8 @@
 
 //获取节假日
 - (NSString *)getHasHolidayString;
+- (NSString *)getHoliday:(NSDate *)date;
+- (NSString *)solartermFromDate:(NSDate *)date;
 //获取中国的农历日  初1修改成日子
 - (NSString *)calendarChineseString;
 //获取星座

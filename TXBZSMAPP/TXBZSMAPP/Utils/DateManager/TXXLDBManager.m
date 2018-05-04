@@ -8,7 +8,7 @@
 
 #import "TXXLDBManager.h"
 #import <FMDB/FMDB.h>
-static NSString * const kDBName = @"almanacDB";
+static NSString * const kDBName = @"huanli";
 @interface TXXLDBManager ()
 @property (strong ,nonatomic)FMDatabase *fmDB;
 @end
@@ -16,7 +16,7 @@ static NSString * const kDBName = @"almanacDB";
 
 - (instancetype)init {
     if (self = [super init]) {
-        NSString *tDbFilePath=[[NSBundle mainBundle]pathForResource:@"aaa" ofType:@"db"];
+        NSString *tDbFilePath=[[NSBundle mainBundle]pathForResource:kDBName ofType:@"db"];
         self.fmDB = [FMDatabase databaseWithPath:tDbFilePath];
         if ([self.fmDB open]) {
             LSKLog(@"111");
@@ -43,6 +43,13 @@ static NSString * const kDBName = @"almanacDB";
 }
 - (NSDictionary *)selectSearch:(NSString *)key isAvoid:(BOOL)isAvoid {
     //SELECT gz,yue FROM bw_huanglijixiong WHERE yi LIKE '%嫁娶%';
+    if ([key isEqualToString:@"搬家"]) {
+        key = @"移徙";
+    }else if ([key isEqualToString:@"装修"]){
+        key = @"修置产室";
+    }else if ([key isEqualToString:@"结婚"]){
+        key = @"结婚姻";
+    }
     NSString *selectSQLString = [NSString stringWithFormat:@"SELECT gz,yue FROM bw_huanglijixiong WHERE %@ LIKE '%%%@%%' ORDER BY yue",isAvoid == YES?@"ji":@"yi",key];
     FMResultSet *fmsr = [self.fmDB executeQuery:selectSQLString];
     if (!fmsr) {

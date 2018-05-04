@@ -14,4 +14,6 @@
 - (NSString *)getHappyGod:(NSDate *)date;
 //获取八卦
 - (void)getGossipMessage:(NSDate *)date isBoy:(BOOL)isBoy;
+//获取先天总运
+- (NSDictionary *)getXtzyDate:(NSDate *)date;
 @end

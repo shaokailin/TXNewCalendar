@@ -2,12 +2,104 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>移徙</key>
+	<string>指搬家迁移人主所之意。</string>
+	<key>结婚</key>
+	<string>举行结婚大典的吉日</string>
+	<key>大事勿用</key>
+	<string>结婚、入宅、开市等重大事情不适宜在这天进行。</string>
+	<key>诸事不利</key>
+	<string>在这天举办结婚、入宅、开市等事情不适合。</string>
+	<key>诸事不宜</key>
+	<string>在当天做什么事都不好，都不适宜。</string>
+	<key>掘井</key>
+	<string>黄历中的“开渠穿井”，开凿水井，安装取水设备；</string>
+	<key>筑堤防</key>
+	<string>修筑拦水的堤坝</string>
+	<key>修饰垣墙</key>
+	<string>修缮矮墙。现在多理解成装修或修建墙院之类的建筑</string>
+	<key>上册受封</key>
+	<string>适合给中央写信，接受中央的任命、表彰</string>
+	<key>扫舍宇</key>
+	<string>冲洗宅舍、解除灾厄</string>
+	<key>牧养</key>
+	<string>牧养家畜。</string>
+	<key>出货财</key>
+	<string>借贷财物或货物的意思</string>
+	<key>乘船</key>
+	<string>坐船</string>
+	<key>安碓硙</key>
+	<string>安放舂米的石磨</string>
+	<key>苫盖</key>
+	<string>采用专用苫盖材料对货垛进行遮盖</string>
+	<key>远回</key>
+	<string>归乡、回家</string>
+	<key>启攒</key>
+	<string>指“洗骨”之事。俗谓“拾金”也。</string>
+	<key>纳畜</key>
+	<string>买入家畜饲养之事。</string>
+	<key>畋猎</key>
+	<string>打猎或捕捉禽兽。</string>
+	<key>针刺</key>
+	<string>古代指针灸或给奴隶纹身、现代包括打针</string>
+	<key>疗目</key>
+	<string>治疗眼睛</string>
+	<key>平治道涂</key>
+	<string>指铺平道路等工事。</string>
+	<key>破屋坏垣</key>
+	<string>指拆除房屋或围墙。</string>
+	<key>补垣</key>
+	<string>修补房屋或者围墙。</string>
+	<key>补垣塞穴</key>
+	<string>修补墙垣，堵塞洞穴</string>
+	<key>穿井</key>
+	<string>开井，开水井</string>
+	<key>修置产室</key>
+	<string>装修房子</string>
+	<key>开仓库</key>
+	<string>出货财、商家之出货、销货、放债</string>
+	<key>纳财</key>
+	<string>购置产业、进货、收帐、收租、讨债、贷款、五谷入仓等。</string>
+	<key>立券交易</key>
+	<string>订立各种契约互相买卖之事。</string>
+	<key>酝酿</key>
+	<string>指酿酒、造酱料等事。</string>
+	<key>经络</key>
+	<string>安机器、织布、收蚕、安纺车、机器。</string>
+	<key>鼓铸</key>
+	<string>鼓风扇火,冶炼金属 </string>
+	<key>修仓库</key>
+	<string>建筑仓库或修理仓库。</string>
+	<key>竖柱</key>
+	<string>竖立建筑物的柱子。</string>
+	<key>求医疗病</key>
+	<string>仅指求医治疗慢性痼疾或动手术。</string>
+	<key>整手足甲</key>
+	<string>初生婴儿第一次修剪手足甲。</string>
+	<key>解除</key>
+	<string>扫舍；指冲洗宅舍、解除灾厄。</string>
+	<key>搬家</key>
+	<string>指搬家迁移人主所之意。</string>
+	<key>进人口</key>
+	<string>指收纳养子女而言。</string>
+	<key>问名</key>
+	<string>男女双方各取年庚，供于神案，经数日无事即可合婚。</string>
+	<key>纳采</key>
+	<string>缔结婚姻的仪式、受授聘金。</string>
+	<key>结婚姻</key>
+	<string>(嫁娶)结婚典礼、迎亲之日</string>
+	<key>冠笄</key>
+	<string>“冠”指男、“笄”指女、举行男女成人的仪式、称之为冠笄。</string>
+	<key>斋醮</key>
+	<string>庙宇建斋前需举行的斋戒仪式。</string>
+	<key>上官赴任</key>
+	<string>走马上任。</string>
 	<key>装修</key>
-	<string>指阳宅之建造与修理。</string>
+	<string>装修房子</string>
 	<key>领养</key>
 	<string>指收纳养子养女</string>
 	<key>入宅</key>
-	<string>指搬入新房子而非二手房</string>
+	<string>搬入新家；</string>
 	<key>放债</key>
 	<string>借钱给人以收取利息。</string>
 	<key>诉讼</key>
@@ -21,7 +113,7 @@
 	<key>立契</key>
 	<string>签订合同，订立契约等商业、法律行为。</string>
 	<key>开市</key>
-	<string>开业之意。新设店铺商行或新厂开幕等事。</string>
+	<string>开业之意。商店行号开张做生意。“开幕礼”“开工”同。</string>
 	<key>交易</key>
 	<string>订立各种契约互相买卖之事，同立券。</string>
 	<key>出货</key>
@@ -39,23 +131,23 @@
 	<key>上染色</key>
 	<string>用颜料使物体具有某种颜色。</string>
 	<key>裁衣</key>
-	<string>指婚前准备新衣、钗环等。现指买新衣服。</string>
+	<string>裁制新娘衣服或制作寿衣。</string>
 	<key>伐木</key>
-	<string>指砍伐树木，修剪花木花枝。</string>
+	<string>采伐林木</string>
 	<key>开渠</key>
-	<string>开挖水渠，兴修水利。</string>
+	<string>建造建筑物内或附件的水沟、现代包括下水道</string>
 	<key>修补</key>
 	<string>修理破损之物使之完好。</string>
 	<key>取鱼</key>
-	<string>指把养好的鱼取出来卖。</string>
+	<string>亦作“取渔”，指把养好的鱼取出来卖。</string>
 	<key>捕捉</key>
-	<string>即扑灭农作物害虫或生物。</string>
+	<string>扑灭农作物害虫或生物。</string>
 	<key>平道</key>
 	<string>指铺平道路等工事。</string>
 	<key>栽种</key>
-	<string>指种植植物、接枝等农事。</string>
+	<string>栽种植物，或接枝。</string>
 	<key>渡水</key>
-	<string>乘船通过江河。</string>
+	<string>通过江河</string>
 	<key>打井</key>
 	<string>开凿水井，安装取水设备。</string>
 	<key>安床</key>
@@ -65,19 +157,17 @@
 	<key>破屋</key>
 	<string>拆屋或局部改造。</string>
 	<key>剃头</key>
-	<string>剃胎发或削发出家。</string>
+	<string>初生婴儿剃胎头或削发出家。</string>
 	<key>修造</key>
-	<string>指阳宅之建造与修理。</string>
+	<string>指阳宅之坚造与修理。</string>
 	<key>求医</key>
 	<string>就医，请大夫看病。</string>
 	<key>求嗣</key>
-	<string>向神明祈求后嗣（子孙）之意。</string>
+	<string>指向神明祈求后嗣（子孙）之意。</string>
 	<key>祈福</key>
 	<string>祈求神明降福或设醮还愿之事。</string>
 	<key>动土</key>
-	<string>指阳宅（即住房）之建造与修理。</string>
-	<key>搬家</key>
-	<string>指搬入旧屋（非新宅）。</string>
+	<string>建筑房屋时、第一次动起锄头挖土。</string>
 	<key>作灶</key>
 	<string>安修厨灶、厨炉移位。</string>
 	<key>拆屋</key>
@@ -85,26 +175,26 @@
 	<key>上官</key>
 	<string>走马上任，上官赴任。</string>
 	<key>沐浴</key>
-	<string>祈福、许愿而沐浴斋戒，洗澡。</string>
+	<string>指沐浴斋戒而言。</string>
 	<key>出行</key>
-	<string>外出旅游，观光游览。</string>
+	<string>指外出旅行、观光游览。</string>
 	<key>上梁</key>
-	<string>装上建筑物屋顶的梁木，同架马。</string>
+	<string>装上建筑物屋顶的梁木。</string>
 	<key>会亲友</key>
-	<string>与亲戚朋友联络交往。</string>
+	<string>和亲友相聚</string>
 	<key>安葬</key>
 	<string>举行埋葬等仪式。</string>
 	<key>破土</key>
-	<string>仅指埋葬用的破土，属阴宅。</string>
+	<string>指埋葬死人。</string>
 	<key>疗病</key>
 	<string>治疗疾病。</string>
 	<key>嫁娶</key>
-	<string>男婚女嫁，举行结婚大典的吉日。</string>
+	<string>男娶女嫁，举行结婚大典的吉日。</string>
 	<key>订婚</key>
 	<string>同纳采。受授聘金，可用于合婚订婚。</string>
 	<key>祭祀</key>
-	<string>即拜祭祖先或祭拜神明等。</string>
+	<string>指祠堂之祭祀、即拜祭祖先或庙寺的祭拜、拜神明等事。</string>
 	<key>入学</key>
-	<string>应聘中的报名，开学典礼。</string>
+	<string>古时指入学堂，现代可用于应聘中的报名，开学典礼。</string>
 </dict>
 </plist>

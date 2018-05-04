@@ -37,7 +37,7 @@ static const BOOL kIsOnline = NO;
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     //设置导航栏的全局样式
-    [LSKViewFactory setupMainNavigationBgColor:KColorUtilsString(kNavigationBackground_Color) titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
+    [LSKViewFactory setupMainNavigationBgImage:ImageNameInit(@"navigationbg") titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
     
     [self windowRootController];
     [self.window makeKeyAndVisible];

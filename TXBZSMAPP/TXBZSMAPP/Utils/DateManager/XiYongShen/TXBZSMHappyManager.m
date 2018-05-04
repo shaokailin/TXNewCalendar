@@ -156,5 +156,11 @@ SYNTHESIZE_SINGLETON_CLASS(TXBZSMHappyManager);
     
     NSLog(@"%@",position);
 }
-
+- (NSDictionary *)getXtzyDate:(NSDate *)date {
+    [TXXLDateManager sharedInstance].birthdayDate = date;
+    NSDictionary *dict = [NSDictionary dictionaryWithPlist:@"xiantianzongyun"];
+    NSString *dgz = [[TXXLDateManager sharedInstance]getGanzhiDay];
+    NSDictionary *data = [dict objectForKey:dgz];
+    return data;
+}
 @end
