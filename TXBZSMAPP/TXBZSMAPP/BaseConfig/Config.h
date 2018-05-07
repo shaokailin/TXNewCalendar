@@ -18,7 +18,7 @@
 #import "TXXLViewManager.h"
 //公共方法
 #import "TXXLPublicMethod.h"
-
+#import "TXXLDateManager.h"
 #import "TXBZSMHappyManager.h"
 
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";

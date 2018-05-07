@@ -29,6 +29,8 @@
 @property (nonatomic, copy, readwrite) NSString *tgdzString;//天干地支
 //天的天干地支
 @property (nonatomic, copy, readwrite) NSString *dtgdzString;
+//获取时辰的中国时段
+- (NSString *)getHourChinese;
 //小时的天干地支
 - (NSString *)getHourTianGanDizhi;
 //月的天干地支

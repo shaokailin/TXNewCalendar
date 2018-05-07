@@ -46,7 +46,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
         }
         _nickName = [self getMessageManagerForObjectWithKey:kUserNickname];
     }else {
-        birthday = @"1991-06-06 21:30";
+        birthday = @"1991-06-05 21:30";
         _isBoy = YES;
         _userPhoto = _isBoy == YES? ImageNameInit(@"boy"):ImageNameInit(@"girl");
         _nickName = _isBoy == YES? @"小帅":@"小靓";

@@ -872,6 +872,11 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLDateManager);
 - (NSDictionary *)getDictWithPlist:(NSString *)name {
     return [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:name ofType:@"plist"]];
 }
+- (NSString *)getHourChinese {
+    NSInteger index = [self returnHourIndex:_hour];
+    NSString *dizhi = [self getDiZhiHour:index];
+    return dizhi;
+}
 //获取初几
 - (NSString *)chineseDayString {
     if (_chineseDay > 0) {

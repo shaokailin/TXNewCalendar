@@ -16,4 +16,8 @@
 - (void)getGossipMessage:(NSDate *)date isBoy:(BOOL)isBoy;
 //获取先天总运
 - (NSDictionary *)getXtzyDate:(NSDate *)date;
+//获取财运和桃花位
+- (NSDictionary *)getMoneyAndLovePosition:(NSDate *)date;
+//获取吉祥色
+- (NSDictionary *)getLuckColor:(NSDate *)date bitrhDay:(NSDate *)birthday;
 @end

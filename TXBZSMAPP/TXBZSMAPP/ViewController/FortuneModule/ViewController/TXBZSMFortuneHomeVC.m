@@ -12,6 +12,7 @@
 #import "TXBZSMFortuneHeaderView.h"
 #import "TXBZSMFortuneHomeVM.h"
 #import "TXSMMessageDetailVC.h"
+#import "TXBZSMTodayFortuneVC.h"
 static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 @interface TXBZSMFortuneHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -114,12 +115,23 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
             }
         }
     }else if (type == 2) {
-        if (!_dataDictionary) {
-            _isJumpFortune = YES;
-            [_viewModel getHomeData:NO];
-        }else {
-            
-        }
+        TXBZSMTodayFortuneVC *today = [[TXBZSMTodayFortuneVC alloc]init];
+        today.dataDictionary = _xingzuoDictionry;
+        today.xingzuo = _viewModel.xingzuo;
+        @weakify(self)
+        today.refreshBlock = ^(NSDictionary *data) {
+            @strongify(self)
+            self->_dataDictionary = data;
+            [self.headerView setupTodayData:[data objectForKey:@"today"]];
+        };
+        today.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:today animated:YES];
+//        if (!_dataDictionary) {
+//            _isJumpFortune = YES;
+//            [_viewModel getHomeData:NO];
+//        }else {
+//
+//        }
     }
 }
 #pragma mark - delegate

@@ -163,4 +163,27 @@ SYNTHESIZE_SINGLETON_CLASS(TXBZSMHappyManager);
     NSDictionary *data = [dict objectForKey:dgz];
     return data;
 }
+- (NSDictionary *)getMoneyAndLovePosition:(NSDate *)date {
+    TXXLDateManager *manager = [TXXLDateManager sharedInstance];
+    manager.searchDate = date;
+    NSString *dgz = [[manager getGanzhiDay]substringToIndex:1];
+    NSDictionary *position = [NSDictionary dictionaryWithPlist:@"moenyLovePosition"];
+    NSDictionary *dict = [position objectForKey:dgz];
+    NSDictionary *loveDetail = [NSDictionary dictionaryWithPlist:@"lovePosity"];
+    NSDictionary *moneyDetail = [NSDictionary dictionaryWithPlist:@"moneyPosition"];
+    NSString *moneyKey = [dict objectForKey:@"money"];
+    NSString *loveKey = [dict objectForKey:@"love"];
+    return @{@"money":@{@"title":moneyKey,@"detail":[moneyDetail objectForKey:moneyKey]},@"love":@{@"title":loveKey,@"detail":[loveDetail objectForKey:loveKey]}};
+}
+- (NSDictionary *)getLuckColor:(NSDate *)date bitrhDay:(NSDate *)birthday {
+    TXXLDateManager *manager = [TXXLDateManager sharedInstance];
+    manager.birthdayDate = birthday;
+    NSString *dgz = [[manager getGanzhiDay]substringToIndex:1];
+    NSDictionary *colorResult = [NSDictionary dictionaryWithPlist:@"jixiangseResult"];
+    NSArray *array = [colorResult objectForKey:dgz];
+    NSString *value = [array objectAtIndex:[[date dateTransformToString:@"dd"]integerValue]];
+    NSDictionary *detailDict = [NSDictionary dictionaryWithPlist:@"jixiangse"];
+    NSString *detail = [detailDict objectForKey:value];
+    return @{@"title":value,@"detail":detail};
+}
 @end
