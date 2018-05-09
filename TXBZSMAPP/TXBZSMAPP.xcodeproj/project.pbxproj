@@ -73,7 +73,6 @@
 		A6617AEB20A2D4A000ACD878 /* TaoismGod.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6617AEA20A2D4A000ACD878 /* TaoismGod.plist */; };
 		A6617AED20A2D4C000ACD878 /* BuddhismGod.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6617AEC20A2D4C000ACD878 /* BuddhismGod.plist */; };
 		A6617AEF20A2D6D700ACD878 /* yellowback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */; };
-		A6617AF120A2D72800ACD878 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF020A2D72800ACD878 /* god_navi_god@2x.png */; };
 		A6617AF320A2D74400ACD878 /* gobBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF220A2D74300ACD878 /* gobBg@2x.png */; };
 		A6617AF520A2D76900ACD878 /* nogod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF420A2D76900ACD878 /* nogod@2x.png */; };
 		A6617B1520A2E89B00ACD878 /* diguan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF720A2E89600ACD878 /* diguan@2x.png */; };
@@ -121,6 +120,7 @@
 		A6617B4F20A2ECF800ACD878 /* nilepus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4020A2ECF800ACD878 /* nilepus@2x.png */; };
 		A6617B5020A2ECF800ACD878 /* guanyinpusha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4120A2ECF800ACD878 /* guanyinpusha@2x.png */; };
 		A6617B5120A2ECF800ACD878 /* qianshouguanyin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4220A2ECF800ACD878 /* qianshouguanyin@2x.png */; };
+		A6617B5620A2F73300ACD878 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B5520A2F73300ACD878 /* god_navi_god@2x.png */; };
 		A695A22F209462C4009C95EB /* nayindetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F5209462C4009C95EB /* nayindetail.plist */; };
 		A695A230209462C4009C95EB /* heavenlyStems.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F6209462C4009C95EB /* heavenlyStems.plist */; };
 		A695A231209462C4009C95EB /* pengzuDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F7209462C4009C95EB /* pengzuDetail.plist */; };
@@ -436,7 +436,6 @@
 		A6617AEA20A2D4A000ACD878 /* TaoismGod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TaoismGod.plist; sourceTree = "<group>"; };
 		A6617AEC20A2D4C000ACD878 /* BuddhismGod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BuddhismGod.plist; sourceTree = "<group>"; };
 		A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowback@2x.png"; sourceTree = "<group>"; };
-		A6617AF020A2D72800ACD878 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "god_navi_god@2x.png"; sourceTree = "<group>"; };
 		A6617AF220A2D74300ACD878 /* gobBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gobBg@2x.png"; sourceTree = "<group>"; };
 		A6617AF420A2D76900ACD878 /* nogod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nogod@2x.png"; sourceTree = "<group>"; };
 		A6617AF720A2E89600ACD878 /* diguan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diguan@2x.png"; sourceTree = "<group>"; };
@@ -484,6 +483,7 @@
 		A6617B4020A2ECF800ACD878 /* nilepus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nilepus@2x.png"; sourceTree = "<group>"; };
 		A6617B4120A2ECF800ACD878 /* guanyinpusha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guanyinpusha@2x.png"; sourceTree = "<group>"; };
 		A6617B4220A2ECF800ACD878 /* qianshouguanyin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qianshouguanyin@2x.png"; sourceTree = "<group>"; };
+		A6617B5520A2F73300ACD878 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "god_navi_god@2x.png"; path = "../../../../../../../god_navi_god@2x.png"; sourceTree = "<group>"; };
 		A695A1F5209462C4009C95EB /* nayindetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nayindetail.plist; sourceTree = "<group>"; };
 		A695A1F6209462C4009C95EB /* heavenlyStems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heavenlyStems.plist; sourceTree = "<group>"; };
 		A695A1F7209462C4009C95EB /* pengzuDetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pengzuDetail.plist; sourceTree = "<group>"; };
@@ -1012,9 +1012,9 @@
 		A6617AC220A1A0DD00ACD878 /* bless */ = {
 			isa = PBXGroup;
 			children = (
+				A6617B5520A2F73300ACD878 /* god_navi_god@2x.png */,
 				A6617AF420A2D76900ACD878 /* nogod@2x.png */,
 				A6617AF220A2D74300ACD878 /* gobBg@2x.png */,
-				A6617AF020A2D72800ACD878 /* god_navi_god@2x.png */,
 				A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */,
 				A6617AE120A2A7B800ACD878 /* nodatabtn@2x.png */,
 				A6617ADF20A2A7B800ACD878 /* nodataimage@2x.png */,
@@ -1978,7 +1978,6 @@
 				A695A265209462C4009C95EB /* 7.dat in Resources */,
 				A6DC2B2B209BF3910058202B /* TXBZSMBlessPlatformView.xib in Resources */,
 				A695A25F209462C4009C95EB /* 2.dat in Resources */,
-				A6617AF120A2D72800ACD878 /* god_navi_god@2x.png in Resources */,
 				A6617B4E20A2ECF800ACD878 /* wenzhupus@2x.png in Resources */,
 				A695A26D209464EE009C95EB /* zanggan.plist in Resources */,
 				A6617B2420A2E89B00ACD878 /* mazu@2x.png in Resources */,
@@ -1986,6 +1985,7 @@
 				A6617AC820A284AF00ACD878 /* tree@2x.png in Resources */,
 				A6DC2AA9209AF62C0058202B /* searchNameDetail.plist in Resources */,
 				A6617B4620A2ECF800ACD878 /* budongzunpus@2x.png in Resources */,
+				A6617B5620A2F73300ACD878 /* god_navi_god@2x.png in Resources */,
 				A6617B4520A2ECF800ACD878 /* puxianpus@2x.png in Resources */,
 				A6DC2A9B20999B720058202B /* moenyLovePosition.plist in Resources */,
 				A6DC2B1C209BF31B0058202B /* TXBZSMUserMessageView.xib in Resources */,
