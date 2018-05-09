@@ -120,7 +120,7 @@
 		A6617B4F20A2ECF800ACD878 /* nilepus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4020A2ECF800ACD878 /* nilepus@2x.png */; };
 		A6617B5020A2ECF800ACD878 /* guanyinpusha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4120A2ECF800ACD878 /* guanyinpusha@2x.png */; };
 		A6617B5120A2ECF800ACD878 /* qianshouguanyin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4220A2ECF800ACD878 /* qianshouguanyin@2x.png */; };
-		A6617B5620A2F73300ACD878 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B5520A2F73300ACD878 /* god_navi_god@2x.png */; };
+		A691C00020A34D1500B60521 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */; };
 		A695A22F209462C4009C95EB /* nayindetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F5209462C4009C95EB /* nayindetail.plist */; };
 		A695A230209462C4009C95EB /* heavenlyStems.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F6209462C4009C95EB /* heavenlyStems.plist */; };
 		A695A231209462C4009C95EB /* pengzuDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F7209462C4009C95EB /* pengzuDetail.plist */; };
@@ -483,7 +483,7 @@
 		A6617B4020A2ECF800ACD878 /* nilepus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nilepus@2x.png"; sourceTree = "<group>"; };
 		A6617B4120A2ECF800ACD878 /* guanyinpusha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guanyinpusha@2x.png"; sourceTree = "<group>"; };
 		A6617B4220A2ECF800ACD878 /* qianshouguanyin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qianshouguanyin@2x.png"; sourceTree = "<group>"; };
-		A6617B5520A2F73300ACD878 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "god_navi_god@2x.png"; path = "../../../../../../../god_navi_god@2x.png"; sourceTree = "<group>"; };
+		A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "god_navi_god@2x.png"; sourceTree = "<group>"; };
 		A695A1F5209462C4009C95EB /* nayindetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nayindetail.plist; sourceTree = "<group>"; };
 		A695A1F6209462C4009C95EB /* heavenlyStems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heavenlyStems.plist; sourceTree = "<group>"; };
 		A695A1F7209462C4009C95EB /* pengzuDetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = pengzuDetail.plist; sourceTree = "<group>"; };
@@ -1012,7 +1012,7 @@
 		A6617AC220A1A0DD00ACD878 /* bless */ = {
 			isa = PBXGroup;
 			children = (
-				A6617B5520A2F73300ACD878 /* god_navi_god@2x.png */,
+				A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */,
 				A6617AF420A2D76900ACD878 /* nogod@2x.png */,
 				A6617AF220A2D74300ACD878 /* gobBg@2x.png */,
 				A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */,
@@ -1985,7 +1985,7 @@
 				A6617AC820A284AF00ACD878 /* tree@2x.png in Resources */,
 				A6DC2AA9209AF62C0058202B /* searchNameDetail.plist in Resources */,
 				A6617B4620A2ECF800ACD878 /* budongzunpus@2x.png in Resources */,
-				A6617B5620A2F73300ACD878 /* god_navi_god@2x.png in Resources */,
+				A691C00020A34D1500B60521 /* god_navi_god@2x.png in Resources */,
 				A6617B4520A2ECF800ACD878 /* puxianpus@2x.png in Resources */,
 				A6DC2A9B20999B720058202B /* moenyLovePosition.plist in Resources */,
 				A6DC2B1C209BF31B0058202B /* TXBZSMUserMessageView.xib in Resources */,
