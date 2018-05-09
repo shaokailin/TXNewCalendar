@@ -49,5 +49,8 @@ typedef NS_ENUM(NSUInteger, PNRadarChartLabelStyle) {
 @property (nonatomic, assign) BOOL isLabelTouchable;
 /** is show graduation on the chart ,default is NO. */
 @property (nonatomic, assign) BOOL isShowGraduation;
+@property (nonatomic, assign) BOOL isShowDot;
+@property (nonatomic, assign) CGFloat dotWidth;
+@property (nonatomic, strong) UIColor *dotColor;
 
 @end

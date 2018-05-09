@@ -11,11 +11,17 @@
 #import "TXBZSMTodayMessageView.h"
 #import "TXBZSMTodayHeaderView.h"
 #import "TXBZSMTodayNavigationView.h"
+#import "TXBZSMFortuneHomeVM.h"
+#import "TXSMMessageDetailVC.h"
 @interface TXBZSMTodayFortuneVC ()
+{
+    TXBZSMFortuneHomeVM *_viewModel;
+}
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) TXBZSMTodayHeaderView *headView;
 @property (nonatomic, weak) TXBZSMTodayMessageView *messageView;
 @property (nonatomic, weak) TXBZSMTodayAdView *adView;
+@property (nonatomic, strong) NSArray *adDictionary;
 @end
 
 @implementation TXBZSMTodayFortuneVC
@@ -26,6 +32,54 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+    [self bindSignal];
+    [kUserMessageManager setupViewProperties:self url:nil name:@"运势详情"];
+}
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [kUserMessageManager analiticsViewAppear:self];
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [kUserMessageManager analiticsViewDisappear:self];
+}
+#pragma  mark - data
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[TXBZSMFortuneHomeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.mainScrollView.mj_header endRefreshing];
+        if (identifier == 10 && [model isKindOfClass:[NSArray class]]) {
+            self.adDictionary = model;
+            [self.adView setupAdMessage:self.adDictionary];
+            if (CGRectGetHeight(self.adView.frame) == 0) {
+                [self.adView mas_updateConstraints:^(MASConstraintMaker *make) {
+                    make.height.mas_equalTo(WIDTH_RACE_6S(81) + 8);
+                }];
+            }
+        }else if ([model isKindOfClass:[NSDictionary class]] && identifier == 20) {
+            self.dataDictionary = model;
+            if (self.refreshBlock) {
+                self.refreshBlock(model);
+            }
+            [self setupContent];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainScrollView.mj_header endRefreshing];
+    }];
+    _viewModel.xingzuo = _xingzuo;
+    _viewModel.contactId = NSStringFormat(@"%@",kFortuneMessageAd);
+    _viewModel.limit = @"3";
+    _viewModel.isLoadingAd = YES;
+    if (!_dataDictionary) {
+        [_viewModel getHomeData:NO];
+    }else {
+        [_viewModel getAdData:NO];
+    }
+}
+- (void)pullDownRefresh {
+    [_viewModel getHomeData:YES];
 }
 #pragma mark - event
 - (void)setupContent {
@@ -41,11 +95,14 @@
     }
 }
 - (void)adClickIndex:(NSInteger)index {
-    
+    NSDictionary *dict = [self.adDictionary objectAtIndex:index];
+    TXSMMessageDetailVC *detail = [[TXSMMessageDetailVC alloc]init];
+    detail.titleString = [dict objectForKey:@"title"];
+    detail.loadUrl = [dict objectForKey:@"url"];
+    detail.pic = [dict objectForKey:@"pic"];
+    [self.navigationController pushViewController:detail animated:YES];
 }
-- (void)pullDownRefresh {
-    [self.mainScrollView.mj_header endRefreshing];
-}
+
 - (void)changeFrame:(CGFloat)height {
     CGRect frame = self.messageView.frame;
     frame.size.height = height;
@@ -79,13 +136,12 @@
       @strongify(self)
         [self adClickIndex:index];
     };
-    adView.backgroundColor = [UIColor redColor];
     self.adView = adView;
     [self.view addSubview:adView];
     [adView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).with.offset(-self.tabbarBetweenHeight);
-        make.height.mas_equalTo(WIDTH_RACE_6S(81) + 8);
+        make.height.mas_equalTo(0);
     }];
     
     UIScrollView *scrollView = [LSKViewFactory initializeScrollViewTarget:self headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil];
@@ -105,15 +161,20 @@
         make.width.mas_equalTo(SCREEN_WIDTH);
         make.height.mas_equalTo(WIDTH_RACE_6S(155));
     }];
-    
-    TXBZSMTodayMessageView *messageView = [[TXBZSMTodayMessageView alloc]initWithFrame:CGRectMake(0, WIDTH_RACE_6S(155) + 8, SCREEN_WIDTH, 200)];
-    messageView.frameBlock = ^(CGFloat height) {
-        @strongify(self)
-        [self changeFrame:height];
-    };
-    self.messageView = messageView;
-    [scrollView addSubview:messageView];
     [self setupContent];
+}
+- (TXBZSMTodayMessageView *)messageView {
+    if (!_messageView) {
+        TXBZSMTodayMessageView *messageView = [[TXBZSMTodayMessageView alloc]initWithFrame:CGRectMake(0, WIDTH_RACE_6S(155) + 8, SCREEN_WIDTH, 200)];
+        @weakify(self)
+        messageView.frameBlock = ^(CGFloat height) {
+            @strongify(self)
+            [self changeFrame:height];
+        };
+        self.messageView = messageView;
+        [self.mainScrollView addSubview:messageView];
+    }
+    return _messageView;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

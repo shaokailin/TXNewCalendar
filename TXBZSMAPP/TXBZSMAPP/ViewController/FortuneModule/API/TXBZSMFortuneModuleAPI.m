@@ -8,11 +8,16 @@
 
 #import "TXBZSMFortuneModuleAPI.h"
 #import "TXBZSMDictionaryModel.h"
+#import "TXBZSMArrayModel.h"
 @implementation TXBZSMFortuneModuleAPI
 + (LSKParamterEntity *)getFortuneHomeAdData:(NSString *)contactId limit:(NSString *)limit {
     LSKParamterEntity *params = [[LSKParamterEntity alloc]init];
     params.requestType = HTTPRequestType_GET;
-    params.responseObject = [TXBZSMDictionaryModel class];
+    if ([contactId componentsSeparatedByString:@","].count == 1 && [limit integerValue] > 1) {
+        params.responseObject = [TXBZSMArrayModel class];
+    }else {
+        params.responseObject = [TXBZSMDictionaryModel class];
+    }
     params.isCallApi2 = YES;
     params.requestApi = @"app.datablock/getlist.html";
     [params.params setObject:contactId forKey:@"bid"];

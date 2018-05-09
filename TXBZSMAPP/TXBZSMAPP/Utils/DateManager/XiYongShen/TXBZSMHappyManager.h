@@ -12,10 +12,18 @@
 + (TXBZSMHappyManager *)sharedInstance;
 //喜用神
 - (NSString *)getHappyGod:(NSDate *)date;
+//获取喜用神的描述
+- (NSString *)getXysDetail:(NSString *)xys;
 //获取八卦
 - (void)getGossipMessage:(NSDate *)date isBoy:(BOOL)isBoy;
 //获取先天总运
-- (NSDictionary *)getXtzyDate:(NSDate *)date;
+- (NSDictionary *)getXtzyDgz:(NSString *)dgz;
+//先天爱情
+- (NSDictionary *)getXtLoveDgz:(NSString *)dgz;
+//先天财运
+- (NSDictionary *)getXtFortuneDgz:(NSString *)dgz;
+//先天事业
+- (NSDictionary *)getXtWorkDgz:(NSString *)dgz;
 //获取财运和桃花位
 - (NSDictionary *)getMoneyAndLovePosition:(NSDate *)date;
 //获取吉祥色

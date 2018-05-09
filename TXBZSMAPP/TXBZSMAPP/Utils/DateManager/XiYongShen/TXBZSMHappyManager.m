@@ -102,6 +102,11 @@ SYNTHESIZE_SINGLETON_CLASS(TXBZSMHappyManager);
     }
     return likeGod;
 }
+- (NSString *)getXysDetail:(NSString *)xys {
+    NSDictionary *dict = [NSDictionary dictionaryWithPlist:@"xiyongshenResult"];
+    return [dict objectForKey:xys];
+}
+
 //获取八卦
 - (void)getGossipMessage:(NSDate *)date isBoy:(BOOL)isBoy {
     [TXXLDateManager sharedInstance].searchDate = date;
@@ -156,13 +161,27 @@ SYNTHESIZE_SINGLETON_CLASS(TXBZSMHappyManager);
     
     NSLog(@"%@",position);
 }
-- (NSDictionary *)getXtzyDate:(NSDate *)date {
-    [TXXLDateManager sharedInstance].birthdayDate = date;
+- (NSDictionary *)getXtzyDgz:(NSString *)dgz {
     NSDictionary *dict = [NSDictionary dictionaryWithPlist:@"xiantianzongyun"];
-    NSString *dgz = [[TXXLDateManager sharedInstance]getGanzhiDay];
     NSDictionary *data = [dict objectForKey:dgz];
     return data;
 }
+- (NSDictionary *)getXtLoveDgz:(NSString *)dgz {
+    NSDictionary *dict = [NSDictionary dictionaryWithPlist:@"ganqingyunshi"];
+    NSDictionary *data = [dict objectForKey:dgz];
+    return data;
+}
+- (NSDictionary *)getXtFortuneDgz:(NSString *)dgz {
+    NSDictionary *dict = [NSDictionary dictionaryWithPlist:@"caifuyunshi"];
+    NSDictionary *data = [dict objectForKey:dgz];
+    return data;
+}
+- (NSDictionary *)getXtWorkDgz:(NSString *)dgz {
+    NSDictionary *dict = [NSDictionary dictionaryWithPlist:@"shiyeyunshi"];
+    NSDictionary *data = [dict objectForKey:dgz];
+    return data;
+}
+
 - (NSDictionary *)getMoneyAndLovePosition:(NSDate *)date {
     TXXLDateManager *manager = [TXXLDateManager sharedInstance];
     manager.searchDate = date;

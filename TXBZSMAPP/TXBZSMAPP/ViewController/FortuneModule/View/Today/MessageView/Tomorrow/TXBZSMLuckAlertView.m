@@ -38,6 +38,7 @@
     return CGRectGetHeight(self.frame);
 }
 - (void)_layoutMainView {
+    self.backgroundColor = [UIColor whiteColor];
     UIImageView *iconImage = [[UIImageView alloc]initWithImage:ImageNameInit([self returnImage])];
     iconImage.contentMode = UIViewContentModeCenter;
     [self addSubview:iconImage];

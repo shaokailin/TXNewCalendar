@@ -10,7 +10,7 @@
 #import "UIViewController+Extend.h"
 
 static const NSInteger kNavigationBarButton_Font = 15;
-static NSString * const kNavigation_BackImg = @"navi_back";
+static NSString * const kNavigation_BackImg = @"whiteback_icon";
 @interface LSKBaseViewController ()
 
 @end
@@ -45,6 +45,9 @@ static NSString * const kNavigation_BackImg = @"navi_back";
 #pragma mark - 添加返回按钮
 - (void)addNavigationBackButton {
     [self addLeftNavigationButtonWithNornalImage:kNavigation_BackImg seletedImage:nil target:self action:@selector(navigationBackClick)];
+}
+- (void)addYellowNavigationBackButton {
+    [self addLeftNavigationButtonWithNornalImage:@"yellowback" seletedImage:nil target:self action:@selector(navigationBackClick)];
 }
 //界面的返回 1种是 导航栏多个返回，一种是dismiss过去的导航栏
 - (void)navigationBackClick {

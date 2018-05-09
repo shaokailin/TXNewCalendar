@@ -9,7 +9,7 @@
 #import "PNRadarChart.h"
 
 @interface PNRadarChart()
-
+@property (nonatomic) NSInteger currentDotCount;
 @property (nonatomic) CGFloat centerX;
 @property (nonatomic) CGFloat centerY;
 @property (nonatomic) NSMutableArray *pointsToWebArrayArray;
@@ -42,6 +42,10 @@
         }else{
             _chartData = [NSArray arrayWithArray:items];
         }
+        _currentDotCount = 0;
+        _isShowDot = YES;
+        _dotWidth = 8;
+        _dotColor = KColorHexadecimal(0xdd33ee, 1.0);
         _valueDivider = unitValue;
         _maxValue = 1;
         _webColor = [UIColor grayColor];
@@ -55,7 +59,7 @@
         
         //Private iVar
         _centerX = frame.size.width/2;
-        _centerY = frame.size.height/2 + 10;
+        _centerY = frame.size.height/2 ;
         _pointsToWebArrayArray = [NSMutableArray array];
         _pointsToPlotArray = [NSMutableArray array];
         _lengthUnit = 0;
@@ -107,7 +111,7 @@
     }else if (_labelStyle==PNRadarChartLabelStyleHorizontal) {
         margin = [self getMaxWidthLabelFromArray:descriptions withFontSize:_fontSize];
     }
-    CGFloat maxLength = ceil(MIN(_centerX, _centerY) - margin) + 20;
+    CGFloat maxLength = ceil(MIN(_centerX, _centerY) - margin) + 10;
     int plotCircles = (_maxValue/_valueDivider);
     if (plotCircles > MAXCIRCLE) {
         NSLog(@"Circle number is higher than max");
@@ -168,6 +172,7 @@
     }
     //cuts
     NSArray *largestPointArray = [_pointsToWebArrayArray lastObject];
+    
     for (NSValue *pointValue in largestPointArray){
         section++;
         if (section==1&&_isShowGraduation)continue;
@@ -198,7 +203,6 @@
     for(NSValue *pointValue in _pointsToPlotArray){
         CGPoint point = [pointValue CGPointValue];
         [plotline addLineToPoint:CGPointMake(point.x ,point.y)];
-        
     }
     [plotline setLineWidth:2];
     [plotline setLineCapStyle:kCGLineCapButt];
@@ -209,7 +213,35 @@
 
     [self addAnimationIfNeeded];
     [self showGraduation];
-
+    int section = 0;
+    if (_isShowDot) {
+        CGPoint center = CGPointMake(_centerX, _centerY);
+        for(NSValue *pointValue in _pointsToPlotArray){
+            CGPoint point = [pointValue CGPointValue];
+            if (!CGPointEqualToPoint(point, center) ) {
+                UIView *circleView = [self viewWithTag:500 + section];
+                if (!circleView) {
+                    circleView = [[UIView alloc]init];
+                    circleView.tag = 500 + section;
+                    KViewRadius(circleView, _dotWidth / 2.0);
+                    [self addSubview:circleView];
+                }
+                circleView.frame = CGRectMake(0, 0, _dotWidth, _dotWidth);
+                circleView.backgroundColor = KColorHexadecimal(0xdd33ee, 1.0);
+                circleView.center = point;
+                section ++;
+            }
+        }
+    }
+    if (section < _currentDotCount) {
+        for (int i = section; i < _currentDotCount; i++ ) {
+            UIView *circleView = [self viewWithTag:500 + i];
+            if (circleView) {
+                [circleView removeFromSuperview];
+            }
+        }
+    }
+    _currentDotCount = section;
 //    self.transform = CGAffineTransformMakeRotation(-M_PI_2);
 }
 
@@ -225,20 +257,44 @@
     }
     int section = 0;
     CGFloat labelLength = maxLength + maxLength/10;
-    
+    NSInteger i = 0;
     for (NSString *labelString in labelArray) {
         CGFloat angle = [[angleArray objectAtIndex:section] floatValue];
         CGFloat x = _centerX + labelLength *cos(angle);
         CGFloat y = _centerY + labelLength *sin(angle);
-        
         UILabel *label = [[UILabel alloc] init] ;
         label.backgroundColor = [UIColor clearColor];
         label.font = [UIFont systemFontOfSize:_fontSize];
         label.textColor = _fontColor;
-        label.text = labelString;
+        
         label.tag = labelTag;
         CGSize detailSize = [labelString sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:_fontSize]}];
-        
+        if (![labelString isEqualToString:@"Default"]) {
+            NSMutableAttributedString *arrtibuting = [[NSMutableAttributedString alloc]initWithString:labelString];
+            switch (i) {
+                case 0:
+                    y += 8;
+                    [arrtibuting addAttribute:NSForegroundColorAttributeName value:KColorHexadecimal(0xdd33ee, 1.0) range:NSMakeRange(2, labelString.length - 2)];
+                    break;
+                case 1:
+                    y += 0;
+                    [arrtibuting addAttribute:NSForegroundColorAttributeName value:KColorHexadecimal(0x3631f7, 1.0) range:NSMakeRange(2, labelString.length - 2)];
+                    break;
+                case 2:
+                    y += 12;
+                    [arrtibuting addAttribute:NSForegroundColorAttributeName value:KColorHexadecimal(0xee5b33, 1.0) range:NSMakeRange(2, labelString.length - 2)];
+                    break;
+                case 3:
+                    y += 0;
+                    [arrtibuting addAttribute:NSForegroundColorAttributeName value:KColorHexadecimal(0x00633d, 1.0) range:NSMakeRange(2, labelString.length - 2)];
+                    break;
+                default:
+                    break;
+            }
+            label.attributedText = arrtibuting;
+        }else {
+            label.text = labelString;
+        }
         switch (_labelStyle) {
             case PNRadarChartLabelStyleCircle:
                 label.frame = CGRectMake(x-5*_fontSize/2, y-_fontSize/2, 5*_fontSize, _fontSize);
@@ -274,6 +330,7 @@
         [self addSubview:label];
         
         section ++;
+        i++;
     }
     
 }

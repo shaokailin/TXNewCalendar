@@ -18,6 +18,7 @@
  添加返回按钮
  */
 - (void)addNavigationBackButton;
+- (void)addYellowNavigationBackButton;
 /**
  重写返回按钮点击事件
  */

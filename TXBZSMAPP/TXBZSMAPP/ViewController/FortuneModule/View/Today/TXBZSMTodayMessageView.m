@@ -11,7 +11,6 @@
 #import "TXSMFortuneHomeNaviCell.h"
 #import "TXBZSMTomorrowMessageView.h"
 #import "TXBZSMWeekMessageView.h"
-#import "TXBZSMMonthMessageView.h"
 @interface TXBZSMTodayMessageView()<UIScrollViewDelegate,HListViewDataSource,HListViewDelegate>
 {
     BOOL _isClickAnimal;
@@ -32,7 +31,7 @@
     return self;
 }
 - (void)setupContentDate:(NSDictionary *)dict {
-    for (int i = 0; i < self.m_naviTitleArray.count - 1; i++) {
+    for (int i = 0; i < self.m_naviTitleArray.count; i++) {
         UIView<TXBZSMFortuneMessageProtocol> *view1 = [self.m_mainScrollView.subviews objectAtIndex:i];
         NSString *key = [[self class]returnDataKey:i];
         if (key) {
@@ -63,7 +62,7 @@
     CGRect frame = self.m_mainScrollView.frame;
     CGFloat scrollHeight = CGRectGetHeight(frame);
     if (contentHeight != scrollHeight) {
-        self.m_mainScrollView.contentSize = CGSizeMake((SCREEN_WIDTH - 10) * (self.m_naviTitleArray.count - 1), contentHeight);
+        self.m_mainScrollView.contentSize = CGSizeMake((SCREEN_WIDTH - 10) * (self.m_naviTitleArray.count), contentHeight);
         frame.size.height = contentHeight;
         CGRect selfFrame = self.frame;
         selfFrame.size.height = contentHeight + kHomeHeadButtonHeight;
@@ -91,7 +90,7 @@
     if (!_isClickAnimal) {
         CGFloat screenWidth = SCREEN_WIDTH - 10;
         NSInteger indexPage = floor(x / screenWidth) ;
-        if (indexPage < self.m_naviTitleArray.count -1) {
+        if (indexPage < self.m_naviTitleArray.count) {
             NSInteger lastPage = 0;
             CGFloat rate = 0;
             CGFloat lastrate = 0;
@@ -192,17 +191,13 @@
     self.m_mainScrollView.showsVerticalScrollIndicator = NO;
     self.m_mainScrollView.showsHorizontalScrollIndicator = NO;
     [self addSubview:self.m_mainScrollView];
-    for (int i = 0; i < self.m_naviTitleArray.count - 1; i++) {
+    for (int i = 0; i < self.m_naviTitleArray.count; i++) {
         if (i < 2) {
             TXBZSMTomorrowMessageView *view = [[TXBZSMTomorrowMessageView alloc]initWithType:i];
             view.frame = CGRectMake((SCREEN_WIDTH - 10) * i, 0, (SCREEN_WIDTH - 10), [view returnViewHeight]);
             [self.m_mainScrollView addSubview:view];
-        }else if (i == 2) {
-            TXBZSMWeekMessageView *view = [[TXBZSMWeekMessageView alloc]init];
-            view.frame = CGRectMake((SCREEN_WIDTH - 10) * i, 0, SCREEN_WIDTH - 10, [view returnViewHeight]);
-            [self.m_mainScrollView addSubview:view];
         }else {
-            TXBZSMMonthMessageView *view = [[TXBZSMMonthMessageView alloc]init];
+            TXBZSMWeekMessageView *view = [[TXBZSMWeekMessageView alloc]init];
             view.frame = CGRectMake((SCREEN_WIDTH - 10) * i, 0, SCREEN_WIDTH - 10, [view returnViewHeight]);
             [self.m_mainScrollView addSubview:view];
         }

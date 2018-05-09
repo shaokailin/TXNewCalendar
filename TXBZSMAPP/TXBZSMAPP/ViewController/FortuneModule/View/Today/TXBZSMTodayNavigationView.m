@@ -23,7 +23,7 @@
 - (void)_layoutMainView {
     _backBtn = [LSKViewFactory initializeButtonNornalImage:@"whiteback_icon" selectedImage:nil target:self action:@selector(backClick)];
     _backBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-    _backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
+    _backBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0);
     [self addSubview:_backBtn];
     [_backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);

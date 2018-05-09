@@ -8,6 +8,7 @@
 
 #import "TXBZSMFortuneHomeVM.h"
 #import "TXBZSMDictionaryModel.h"
+#import "TXBZSMArrayModel.h"
 #import "TXBZSMFortuneModuleAPI.h"
 @interface TXBZSMFortuneHomeVM ()
 @property (nonatomic, strong) RACCommand *homeCommand;
@@ -19,6 +20,12 @@
         [SKHUD showLoadingDotInWindow];
     }
     [self.messageCommand execute:nil];
+}
+- (void)getAdData:(BOOL)isPull {
+    if (!isPull) {
+        [SKHUD showLoadingDotInWindow];
+    }
+    [self.homeCommand execute:nil];
 }
 - (RACCommand *)messageCommand {
     if (!_messageCommand) {
@@ -61,7 +68,7 @@
             @strongify(self)
             [self sendFailureResult:10 error:nil];
         }];
-        [_homeCommand.executionSignals.flatten subscribeNext:^(TXBZSMDictionaryModel *model) {
+        [_homeCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)
             if (model.status == 0) {
                 if (model.error_code == 10002 && model.status == 0) {
@@ -72,7 +79,14 @@
                 [self sendFailureResult:10 error:nil];
             }else {
                 self.isLoadingAd = NO;
-                [self sendSuccessResult:10 model:model.data];
+                if ([model isKindOfClass:[TXBZSMDictionaryModel class]]) {
+                    TXBZSMDictionaryModel *dictionData = (TXBZSMDictionaryModel *)model;
+                    [self sendSuccessResult:10 model:dictionData.data];
+                }else {
+                    TXBZSMArrayModel *arrayData = (TXBZSMArrayModel *)model;
+                    [self sendSuccessResult:10 model:arrayData.data];
+                }
+                
             }
         }];
     }

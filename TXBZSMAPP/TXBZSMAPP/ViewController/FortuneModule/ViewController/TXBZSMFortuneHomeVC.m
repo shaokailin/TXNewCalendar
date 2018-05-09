@@ -13,6 +13,7 @@
 #import "TXBZSMFortuneHomeVM.h"
 #import "TXSMMessageDetailVC.h"
 #import "TXBZSMTodayFortuneVC.h"
+#import "TXBZSMLiveAnalysisVC.h"
 static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 @interface TXBZSMFortuneHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -126,12 +127,10 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
         };
         today.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:today animated:YES];
-//        if (!_dataDictionary) {
-//            _isJumpFortune = YES;
-//            [_viewModel getHomeData:NO];
-//        }else {
-//
-//        }
+    }else if (type == 1) {
+        TXBZSMLiveAnalysisVC *live = [[TXBZSMLiveAnalysisVC alloc]init];
+        live.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:live animated:YES];
     }
 }
 #pragma mark - delegate

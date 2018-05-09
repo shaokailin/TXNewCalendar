@@ -11,7 +11,7 @@
 
 static const NSInteger kAPP_Main_Color  = 0xde4643;
 
-static const NSInteger kText_Title_Color  = 0x202020;
+static const NSInteger kText_Title_Color  = 0x222222;
 
 static const NSInteger kText_Detail_Color = 0x757575;
 static const NSInteger kNavi_Yellow_Color = 0xe4b449;

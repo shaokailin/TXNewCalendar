@@ -25,12 +25,14 @@
 - (void)reloadData {
     self.userPhoto.image = kUserMessageManager.userPhoto;
     self.nickName.text = kUserMessageManager.nickName;
-    self.birthdayLbl.text = [kUserMessageManager.birthDay dateTransformToString:@"yyyy年MM月dd日 HH时"];
+    NSDate *birthday = kUserMessageManager.birthDay;
+    self.birthdayLbl.text = [birthday dateTransformToString:@"yyyy年MM月dd日 HH时"];
     self.xiyongLbl.text = NSStringFormat(@"喜用神%@",[[TXBZSMHappyManager sharedInstance] getHappyGod:kUserMessageManager.birthDay]);
-    [self setupLuckRemark];
+    NSString *dgz = [[TXXLDateManager sharedInstance]getGanzhiDay];
+    [self setupLuckRemark:dgz];
 }
-- (void)setupLuckRemark {
-    NSDictionary *dict = [[TXBZSMHappyManager sharedInstance]getXtzyDate:kUserMessageManager.birthDay];
+- (void)setupLuckRemark:(NSString *)dgz {
+    NSDictionary *dict = [[TXBZSMHappyManager sharedInstance]getXtzyDgz:dgz];
     NSString *content = [dict objectForKey:@"message"];
     NSArray *array = [content componentsSeparatedByString:@"，"];
     NSInteger maxRow = ceil(array.count / 3.0);

@@ -43,6 +43,9 @@
     _luckyView.frame = CGRectMake(0, contentY, SCREEN_WIDTH - 10, contentHeight);
     contentY += contentHeight;
     _contentHeight = contentY;
+    CGRect frame = self.frame;
+    frame.size.height = _contentHeight;
+    self.frame = frame;
 }
 - (void)_layoutMainView {
     _contentHeight = 0;
