@@ -32,4 +32,5 @@
 + (UIImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)Imagesize logoImageSize:(CGFloat)waterImagesize icon:(UIImage *)image;
 //视图生成图片
 + (UIImage *)makeImageWithView:(UIView *)view;
++ (UIImage *)makeImageWithView:(UIView *)view scope:(CGRect)scope;
 @end

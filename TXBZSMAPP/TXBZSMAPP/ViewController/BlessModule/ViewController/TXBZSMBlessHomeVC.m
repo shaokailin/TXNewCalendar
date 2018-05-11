@@ -14,6 +14,7 @@
 #import "TXBZSMTodayNavigationView.h"
 #import "TXBZSMBlessHomeBgView.h"
 #import "TXBZSMMyBlessVC.h"
+#import "TXBZSMBlessPlatformVC.h"
 static NSString * const kBlessHomeData = @"kBlessHomeData_save";
 @interface TXBZSMBlessHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -68,7 +69,9 @@ static NSString * const kBlessHomeData = @"kBlessHomeData_save";
     }
 }
 - (void)jumpBlessMain {
-    
+    TXBZSMBlessPlatformVC *bless = [[TXBZSMBlessPlatformVC alloc]init];
+    bless.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:bless animated:YES];
 }
 - (void)jumpWishingTree {
     

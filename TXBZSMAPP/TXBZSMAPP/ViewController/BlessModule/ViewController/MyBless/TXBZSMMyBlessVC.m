@@ -10,6 +10,7 @@
 #import "TXBZSMMyBlessNoView.h"
 #import "TXBZSMMyBlessCell.h"
 #import "TXBZSMGodSelectVC.h"
+#import "TXBZSMMyBlessWishVC.h"
 @interface TXBZSMMyBlessVC ()<UITableViewDataSource,UITabBarDelegate>
 {
     BOOL _isHasData;
@@ -54,9 +55,15 @@
     TXBZSMGodSelectVC *select = [[TXBZSMGodSelectVC alloc]init];
     [self.navigationController pushViewController: select animated:YES];
 }
-//type 1:碗 2.前往祈福
+//type 2:碗 1.前往祈福
 - (void)cellClickEvent:(NSInteger)type cell:(TXBZSMMyBlessCell *)cell {
-    
+    NSIndexPath *indexpath = [self.mainTableView indexPathForCell:cell];
+    if (type == 2) {
+        
+    }else {
+        TXBZSMMyBlessWishVC *wish = [[TXBZSMMyBlessWishVC alloc]init];
+        [self.navigationController pushViewController:wish animated:YES];
+    }
 }
 #pragma mark - tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -73,7 +80,7 @@
 }
 #pragma mark - 初始化
 - (void)initializeMainView {
-    if (!_isHasData) {
+    if (_isHasData) {
         self.navigationItem.title = @"许愿祈福";
         self.noDataView.hidden = NO;
     }else {

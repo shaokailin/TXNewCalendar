@@ -21,7 +21,7 @@ static const NSInteger kWeb_Progress_View_Tag = 5001;
 static NSString * const kWebViewProgressStart_Color = @"0x00e9e6";
 static NSString * const kWebViewProgressEnd_Color = @"0x00e9e6";
 //navigation 颜色
-static NSString * const kNavigationBarButtonTitle_Color = @"0x323232";
+static NSString * const kNavigationBarButtonTitle_Color = @"0xffffff";
 static NSString * const kNavigationBackground_Color = @"0xffffff";
 static NSString * const kNavigationTitle_Color = kNavigationBackground_Color;
 static NSString * const kNavigationLine_Color = @"0xf7f7f7";

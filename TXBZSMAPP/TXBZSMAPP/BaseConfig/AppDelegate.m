@@ -16,8 +16,8 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <WXApi.h>
 #import "TXSMUrlRouteInstance.h"
-static NSString * const kAliAanaliticsKey = @"24839823";
-static NSString * const kAliAanaliticsSecret = @"5bdf3bac30542d5abd25a232898284ad";
+static NSString * const kAliAanaliticsKey = @"24885728";
+static NSString * const kAliAanaliticsSecret = @"eb191f96095cc8af1c089dd1ae50645a";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
 NSString * const kMiPushRegisterIphone = @"isReigsterUserIphone";
 static const BOOL kIsOnline = NO;

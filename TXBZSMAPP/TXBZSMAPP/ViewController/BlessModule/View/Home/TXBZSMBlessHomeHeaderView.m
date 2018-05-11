@@ -85,7 +85,7 @@
         make.centerY.equalTo(valueLbl);
     }];
     
-    UIButton *blessBtn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(jumpBlessEvent) textfont:0 textColor:nil backgroundColor:[UIColor redColor] backgroundImage:nil];
+    UIButton *blessBtn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(jumpBlessEvent) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"blessIn"];
     [self addSubview:blessBtn];
     [blessBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).with.offset(5);

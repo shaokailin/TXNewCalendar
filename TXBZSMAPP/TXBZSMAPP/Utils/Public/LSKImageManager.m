@@ -190,4 +190,19 @@
     }
     return nil;
 }
+/**
+ *  截取view中某个区域生成一张图片
+ *
+ *  @param view  view description
+ *  @param scope 需要截取的view中的某个区域frame
+ *
+ *  @return image
+ */
++ (UIImage *)makeImageWithView:(UIView *)view scope:(CGRect)scope{
+    UIImage *image = [[self class]makeImageWithView:view];
+    //将UIImage转换成CGImageRef
+    
+    return [self class]clicpViewWithRect:scope image:image;
+}
+
 @end

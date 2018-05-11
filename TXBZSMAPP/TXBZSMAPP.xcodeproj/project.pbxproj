@@ -71,10 +71,8 @@
 		A6617AE420A2A7B800ACD878 /* nodatabtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AE120A2A7B800ACD878 /* nodatabtn@2x.png */; };
 		A6617AE920A2D2D700ACD878 /* TXBZSMGodSelectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617AE820A2D2D700ACD878 /* TXBZSMGodSelectVC.m */; };
 		A6617AEB20A2D4A000ACD878 /* TaoismGod.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6617AEA20A2D4A000ACD878 /* TaoismGod.plist */; };
-		A6617AED20A2D4C000ACD878 /* BuddhismGod.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6617AEC20A2D4C000ACD878 /* BuddhismGod.plist */; };
 		A6617AEF20A2D6D700ACD878 /* yellowback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */; };
 		A6617AF320A2D74400ACD878 /* gobBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF220A2D74300ACD878 /* gobBg@2x.png */; };
-		A6617AF520A2D76900ACD878 /* nogod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF420A2D76900ACD878 /* nogod@2x.png */; };
 		A6617B1520A2E89B00ACD878 /* diguan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF720A2E89600ACD878 /* diguan@2x.png */; };
 		A6617B1620A2E89B00ACD878 /* xuantian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF820A2E89700ACD878 /* xuantian@2x.png */; };
 		A6617B1720A2E89B00ACD878 /* yuelao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617AF920A2E89700ACD878 /* yuelao@2x.png */; };
@@ -89,7 +87,6 @@
 		A6617B2020A2E89B00ACD878 /* guiren@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0220A2E89800ACD878 /* guiren@2x.png */; };
 		A6617B2120A2E89B00ACD878 /* tidigong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0320A2E89800ACD878 /* tidigong@2x.png */; };
 		A6617B2220A2E89B00ACD878 /* luxing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0420A2E89800ACD878 /* luxing@2x.png */; };
-		A6617B2320A2E89B00ACD878 /* jiangwu@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0520A2E89900ACD878 /* jiangwu@2x.jpg */; };
 		A6617B2420A2E89B00ACD878 /* mazu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0620A2E89900ACD878 /* mazu@2x.png */; };
 		A6617B2520A2E89B00ACD878 /* songzi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0720A2E89900ACD878 /* songzi@2x.png */; };
 		A6617B2620A2E89B00ACD878 /* chegong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B0820A2E89900ACD878 /* chegong@2x.png */; };
@@ -120,6 +117,50 @@
 		A6617B4F20A2ECF800ACD878 /* nilepus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4020A2ECF800ACD878 /* nilepus@2x.png */; };
 		A6617B5020A2ECF800ACD878 /* guanyinpusha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4120A2ECF800ACD878 /* guanyinpusha@2x.png */; };
 		A6617B5120A2ECF800ACD878 /* qianshouguanyin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B4220A2ECF800ACD878 /* qianshouguanyin@2x.png */; };
+		A6617B5820A3D2D700ACD878 /* jiangwu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B5720A3D2D700ACD878 /* jiangwu@2x.png */; };
+		A6617B6120A3DAC200ACD878 /* TXBZSMGodSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B5F20A3DAC200ACD878 /* TXBZSMGodSelectCell.m */; };
+		A6617B6220A3DAC200ACD878 /* TXBZSMGodSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617B6020A3DAC200ACD878 /* TXBZSMGodSelectCell.xib */; };
+		A6617B6520A3DC8F00ACD878 /* TXBZSMSelectGodButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B6420A3DC8F00ACD878 /* TXBZSMSelectGodButton.m */; };
+		A6617B6920A3E35700ACD878 /* TXBZSMBuddhismGodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B6720A3E35700ACD878 /* TXBZSMBuddhismGodCell.m */; };
+		A6617B6A20A3E35700ACD878 /* TXBZSMBuddhismGodCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617B6820A3E35700ACD878 /* TXBZSMBuddhismGodCell.xib */; };
+		A6617B6D20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B6C20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.m */; };
+		A6617B7120A3E8AA00ACD878 /* TXBZSMGodDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B7020A3E8AA00ACD878 /* TXBZSMGodDetailVC.m */; };
+		A6617B7720A3E9F100ACD878 /* xuyaun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B7220A3E9EF00ACD878 /* xuyaun@2x.png */; };
+		A6617B7820A3E9F100ACD878 /* gongfeng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B7320A3E9EF00ACD878 /* gongfeng@2x.png */; };
+		A6617B7920A3E9F100ACD878 /* yuanwangdacheng@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B7420A3E9F000ACD878 /* yuanwangdacheng@2x.png */; };
+		A6617B7A20A3E9F100ACD878 /* goddetailkuang@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B7520A3E9F000ACD878 /* goddetailkuang@2x.png */; };
+		A6617B7B20A3E9F100ACD878 /* qingxian@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B7620A3E9F100ACD878 /* qingxian@2x.png */; };
+		A6617B7F20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B7E20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.m */; };
+		A6617B8120A3EB0E00ACD878 /* TXBZSMGodDetailMessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617B8020A3EB0E00ACD878 /* TXBZSMGodDetailMessageView.xib */; };
+		A6617B8420A3EB3200ACD878 /* TXBZSMGodDetailInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B8320A3EB3200ACD878 /* TXBZSMGodDetailInfoView.m */; };
+		A6617B8620A3EB3A00ACD878 /* TXBZSMGodDetailInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617B8520A3EB3A00ACD878 /* TXBZSMGodDetailInfoView.xib */; };
+		A6617B8920A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B8820A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.m */; };
+		A6617B8B20A3EB7200ACD878 /* TXBZSMGodDetailRuleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617B8A20A3EB7200ACD878 /* TXBZSMGodDetailRuleView.xib */; };
+		A6617B8D20A3F34D00ACD878 /* goddetailbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B8C20A3F34D00ACD878 /* goddetailbg@2x.png */; };
+		A6617B9020A41EE800ACD878 /* TXBZSMMyBlessWishVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B8F20A41EE800ACD878 /* TXBZSMMyBlessWishVC.m */; };
+		A6617B9320A4200800ACD878 /* TXBZSMMyBlessWishView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B9220A4200800ACD878 /* TXBZSMMyBlessWishView.m */; };
+		A6617B9820A4247100ACD878 /* UITextView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B9620A4247100ACD878 /* UITextView+Extend.m */; };
+		A6617B9C20A42C9400ACD878 /* TXBZSMBlessPlatformVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617B9B20A42C9400ACD878 /* TXBZSMBlessPlatformVC.m */; };
+		A6617B9E20A42DA900ACD878 /* platformheaderbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617B9D20A42DA900ACD878 /* platformheaderbg@2x.png */; };
+		A6617BA220A42E9600ACD878 /* TXBZSMPlatformNaviView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617BA120A42E9600ACD878 /* TXBZSMPlatformNaviView.m */; };
+		A6617BA420A42EB100ACD878 /* TXBZSMPlatformNaviView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617BA320A42EB100ACD878 /* TXBZSMPlatformNaviView.xib */; };
+		A6617BAB20A430ED00ACD878 /* btnbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BA520A430EB00ACD878 /* btnbg@2x.png */; };
+		A6617BAC20A430ED00ACD878 /* platformgod.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BA620A430EC00ACD878 /* platformgod.png */; };
+		A6617BAF20A430ED00ACD878 /* blackback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BA920A430ED00ACD878 /* blackback@2x.png */; };
+		A6617BB220A431D000ACD878 /* blacshare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BB120A431D000ACD878 /* blacshare@2x.png */; };
+		A6617BB520A4384100ACD878 /* TXBZSMGodPlatformView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617BB420A4384100ACD878 /* TXBZSMGodPlatformView.m */; };
+		A6617BBD20A43D4F00ACD878 /* chashui@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BB820A43D4D00ACD878 /* chashui@2x.png */; };
+		A6617BBE20A43D4F00ACD878 /* huaping@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BB920A43D4E00ACD878 /* huaping@2x.png */; };
+		A6617BBF20A43D4F00ACD878 /* gongpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BBA20A43D4E00ACD878 /* gongpin@2x.png */; };
+		A6617BC020A43D4F00ACD878 /* lazhu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BBB20A43D4E00ACD878 /* lazhu@2x.png */; };
+		A6617BC120A43D4F00ACD878 /* platformbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BBC20A43D4F00ACD878 /* platformbg@2x.png */; };
+		A6617BC720A523EB00ACD878 /* xiangtai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BC620A523EA00ACD878 /* xiangtai@2x.png */; };
+		A6617BC920A53BB600ACD878 /* TXBZSMMyBlessWishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6617BC820A53BB600ACD878 /* TXBZSMMyBlessWishView.xib */; };
+		A6617BCB20A53E9000ACD878 /* blessIn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BCA20A53E9000ACD878 /* blessIn@2x.png */; };
+		A6617BCE20A5402400ACD878 /* TXBZSMPlatformGoodVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6617BCD20A5402400ACD878 /* TXBZSMPlatformGoodVC.m */; };
+		A6617BD620A5648A00ACD878 /* gongpingoods.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6617BD520A5648A00ACD878 /* gongpingoods.plist */; };
+		A6617BD820A57C9800ACD878 /* nogod@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6617BD720A57C9800ACD878 /* nogod@2x.png */; };
+		A67ECFF020A5933900032B94 /* UIImageView+LBBlurredImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A67ECFEE20A5933800032B94 /* UIImageView+LBBlurredImage.m */; };
 		A691C00020A34D1500B60521 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */; };
 		A695A22F209462C4009C95EB /* nayindetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F5209462C4009C95EB /* nayindetail.plist */; };
 		A695A230209462C4009C95EB /* heavenlyStems.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F6209462C4009C95EB /* heavenlyStems.plist */; };
@@ -434,10 +475,8 @@
 		A6617AE720A2D2D700ACD878 /* TXBZSMGodSelectVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodSelectVC.h; sourceTree = "<group>"; };
 		A6617AE820A2D2D700ACD878 /* TXBZSMGodSelectVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodSelectVC.m; sourceTree = "<group>"; };
 		A6617AEA20A2D4A000ACD878 /* TaoismGod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TaoismGod.plist; sourceTree = "<group>"; };
-		A6617AEC20A2D4C000ACD878 /* BuddhismGod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BuddhismGod.plist; sourceTree = "<group>"; };
 		A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellowback@2x.png"; sourceTree = "<group>"; };
 		A6617AF220A2D74300ACD878 /* gobBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gobBg@2x.png"; sourceTree = "<group>"; };
-		A6617AF420A2D76900ACD878 /* nogod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nogod@2x.png"; sourceTree = "<group>"; };
 		A6617AF720A2E89600ACD878 /* diguan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "diguan@2x.png"; sourceTree = "<group>"; };
 		A6617AF820A2E89700ACD878 /* xuantian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xuantian@2x.png"; sourceTree = "<group>"; };
 		A6617AF920A2E89700ACD878 /* yuelao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yuelao@2x.png"; sourceTree = "<group>"; };
@@ -452,7 +491,6 @@
 		A6617B0220A2E89800ACD878 /* guiren@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guiren@2x.png"; sourceTree = "<group>"; };
 		A6617B0320A2E89800ACD878 /* tidigong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tidigong@2x.png"; sourceTree = "<group>"; };
 		A6617B0420A2E89800ACD878 /* luxing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "luxing@2x.png"; sourceTree = "<group>"; };
-		A6617B0520A2E89900ACD878 /* jiangwu@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "jiangwu@2x.jpg"; sourceTree = "<group>"; };
 		A6617B0620A2E89900ACD878 /* mazu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mazu@2x.png"; sourceTree = "<group>"; };
 		A6617B0720A2E89900ACD878 /* songzi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "songzi@2x.png"; sourceTree = "<group>"; };
 		A6617B0820A2E89900ACD878 /* chegong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chegong@2x.png"; sourceTree = "<group>"; };
@@ -483,6 +521,66 @@
 		A6617B4020A2ECF800ACD878 /* nilepus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nilepus@2x.png"; sourceTree = "<group>"; };
 		A6617B4120A2ECF800ACD878 /* guanyinpusha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "guanyinpusha@2x.png"; sourceTree = "<group>"; };
 		A6617B4220A2ECF800ACD878 /* qianshouguanyin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qianshouguanyin@2x.png"; sourceTree = "<group>"; };
+		A6617B5720A3D2D700ACD878 /* jiangwu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "jiangwu@2x.png"; sourceTree = "<group>"; };
+		A6617B5E20A3DAC200ACD878 /* TXBZSMGodSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodSelectCell.h; sourceTree = "<group>"; };
+		A6617B5F20A3DAC200ACD878 /* TXBZSMGodSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodSelectCell.m; sourceTree = "<group>"; };
+		A6617B6020A3DAC200ACD878 /* TXBZSMGodSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMGodSelectCell.xib; sourceTree = "<group>"; };
+		A6617B6320A3DC8F00ACD878 /* TXBZSMSelectGodButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMSelectGodButton.h; sourceTree = "<group>"; };
+		A6617B6420A3DC8F00ACD878 /* TXBZSMSelectGodButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMSelectGodButton.m; sourceTree = "<group>"; };
+		A6617B6620A3E35700ACD878 /* TXBZSMBuddhismGodCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMBuddhismGodCell.h; sourceTree = "<group>"; };
+		A6617B6720A3E35700ACD878 /* TXBZSMBuddhismGodCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMBuddhismGodCell.m; sourceTree = "<group>"; };
+		A6617B6820A3E35700ACD878 /* TXBZSMBuddhismGodCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMBuddhismGodCell.xib; sourceTree = "<group>"; };
+		A6617B6B20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodSelectSuperCell.h; sourceTree = "<group>"; };
+		A6617B6C20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodSelectSuperCell.m; sourceTree = "<group>"; };
+		A6617B6F20A3E8AA00ACD878 /* TXBZSMGodDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodDetailVC.h; sourceTree = "<group>"; };
+		A6617B7020A3E8AA00ACD878 /* TXBZSMGodDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodDetailVC.m; sourceTree = "<group>"; };
+		A6617B7220A3E9EF00ACD878 /* xuyaun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xuyaun@2x.png"; sourceTree = "<group>"; };
+		A6617B7320A3E9EF00ACD878 /* gongfeng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gongfeng@2x.png"; sourceTree = "<group>"; };
+		A6617B7420A3E9F000ACD878 /* yuanwangdacheng@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yuanwangdacheng@2x.png"; sourceTree = "<group>"; };
+		A6617B7520A3E9F000ACD878 /* goddetailkuang@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goddetailkuang@2x.png"; sourceTree = "<group>"; };
+		A6617B7620A3E9F100ACD878 /* qingxian@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qingxian@2x.png"; sourceTree = "<group>"; };
+		A6617B7D20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodDetailMessageView.h; sourceTree = "<group>"; };
+		A6617B7E20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodDetailMessageView.m; sourceTree = "<group>"; };
+		A6617B8020A3EB0E00ACD878 /* TXBZSMGodDetailMessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMGodDetailMessageView.xib; sourceTree = "<group>"; };
+		A6617B8220A3EB3200ACD878 /* TXBZSMGodDetailInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodDetailInfoView.h; sourceTree = "<group>"; };
+		A6617B8320A3EB3200ACD878 /* TXBZSMGodDetailInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodDetailInfoView.m; sourceTree = "<group>"; };
+		A6617B8520A3EB3A00ACD878 /* TXBZSMGodDetailInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMGodDetailInfoView.xib; sourceTree = "<group>"; };
+		A6617B8720A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodDetailRuleView.h; sourceTree = "<group>"; };
+		A6617B8820A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodDetailRuleView.m; sourceTree = "<group>"; };
+		A6617B8A20A3EB7200ACD878 /* TXBZSMGodDetailRuleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMGodDetailRuleView.xib; sourceTree = "<group>"; };
+		A6617B8C20A3F34D00ACD878 /* goddetailbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "goddetailbg@2x.png"; sourceTree = "<group>"; };
+		A6617B8E20A41EE800ACD878 /* TXBZSMMyBlessWishVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMMyBlessWishVC.h; sourceTree = "<group>"; };
+		A6617B8F20A41EE800ACD878 /* TXBZSMMyBlessWishVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMMyBlessWishVC.m; sourceTree = "<group>"; };
+		A6617B9120A4200800ACD878 /* TXBZSMMyBlessWishView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMMyBlessWishView.h; sourceTree = "<group>"; };
+		A6617B9220A4200800ACD878 /* TXBZSMMyBlessWishView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMMyBlessWishView.m; sourceTree = "<group>"; };
+		A6617B9620A4247100ACD878 /* UITextView+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extend.m"; sourceTree = "<group>"; };
+		A6617B9720A4247100ACD878 /* UITextView+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extend.h"; sourceTree = "<group>"; };
+		A6617B9A20A42C9400ACD878 /* TXBZSMBlessPlatformVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMBlessPlatformVC.h; sourceTree = "<group>"; };
+		A6617B9B20A42C9400ACD878 /* TXBZSMBlessPlatformVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMBlessPlatformVC.m; sourceTree = "<group>"; };
+		A6617B9D20A42DA900ACD878 /* platformheaderbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platformheaderbg@2x.png"; sourceTree = "<group>"; };
+		A6617BA020A42E9600ACD878 /* TXBZSMPlatformNaviView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMPlatformNaviView.h; sourceTree = "<group>"; };
+		A6617BA120A42E9600ACD878 /* TXBZSMPlatformNaviView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMPlatformNaviView.m; sourceTree = "<group>"; };
+		A6617BA320A42EB100ACD878 /* TXBZSMPlatformNaviView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMPlatformNaviView.xib; sourceTree = "<group>"; };
+		A6617BA520A430EB00ACD878 /* btnbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btnbg@2x.png"; sourceTree = "<group>"; };
+		A6617BA620A430EC00ACD878 /* platformgod.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platformgod.png; sourceTree = "<group>"; };
+		A6617BA920A430ED00ACD878 /* blackback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackback@2x.png"; sourceTree = "<group>"; };
+		A6617BB120A431D000ACD878 /* blacshare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blacshare@2x.png"; sourceTree = "<group>"; };
+		A6617BB320A4384100ACD878 /* TXBZSMGodPlatformView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMGodPlatformView.h; sourceTree = "<group>"; };
+		A6617BB420A4384100ACD878 /* TXBZSMGodPlatformView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMGodPlatformView.m; sourceTree = "<group>"; };
+		A6617BB820A43D4D00ACD878 /* chashui@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chashui@2x.png"; sourceTree = "<group>"; };
+		A6617BB920A43D4E00ACD878 /* huaping@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "huaping@2x.png"; sourceTree = "<group>"; };
+		A6617BBA20A43D4E00ACD878 /* gongpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gongpin@2x.png"; sourceTree = "<group>"; };
+		A6617BBB20A43D4E00ACD878 /* lazhu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lazhu@2x.png"; sourceTree = "<group>"; };
+		A6617BBC20A43D4F00ACD878 /* platformbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platformbg@2x.png"; sourceTree = "<group>"; };
+		A6617BC620A523EA00ACD878 /* xiangtai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangtai@2x.png"; sourceTree = "<group>"; };
+		A6617BC820A53BB600ACD878 /* TXBZSMMyBlessWishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TXBZSMMyBlessWishView.xib; sourceTree = "<group>"; };
+		A6617BCA20A53E9000ACD878 /* blessIn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blessIn@2x.png"; sourceTree = "<group>"; };
+		A6617BCC20A5402400ACD878 /* TXBZSMPlatformGoodVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMPlatformGoodVC.h; sourceTree = "<group>"; };
+		A6617BCD20A5402400ACD878 /* TXBZSMPlatformGoodVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMPlatformGoodVC.m; sourceTree = "<group>"; };
+		A6617BD520A5648A00ACD878 /* gongpingoods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = gongpingoods.plist; sourceTree = "<group>"; };
+		A6617BD720A57C9800ACD878 /* nogod@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nogod@2x.png"; sourceTree = "<group>"; };
+		A67ECFEE20A5933800032B94 /* UIImageView+LBBlurredImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+LBBlurredImage.m"; sourceTree = "<group>"; };
+		A67ECFEF20A5933900032B94 /* UIImageView+LBBlurredImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+LBBlurredImage.h"; sourceTree = "<group>"; };
 		A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "god_navi_god@2x.png"; sourceTree = "<group>"; };
 		A695A1F5209462C4009C95EB /* nayindetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nayindetail.plist; sourceTree = "<group>"; };
 		A695A1F6209462C4009C95EB /* heavenlyStems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heavenlyStems.plist; sourceTree = "<group>"; };
@@ -1012,8 +1110,25 @@
 		A6617AC220A1A0DD00ACD878 /* bless */ = {
 			isa = PBXGroup;
 			children = (
+				A6617BD720A57C9800ACD878 /* nogod@2x.png */,
+				A6617BCA20A53E9000ACD878 /* blessIn@2x.png */,
+				A6617BB820A43D4D00ACD878 /* chashui@2x.png */,
+				A6617BBA20A43D4E00ACD878 /* gongpin@2x.png */,
+				A6617BB920A43D4E00ACD878 /* huaping@2x.png */,
+				A6617BBB20A43D4E00ACD878 /* lazhu@2x.png */,
+				A6617BBC20A43D4F00ACD878 /* platformbg@2x.png */,
+				A6617BB120A431D000ACD878 /* blacshare@2x.png */,
+				A6617B9D20A42DA900ACD878 /* platformheaderbg@2x.png */,
+				A6617BA920A430ED00ACD878 /* blackback@2x.png */,
+				A6617BA520A430EB00ACD878 /* btnbg@2x.png */,
+				A6617BA620A430EC00ACD878 /* platformgod.png */,
+				A6617B8C20A3F34D00ACD878 /* goddetailbg@2x.png */,
+				A6617B7520A3E9F000ACD878 /* goddetailkuang@2x.png */,
+				A6617B7320A3E9EF00ACD878 /* gongfeng@2x.png */,
+				A6617B7620A3E9F100ACD878 /* qingxian@2x.png */,
+				A6617B7220A3E9EF00ACD878 /* xuyaun@2x.png */,
+				A6617B7420A3E9F000ACD878 /* yuanwangdacheng@2x.png */,
 				A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */,
-				A6617AF420A2D76900ACD878 /* nogod@2x.png */,
 				A6617AF220A2D74300ACD878 /* gobBg@2x.png */,
 				A6617AEE20A2D6D700ACD878 /* yellowback@2x.png */,
 				A6617AE120A2A7B800ACD878 /* nodatabtn@2x.png */,
@@ -1033,6 +1148,8 @@
 			children = (
 				A6617ACE20A29E2600ACD878 /* TXBZSMMyBlessVC.h */,
 				A6617ACF20A29E2600ACD878 /* TXBZSMMyBlessVC.m */,
+				A6617B8E20A41EE800ACD878 /* TXBZSMMyBlessWishVC.h */,
+				A6617B8F20A41EE800ACD878 /* TXBZSMMyBlessWishVC.m */,
 			);
 			path = MyBless;
 			sourceTree = "<group>";
@@ -1046,6 +1163,9 @@
 				A6617AD620A29F8500ACD878 /* TXBZSMMyBlessCell.h */,
 				A6617AD720A29F8500ACD878 /* TXBZSMMyBlessCell.m */,
 				A6617AD820A29F8500ACD878 /* TXBZSMMyBlessCell.xib */,
+				A6617B9120A4200800ACD878 /* TXBZSMMyBlessWishView.h */,
+				A6617B9220A4200800ACD878 /* TXBZSMMyBlessWishView.m */,
+				A6617BC820A53BB600ACD878 /* TXBZSMMyBlessWishView.xib */,
 			);
 			path = MyBless;
 			sourceTree = "<group>";
@@ -1055,6 +1175,8 @@
 			children = (
 				A6617AE720A2D2D700ACD878 /* TXBZSMGodSelectVC.h */,
 				A6617AE820A2D2D700ACD878 /* TXBZSMGodSelectVC.m */,
+				A6617B6F20A3E8AA00ACD878 /* TXBZSMGodDetailVC.h */,
+				A6617B7020A3E8AA00ACD878 /* TXBZSMGodDetailVC.m */,
 			);
 			path = BlessGod;
 			sourceTree = "<group>";
@@ -1062,6 +1184,16 @@
 		A6617AE620A2D2B900ACD878 /* BlessGod */ = {
 			isa = PBXGroup;
 			children = (
+				A6617B5E20A3DAC200ACD878 /* TXBZSMGodSelectCell.h */,
+				A6617B5F20A3DAC200ACD878 /* TXBZSMGodSelectCell.m */,
+				A6617B6020A3DAC200ACD878 /* TXBZSMGodSelectCell.xib */,
+				A6617B6320A3DC8F00ACD878 /* TXBZSMSelectGodButton.h */,
+				A6617B6420A3DC8F00ACD878 /* TXBZSMSelectGodButton.m */,
+				A6617B6620A3E35700ACD878 /* TXBZSMBuddhismGodCell.h */,
+				A6617B6720A3E35700ACD878 /* TXBZSMBuddhismGodCell.m */,
+				A6617B6820A3E35700ACD878 /* TXBZSMBuddhismGodCell.xib */,
+				A6617B6B20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.h */,
+				A6617B6C20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.m */,
 			);
 			path = BlessGod;
 			sourceTree = "<group>";
@@ -1069,6 +1201,8 @@
 		A6617AF620A2E88A00ACD878 /* taoism */ = {
 			isa = PBXGroup;
 			children = (
+				A6617BC620A523EA00ACD878 /* xiangtai@2x.png */,
+				A6617B5720A3D2D700ACD878 /* jiangwu@2x.png */,
 				A6617B0820A2E89900ACD878 /* chegong@2x.png */,
 				A6617AF720A2E89600ACD878 /* diguan@2x.png */,
 				A6617B0E20A2E89A00ACD878 /* doulao@2x.png */,
@@ -1077,7 +1211,6 @@
 				A6617AFB20A2E89700ACD878 /* guandi@2x.png */,
 				A6617B0220A2E89800ACD878 /* guiren@2x.png */,
 				A6617B0C20A2E89A00ACD878 /* huangdaxian@2x.png */,
-				A6617B0520A2E89900ACD878 /* jiangwu@2x.jpg */,
 				A6617B0B20A2E89900ACD878 /* longmu@2x.png */,
 				A6617B0420A2E89800ACD878 /* luxing@2x.png */,
 				A6617B0620A2E89900ACD878 /* mazu@2x.png */,
@@ -1123,6 +1256,45 @@
 				A6617B3820A2ECF600ACD878 /* zhuntipus@2x.png */,
 			);
 			path = buddhism;
+			sourceTree = "<group>";
+		};
+		A6617B7C20A3EAD400ACD878 /* GodDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A6617B7D20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.h */,
+				A6617B7E20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.m */,
+				A6617B8020A3EB0E00ACD878 /* TXBZSMGodDetailMessageView.xib */,
+				A6617B8220A3EB3200ACD878 /* TXBZSMGodDetailInfoView.h */,
+				A6617B8320A3EB3200ACD878 /* TXBZSMGodDetailInfoView.m */,
+				A6617B8520A3EB3A00ACD878 /* TXBZSMGodDetailInfoView.xib */,
+				A6617B8720A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.h */,
+				A6617B8820A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.m */,
+				A6617B8A20A3EB7200ACD878 /* TXBZSMGodDetailRuleView.xib */,
+			);
+			path = GodDetail;
+			sourceTree = "<group>";
+		};
+		A6617B9920A42C6F00ACD878 /* BlessPlatform */ = {
+			isa = PBXGroup;
+			children = (
+				A6617B9A20A42C9400ACD878 /* TXBZSMBlessPlatformVC.h */,
+				A6617B9B20A42C9400ACD878 /* TXBZSMBlessPlatformVC.m */,
+				A6617BCC20A5402400ACD878 /* TXBZSMPlatformGoodVC.h */,
+				A6617BCD20A5402400ACD878 /* TXBZSMPlatformGoodVC.m */,
+			);
+			path = BlessPlatform;
+			sourceTree = "<group>";
+		};
+		A6617B9F20A42E6F00ACD878 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				A6617BA020A42E9600ACD878 /* TXBZSMPlatformNaviView.h */,
+				A6617BA120A42E9600ACD878 /* TXBZSMPlatformNaviView.m */,
+				A6617BA320A42EB100ACD878 /* TXBZSMPlatformNaviView.xib */,
+				A6617BB320A4384100ACD878 /* TXBZSMGodPlatformView.h */,
+				A6617BB420A4384100ACD878 /* TXBZSMGodPlatformView.m */,
+			);
+			path = Platform;
 			sourceTree = "<group>";
 		};
 		A695A1F3209462C4009C95EB /* DateManager */ = {
@@ -1409,7 +1581,7 @@
 				A6DC2B0A209B0E4F0058202B /* xingzuoList.plist */,
 				A6EA53F4209017080018158C /* TabBarSetting.plist */,
 				A6617AEA20A2D4A000ACD878 /* TaoismGod.plist */,
-				A6617AEC20A2D4C000ACD878 /* BuddhismGod.plist */,
+				A6617BD520A5648A00ACD878 /* gongpingoods.plist */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -1532,6 +1704,10 @@
 		A6EA542B209017080018158C /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				A67ECFEF20A5933900032B94 /* UIImageView+LBBlurredImage.h */,
+				A67ECFEE20A5933800032B94 /* UIImageView+LBBlurredImage.m */,
+				A6617B9720A4247100ACD878 /* UITextView+Extend.h */,
+				A6617B9620A4247100ACD878 /* UITextView+Extend.m */,
 				A6DC2AE3209AF8330058202B /* NSObject+SXRuntime.h */,
 				A6DC2AE2209AF8330058202B /* NSObject+SXRuntime.m */,
 				A6DC2AE4209AF8340058202B /* UINavigation+SXFixSpace.h */,
@@ -1729,6 +1905,8 @@
 		A6EA5568209017DB0018158C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A6617B9F20A42E6F00ACD878 /* Platform */,
+				A6617B7C20A3EAD400ACD878 /* GodDetail */,
 				A6617AE620A2D2B900ACD878 /* BlessGod */,
 				A6617ACD20A29CDD00ACD878 /* MyBless */,
 				A6617AAE20A198F500ACD878 /* Home */,
@@ -1748,6 +1926,7 @@
 		A6EA556A209017DB0018158C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A6617B9920A42C6F00ACD878 /* BlessPlatform */,
 				A6617AE520A2D16700ACD878 /* BlessGod */,
 				A6617ACC20A29CCA00ACD878 /* MyBless */,
 				A6DC2AFE209AFC1E0058202B /* TXBZSMBlessHomeVC.h */,
@@ -1954,6 +2133,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A695A264209462C4009C95EB /* 6.dat in Resources */,
+				A6617B7720A3E9F100ACD878 /* xuyaun@2x.png in Resources */,
+				A6617B8B20A3EB7200ACD878 /* TXBZSMGodDetailRuleView.xib in Resources */,
 				A695A263209462C4009C95EB /* 4.dat in Resources */,
 				A695A25B209462C4009C95EB /* 21.dat in Resources */,
 				A6617B2A20A2E89B00ACD878 /* huangdaxian@2x.png in Resources */,
@@ -1961,18 +2142,19 @@
 				A695A23D209462C4009C95EB /* zhishen.plist in Resources */,
 				A6617B2620A2E89B00ACD878 /* chegong@2x.png in Resources */,
 				A695A262209462C4009C95EB /* 5.dat in Resources */,
+				A6617BB220A431D000ACD878 /* blacshare@2x.png in Resources */,
 				A6EA5503209017080018158C /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A6510520209FDBA80091B6E5 /* today_bg@2x.png in Resources */,
 				A6617B1720A2E89B00ACD878 /* yuelao@2x.png in Resources */,
 				A6617AD520A29F0F00ACD878 /* TXBZSMMyBlessNoView.xib in Resources */,
 				A695A242209462C4009C95EB /* zodiacs.plist in Resources */,
+				A6617B9E20A42DA900ACD878 /* platformheaderbg@2x.png in Resources */,
 				A6DC2A8B209963030058202B /* wuxingShuxing.plist in Resources */,
 				A6617B2D20A2E89B00ACD878 /* fushen@2x.png in Resources */,
 				A6617AF320A2D74400ACD878 /* gobBg@2x.png in Resources */,
 				A6617B4820A2ECF800ACD878 /* dashizhipus@2x.png in Resources */,
 				A695A240209462C4009C95EB /* xingxiuDetail.plist in Resources */,
 				A6617B5120A2ECF800ACD878 /* qianshouguanyin@2x.png in Resources */,
-				A6617B2320A2E89B00ACD878 /* jiangwu@2x.jpg in Resources */,
 				A6DC2A95209990D50058202B /* shiyeyunshi.plist in Resources */,
 				A6EA5526209017080018158C /* guanbi@3x.png in Resources */,
 				A695A265209462C4009C95EB /* 7.dat in Resources */,
@@ -1980,9 +2162,11 @@
 				A695A25F209462C4009C95EB /* 2.dat in Resources */,
 				A6617B4E20A2ECF800ACD878 /* wenzhupus@2x.png in Resources */,
 				A695A26D209464EE009C95EB /* zanggan.plist in Resources */,
+				A6617BC020A43D4F00ACD878 /* lazhu@2x.png in Resources */,
 				A6617B2420A2E89B00ACD878 /* mazu@2x.png in Resources */,
 				A6DC2AF9209AFB700058202B /* tab_2_s@2x.png in Resources */,
 				A6617AC820A284AF00ACD878 /* tree@2x.png in Resources */,
+				A6617BD820A57C9800ACD878 /* nogod@2x.png in Resources */,
 				A6DC2AA9209AF62C0058202B /* searchNameDetail.plist in Resources */,
 				A6617B4620A2ECF800ACD878 /* budongzunpus@2x.png in Resources */,
 				A691C00020A34D1500B60521 /* god_navi_god@2x.png in Resources */,
@@ -1999,20 +2183,27 @@
 				A6510526209FDC230091B6E5 /* whiteback_icon@2x.png in Resources */,
 				A695A258209462C4009C95EB /* 18.dat in Resources */,
 				A6617B1520A2E89B00ACD878 /* diguan@2x.png in Resources */,
+				A6617BBF20A43D4F00ACD878 /* gongpin@2x.png in Resources */,
 				A6617B1F20A2E89B00ACD878 /* ziwei@2x.png in Resources */,
 				A6EA5525209017080018158C /* guanbi@2x.png in Resources */,
+				A6617B8120A3EB0E00ACD878 /* TXBZSMGodDetailMessageView.xib in Resources */,
 				A6617ABE20A19C4700ACD878 /* PublicSpaceTableViewCell.xib in Resources */,
 				A695A239209462C4009C95EB /* zhengchong.plist in Resources */,
 				A6EA5528209017080018158C /* webviewmore@2x.png in Resources */,
 				A6DC2A99209997150058202B /* jixiangseResult.plist in Resources */,
 				A6617B1E20A2E89B00ACD878 /* zudashi@2x.png in Resources */,
 				A6617B3020A2E89B00ACD878 /* zhaojun@2x.png in Resources */,
+				A6617BAF20A430ED00ACD878 /* blackback@2x.png in Resources */,
+				A6617B5820A3D2D700ACD878 /* jiangwu@2x.png in Resources */,
 				A695A245209462C4009C95EB /* shenshadetail.plist in Resources */,
+				A6617BBD20A43D4F00ACD878 /* chashui@2x.png in Resources */,
 				A6617B4720A2ECF800ACD878 /* zhuntipus@2x.png in Resources */,
 				A695A252209462C4009C95EB /* 11.dat in Resources */,
 				A6617AEB20A2D4A000ACD878 /* TaoismGod.plist in Resources */,
 				A695A23F209462C4009C95EB /* chineseDay.plist in Resources */,
 				A6DC2A8F20998AE10058202B /* xiantianzongyun.plist in Resources */,
+				A6617B7920A3E9F100ACD878 /* yuanwangdacheng@2x.png in Resources */,
+				A6617BAC20A430ED00ACD878 /* platformgod.png in Resources */,
 				A6DC2AE1209AF7DD0058202B /* Info.plist in Resources */,
 				A6617B4B20A2ECF800ACD878 /* dizangpus@2x.png in Resources */,
 				A695A236209462C4009C95EB /* bamenPosition.plist in Resources */,
@@ -2021,12 +2212,15 @@
 				A6617B1A20A2E89B00ACD878 /* yuhuang@2x.png in Resources */,
 				A695A248209462C4009C95EB /* wuxing.plist in Resources */,
 				A6617B4420A2ECF800ACD878 /* darirulai@2x.png in Resources */,
+				A6617B6A20A3E35700ACD878 /* TXBZSMBuddhismGodCell.xib in Resources */,
+				A6617B7B20A3E9F100ACD878 /* qingxian@2x.png in Resources */,
 				A6DC2B26209BF3650058202B /* TXBZSMHotSelectView.xib in Resources */,
 				A695A23E209462C4009C95EB /* chineseHoliDay.plist in Resources */,
 				A6617B1D20A2E89B00ACD878 /* taisui@2x.png in Resources */,
 				A695A233209462C4009C95EB /* jianchu.plist in Resources */,
 				A6DC2A9120998E7D0058202B /* caifuyunshi.plist in Resources */,
 				A6617B4920A2ECF800ACD878 /* weituopus@2x.png in Resources */,
+				A6617BCB20A53E9000ACD878 /* blessIn@2x.png in Resources */,
 				A6617AC620A1A0E700ACD878 /* blessbg1@2x.png in Resources */,
 				A695A25E209462C4009C95EB /* 3.dat in Resources */,
 				A6DC2B05209AFE530058202B /* navigationbg@2x.png in Resources */,
@@ -2044,12 +2238,12 @@
 				A6617B1C20A2E89B00ACD878 /* piancai@2x.png in Resources */,
 				A6DC2B0B209B0E4F0058202B /* xingzuoList.plist in Resources */,
 				A695A256209462C4009C95EB /* 17.dat in Resources */,
+				A6617B8D20A3F34D00ACD878 /* goddetailbg@2x.png in Resources */,
 				A6617AE220A2A7B800ACD878 /* nodataimage@2x.png in Resources */,
 				A6617B2920A2E89B00ACD878 /* longmu@2x.png in Resources */,
 				A6617B2E20A2E89B00ACD878 /* fucai@2x.png in Resources */,
 				A6617B1820A2E89B00ACD878 /* nanji@2x.png in Resources */,
 				A6EA5527209017080018158C /* webviewmore@3x.png in Resources */,
-				A6617AF520A2D76900ACD878 /* nogod@2x.png in Resources */,
 				A695A246209462C4009C95EB /* twenty-fourSolarTerms.plist in Resources */,
 				A6EA53CA209013380018158C /* Assets.xcassets in Resources */,
 				A6DC2A9D20999D640058202B /* moneyPosition.plist in Resources */,
@@ -2062,11 +2256,11 @@
 				A695A244209462C4009C95EB /* jixiongdetail.plist in Resources */,
 				A695A231209462C4009C95EB /* pengzuDetail.plist in Resources */,
 				A6510527209FDC230091B6E5 /* luckycolor_icon@2x.png in Resources */,
-				A6617AED20A2D4C000ACD878 /* BuddhismGod.plist in Resources */,
 				A695A249209462C4009C95EB /* chineseMonth.plist in Resources */,
 				A6617B2F20A2E89B00ACD878 /* wencang@2x.png in Resources */,
 				A6DC2B14209BF0020058202B /* TXBZSMFortuneHomeCell.xib in Resources */,
 				A6617B4F20A2ECF800ACD878 /* nilepus@2x.png in Resources */,
+				A6617BBE20A43D4F00ACD878 /* huaping@2x.png in Resources */,
 				A6617B2520A2E89B00ACD878 /* songzi@2x.png in Resources */,
 				A6617B2720A2E89B00ACD878 /* shuiguan@2x.png in Resources */,
 				A6617B4C20A2ECF800ACD878 /* shijiamouni@2x.png in Resources */,
@@ -2074,21 +2268,27 @@
 				A651052A209FDC230091B6E5 /* shareicon@2x.png in Resources */,
 				A6DC2AA5209AF5C50058202B /* huanli.db in Resources */,
 				A6DC2A97209994B10058202B /* jixiangse.plist in Resources */,
+				A6617BAB20A430ED00ACD878 /* btnbg@2x.png in Resources */,
 				A6617AE420A2A7B800ACD878 /* nodatabtn@2x.png in Resources */,
 				A695A237209462C4009C95EB /* hour.plist in Resources */,
 				A695A230209462C4009C95EB /* heavenlyStems.plist in Resources */,
 				A695A238209462C4009C95EB /* wuxingdetail.plist in Resources */,
 				A6DC2B09209B0BE50058202B /* girl@2x.png in Resources */,
+				A6617B7820A3E9F100ACD878 /* gongfeng@2x.png in Resources */,
 				A6DC2A9320998EBA0058202B /* ganqingyunshi.plist in Resources */,
+				A6617BD620A5648A00ACD878 /* gongpingoods.plist in Resources */,
 				A6DC2A9F20999D720058202B /* lovePosity.plist in Resources */,
+				A6617B7A20A3E9F100ACD878 /* goddetailkuang@2x.png in Resources */,
 				A6617B1920A2E89B00ACD878 /* guandi@2x.png in Resources */,
 				A6DC2A8D20996C840058202B /* xiyongshenResult.plist in Resources */,
 				A695A254209462C4009C95EB /* 14.dat in Resources */,
 				A695A25D209462C4009C95EB /* 22.dat in Resources */,
+				A6617BA420A42EB100ACD878 /* TXBZSMPlatformNaviView.xib in Resources */,
 				A6DC2AF8209AFB700058202B /* tab_2_n@2x.png in Resources */,
 				A6617B4A20A2ECF800ACD878 /* yaoshifo@2x.png in Resources */,
 				A651055420A031B00091B6E5 /* TXBZSMTomorrowProgressView.xib in Resources */,
 				A6617ADD20A2A74400ACD878 /* mybless_wan@2x.png in Resources */,
+				A6617BC720A523EB00ACD878 /* xiangtai@2x.png in Resources */,
 				A695A22F209462C4009C95EB /* nayindetail.plist in Resources */,
 				A695A25A209462C4009C95EB /* 20.dat in Resources */,
 				A6617B1620A2E89B00ACD878 /* xuantian@2x.png in Resources */,
@@ -2101,7 +2301,9 @@
 				A6DC2B21209BF3410058202B /* TXBZSMTodayFortuneView.xib in Resources */,
 				A6617B2C20A2E89B00ACD878 /* doulao@2x.png in Resources */,
 				A695A23B209462C4009C95EB /* hourState.plist in Resources */,
+				A6617B6220A3DAC200ACD878 /* TXBZSMGodSelectCell.xib in Resources */,
 				A6617B2B20A2E89B00ACD878 /* wencai@2x.png in Resources */,
+				A6617B8620A3EB3A00ACD878 /* TXBZSMGodDetailInfoView.xib in Resources */,
 				A695A243209462C4009C95EB /* xingxiu.plist in Resources */,
 				A6DC2AFA209AFB700058202B /* tab_1_s@2x.png in Resources */,
 				A6617B2120A2E89B00ACD878 /* tidigong@2x.png in Resources */,
@@ -2113,9 +2315,11 @@
 				A695A241209462C4009C95EB /* houryiji.plist in Resources */,
 				A6617AB920A19BA400ACD878 /* TXBZSMBlessHomeCell.xib in Resources */,
 				A651058520A173C40091B6E5 /* TXBZSMAnalysisMessageView.xib in Resources */,
+				A6617BC120A43D4F00ACD878 /* platformbg@2x.png in Resources */,
 				A6DC2AF5209AFB700058202B /* tab_1_n@2x.png in Resources */,
 				A6DC2AF6209AFB700058202B /* tab_0_s@2x.png in Resources */,
 				A695A255209462C4009C95EB /* 16.dat in Resources */,
+				A6617BC920A53BB600ACD878 /* TXBZSMMyBlessWishView.xib in Resources */,
 				A695A253209462C4009C95EB /* 15.dat in Resources */,
 				A6617B4320A2ECF800ACD878 /* xukongzangpus@2x.png in Resources */,
 			);
@@ -2201,6 +2405,7 @@
 				A6617AA420A1922C00ACD878 /* TXSMFiveAdView.m in Sources */,
 				A6EA551F209017080018158C /* LSKMessageManage.m in Sources */,
 				A6DC2AD4209AF7DD0058202B /* PNGenericChart.m in Sources */,
+				A6617B9020A41EE800ACD878 /* TXBZSMMyBlessWishVC.m in Sources */,
 				A6EA552B209017080018158C /* LSKWebProgressView.m in Sources */,
 				A651051D209FDABB0091B6E5 /* TXBZSMTodayFortuneVC.m in Sources */,
 				A6617AB420A19A2D00ACD878 /* TXBZSMBlessHomeHeaderView.m in Sources */,
@@ -2211,6 +2416,8 @@
 				A6EA559320901A0D0018158C /* PPSSAppVersionApi.m in Sources */,
 				A6EA5524209017080018158C /* LSKBaseWebViewController.m in Sources */,
 				A6EA54F9209017080018158C /* HListView.m in Sources */,
+				A6617B6520A3DC8F00ACD878 /* TXBZSMSelectGodButton.m in Sources */,
+				A6617B8420A3EB3200ACD878 /* TXBZSMGodDetailInfoView.m in Sources */,
 				A6EA551C209017080018158C /* LSKImageManager.m in Sources */,
 				A6617A8620A1831B00ACD878 /* TXBZSMAnalysisMessage1View.m in Sources */,
 				A6EA5508209017080018158C /* TXSMUrlRouteInstance.m in Sources */,
@@ -2222,12 +2429,15 @@
 				A6DC2AD3209AF7DD0058202B /* PNRadarChartDataItem.m in Sources */,
 				A6510537209FE1B40091B6E5 /* TXBZSMTodayNavigationView.m in Sources */,
 				A6EA5521209017080018158C /* LSKBannerImageView.m in Sources */,
+				A6617B7F20A3EAFD00ACD878 /* TXBZSMGodDetailMessageView.m in Sources */,
 				A6EA559520901A0D0018158C /* PPSSAppVersionManager.m in Sources */,
 				A6EA5512209017080018158C /* UITabBarController+Extend.m in Sources */,
+				A6617B7120A3E8AA00ACD878 /* TXBZSMGodDetailVC.m in Sources */,
 				A695A273209466B6009C95EB /* NSDictionary+Extend.m in Sources */,
 				A6EA550D209017080018158C /* UIButton+Extend.m in Sources */,
 				A6EA551E209017080018158C /* LSKPublicMethodUtil.m in Sources */,
 				A6DC2AD1209AF7DD0058202B /* PNChartLabel.m in Sources */,
+				A6617BCE20A5402400ACD878 /* TXBZSMPlatformGoodVC.m in Sources */,
 				A6DC2ADE209AF7DD0058202B /* PNBar.m in Sources */,
 				A6DC2ADA209AF7DD0058202B /* PNPieChart.m in Sources */,
 				A651058320A173820091B6E5 /* TXBZSMAnalysisDetailView.m in Sources */,
@@ -2243,6 +2453,7 @@
 				A651055920A03FC10091B6E5 /* TXBZSMLuckAlertView.m in Sources */,
 				A6DC2B0F209BEC530058202B /* TXBZSMNavigationView.m in Sources */,
 				A6DC2AFD209AFBC40058202B /* TXBZSMFortuneHomeVC.m in Sources */,
+				A6617B9820A4247100ACD878 /* UITextView+Extend.m in Sources */,
 				A6EA555E209017090018158C /* TXSMMessageDetailVC.m in Sources */,
 				A6EA551D209017080018158C /* LSKViewFactory.m in Sources */,
 				A6EA54FA209017080018158C /* TXXLViewManager.m in Sources */,
@@ -2255,6 +2466,7 @@
 				A695A24C209462C4009C95EB /* TXXLDateManager.mm in Sources */,
 				A6DC2B13209BF0020058202B /* TXBZSMFortuneHomeCell.m in Sources */,
 				A6EA5523209017080018158C /* LSKLineTableView.m in Sources */,
+				A6617B6120A3DAC200ACD878 /* TXBZSMGodSelectCell.m in Sources */,
 				A6617AA620A1922C00ACD878 /* TXSMCalculateHomeHeaderView.m in Sources */,
 				A6EA53D0209013380018158C /* main.m in Sources */,
 				A6EA552A209017080018158C /* LSKWebView.m in Sources */,
@@ -2264,14 +2476,18 @@
 				A6EA550A209017080018158C /* LSKHttpManager.m in Sources */,
 				A6617AA520A1922C00ACD878 /* TXSMFourButton.m in Sources */,
 				A6DC2B1A209BF3050058202B /* TXBZSMUserMessageView.m in Sources */,
+				A6617BA220A42E9600ACD878 /* TXBZSMPlatformNaviView.m in Sources */,
 				A6EA5505209017080018158C /* TXXLRootTabBarVC.m in Sources */,
 				A6EA5506209017080018158C /* TXXLSharedInstance.m in Sources */,
 				A6617ABD20A19C4700ACD878 /* PublicSpaceTableViewCell.m in Sources */,
+				A6617BB520A4384100ACD878 /* TXBZSMGodPlatformView.m in Sources */,
 				A651057D20A171A50091B6E5 /* TXBZSMContentMainView.m in Sources */,
 				A6617AAA20A1922C00ACD878 /* TXXLCalculateMainVC.m in Sources */,
 				A6DC2B29209BF3890058202B /* TXBZSMBlessPlatformView.m in Sources */,
 				A6DC2AD5209AF7DD0058202B /* PNBarChart.m in Sources */,
+				A6617B6D20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.m in Sources */,
 				A6EA550B209017080018158C /* LSKParamterEntity.m in Sources */,
+				A6617B9C20A42C9400ACD878 /* TXBZSMBlessPlatformVC.m in Sources */,
 				A651053A209FFD9A0091B6E5 /* TXSMFortuneHomeNaviCell.m in Sources */,
 				A6DC2ADC209AF7DD0058202B /* PNColor.m in Sources */,
 				A6EA5529209017080018158C /* LSKBaseWebView.m in Sources */,
@@ -2281,6 +2497,7 @@
 				A6EA550F209017080018158C /* UIViewController+Extend.m in Sources */,
 				A6617AA920A1922C00ACD878 /* TXXLCalculateModuleAPI.m in Sources */,
 				A6617AD320A29F0600ACD878 /* TXBZSMMyBlessNoView.m in Sources */,
+				A6617B6920A3E35700ACD878 /* TXBZSMBuddhismGodCell.m in Sources */,
 				A695A27020946585009C95EB /* TXBZSMHappyManager.m in Sources */,
 				A6DC2B41209C48810058202B /* TXBZSMDictionaryModel.m in Sources */,
 				A6617AB820A19BA400ACD878 /* TXBZSMBlessHomeCell.m in Sources */,
@@ -2290,10 +2507,12 @@
 				A651054220A0213D0091B6E5 /* TXBZSMWeekMessageView.m in Sources */,
 				A6617AA720A1922C00ACD878 /* TXSMFourAdView.m in Sources */,
 				A6EA559120901A0D0018158C /* PPSSAppVersionViewModel.m in Sources */,
+				A6617B9320A4200800ACD878 /* TXBZSMMyBlessWishView.m in Sources */,
 				A6DC2AD0209AF7DD0058202B /* PNPieChartDataItem.m in Sources */,
 				A651057020A151E40091B6E5 /* TXBZSMArrayModel.m in Sources */,
 				A6DC2B00209AFC1E0058202B /* TXBZSMBlessHomeVC.m in Sources */,
 				A651054C20A028B40091B6E5 /* TXBZSMTomorrowProgressView.m in Sources */,
+				A67ECFF020A5933900032B94 /* UIImageView+LBBlurredImage.m in Sources */,
 				A6EA552C209017080018158C /* LSKWebEventHandleManager.m in Sources */,
 				A651052D209FDCEA0091B6E5 /* TXBZSMTodayHeaderView.m in Sources */,
 				A6510533209FDD320091B6E5 /* TXBZSMTodayAdView.m in Sources */,
@@ -2310,6 +2529,7 @@
 				A6DC2ADF209AF7DD0058202B /* UICountingLabel.m in Sources */,
 				A6EA550E209017080018158C /* NSTimer+Extend.m in Sources */,
 				A6EA5515209017080018158C /* NSDate+Extend.m in Sources */,
+				A6617B8920A3EB5D00ACD878 /* TXBZSMGodDetailRuleView.m in Sources */,
 				A6510530209FDD180091B6E5 /* TXBZSMTodayMessageView.m in Sources */,
 				A6617AB120A1998F00ACD878 /* TXBZSMBlessHomeVM.m in Sources */,
 				A651058020A173670091B6E5 /* TXBZSMAnalysisMessageView.m in Sources */,

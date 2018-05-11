@@ -20,6 +20,14 @@
 #import "TXXLPublicMethod.h"
 #import "TXXLDateManager.h"
 #import "TXBZSMHappyManager.h"
+typedef NS_ENUM(NSInteger,PlatformGoodsType){
+    PlatformGoodsType_lazhu = 0,
+    PlatformGoodsType_chashui = 1,
+    PlatformGoodsType_huaping = 2,
+    PlatformGoodsType_xiangyan = 3,
+    PlatformGoodsType_gongpin = 4,
+    PlatformGoodsType_None = -1,
+};
 
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
 
