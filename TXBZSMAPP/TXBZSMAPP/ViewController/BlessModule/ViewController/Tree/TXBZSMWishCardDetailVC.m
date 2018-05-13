@@ -1,19 +1,19 @@
 //
-//  TXBZSMVWishListVC.m
+//  TXBZSMWishCardDetailVC.m
 //  TXBZSMAPP
 //
 //  Created by shaokai lin on 2018/5/13.
 //  Copyright © 2018年 厦门天象文化传播有限公司. All rights reserved.
 //
 
-#import "TXBZSMVWishListVC.h"
-#import "TXBZSMWishCardHomeView.h"
 #import "TXBZSMWishCardDetailVC.h"
-@interface TXBZSMVWishListVC ()
+#import "TXBZSMWishCardDetailView.h"
+#import "TXBZSMWishInputVC.h"
+@interface TXBZSMWishCardDetailVC ()
 
 @end
 
-@implementation TXBZSMVWishListVC
+@implementation TXBZSMWishCardDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,7 @@
             break;
         case 1:
         {
-            TXBZSMWishCardDetailVC *detail = [[TXBZSMWishCardDetailVC alloc]init];
+            TXBZSMWishInputVC *detail = [[TXBZSMWishInputVC alloc]init];
             detail.dataDict = dict;
             [self.navigationController pushViewController:detail animated:YES];
         }
@@ -40,8 +40,7 @@
     }
 }
 - (void)initializeMainView {
-    TXBZSMWishCardHomeView *mainView = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMWishCardHomeView" owner:self options:nil]lastObject];
-    mainView.topBetween = STATUSBAR_HEIGHT;
+    TXBZSMWishCardDetailView *mainView = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMWishCardDetailView" owner:self options:nil]lastObject];
     @weakify(self)
     mainView.homeBlock = ^(NSInteger type, NSDictionary *data) {
         @strongify(self)
@@ -51,7 +50,7 @@
     [mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, self.tabbarBetweenHeight, 0));
     }];
-    
+    [mainView setupContentWithData:self.dataDict];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

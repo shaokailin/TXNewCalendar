@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xuyuanpaibg.png" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-Ki-wBh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mywishbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="QBp-Ki-wBh">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xK3-Zf-zzA">
@@ -40,10 +40,13 @@
                 <constraint firstAttribute="trailing" secondItem="QBp-Ki-wBh" secondAttribute="trailing" id="lMf-1W-ow9"/>
                 <constraint firstItem="QBp-Ki-wBh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="w38-QE-Tqd"/>
             </constraints>
+            <connections>
+                <outlet property="topValue" destination="1lU-dG-rka" id="PXh-Es-vGd"/>
+            </connections>
         </view>
     </objects>
     <resources>
         <image name="blackback.png" width="9" height="14"/>
-        <image name="xuyuanpaibg.png" width="750" height="1334"/>
+        <image name="mywishbg.png" width="375" height="667"/>
     </resources>
 </document>

@@ -273,6 +273,15 @@
 		A6B2B13C20A84BA100F5CDF7 /* TXBZSMMyWishMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B13B20A84BA100F5CDF7 /* TXBZSMMyWishMainView.xib */; };
 		A6B2B14020A8534300F5CDF7 /* TXBZSMWishCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B13E20A8534300F5CDF7 /* TXBZSMWishCardCell.m */; };
 		A6B2B14120A8534300F5CDF7 /* TXBZSMWishCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B13F20A8534300F5CDF7 /* TXBZSMWishCardCell.xib */; };
+		A6B2B14920A8890200F5CDF7 /* mywishbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B14820A8890200F5CDF7 /* mywishbg@2x.png */; };
+		A6B2B14D20A8893800F5CDF7 /* TXBZSMMyWishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B14B20A8893800F5CDF7 /* TXBZSMMyWishCell.m */; };
+		A6B2B14E20A8893800F5CDF7 /* TXBZSMMyWishCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B14C20A8893800F5CDF7 /* TXBZSMMyWishCell.xib */; };
+		A6B2B15020A88C6200F5CDF7 /* mywishtitlebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B14F20A88C6200F5CDF7 /* mywishtitlebg@2x.png */; };
+		A6B2B15320A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B15220A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.m */; };
+		A6B2B15620A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B15520A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m */; };
+		A6B2B15820A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B15720A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib */; };
+		A6B2B15B20A88F5000F5CDF7 /* TXBZSMWishInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B15A20A88F5000F5CDF7 /* TXBZSMWishInputVC.m */; };
+		A6B2B15D20A8904E00F5CDF7 /* wishcarddetailbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B15C20A8904E00F5CDF7 /* wishcarddetailbg@2x.png */; };
 		A6C06C6F20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */; };
 		A6C06C7020A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */; };
 		A6C06C7420A7E53300565990 /* platformgoods@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C06C7320A7E53300565990 /* platformgoods@2x.png */; };
@@ -762,6 +771,19 @@
 		A6B2B13D20A8534300F5CDF7 /* TXBZSMWishCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishCardCell.h; sourceTree = "<group>"; };
 		A6B2B13E20A8534300F5CDF7 /* TXBZSMWishCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishCardCell.m; sourceTree = "<group>"; };
 		A6B2B13F20A8534300F5CDF7 /* TXBZSMWishCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMWishCardCell.xib; sourceTree = "<group>"; };
+		A6B2B14820A8890200F5CDF7 /* mywishbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mywishbg@2x.png"; sourceTree = "<group>"; };
+		A6B2B14A20A8893800F5CDF7 /* TXBZSMMyWishCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMMyWishCell.h; sourceTree = "<group>"; };
+		A6B2B14B20A8893800F5CDF7 /* TXBZSMMyWishCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMMyWishCell.m; sourceTree = "<group>"; };
+		A6B2B14C20A8893800F5CDF7 /* TXBZSMMyWishCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMMyWishCell.xib; sourceTree = "<group>"; };
+		A6B2B14F20A88C6200F5CDF7 /* mywishtitlebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mywishtitlebg@2x.png"; sourceTree = "<group>"; };
+		A6B2B15120A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishCardDetailVC.h; sourceTree = "<group>"; };
+		A6B2B15220A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishCardDetailVC.m; sourceTree = "<group>"; };
+		A6B2B15420A88ED800F5CDF7 /* TXBZSMWishCardDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishCardDetailView.h; sourceTree = "<group>"; };
+		A6B2B15520A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishCardDetailView.m; sourceTree = "<group>"; };
+		A6B2B15720A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMWishCardDetailView.xib; sourceTree = "<group>"; };
+		A6B2B15920A88F5000F5CDF7 /* TXBZSMWishInputVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishInputVC.h; sourceTree = "<group>"; };
+		A6B2B15A20A88F5000F5CDF7 /* TXBZSMWishInputVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishInputVC.m; sourceTree = "<group>"; };
+		A6B2B15C20A8904E00F5CDF7 /* wishcarddetailbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wishcarddetailbg@2x.png"; sourceTree = "<group>"; };
 		A6C06C6C20A7DF9100565990 /* TXBZSMPlatformGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMPlatformGoodsCell.h; sourceTree = "<group>"; };
 		A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMPlatformGoodsCell.m; sourceTree = "<group>"; };
 		A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMPlatformGoodsCell.xib; sourceTree = "<group>"; };
@@ -1566,6 +1588,10 @@
 				A6B2B0F020A8438200F5CDF7 /* TXBZSMMyWishListVC.m */,
 				A6B2B0F220A843B100F5CDF7 /* TXBZSMVWishListVC.h */,
 				A6B2B0F320A843B100F5CDF7 /* TXBZSMVWishListVC.m */,
+				A6B2B15120A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.h */,
+				A6B2B15220A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.m */,
+				A6B2B15920A88F5000F5CDF7 /* TXBZSMWishInputVC.h */,
+				A6B2B15A20A88F5000F5CDF7 /* TXBZSMWishInputVC.m */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -1585,6 +1611,12 @@
 				A6B2B13D20A8534300F5CDF7 /* TXBZSMWishCardCell.h */,
 				A6B2B13E20A8534300F5CDF7 /* TXBZSMWishCardCell.m */,
 				A6B2B13F20A8534300F5CDF7 /* TXBZSMWishCardCell.xib */,
+				A6B2B14A20A8893800F5CDF7 /* TXBZSMMyWishCell.h */,
+				A6B2B14B20A8893800F5CDF7 /* TXBZSMMyWishCell.m */,
+				A6B2B14C20A8893800F5CDF7 /* TXBZSMMyWishCell.xib */,
+				A6B2B15420A88ED800F5CDF7 /* TXBZSMWishCardDetailView.h */,
+				A6B2B15520A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m */,
+				A6B2B15720A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -1592,6 +1624,9 @@
 		A6B2B0BB20A805E100F5CDF7 /* Tree */ = {
 			isa = PBXGroup;
 			children = (
+				A6B2B15C20A8904E00F5CDF7 /* wishcarddetailbg@2x.png */,
+				A6B2B14F20A88C6200F5CDF7 /* mywishtitlebg@2x.png */,
+				A6B2B14820A8890200F5CDF7 /* mywishbg@2x.png */,
 				A6B2B0BE20A8061C00F5CDF7 /* tree_my@2x.png */,
 				A6B2B0BF20A8061C00F5CDF7 /* wish_icon@2x.png */,
 				A6B2B0BC20A805EC00F5CDF7 /* wishTreebg@2x.png */,
@@ -2378,16 +2413,19 @@
 				A6510520209FDBA80091B6E5 /* today_bg@2x.png in Resources */,
 				A6617B1720A2E89B00ACD878 /* yuelao@2x.png in Resources */,
 				A6022E2120A73ACC00A6D84E /* guide_2.png in Resources */,
+				A6B2B15820A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib in Resources */,
 				A6617AD520A29F0F00ACD878 /* TXBZSMMyBlessNoView.xib in Resources */,
 				A695A242209462C4009C95EB /* zodiacs.plist in Resources */,
 				A6617B9E20A42DA900ACD878 /* platformheaderbg@2x.png in Resources */,
 				A6DC2A8B209963030058202B /* wuxingShuxing.plist in Resources */,
 				A6617B2D20A2E89B00ACD878 /* fushen@2x.png in Resources */,
 				A6B2B12520A84ACD00F5CDF7 /* wish_null@2x.png in Resources */,
+				A6B2B15020A88C6200F5CDF7 /* mywishtitlebg@2x.png in Resources */,
 				A6617AF320A2D74400ACD878 /* gobBg@2x.png in Resources */,
 				A6B2B12820A84ACD00F5CDF7 /* wish_boyup@2x.png in Resources */,
 				A6617B4820A2ECF800ACD878 /* dashizhipus@2x.png in Resources */,
 				A695A240209462C4009C95EB /* xingxiuDetail.plist in Resources */,
+				A6B2B15D20A8904E00F5CDF7 /* wishcarddetailbg@2x.png in Resources */,
 				A6617B5120A2ECF800ACD878 /* qianshouguanyin@2x.png in Resources */,
 				A6DC2A95209990D50058202B /* shiyeyunshi.plist in Resources */,
 				A6EA5526209017080018158C /* guanbi@3x.png in Resources */,
@@ -2548,6 +2586,7 @@
 				A6617BD620A5648A00ACD878 /* gongpingoods.plist in Resources */,
 				A6DC2A9F20999D720058202B /* lovePosity.plist in Resources */,
 				A6617B7A20A3E9F100ACD878 /* goddetailkuang@2x.png in Resources */,
+				A6B2B14920A8890200F5CDF7 /* mywishbg@2x.png in Resources */,
 				A6617B1920A2E89B00ACD878 /* guandi@2x.png in Resources */,
 				A6DC2A8D20996C840058202B /* xiyongshenResult.plist in Resources */,
 				A695A254209462C4009C95EB /* 14.dat in Resources */,
@@ -2567,6 +2606,7 @@
 				A695A24E209462C4009C95EB /* 8.dat in Resources */,
 				A6B2B12E20A84ACD00F5CDF7 /* wish_job@2x.png in Resources */,
 				A695A257209462C4009C95EB /* 19.dat in Resources */,
+				A6B2B14E20A8893800F5CDF7 /* TXBZSMMyWishCell.xib in Resources */,
 				A6DC2AA7209AF6230058202B /* category.plist in Resources */,
 				A6617ADE20A2A74400ACD878 /* myblessiconbg@2x.png in Resources */,
 				A695A23C209462C4009C95EB /* publicHoliDay.plist in Resources */,
@@ -2695,9 +2735,11 @@
 				A6DC2B3A209C43BD0058202B /* TXBZSMFortuneHomeVM.m in Sources */,
 				A6DC2AD6209AF7DD0058202B /* PNLineChart.m in Sources */,
 				A6B2B13A20A84B9100F5CDF7 /* TXBZSMMyWishMainView.m in Sources */,
+				A6B2B15B20A88F5000F5CDF7 /* TXBZSMWishInputVC.m in Sources */,
 				A6EA54F8209017080018158C /* TXXLPublicMethod.m in Sources */,
 				A6B2B0B820A8050A00F5CDF7 /* TXBZSMTreeHomeView.m in Sources */,
 				A6617AA420A1922C00ACD878 /* TXSMFiveAdView.m in Sources */,
+				A6B2B14D20A8893800F5CDF7 /* TXBZSMMyWishCell.m in Sources */,
 				A6EA551F209017080018158C /* LSKMessageManage.m in Sources */,
 				A6DC2AD4209AF7DD0058202B /* PNGenericChart.m in Sources */,
 				A6617B9020A41EE800ACD878 /* TXBZSMMyBlessWishVC.m in Sources */,
@@ -2796,6 +2838,7 @@
 				A6617AA920A1922C00ACD878 /* TXXLCalculateModuleAPI.m in Sources */,
 				A6617AD320A29F0600ACD878 /* TXBZSMMyBlessNoView.m in Sources */,
 				A6617B6920A3E35700ACD878 /* TXBZSMBuddhismGodCell.m in Sources */,
+				A6B2B15320A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.m in Sources */,
 				A695A27020946585009C95EB /* TXBZSMHappyManager.m in Sources */,
 				A6DC2B41209C48810058202B /* TXBZSMDictionaryModel.m in Sources */,
 				A6B2B0F120A8438200F5CDF7 /* TXBZSMMyWishListVC.m in Sources */,
@@ -2836,6 +2879,7 @@
 				A6617AB120A1998F00ACD878 /* TXBZSMBlessHomeVM.m in Sources */,
 				A651058020A173670091B6E5 /* TXBZSMAnalysisMessageView.m in Sources */,
 				A6DC2AD9209AF7DD0058202B /* PNLineChartDataItem.m in Sources */,
+				A6B2B15620A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m in Sources */,
 				A6617AAD20A198CB00ACD878 /* TXBZSMBlessModuleAPI.m in Sources */,
 				A6DC2AED209AF8860058202B /* TXSMShareView.m in Sources */,
 				A6EA5511209017080018158C /* UIBarButtonItem+Extend.m in Sources */,

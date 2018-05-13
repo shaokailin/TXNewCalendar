@@ -23,6 +23,12 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorUtilsString(kNavigationTitle_Color)};;
+    [self.navigationController.navigationBar setBackgroundImage:ImageNameInit(@"navigationbg") forBarMetrics:UIBarMetricsDefault];
+}
 - (void)actionWithType:(NSInteger)type data:(NSDictionary *)dict {
     switch (type) {
         case 12:

@@ -34,12 +34,18 @@
     [cell setupContent:[dict objectForKey:@"title"] img:[dict objectForKey:@"image"]];
     return cell;
 }
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.homeBlock) {
+        NSDictionary *dict = [_dataArr objectAtIndex:indexPath.row];
+        self.homeBlock(1, dict);
+    }
+}
 - (void)_initMainView {
     _dataArr = [NSArray arrayWithPlist:@"WishList"];
     UICollectionViewFlowLayout *flowLaout = [[UICollectionViewFlowLayout alloc]init];
     flowLaout.itemSize = CGSizeMake(70, 178);
     flowLaout.sectionInset = UIEdgeInsetsMake(0, 15, 15, 15);
-    UICollectionView *collection = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:flowLaout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor redColor]];
+    UICollectionView *collection = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:flowLaout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor clearColor]];
     [collection registerNib:[UINib nibWithNibName:kTXBZSMWishCardCell bundle:nil] forCellWithReuseIdentifier:kTXBZSMWishCardCell];
     self.collectionView = collection;
     [self addSubview:collection];
