@@ -8,7 +8,7 @@
 
 #import "TXXLGuideVC.h"
 #import "AppDelegate.h"
-static const int kGuide_count = 3;
+static const int kGuide_count = 4;
 @interface TXXLGuideVC ()<UIScrollViewDelegate>
 @property (nonatomic, weak) UIScrollView *mainScrollView;
 @property (nonatomic, weak) UIPageControl *pageControl;
@@ -72,9 +72,9 @@ static const int kGuide_count = 3;
     KViewBorderLayer(startBtn, KColorHexadecimal(0x186ba4, 1.0), kLineView_Height);
     CGFloat height = 0;
     if (type == 0) {
-        height = CGRectGetHeight(imageView.frame) - WIDTH_RACE_6S(115);
+        height = CGRectGetHeight(imageView.frame) - WIDTH_RACE_6S(74);
     }else if (type == 1) {
-        height = CGRectGetHeight(imageView.frame) - 80;
+        height = CGRectGetHeight(imageView.frame) - 105;
     }else {
         height = CGRectGetHeight(imageView.frame) - 120;
     }

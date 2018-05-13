@@ -72,8 +72,7 @@
     [self.navigationController pushViewController:good animated:YES];
 }
 - (UIImage *)getImageView {
-    CGFloat naviHeight = self.navibarHeight + STATUSBAR_HEIGHT;
-    UIImage *image = [LSKImageManager makeImageWithView:self.view scope:CGRectMake(0, self.navibarHeight + STATUSBAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT - naviHeight - self.tabbarBetweenHeight)];
+    UIImage *image = [LSKImageManager makeImageWithView:self.view];
     return image;
 }
 - (void)initializeMainView {

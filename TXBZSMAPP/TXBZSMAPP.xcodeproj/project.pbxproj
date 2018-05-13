@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1C7F90ACA41023701DFE6283 /* Pods_TXBZSMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DC5A64FD0EFEA9F48E8522 /* Pods_TXBZSMAPP.framework */; };
+		A6022E1F20A73ACC00A6D84E /* 640_guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1320A73ACA00A6D84E /* 640_guide_0.png */; };
+		A6022E2020A73ACC00A6D84E /* 640_guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1420A73ACA00A6D84E /* 640_guide_2.png */; };
+		A6022E2120A73ACC00A6D84E /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1520A73ACB00A6D84E /* guide_2.png */; };
+		A6022E2220A73ACC00A6D84E /* 1125_guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1620A73ACB00A6D84E /* 1125_guide_0.png */; };
+		A6022E2320A73ACC00A6D84E /* guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1720A73ACB00A6D84E /* guide_3.png */; };
+		A6022E2420A73ACC00A6D84E /* guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1820A73ACB00A6D84E /* guide_0.png */; };
+		A6022E2520A73ACC00A6D84E /* 1125_guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1920A73ACB00A6D84E /* 1125_guide_1.png */; };
+		A6022E2620A73ACC00A6D84E /* guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1A20A73ACB00A6D84E /* guide_1.png */; };
+		A6022E2720A73ACC00A6D84E /* 1125_guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1B20A73ACB00A6D84E /* 1125_guide_3.png */; };
+		A6022E2820A73ACC00A6D84E /* 640_guide_1.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1C20A73ACB00A6D84E /* 640_guide_1.png */; };
+		A6022E2920A73ACC00A6D84E /* 640_guide_3.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1D20A73ACB00A6D84E /* 640_guide_3.png */; };
+		A6022E2A20A73ACC00A6D84E /* 1125_guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1E20A73ACB00A6D84E /* 1125_guide_2.png */; };
 		A651051D209FDABB0091B6E5 /* TXBZSMTodayFortuneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A651051C209FDABB0091B6E5 /* TXBZSMTodayFortuneVC.m */; };
 		A6510520209FDBA80091B6E5 /* today_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A651051F209FDBA80091B6E5 /* today_bg@2x.png */; };
 		A6510526209FDC230091B6E5 /* whiteback_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6510521209FDC230091B6E5 /* whiteback_icon@2x.png */; };
@@ -219,6 +231,9 @@
 		A695A26D209464EE009C95EB /* zanggan.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A26C209464EE009C95EB /* zanggan.plist */; };
 		A695A27020946585009C95EB /* TXBZSMHappyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A695A26F20946585009C95EB /* TXBZSMHappyManager.m */; };
 		A695A273209466B6009C95EB /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A695A272209466B6009C95EB /* NSDictionary+Extend.m */; };
+		A6C06C6F20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */; };
+		A6C06C7020A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */; };
+		A6C06C7420A7E53300565990 /* platformgoods@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C06C7320A7E53300565990 /* platformgoods@2x.png */; };
 		A6DC2A8B209963030058202B /* wuxingShuxing.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6DC2A8A209963030058202B /* wuxingShuxing.plist */; };
 		A6DC2A8D20996C840058202B /* xiyongshenResult.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6DC2A8C20996C840058202B /* xiyongshenResult.plist */; };
 		A6DC2A8F20998AE10058202B /* xiantianzongyun.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6DC2A8E20998AE10058202B /* xiantianzongyun.plist */; };
@@ -370,6 +385,18 @@
 /* Begin PBXFileReference section */
 		056F4DE77E492DC8C929C37F /* Pods-TXBZSMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXBZSMAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TXBZSMAPP/Pods-TXBZSMAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		3B94EAE9E731F861CA780456 /* Pods-TXBZSMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXBZSMAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TXBZSMAPP/Pods-TXBZSMAPP.release.xcconfig"; sourceTree = "<group>"; };
+		A6022E1320A73ACA00A6D84E /* 640_guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_0.png; sourceTree = "<group>"; };
+		A6022E1420A73ACA00A6D84E /* 640_guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_2.png; sourceTree = "<group>"; };
+		A6022E1520A73ACB00A6D84E /* guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_2.png; sourceTree = "<group>"; };
+		A6022E1620A73ACB00A6D84E /* 1125_guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_0.png; sourceTree = "<group>"; };
+		A6022E1720A73ACB00A6D84E /* guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_3.png; sourceTree = "<group>"; };
+		A6022E1820A73ACB00A6D84E /* guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_0.png; sourceTree = "<group>"; };
+		A6022E1920A73ACB00A6D84E /* 1125_guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_1.png; sourceTree = "<group>"; };
+		A6022E1A20A73ACB00A6D84E /* guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_1.png; sourceTree = "<group>"; };
+		A6022E1B20A73ACB00A6D84E /* 1125_guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_3.png; sourceTree = "<group>"; };
+		A6022E1C20A73ACB00A6D84E /* 640_guide_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_1.png; sourceTree = "<group>"; };
+		A6022E1D20A73ACB00A6D84E /* 640_guide_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_3.png; sourceTree = "<group>"; };
+		A6022E1E20A73ACB00A6D84E /* 1125_guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1125_guide_2.png; sourceTree = "<group>"; };
 		A651051B209FDABB0091B6E5 /* TXBZSMTodayFortuneVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMTodayFortuneVC.h; sourceTree = "<group>"; };
 		A651051C209FDABB0091B6E5 /* TXBZSMTodayFortuneVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMTodayFortuneVC.m; sourceTree = "<group>"; };
 		A651051F209FDBA80091B6E5 /* today_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "today_bg@2x.png"; sourceTree = "<group>"; };
@@ -643,6 +670,10 @@
 		A695A26F20946585009C95EB /* TXBZSMHappyManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMHappyManager.m; sourceTree = "<group>"; };
 		A695A271209466B6009C95EB /* NSDictionary+Extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extend.h"; sourceTree = "<group>"; };
 		A695A272209466B6009C95EB /* NSDictionary+Extend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extend.m"; sourceTree = "<group>"; };
+		A6C06C6C20A7DF9100565990 /* TXBZSMPlatformGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMPlatformGoodsCell.h; sourceTree = "<group>"; };
+		A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMPlatformGoodsCell.m; sourceTree = "<group>"; };
+		A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMPlatformGoodsCell.xib; sourceTree = "<group>"; };
+		A6C06C7320A7E53300565990 /* platformgoods@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "platformgoods@2x.png"; sourceTree = "<group>"; };
 		A6DC2A8A209963030058202B /* wuxingShuxing.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = wuxingShuxing.plist; sourceTree = "<group>"; };
 		A6DC2A8C20996C840058202B /* xiyongshenResult.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = xiyongshenResult.plist; sourceTree = "<group>"; };
 		A6DC2A8E20998AE10058202B /* xiantianzongyun.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = xiantianzongyun.plist; sourceTree = "<group>"; };
@@ -916,6 +947,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A6022DFA20A7353100A6D84E /* guide */ = {
+			isa = PBXGroup;
+			children = (
+				A6022E1320A73ACA00A6D84E /* 640_guide_0.png */,
+				A6022E1C20A73ACB00A6D84E /* 640_guide_1.png */,
+				A6022E1420A73ACA00A6D84E /* 640_guide_2.png */,
+				A6022E1D20A73ACB00A6D84E /* 640_guide_3.png */,
+				A6022E1620A73ACB00A6D84E /* 1125_guide_0.png */,
+				A6022E1920A73ACB00A6D84E /* 1125_guide_1.png */,
+				A6022E1E20A73ACB00A6D84E /* 1125_guide_2.png */,
+				A6022E1B20A73ACB00A6D84E /* 1125_guide_3.png */,
+				A6022E1820A73ACB00A6D84E /* guide_0.png */,
+				A6022E1A20A73ACB00A6D84E /* guide_1.png */,
+				A6022E1520A73ACB00A6D84E /* guide_2.png */,
+				A6022E1720A73ACB00A6D84E /* guide_3.png */,
+			);
+			path = guide;
+			sourceTree = "<group>";
+		};
 		A651051E209FDAC30091B6E5 /* Today */ = {
 			isa = PBXGroup;
 			children = (
@@ -1110,6 +1160,7 @@
 		A6617AC220A1A0DD00ACD878 /* bless */ = {
 			isa = PBXGroup;
 			children = (
+				A6C06C7320A7E53300565990 /* platformgoods@2x.png */,
 				A6617BD720A57C9800ACD878 /* nogod@2x.png */,
 				A6617BCA20A53E9000ACD878 /* blessIn@2x.png */,
 				A6617BB820A43D4D00ACD878 /* chashui@2x.png */,
@@ -1293,6 +1344,9 @@
 				A6617BA320A42EB100ACD878 /* TXBZSMPlatformNaviView.xib */,
 				A6617BB320A4384100ACD878 /* TXBZSMGodPlatformView.h */,
 				A6617BB420A4384100ACD878 /* TXBZSMGodPlatformView.m */,
+				A6C06C6C20A7DF9100565990 /* TXBZSMPlatformGoodsCell.h */,
+				A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */,
+				A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */,
 			);
 			path = Platform;
 			sourceTree = "<group>";
@@ -1589,6 +1643,7 @@
 		A6EA53F5209017080018158C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A6022DFA20A7353100A6D84E /* guide */,
 				A6617B3320A2ECF100ACD878 /* buddhism */,
 				A6617AF620A2E88A00ACD878 /* taoism */,
 				A6617AC220A1A0DD00ACD878 /* bless */,
@@ -2038,6 +2093,7 @@
 				A6EA53BA209013360018158C /* Frameworks */,
 				A6EA53BB209013360018158C /* Resources */,
 				326CA2C49B79FE5D020949A7 /* [CP] Embed Pods Frameworks */,
+				0CCD5336D31ED652110BD0E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2146,6 +2202,7 @@
 				A6EA5503209017080018158C /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A6510520209FDBA80091B6E5 /* today_bg@2x.png in Resources */,
 				A6617B1720A2E89B00ACD878 /* yuelao@2x.png in Resources */,
+				A6022E2120A73ACC00A6D84E /* guide_2.png in Resources */,
 				A6617AD520A29F0F00ACD878 /* TXBZSMMyBlessNoView.xib in Resources */,
 				A695A242209462C4009C95EB /* zodiacs.plist in Resources */,
 				A6617B9E20A42DA900ACD878 /* platformheaderbg@2x.png in Resources */,
@@ -2158,6 +2215,7 @@
 				A6DC2A95209990D50058202B /* shiyeyunshi.plist in Resources */,
 				A6EA5526209017080018158C /* guanbi@3x.png in Resources */,
 				A695A265209462C4009C95EB /* 7.dat in Resources */,
+				A6022E2020A73ACC00A6D84E /* 640_guide_2.png in Resources */,
 				A6DC2B2B209BF3910058202B /* TXBZSMBlessPlatformView.xib in Resources */,
 				A695A25F209462C4009C95EB /* 2.dat in Resources */,
 				A6617B4E20A2ECF800ACD878 /* wenzhupus@2x.png in Resources */,
@@ -2165,6 +2223,7 @@
 				A6617BC020A43D4F00ACD878 /* lazhu@2x.png in Resources */,
 				A6617B2420A2E89B00ACD878 /* mazu@2x.png in Resources */,
 				A6DC2AF9209AFB700058202B /* tab_2_s@2x.png in Resources */,
+				A6C06C7020A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib in Resources */,
 				A6617AC820A284AF00ACD878 /* tree@2x.png in Resources */,
 				A6617BD820A57C9800ACD878 /* nogod@2x.png in Resources */,
 				A6DC2AA9209AF62C0058202B /* searchNameDetail.plist in Resources */,
@@ -2175,12 +2234,14 @@
 				A6DC2B1C209BF31B0058202B /* TXBZSMUserMessageView.xib in Resources */,
 				A6617AEF20A2D6D700ACD878 /* yellowback@2x.png in Resources */,
 				A695A261209462C4009C95EB /* 1.dat in Resources */,
+				A6022E2320A73ACC00A6D84E /* guide_3.png in Resources */,
 				A6617ADA20A29F8500ACD878 /* TXBZSMMyBlessCell.xib in Resources */,
 				A695A234209462C4009C95EB /* taishen.plist in Resources */,
 				A695A24D209462C4009C95EB /* 9.dat in Resources */,
 				A6DC2B2E209BFB3A0058202B /* enumicon@2x.png in Resources */,
 				A6617B4D20A2ECF800ACD878 /* enituofo@2x.png in Resources */,
 				A6510526209FDC230091B6E5 /* whiteback_icon@2x.png in Resources */,
+				A6022E2520A73ACC00A6D84E /* 1125_guide_1.png in Resources */,
 				A695A258209462C4009C95EB /* 18.dat in Resources */,
 				A6617B1520A2E89B00ACD878 /* diguan@2x.png in Resources */,
 				A6617BBF20A43D4F00ACD878 /* gongpin@2x.png in Resources */,
@@ -2193,7 +2254,9 @@
 				A6DC2A99209997150058202B /* jixiangseResult.plist in Resources */,
 				A6617B1E20A2E89B00ACD878 /* zudashi@2x.png in Resources */,
 				A6617B3020A2E89B00ACD878 /* zhaojun@2x.png in Resources */,
+				A6022E2920A73ACC00A6D84E /* 640_guide_3.png in Resources */,
 				A6617BAF20A430ED00ACD878 /* blackback@2x.png in Resources */,
+				A6022E2620A73ACC00A6D84E /* guide_1.png in Resources */,
 				A6617B5820A3D2D700ACD878 /* jiangwu@2x.png in Resources */,
 				A695A245209462C4009C95EB /* shenshadetail.plist in Resources */,
 				A6617BBD20A43D4F00ACD878 /* chashui@2x.png in Resources */,
@@ -2201,9 +2264,11 @@
 				A695A252209462C4009C95EB /* 11.dat in Resources */,
 				A6617AEB20A2D4A000ACD878 /* TaoismGod.plist in Resources */,
 				A695A23F209462C4009C95EB /* chineseDay.plist in Resources */,
+				A6022E2720A73ACC00A6D84E /* 1125_guide_3.png in Resources */,
 				A6DC2A8F20998AE10058202B /* xiantianzongyun.plist in Resources */,
 				A6617B7920A3E9F100ACD878 /* yuanwangdacheng@2x.png in Resources */,
 				A6617BAC20A430ED00ACD878 /* platformgod.png in Resources */,
+				A6022E2420A73ACC00A6D84E /* guide_0.png in Resources */,
 				A6DC2AE1209AF7DD0058202B /* Info.plist in Resources */,
 				A6617B4B20A2ECF800ACD878 /* dizangpus@2x.png in Resources */,
 				A695A236209462C4009C95EB /* bamenPosition.plist in Resources */,
@@ -2254,11 +2319,14 @@
 				A695A24A209462C4009C95EB /* chineseYear.plist in Resources */,
 				A695A24F209462C4009C95EB /* 13.dat in Resources */,
 				A695A244209462C4009C95EB /* jixiongdetail.plist in Resources */,
+				A6022E2A20A73ACC00A6D84E /* 1125_guide_2.png in Resources */,
 				A695A231209462C4009C95EB /* pengzuDetail.plist in Resources */,
 				A6510527209FDC230091B6E5 /* luckycolor_icon@2x.png in Resources */,
+				A6022E1F20A73ACC00A6D84E /* 640_guide_0.png in Resources */,
 				A695A249209462C4009C95EB /* chineseMonth.plist in Resources */,
 				A6617B2F20A2E89B00ACD878 /* wencang@2x.png in Resources */,
 				A6DC2B14209BF0020058202B /* TXBZSMFortuneHomeCell.xib in Resources */,
+				A6C06C7420A7E53300565990 /* platformgoods@2x.png in Resources */,
 				A6617B4F20A2ECF800ACD878 /* nilepus@2x.png in Resources */,
 				A6617BBE20A43D4F00ACD878 /* huaping@2x.png in Resources */,
 				A6617B2520A2E89B00ACD878 /* songzi@2x.png in Resources */,
@@ -2267,6 +2335,7 @@
 				A6EA54F6209017080018158C /* TabBarSetting.plist in Resources */,
 				A651052A209FDC230091B6E5 /* shareicon@2x.png in Resources */,
 				A6DC2AA5209AF5C50058202B /* huanli.db in Resources */,
+				A6022E2220A73ACC00A6D84E /* 1125_guide_0.png in Resources */,
 				A6DC2A97209994B10058202B /* jixiangse.plist in Resources */,
 				A6617BAB20A430ED00ACD878 /* btnbg@2x.png in Resources */,
 				A6617AE420A2A7B800ACD878 /* nodatabtn@2x.png in Resources */,
@@ -2308,6 +2377,7 @@
 				A6DC2AFA209AFB700058202B /* tab_1_s@2x.png in Resources */,
 				A6617B2120A2E89B00ACD878 /* tidigong@2x.png in Resources */,
 				A6510528209FDC230091B6E5 /* luckylove_icon@2x.png in Resources */,
+				A6022E2820A73ACC00A6D84E /* 640_guide_1.png in Resources */,
 				A651058720A176B20091B6E5 /* luopan@2x.png in Resources */,
 				A695A232209462C4009C95EB /* jianchudetail.plist in Resources */,
 				A695A250209462C4009C95EB /* 12.dat in Resources */,
@@ -2342,6 +2412,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CCD5336D31ED652110BD0E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TXBZSMAPP/Pods-TXBZSMAPP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		326CA2C49B79FE5D020949A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2352,6 +2437,7 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
+				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
@@ -2363,6 +2449,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
@@ -2516,6 +2603,7 @@
 				A6EA552C209017080018158C /* LSKWebEventHandleManager.m in Sources */,
 				A651052D209FDCEA0091B6E5 /* TXBZSMTodayHeaderView.m in Sources */,
 				A6510533209FDD320091B6E5 /* TXBZSMTodayAdView.m in Sources */,
+				A6C06C6F20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m in Sources */,
 				A6EA5510209017080018158C /* UITableView+Extend.m in Sources */,
 				A6DC2B17209BF0870058202B /* TXBZSMFortuneHeaderView.m in Sources */,
 				A6EA552D209017080018158C /* LSKActionSheetView.m in Sources */,
