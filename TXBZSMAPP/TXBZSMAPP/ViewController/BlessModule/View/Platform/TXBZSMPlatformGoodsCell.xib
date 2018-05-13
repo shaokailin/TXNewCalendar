@@ -18,17 +18,58 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="189.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="platformgoods" translatesAutoresizingMaskIntoConstraints="NO" id="SJy-Pr-qWh">
-                        <rect key="frame" x="31" y="51" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platformgoods.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8V-58-tgL">
+                        <rect key="frame" x="36" y="121.5" width="248" height="68"/>
                     </imageView>
+                    <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGk-lw-XXo" customClass="TXBZSMPlatformGoodsButtn">
+                        <rect key="frame" x="117" y="0.0" width="86" height="182"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="86" id="COd-25-Swi"/>
+                        </constraints>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BCD-sW-BR3"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bwe-mh-BoP" customClass="TXBZSMPlatformGoodsButtn">
+                        <rect key="frame" x="204" y="0.0" width="86" height="182"/>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="09c-nu-9fQ"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wsT-t5-R0Z" customClass="TXBZSMPlatformGoodsButtn">
+                        <rect key="frame" x="30" y="0.0" width="86" height="182"/>
+                        <connections>
+                            <action selector="btnClick:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="v0m-Jc-ynl"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="g8V-58-tgL" secondAttribute="trailing" constant="36" id="0Bx-pM-P6z"/>
+                    <constraint firstAttribute="trailing" secondItem="Bwe-mh-BoP" secondAttribute="trailing" constant="30" id="2Xp-VL-dYz"/>
+                    <constraint firstItem="g8V-58-tgL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="36" id="4hV-gP-JcY"/>
+                    <constraint firstAttribute="bottom" secondItem="g8V-58-tgL" secondAttribute="bottom" id="GMq-Bs-81J"/>
+                    <constraint firstItem="wsT-t5-R0Z" firstAttribute="top" secondItem="QGk-lw-XXo" secondAttribute="top" id="K5O-cf-WmS"/>
+                    <constraint firstAttribute="bottom" secondItem="QGk-lw-XXo" secondAttribute="bottom" constant="7" id="aLt-4M-r4E"/>
+                    <constraint firstItem="wsT-t5-R0Z" firstAttribute="bottom" secondItem="QGk-lw-XXo" secondAttribute="bottom" id="cIR-Tu-x4B"/>
+                    <constraint firstItem="QGk-lw-XXo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="fRV-N8-Buz"/>
+                    <constraint firstItem="Bwe-mh-BoP" firstAttribute="top" secondItem="QGk-lw-XXo" secondAttribute="top" id="fuT-9v-BiB"/>
+                    <constraint firstItem="wsT-t5-R0Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="30" id="gNp-96-LOk"/>
+                    <constraint firstItem="Bwe-mh-BoP" firstAttribute="bottom" secondItem="QGk-lw-XXo" secondAttribute="bottom" id="iUf-Fc-WWb"/>
+                    <constraint firstItem="QGk-lw-XXo" firstAttribute="width" secondItem="wsT-t5-R0Z" secondAttribute="width" id="kMf-p9-LZc"/>
+                    <constraint firstItem="QGk-lw-XXo" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="lfA-nN-clp"/>
+                    <constraint firstItem="Bwe-mh-BoP" firstAttribute="width" secondItem="QGk-lw-XXo" secondAttribute="width" id="y4D-Bd-Jjg"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="fitstbtn" destination="wsT-t5-R0Z" id="wGL-q3-dFX"/>
+                <outlet property="secondBtn" destination="QGk-lw-XXo" id="cZ6-L1-s77"/>
+                <outlet property="thirdBtn" destination="Bwe-mh-BoP" id="mRj-EL-EjS"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="platformgoods" width="16" height="16"/>
+        <image name="platformgoods.png" width="309" height="68"/>
     </resources>
 </document>

@@ -9,7 +9,6 @@
 #import "TXBZSMPlatformGoodVC.h"
 #import "LSKImageManager.h"
 #import "UIImageView+LBBlurredImage.h"
-#import "GPUImageGaussianBlurFilter.h"
 #import "TXBZSMPlatformGoodsCell.h"
 @interface TXBZSMPlatformGoodVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -29,7 +28,10 @@
     NSInteger indexPath = [self.mainTableView indexPathForCell:cell].row * 3;
     NSInteger selectIndex = indexPath + index;
     NSDictionary *dict = [_dataArray objectAtIndex:selectIndex];
-    LSKLog(@"%@",dict);
+    if (self.selectBlock) {
+        self.selectBlock(self.goodsType, [dict objectForKey:@"image"]);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark - delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -38,7 +40,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXBZSMPlatformGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXBZSMPlatformGoodsCell];
     NSInteger index = indexPath.row * 3;
-    [cell setupContentWithFirst:[_dataArray objectAtIndex:index] second:[_dataArray objectAtIndex:index + 1] third:[_dataArray objectAtIndex:index + 2]];
+    [cell setupContentWithFirst:[_dataArray objectAtIndex:index] second:index + 1 >= _dataArray.count?nil:[_dataArray objectAtIndex:index + 1] third:index + 2 >= _dataArray.count?nil:[_dataArray objectAtIndex:index + 2]];
     @weakify(self)
     cell.selectBlock = ^(NSInteger flag, id clickCell) {
         @strongify(self)
@@ -64,32 +66,30 @@
     }];
 }
 - (UIView *)returnHeaderView:(NSString *)info {
-    CGFloat contentHeight = [info calculateTextHeight:14 width:SCREEN_WIDTH - 24] + 12 + 30;
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, contentHeight)];
+    
+    CGFloat contentHeight =  [info calculateTextHeight:14 width:SCREEN_WIDTH - 24] + 5;
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, contentHeight + 12 + 25)];
     UILabel *titleLbl = [LSKViewFactory initializeLableWithText:info font:14 textColor:[UIColor whiteColor] textAlignment:0 backgroundColor:nil];
+    titleLbl.frame = CGRectMake(12, 12, SCREEN_WIDTH - 24, contentHeight);
     titleLbl.numberOfLines = 0;
     [headerView addSubview:titleLbl];
-    [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(headerView).with.offset(12);
-        make.right.equalTo(headerView).with.offset(-12);
-    }];
+    
     return headerView;
 }
 - (void)addBackImage{
-    GPUImageGaussianBlurFilter * blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
-    blurFilter.blurRadiusInPixels = 12.0;
-    dispatch_queue_t queue = dispatch_queue_create("lable1", DISPATCH_QUEUE_SERIAL);
-    UIImageView *bgViewView = [[UIImageView alloc]init];
+    UIImageView *bgViewView = [[UIImageView alloc]initWithImage:self.bgImageView];
     bgViewView.frame = CGRectMake(0, 0, SCREEN_WIDTH, self.viewMainHeight);
     
     bgViewView.contentMode = UIViewContentModeScaleToFill;
     [self.view addSubview:bgViewView];
-    dispatch_async(queue, ^{
-        UIImage *blurredImage = [blurFilter imageByFilteringImage:self.bgImageView];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            bgViewView.image = blurredImage;
-        });
-    });
+    //  创建需要的毛玻璃特效类型
+    UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    //  毛玻璃view 视图
+    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+    //添加到要有毛玻璃特效的控件中
+    effectView.frame = bgViewView.bounds;
+    effectView.alpha = .9f;
+    [bgViewView addSubview:effectView];
 }
 
 - (NSString *)returnDataKey {

@@ -14,5 +14,4 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/aliyun/aliyun-specs.git'
 pod 'AlicloudMAN'
 pod 'FMDB'
-pod  'GPUImage'
 end

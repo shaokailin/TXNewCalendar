@@ -74,7 +74,7 @@
     NSString *key = _currentIndex == 0?@"1":@"2";
     NSArray *array = [_dataDictionary objectForKey:key];
     NSInteger index = indexPath.row * 3;
-    [cell setupContentWithFirst:[array objectAtIndex:index] second:[array objectAtIndex:index + 1] third:[array objectAtIndex:index + 2]];
+    [cell setupContentWithFirst:[array objectAtIndex:index] second:index + 1 >= array.count?nil:[array objectAtIndex:index + 1] third:index + 2 >= array.count?nil:[array objectAtIndex:index + 2]];
     @weakify(self)
     cell.block = ^(NSInteger flag, id clickCell) {
         @strongify(self)

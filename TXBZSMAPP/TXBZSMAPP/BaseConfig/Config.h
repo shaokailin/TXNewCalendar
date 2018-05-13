@@ -28,6 +28,7 @@ typedef NS_ENUM(NSInteger,PlatformGoodsType){
     PlatformGoodsType_gongpin = 4,
     PlatformGoodsType_None = -1,
 };
+typedef void (^WishHomeBlock)(NSInteger type,NSDictionary * data);;
 
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
 

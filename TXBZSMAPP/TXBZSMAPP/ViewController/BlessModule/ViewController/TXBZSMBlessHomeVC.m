@@ -15,6 +15,7 @@
 #import "TXBZSMBlessHomeBgView.h"
 #import "TXBZSMMyBlessVC.h"
 #import "TXBZSMBlessPlatformVC.h"
+#import "TXBZSMWishTreeVC.h"
 static NSString * const kBlessHomeData = @"kBlessHomeData_save";
 @interface TXBZSMBlessHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -74,7 +75,9 @@ static NSString * const kBlessHomeData = @"kBlessHomeData_save";
     [self.navigationController pushViewController:bless animated:YES];
 }
 - (void)jumpWishingTree {
-    
+    TXBZSMWishTreeVC *tree = [[TXBZSMWishTreeVC alloc]init];
+    tree.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:tree animated:YES];
 }
 - (void)jumpWebView:(NSString *)title url:(NSString *)url image:(NSString *)image {
     if (KJudgeIsNullData(url)) {
