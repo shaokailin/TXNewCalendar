@@ -10,12 +10,15 @@
 #import "SynthesizeSingleton.h"
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import <AdSupport/AdSupport.h>
+#import "YYModel.h"
 static NSString * const kBirthdayFormatter = @"yyyy-MM-dd HH:mm";
 static NSString * const KEY_UUID_INSTEAD = @"com.tx.yyyc";
 static NSString * const kUserPhotoName = @"userPhoto12";
 static NSString * const kUserNickname = @"Nickname34";
 static NSString * const kUserBirthday = @"Birthday23";
 static NSString * const kUserSex = @"Sex45";
+static NSString * const kWishDataSave_key = @"WishDataSave_key";
+static NSString * const kBlessDataSave_key = @"kBlessDataSave_key";
 @interface TXXLSharedInstance ()
 {
     BOOL _isShow;
@@ -52,7 +55,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
         _nickName = _isBoy == YES? @"小帅":@"小靓";
     }
     _birthDay = [NSDate stringTransToDate:birthday withFormat:kBirthdayFormatter];
-    
+    [self getBlessData];
 }
 - (void)setBirthDay:(NSDate *)birthDay {
     _birthDay = birthDay;
@@ -76,6 +79,30 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     NSString *path = NSStringFormat(@"%@%@",[paths lastObject],kUserPhotoName);
     return path;
 }
+#pragma mark - 祈福
+- (void)addBlessModel:(TXBZSMGodMessageModel *)model {
+    [_blessArray addObject:model];
+    NSArray *dict = [_blessArray yy_modelToJSONObject];
+//    NSString *data = [LSKPublicMethodUtil arrayTransformToJson:_blessArray];
+//    [kUserMessageManager setMessageManagerForObjectWithKey:kBlessDataSave_key value:data];
+}
+- (void)getBlessData {
+    if (!_blessArray) {
+        _blessArray = [NSMutableArray array];
+    }else {
+        [_blessArray removeAllObjects];
+    }
+    NSString *data = [self getMessageManagerForObjectWithKey:kBlessDataSave_key];
+    if (KJudgeIsNullData(data)) {
+        NSArray *saveArray = [LSKPublicMethodUtil jsonDataTransformToDictionary:[data dataUsingEncoding:NSUTF8StringEncoding]];
+        for (NSDictionary *dict in saveArray) {
+            TXBZSMGodMessageModel *model = [TXBZSMGodMessageModel yy_modelWithJSON:dict];
+            [_blessArray addObject:model];
+        }
+    }
+}
+#pragma mark - 许愿树
+
 #pragma mark -统计
 - (void)analiticsViewAppear:(UIViewController *)vc {
     [[ALBBMANPageHitHelper getInstance] pageAppear:vc];

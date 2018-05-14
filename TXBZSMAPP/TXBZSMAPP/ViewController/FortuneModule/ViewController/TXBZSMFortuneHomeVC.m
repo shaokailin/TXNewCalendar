@@ -14,6 +14,7 @@
 #import "TXSMMessageDetailVC.h"
 #import "TXBZSMTodayFortuneVC.h"
 #import "TXBZSMLiveAnalysisVC.h"
+#import "TXBZSMBlessPlatformVC.h"
 static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 @interface TXBZSMFortuneHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -131,6 +132,10 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
         TXBZSMLiveAnalysisVC *live = [[TXBZSMLiveAnalysisVC alloc]init];
         live.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:live animated:YES];
+    }else {
+        TXBZSMBlessPlatformVC *bless = [[TXBZSMBlessPlatformVC alloc]init];
+        bless.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:bless animated:YES];
     }
 }
 #pragma mark - delegate

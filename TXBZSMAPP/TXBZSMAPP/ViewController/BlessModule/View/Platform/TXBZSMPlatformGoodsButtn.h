@@ -10,4 +10,5 @@
 
 @interface TXBZSMPlatformGoodsButtn : UIButton
 - (void)setupContentWithName:(NSString *)name img:(NSString *)img;
+- (void)setupType:(NSInteger)type;
 @end

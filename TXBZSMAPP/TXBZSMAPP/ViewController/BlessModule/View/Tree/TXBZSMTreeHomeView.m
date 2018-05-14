@@ -9,12 +9,14 @@
 #import "TXBZSMTreeHomeView.h"
 @interface TXBZSMTreeHomeView ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topValue;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topValue1;
 @end
 @implementation TXBZSMTreeHomeView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.topValue.constant = STATUSBAR_HEIGHT;
+    self.topValue.constant = STATUSBAR_HEIGHT - 10;
+    self.topValue1.constant = 95 + STATUSBAR_HEIGHT;
     
 }
 - (IBAction)cardClick:(UIButton *)sender {

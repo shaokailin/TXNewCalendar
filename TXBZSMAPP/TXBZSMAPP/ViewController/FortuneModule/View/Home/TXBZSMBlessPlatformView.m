@@ -12,17 +12,41 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *countLbl;
 @property (weak, nonatomic) IBOutlet UILabel *directionLbl;
-
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (nonatomic, weak) UILabel *titleLbl;
 
 @end
 @implementation TXBZSMBlessPlatformView
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeData) name:kBlessDataChangeNotice object:nil];
+    [self changeData];
 }
-*/
-
+- (void)changeData {
+    NSArray *data = kUserMessageManager.blessArray;
+    if (KJudgeIsArrayAndHasValue(data)) {
+        self.contentView.hidden = NO;
+        if (_titleLbl) {
+            [_titleLbl removeFromSuperview];
+        }
+        
+    }else {
+        self.iconImg.image = ImageNameInit(@"nogod");
+        self.contentView.hidden = YES;
+        self.titleLbl.hidden = NO;
+    }
+}
+- (UILabel *)titleLbl {
+    if (!_titleLbl) {
+        UILabel * title = [LSKViewFactory initializeLableWithText:@"您还没有祈福记录" font:13 textColor:KColorHexadecimal(kText_Title_Color, 1.0) textAlignment:1 backgroundColor:nil];
+        _titleLbl = title;
+        [self addSubview:title];
+        [title mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.iconImg.mas_right).with.offset(15);
+            make.centerY.equalTo(self).with.offset(5);
+            make.right.equalTo(self).with.offset(-15);
+        }];
+    }
+    return _titleLbl;
+}
 @end

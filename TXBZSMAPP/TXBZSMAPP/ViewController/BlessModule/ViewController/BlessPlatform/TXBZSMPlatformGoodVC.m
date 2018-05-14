@@ -40,6 +40,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXBZSMPlatformGoodsCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXBZSMPlatformGoodsCell];
     NSInteger index = indexPath.row * 3;
+    [cell setupCellType:self.goodsType];
     [cell setupContentWithFirst:[_dataArray objectAtIndex:index] second:index + 1 >= _dataArray.count?nil:[_dataArray objectAtIndex:index + 1] third:index + 2 >= _dataArray.count?nil:[_dataArray objectAtIndex:index + 2]];
     @weakify(self)
     cell.selectBlock = ^(NSInteger flag, id clickCell) {

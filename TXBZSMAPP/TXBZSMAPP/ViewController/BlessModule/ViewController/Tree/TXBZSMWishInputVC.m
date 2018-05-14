@@ -27,7 +27,7 @@
     [self.navigationController.navigationBar setBackgroundImage:ImageNameInit(@"god_navi_god") forBarMetrics:UIBarMetricsDefault];
 }
 - (void)initializeMainView {
-    self addri
+//    self addri
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

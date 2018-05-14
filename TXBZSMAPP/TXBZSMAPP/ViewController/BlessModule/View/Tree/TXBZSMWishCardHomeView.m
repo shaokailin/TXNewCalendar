@@ -23,6 +23,7 @@
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.topValue.constant = STATUSBAR_HEIGHT - 10;
     [self _initMainView];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

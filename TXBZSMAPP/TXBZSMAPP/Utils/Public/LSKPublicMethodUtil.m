@@ -64,7 +64,7 @@
 
 //NSData 转 字典
 + (id)jsonDataTransformToDictionary :(NSData *)data {
-    NSDictionary *responseDistionary = nil;
+    id responseDistionary = nil;
     //java 服务器出现奔溃的时候会返回 _NSZeroData 的<> 格式的错误
     if (data != nil && ![data isKindOfClass:[NSClassFromString(@"_NSZeroData") class]]) {
         NSError *error = nil;

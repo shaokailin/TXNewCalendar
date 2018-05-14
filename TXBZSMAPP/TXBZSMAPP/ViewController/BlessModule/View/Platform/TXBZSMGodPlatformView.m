@@ -34,9 +34,9 @@
         NSInteger type = btn.tag - 200;
         PlatformGoodsType actionType = 0;
         if (type < 2) {
-            actionType = 0;
-        }else if (type < 4) {
             actionType = 2;
+        }else if (type < 4) {
+            actionType = 0;
         }else if (type == 4){
             actionType = 3;
         }else if (type == 5){
@@ -74,6 +74,7 @@
         default:
             break;
     }
+    
 }
 - (void)_layoutMainView {
     BOOL isIphone5 = [LSKPublicMethodUtil getiPhoneType] < 2 ?YES:NO;

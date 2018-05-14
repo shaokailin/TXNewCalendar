@@ -11,5 +11,6 @@ typedef void (^PlatformSelectBlock)(NSInteger index, id clickCell);
 static NSString * const kTXBZSMPlatformGoodsCell = @"TXBZSMPlatformGoodsCell";
 @interface TXBZSMPlatformGoodsCell : UITableViewCell
 @property (nonatomic, copy) PlatformSelectBlock selectBlock;
+- (void)setupCellType:(NSInteger)type;
 - (void)setupContentWithFirst:(NSDictionary *)first second:(NSDictionary *)second third:(NSDictionary *)third;
 @end

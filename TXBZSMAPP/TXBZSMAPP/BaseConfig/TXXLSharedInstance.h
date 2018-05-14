@@ -29,5 +29,9 @@
 - (void)analiticsPay:(NSInteger)payType;
 - (void)analiticsEvent:(NSString *)eventName viewName:(NSString *)viewName;
 
+#pragma mark - 祈福数据
+@property (nonatomic, strong) NSMutableArray *blessArray;
 
+#pragma mark - 许愿
+@property (nonatomic, strong) NSMutableArray *wishArray;
 @end

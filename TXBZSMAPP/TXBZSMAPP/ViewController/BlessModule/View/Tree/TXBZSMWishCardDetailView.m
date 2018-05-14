@@ -16,7 +16,7 @@
 @implementation TXBZSMWishCardDetailView
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.topValue.constant = STATUSBAR_HEIGHT;
+    self.topValue.constant = STATUSBAR_HEIGHT - 10;
 }
 - (IBAction)backClick:(id)sender {
     if (self.homeBlock) {

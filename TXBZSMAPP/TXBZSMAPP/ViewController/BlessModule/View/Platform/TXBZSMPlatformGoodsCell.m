@@ -8,6 +8,9 @@
 #import "TXBZSMPlatformGoodsButtn.h"
 #import "TXBZSMPlatformGoodsCell.h"
 @interface TXBZSMPlatformGoodsCell ()
+{
+    NSInteger _type;
+}
 @property (weak, nonatomic) IBOutlet TXBZSMPlatformGoodsButtn *fitstbtn;
 @property (weak, nonatomic) IBOutlet TXBZSMPlatformGoodsButtn *secondBtn;
 @property (weak, nonatomic) IBOutlet TXBZSMPlatformGoodsButtn *thirdBtn;
@@ -18,6 +21,16 @@
     [super awakeFromNib];
     // Initialization code
     self.contentView.backgroundColor = [UIColor clearColor];
+    _type = 4;
+    
+}
+- (void)setupCellType:(NSInteger)type {
+    if (_type != type) {
+        _type = type;
+        [self.fitstbtn setupType:type];
+        [self.secondBtn setupType:type];
+        [self.thirdBtn setupType:type];
+    }
 }
 - (void)setupContentWithFirst:(NSDictionary *)first second:(NSDictionary *)second third:(NSDictionary *)third {
     [self.fitstbtn setupContentWithName:[first objectForKey:@"name"] img:[first objectForKey:@"image"]];

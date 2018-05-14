@@ -20,6 +20,7 @@
 #import "TXXLPublicMethod.h"
 #import "TXXLDateManager.h"
 #import "TXBZSMHappyManager.h"
+#import "TXBZSMGodMessageModel.h"
 typedef NS_ENUM(NSInteger,PlatformGoodsType){
     PlatformGoodsType_lazhu = 0,
     PlatformGoodsType_chashui = 1,
@@ -50,11 +51,6 @@ static NSString * const kFortune_Show_Change_Notice = @"Fortune_Show_Change_Noti
 
 static NSString * const kShare_Notice = @"Share_Notice";
 
-//点灯
-static NSString * const kLightOnUrl = @"https://ffsm.d1xz.net/qifu/diandeng/?spread=yyycios";
-//诞生
-static NSString * const kBirthdayUrl = @"https://ffsm.d1xz.net/qifu/fangsheng/?spread=yyycios";
-//苹果姻缘签
-static NSString * const kmMarriageUrl = @"https://ffsm.d1xz.net/yuelao/?spread=yyycios";
-
+static NSString * const kBlessDataChangeNotice = @"BlessDataChangeNotice";
+static NSString * const kWishDataChangeNotice = @"WishDataChangeNotice";
 #endif /* Config_h */

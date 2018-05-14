@@ -135,6 +135,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="contentView" destination="KbX-uc-LXi" id="7FT-ae-kcv"/>
                 <outlet property="countLbl" destination="jYV-6U-mOg" id="YOX-tQ-fsr"/>
                 <outlet property="directionLbl" destination="zod-Fv-9OT" id="6bH-ga-Oii"/>
                 <outlet property="iconImg" destination="svq-KW-mhM" id="Hua-RD-aEA"/>
