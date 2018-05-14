@@ -26,6 +26,7 @@
         width = 86;
         height = 150;
     }
+    
     [_iconImage mas_updateConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(width);
         make.height.mas_equalTo(height);

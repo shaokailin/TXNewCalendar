@@ -105,9 +105,12 @@
     _huaping_left_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"huaping"];
     _huaping_left_btn.tag = 200;
     [self addSubview:_huaping_left_btn];
+    
     [_huaping_left_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(godPlatformImg.mas_left).with.offset(7 - WIDTH_RACE_6S(1));
         make.centerY.equalTo(godPlatformImg);
+        make.height.mas_equalTo(80);
+        make.width.mas_equalTo(130);
     }];
     _huaping_right_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"huaping"];
     _huaping_right_btn.tag = 201;
@@ -115,6 +118,8 @@
     [_huaping_right_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(godPlatformImg.mas_right).with.offset(-7 + WIDTH_RACE_6S(1));
         make.centerY.equalTo(self->_huaping_left_btn);
+        make.height.mas_equalTo(80);
+        make.width.mas_equalTo(130);
     }];
     
     _lazhu_left_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"lazhu"];
@@ -123,6 +128,8 @@
     [_lazhu_left_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).with.offset(isIphone5?0:WIDTH_RACE_6S(15));
         make.centerY.equalTo(self->_huaping_left_btn);
+        make.height.mas_equalTo(45);
+        make.width.mas_equalTo(150);
     }];
     
     _lazhu_right_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"lazhu"];
@@ -131,6 +138,8 @@
     [_lazhu_right_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).with.offset(-(isIphone5?0:WIDTH_RACE_6S(15)));
         make.centerY.equalTo(self->_huaping_right_btn);
+        make.height.mas_equalTo(45);
+        make.width.mas_equalTo(150);
     }];
     _xiangyan_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"xiangtai"];
     _xiangyan_btn.tag = 204;
@@ -138,6 +147,8 @@
     [_xiangyan_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(godPlatformImg.mas_bottom);
         make.centerX.equalTo(self);
+        make.height.mas_equalTo(86);
+        make.width.mas_equalTo(150);
     }];
     
     _gongguo_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"gongpin"];
@@ -146,6 +157,7 @@
     [_gongguo_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self->_lazhu_left_btn.mas_bottom).with.offset((isIphone5? -5:0));
         make.left.equalTo(self).with.offset(WIDTH_RACE_6S(50));
+        make.width.height.mas_equalTo(72);
     }];
     
     _chashui_btn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(clickAction:) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"chashui"];
@@ -154,6 +166,7 @@
     [_chashui_btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self->_gongguo_btn).with.offset(-5);
         make.right.equalTo(self).with.offset(-WIDTH_RACE_6S(50));
+        make.width.height.mas_equalTo(80);
     }];
     
 }
