@@ -24,7 +24,12 @@
     [self initializeMainView];
 }
 - (void)inviteGodClick {
-    
+    if (self.selectBlock) {
+        self.selectBlock(self.godDetail);
+    }
+    NSInteger viewCount = self.navigationController.viewControllers.count;
+    UIViewController *controller = [self.navigationController.viewControllers objectAtIndex:viewCount - 3];
+    [self.navigationController popToViewController:controller animated:YES];
 }
 - (void)initializeMainView {
     UIScrollView *mainScroll = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];

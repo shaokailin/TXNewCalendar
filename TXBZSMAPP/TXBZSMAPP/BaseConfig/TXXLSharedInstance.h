@@ -31,7 +31,8 @@
 
 #pragma mark - 祈福数据
 @property (nonatomic, strong) NSMutableArray *blessArray;
-
+- (void)addBlessModel:(TXBZSMGodMessageModel *)model;
+- (void)changeBlessWithIndex:(NSInteger)index image:(NSString *)image date:(NSString *)date type:(PlatformGoodsType)type;
 #pragma mark - 许愿
 @property (nonatomic, strong) NSMutableArray *wishArray;
 @end

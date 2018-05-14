@@ -29,6 +29,11 @@
         if (_titleLbl) {
             [_titleLbl removeFromSuperview];
         }
+        TXBZSMGodMessageModel *model = [data objectAtIndex:0];
+        self.iconImg.image = ImageNameInit(model.godImage);
+        self.nameLbl.text = model.godName;
+        self.countLbl.text = NSStringFormat(@"已供奉了%ld天，连续祈福%ld天",model.hasCount,model.hasCount);
+        self.directionLbl.text = NSStringFormat(@"保佑方向：%@",model.blessType);
         
     }else {
         self.iconImg.image = ImageNameInit(@"nogod");

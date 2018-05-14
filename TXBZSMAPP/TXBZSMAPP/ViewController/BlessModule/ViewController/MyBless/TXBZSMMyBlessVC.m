@@ -11,6 +11,7 @@
 #import "TXBZSMMyBlessCell.h"
 #import "TXBZSMGodSelectVC.h"
 #import "TXBZSMMyBlessWishVC.h"
+#import "TXBZSMBlessWishCompleteVC.h"
 @interface TXBZSMMyBlessVC ()<UITableViewDataSource,UITabBarDelegate>
 {
     BOOL _isHasData;
@@ -55,22 +56,46 @@
     TXBZSMGodSelectVC *select = [[TXBZSMGodSelectVC alloc]init];
     [self.navigationController pushViewController: select animated:YES];
 }
+- (void)refreshData:(NSInteger)index {
+    [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+}
+- (void)deleteIndex:(NSInteger)index {
+    [self.mainTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+}
 //type 2:碗 1.前往祈福
 - (void)cellClickEvent:(NSInteger)type cell:(TXBZSMMyBlessCell *)cell {
     NSIndexPath *indexpath = [self.mainTableView indexPathForCell:cell];
-    if (type == 2) {
-        
+    TXBZSMGodMessageModel *model = [kUserMessageManager.blessArray objectAtIndex:indexpath.row];
+    if (KJudgeIsNullData(model.wishContent)) {
+        [self needChange];
+        TXBZSMBlessWishCompleteVC *wishComplete = [[TXBZSMBlessWishCompleteVC alloc]init];
+        wishComplete.model = model;
+        wishComplete.index = indexpath.row;
+        @weakify(self)
+        wishComplete.block = ^(NSInteger index) {
+            @strongify(self)
+            [self deleteIndex:index];
+        };
     }else {
         TXBZSMMyBlessWishVC *wish = [[TXBZSMMyBlessWishVC alloc]init];
+        wish.model = model;
+        wish.index = indexpath.row;
+        @weakify(self)
+        wish.block = ^(NSInteger index) {
+            @strongify(self)
+            [self refreshData:index];
+        };
         [self.navigationController pushViewController:wish animated:YES];
     }
 }
 #pragma mark - tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return kUserMessageManager.blessArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TXBZSMMyBlessCell *cell = [tableView dequeueReusableCellWithIdentifier:kTXBZSMMyBlessCell];
+    TXBZSMGodMessageModel *model = [kUserMessageManager.blessArray objectAtIndex:indexPath.row];
+    [cell setupCellContent:model];
     @weakify(self)
     cell.block = ^(NSInteger type, id clickCell) {
        @strongify(self)

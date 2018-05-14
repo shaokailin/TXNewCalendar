@@ -51,6 +51,13 @@
     _isJumpDetail = YES;
     TXBZSMGodDetailVC *detail = [[TXBZSMGodDetailVC alloc]init];
     detail.godDetail = dict;
+    @weakify(self)
+    detail.selectBlock = ^(NSDictionary *dict) {
+        @strongify(self)
+        if (self.selectBlock) {
+            self.selectBlock(dict);
+        }
+    };
     [self.navigationController pushViewController:detail animated:YES];
 }
 - (void)changeSelectShow:(UISegmentedControl *)segmented {

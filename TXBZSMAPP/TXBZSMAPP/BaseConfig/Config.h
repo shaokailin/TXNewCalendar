@@ -8,6 +8,18 @@
 
 #ifndef Config_h
 #define Config_h
+
+typedef NS_ENUM(NSInteger,PlatformGoodsType){
+    PlatformGoodsType_lazhu = 0,
+    PlatformGoodsType_chashui = 1,
+    PlatformGoodsType_huaping = 2,
+    PlatformGoodsType_xiangyan = 3,
+    PlatformGoodsType_gongpin = 4,
+    PlatformGoodsType_god = 5,
+    PlatformGoodsType_None = -1,
+};
+
+#import "TXBZSMGodMessageModel.h"
 //单利对象
 #import "TXXLSharedInstance.h"
 #define kUserMessageManager [TXXLSharedInstance sharedInstance]
@@ -20,16 +32,12 @@
 #import "TXXLPublicMethod.h"
 #import "TXXLDateManager.h"
 #import "TXBZSMHappyManager.h"
-#import "TXBZSMGodMessageModel.h"
-typedef NS_ENUM(NSInteger,PlatformGoodsType){
-    PlatformGoodsType_lazhu = 0,
-    PlatformGoodsType_chashui = 1,
-    PlatformGoodsType_huaping = 2,
-    PlatformGoodsType_xiangyan = 3,
-    PlatformGoodsType_gongpin = 4,
-    PlatformGoodsType_None = -1,
-};
+//许愿树牌的选择
 typedef void (^WishHomeBlock)(NSInteger type,NSDictionary * data);;
+//选择神明的回调
+typedef void (^GodSureBlock)(NSDictionary *dict);
+//我的祈福的回调
+typedef void (^WishCompleteBlock)(NSInteger index);
 
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
 
@@ -53,4 +61,6 @@ static NSString * const kShare_Notice = @"Share_Notice";
 
 static NSString * const kBlessDataChangeNotice = @"BlessDataChangeNotice";
 static NSString * const kWishDataChangeNotice = @"WishDataChangeNotice";
+static NSString * const kBlessContentChange = @"BlessContentChange";
+
 #endif /* Config_h */

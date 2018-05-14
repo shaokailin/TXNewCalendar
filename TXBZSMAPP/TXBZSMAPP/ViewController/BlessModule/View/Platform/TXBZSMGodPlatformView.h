@@ -13,4 +13,5 @@ typedef void (^PlatformActionBlock)(PlatformGoodsType selectType);
 @property (nonatomic, assign, getter=isAllPull) BOOL isAll;
 @property (nonatomic, copy) PlatformActionBlock block;
 - (void)setupContent:(NSString *)img type:(PlatformGoodsType)type;
+- (void)setupContentWithModel:(TXBZSMGodMessageModel *)model;
 @end

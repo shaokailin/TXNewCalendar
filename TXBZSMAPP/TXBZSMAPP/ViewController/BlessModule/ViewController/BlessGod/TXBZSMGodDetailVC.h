@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseViewController.h"
-
 @interface TXBZSMGodDetailVC : LSKBaseViewController
+@property (nonatomic, copy) GodSureBlock selectBlock;
 @property (nonatomic, strong) NSDictionary *godDetail;
 @end

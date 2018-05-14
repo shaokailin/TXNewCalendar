@@ -45,7 +45,7 @@
                     <rect key="frame" x="213" y="30" width="61" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="供奉神明" backgroundImage="btnbg.png">
+                    <state key="normal" title="我的祈福" backgroundImage="btnbg.png">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>

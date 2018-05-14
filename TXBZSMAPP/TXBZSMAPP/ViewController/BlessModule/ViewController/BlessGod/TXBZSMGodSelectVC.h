@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface TXBZSMGodSelectVC : LSKBaseViewController
-
+@property (nonatomic, copy) GodSureBlock selectBlock;
 @end

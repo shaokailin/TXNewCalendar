@@ -41,7 +41,18 @@
         self.block(0, 1);
     }
 }
+- (void)changeData {
+    NSArray *data = kUserMessageManager.blessArray;
+    NSInteger count = 0;
+    if (data.count > 0) {
+        for (TXBZSMGodMessageModel *model in data) {
+            count += (model.hasCount * 20);
+        }
+    }
+    _countLbl.text = NSStringFormat(@"%ld",count);
+}
 - (void)_layoutMainView {
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeData) name:kBlessDataChangeNotice object:nil];
     UIView *userMessage = [[UIView alloc]init];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(myBlessClick)];
     [userMessage addGestureRecognizer:tap];
@@ -102,6 +113,7 @@
     }];
     [self changeUserPhoto];
     [self customBtnView:nil];
+    [self changeData];
 }
 - (void)customBtnView:(NSArray *)data {
     CGFloat btnWidth = SCREEN_WIDTH / 4.0;

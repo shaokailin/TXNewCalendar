@@ -17,8 +17,8 @@ static NSString * const kUserPhotoName = @"userPhoto12";
 static NSString * const kUserNickname = @"Nickname34";
 static NSString * const kUserBirthday = @"Birthday23";
 static NSString * const kUserSex = @"Sex45";
-static NSString * const kWishDataSave_key = @"WishDataSave_key";
-static NSString * const kBlessDataSave_key = @"kBlessDataSave_key";
+static NSString * const kWishDataSave_key = @"WishDataSave_key.data";
+static NSString * const kBlessDataSave_key = @"kBlessDataSave_key.data";
 @interface TXXLSharedInstance ()
 {
     BOOL _isShow;
@@ -81,10 +81,38 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
 }
 #pragma mark - 祈福
 - (void)addBlessModel:(TXBZSMGodMessageModel *)model {
-    [_blessArray addObject:model];
-    NSArray *dict = [_blessArray yy_modelToJSONObject];
-//    NSString *data = [LSKPublicMethodUtil arrayTransformToJson:_blessArray];
-//    [kUserMessageManager setMessageManagerForObjectWithKey:kBlessDataSave_key value:data];
+    model.godInDate = [[NSDate getTodayDate]dateTransformToString:@"yyyy年MM月dd日"];
+    [_blessArray insertObject:model atIndex:0];
+    [self saveObject:_blessArray key:kBlessDataSave_key];
+    [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
+}
+- (void)changeBlessWithIndex:(NSInteger)index image:(NSString *)image date:(NSString *)date type:(PlatformGoodsType)type {
+    TXBZSMGodMessageModel *model = [_blessArray objectAtIndex:index];
+    switch (type) {
+        case 0:
+            model.lazhu = image;
+            break;
+        case 1:
+            model.chashui = image;
+            break;
+        case 2:
+            model.huaImage = image;
+            break;
+        case 3:
+            model.xiangyan = image;
+            break;
+        case 4:
+            model.gongguo = image;
+            break;
+            
+        default:
+            break;
+    }
+    if (date) {
+        model.godDate = date;
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
+    }
+    [self saveObject:_blessArray key:kBlessDataSave_key];
 }
 - (void)getBlessData {
     if (!_blessArray) {
@@ -92,14 +120,19 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     }else {
         [_blessArray removeAllObjects];
     }
-    NSString *data = [self getMessageManagerForObjectWithKey:kBlessDataSave_key];
-    if (KJudgeIsNullData(data)) {
-        NSArray *saveArray = [LSKPublicMethodUtil jsonDataTransformToDictionary:[data dataUsingEncoding:NSUTF8StringEncoding]];
-        for (NSDictionary *dict in saveArray) {
-            TXBZSMGodMessageModel *model = [TXBZSMGodMessageModel yy_modelWithJSON:dict];
-            [_blessArray addObject:model];
-        }
-    }
+    [_blessArray addObjectsFromArray:[self getObject:kBlessDataSave_key]];
+}
+
+- (void)saveObject:(NSArray *)array key:(NSString *)key {
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [path stringByAppendingPathComponent:key];//sale1.data是你归档的数组的名字
+    [NSKeyedArchiver archiveRootObject:array toFile:filePath];
+}
+- (NSArray *)getObject:(NSString *)key {
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
+    NSString *filePath = [path stringByAppendingPathComponent:key];//取出名
+    NSArray *data = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    return data;
 }
 #pragma mark - 许愿树
 

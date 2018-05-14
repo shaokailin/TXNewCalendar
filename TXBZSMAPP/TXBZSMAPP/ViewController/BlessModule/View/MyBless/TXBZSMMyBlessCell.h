@@ -12,4 +12,5 @@ typedef void (^BlessBlock)(NSInteger type,id clickCell);
 static NSString * const kTXBZSMMyBlessCell = @"TXBZSMMyBlessCell";
 @interface TXBZSMMyBlessCell : UITableViewCell
 @property (nonatomic, copy) BlessBlock block;
+- (void)setupCellContent:(TXBZSMGodMessageModel *)model;
 @end

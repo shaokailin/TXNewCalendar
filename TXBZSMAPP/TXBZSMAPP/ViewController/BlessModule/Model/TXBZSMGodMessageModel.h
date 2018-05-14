@@ -8,8 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TXBZSMGodMessageModel : NSObject
+@interface TXBZSMGodMessageModel : NSObject<NSCoding>
 @property (nonatomic, copy) NSString *godImage;
+@property (nonatomic, copy) NSString *godName;
+@property (nonatomic, copy) NSString *blessType;
+@property (nonatomic, copy) NSString *wishContent;
+@property (nonatomic, copy) NSString *wishName;
+@property (nonatomic, copy) NSString *godInDate;
+@property (nonatomic, copy) NSString * godType;
+@property (nonatomic, copy) NSString * indexId;
 @property (nonatomic, copy) NSString *godDate;
 @property (nonatomic, copy) NSString *huaImage;
 @property (nonatomic, copy) NSString *lazhu;

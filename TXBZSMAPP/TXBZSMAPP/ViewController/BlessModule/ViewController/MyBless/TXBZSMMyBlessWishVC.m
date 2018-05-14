@@ -22,11 +22,23 @@
     [self initializeMainView];
 }
 - (void)nextClick {
+    [self.view endEditing:YES];
+    NSString *content = [self.wishView.contentString stringBySpaceTrim];
+    NSString *titleString = [self.wishView.userString stringBySpaceTrim];
+    if (!KJudgeIsNullData(content)) {
+        [SKHUD showMessageInWindowWithMessage:@"请输入要祈福的内容"];
+        return;
+    }
+    if (!KJudgeIsNullData(titleString)) {
+        [SKHUD showMessageInWindowWithMessage:@"请输入要祈福的缘主"];
+        return;
+    }
     
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"下一步" target:self action:@selector(nextClick)];
     TXBZSMMyBlessWishView *wishView = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMMyBlessWishView" owner:self options:nil]lastObject];
+    [wishView setupGodImage:self.model.godImage];
     self.wishView = wishView;
     [self.view addSubview:wishView];
     [wishView mas_makeConstraints:^(MASConstraintMaker *make) {
