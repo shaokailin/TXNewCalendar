@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^WishTreeCompleteBlock)(NSInteger type,TXBZSMWishTreeModel *model,NSInteger index);;
 @interface TXBZSMMyWishMainView : UIView
-@property (nonatomic, copy) WishHomeBlock homeBlock;
+@property (nonatomic, copy) WishTreeCompleteBlock homeBlock;
 @property (nonatomic, assign) CGFloat topBetween;
 @end

@@ -21,6 +21,7 @@
     self.navigationItem.title = @"我的祈福";
     [self initializeMainView];
 }
+
 - (void)nextClick {
     [self.view endEditing:YES];
     NSString *content = [self.wishView.contentString stringBySpaceTrim];
@@ -33,7 +34,18 @@
         [SKHUD showMessageInWindowWithMessage:@"请输入要祈福的缘主"];
         return;
     }
-    
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:@"请确认您的真实心愿内容，向神明祈福也不可以当儿戏！" delegate:nil cancelButtonTitle:@"我再想想" otherButtonTitles:@"确认许愿", nil];
+    @weakify(self)
+    [alertView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        @strongify(self)
+        NSInteger buttonIndex = [x integerValue];
+        if (buttonIndex == 1 && self.block) {
+            [kUserMessageManager changeBlessWishContent:content user:titleString index:self.index];
+            self.block(self.index);
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+    [alertView show];
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"下一步" target:self action:@selector(nextClick)];

@@ -255,7 +255,6 @@
 		A686DF3520A983AE00CAE822 /* mybless_wan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF3120A983AD00CAE822 /* mybless_wan@2x.png */; };
 		A686DF3620A983AE00CAE822 /* mybless_wan2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF3220A983AE00CAE822 /* mybless_wan2@2x.png */; };
 		A686DF3A20A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF3820A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m */; };
-		A686DF3B20A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A686DF3920A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.xib */; };
 		A691C00020A34D1500B60521 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */; };
 		A695A22F209462C4009C95EB /* nayindetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F5209462C4009C95EB /* nayindetail.plist */; };
 		A695A230209462C4009C95EB /* heavenlyStems.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F6209462C4009C95EB /* heavenlyStems.plist */; };
@@ -365,6 +364,28 @@
 		A6B2B15820A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B15720A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib */; };
 		A6B2B15B20A88F5000F5CDF7 /* TXBZSMWishInputVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B15A20A88F5000F5CDF7 /* TXBZSMWishInputVC.m */; };
 		A6B2B15D20A8904E00F5CDF7 /* wishcarddetailbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B15C20A8904E00F5CDF7 /* wishcarddetailbg@2x.png */; };
+		A6B2B16020A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B15F20A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.m */; };
+		A6B2B16220A9B0C700F5CDF7 /* TXBZSMBlessWishCompleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B16120A9B0C700F5CDF7 /* TXBZSMBlessWishCompleteView.xib */; };
+		A6B2B16520A9BE1600F5CDF7 /* TXBZSMWishTreeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B16420A9BE1600F5CDF7 /* TXBZSMWishTreeModel.m */; };
+		A6B2B16820A9C12900F5CDF7 /* TXBZSMWishInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B16720A9C12900F5CDF7 /* TXBZSMWishInputView.m */; };
+		A6B2B16A20A9C14100F5CDF7 /* TXBZSMWishInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B16920A9C14100F5CDF7 /* TXBZSMWishInputView.xib */; };
+		A6B2B16D20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B16C20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.m */; };
+		A6B2B17020A9CA8400F5CDF7 /* TXBZSMInitWishCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B16F20A9CA8400F5CDF7 /* TXBZSMInitWishCardView.m */; };
+		A6B2B17220A9CA9900F5CDF7 /* TXBZSMInitWishCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B17120A9CA9900F5CDF7 /* TXBZSMInitWishCardView.xib */; };
+		A6B2B17620A9D21D00F5CDF7 /* wishmessagebg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B17520A9D21C00F5CDF7 /* wishmessagebg@2x.png */; };
+		A6B2B17920A9E27500F5CDF7 /* TXBZSMCardDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B17820A9E27500F5CDF7 /* TXBZSMCardDetailView.m */; };
+		A6B2B17B20A9E28B00F5CDF7 /* TXBZSMCardDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B17A20A9E28B00F5CDF7 /* TXBZSMCardDetailView.xib */; };
+		A6B2B17E20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B17D20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.m */; };
+		A6B2B18120A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B18020A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m */; };
+		A6B2B18320A9E97000F5CDF7 /* TXBZSMWishTreeCompleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B18220A9E97000F5CDF7 /* TXBZSMWishTreeCompleteView.xib */; };
+		A6B2B18520A9EB4500F5CDF7 /* wishtreecompl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B18420A9EB4500F5CDF7 /* wishtreecompl@2x.png */; };
+		A6B2B18B20A9EFAA00F5CDF7 /* messagecancle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B18720A9EFAA00F5CDF7 /* messagecancle@2x.png */; };
+		A6B2B18C20A9EFAA00F5CDF7 /* messageBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B18820A9EFAA00F5CDF7 /* messageBg@2x.png */; };
+		A6B2B18D20A9EFAA00F5CDF7 /* messagetop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B18920A9EFAA00F5CDF7 /* messagetop@2x.png */; };
+		A6B2B18E20A9EFAA00F5CDF7 /* messageBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B18A20A9EFAA00F5CDF7 /* messageBtn@2x.png */; };
+		A6B2B19320A9F01300F5CDF7 /* TXBZSMUserMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B19220A9F01300F5CDF7 /* TXBZSMUserMessageVC.m */; };
+		A6B2B19620A9F1F200F5CDF7 /* TXBZSMMessageAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6B2B19520A9F1F200F5CDF7 /* TXBZSMMessageAlertView.m */; };
+		A6B2B19820A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6B2B19720A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib */; };
 		A6C06C6F20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */; };
 		A6C06C7020A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */; };
 		A6C06C7420A7E53300565990 /* platformgoods@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6C06C7320A7E53300565990 /* platformgoods@2x.png */; };
@@ -826,7 +847,6 @@
 		A686DF3220A983AE00CAE822 /* mybless_wan2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mybless_wan2@2x.png"; sourceTree = "<group>"; };
 		A686DF3720A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMBlessWishCompleteVC.h; sourceTree = "<group>"; };
 		A686DF3820A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMBlessWishCompleteVC.m; sourceTree = "<group>"; };
-		A686DF3920A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMBlessWishCompleteVC.xib; sourceTree = "<group>"; };
 		A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "god_navi_god@2x.png"; sourceTree = "<group>"; };
 		A695A1F5209462C4009C95EB /* nayindetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nayindetail.plist; sourceTree = "<group>"; };
 		A695A1F6209462C4009C95EB /* heavenlyStems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heavenlyStems.plist; sourceTree = "<group>"; };
@@ -952,6 +972,38 @@
 		A6B2B15920A88F5000F5CDF7 /* TXBZSMWishInputVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishInputVC.h; sourceTree = "<group>"; };
 		A6B2B15A20A88F5000F5CDF7 /* TXBZSMWishInputVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishInputVC.m; sourceTree = "<group>"; };
 		A6B2B15C20A8904E00F5CDF7 /* wishcarddetailbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wishcarddetailbg@2x.png"; sourceTree = "<group>"; };
+		A6B2B15E20A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMBlessWishCompleteView.h; sourceTree = "<group>"; };
+		A6B2B15F20A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMBlessWishCompleteView.m; sourceTree = "<group>"; };
+		A6B2B16120A9B0C700F5CDF7 /* TXBZSMBlessWishCompleteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMBlessWishCompleteView.xib; sourceTree = "<group>"; };
+		A6B2B16320A9BE1600F5CDF7 /* TXBZSMWishTreeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishTreeModel.h; sourceTree = "<group>"; };
+		A6B2B16420A9BE1600F5CDF7 /* TXBZSMWishTreeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishTreeModel.m; sourceTree = "<group>"; };
+		A6B2B16620A9C12900F5CDF7 /* TXBZSMWishInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishInputView.h; sourceTree = "<group>"; };
+		A6B2B16720A9C12900F5CDF7 /* TXBZSMWishInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishInputView.m; sourceTree = "<group>"; };
+		A6B2B16920A9C14100F5CDF7 /* TXBZSMWishInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMWishInputView.xib; sourceTree = "<group>"; };
+		A6B2B16B20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMInitWishCardVC.h; sourceTree = "<group>"; };
+		A6B2B16C20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMInitWishCardVC.m; sourceTree = "<group>"; };
+		A6B2B16E20A9CA8400F5CDF7 /* TXBZSMInitWishCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMInitWishCardView.h; sourceTree = "<group>"; };
+		A6B2B16F20A9CA8400F5CDF7 /* TXBZSMInitWishCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMInitWishCardView.m; sourceTree = "<group>"; };
+		A6B2B17120A9CA9900F5CDF7 /* TXBZSMInitWishCardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMInitWishCardView.xib; sourceTree = "<group>"; };
+		A6B2B17520A9D21C00F5CDF7 /* wishmessagebg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wishmessagebg@2x.png"; sourceTree = "<group>"; };
+		A6B2B17720A9E27500F5CDF7 /* TXBZSMCardDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMCardDetailView.h; sourceTree = "<group>"; };
+		A6B2B17820A9E27500F5CDF7 /* TXBZSMCardDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMCardDetailView.m; sourceTree = "<group>"; };
+		A6B2B17A20A9E28B00F5CDF7 /* TXBZSMCardDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMCardDetailView.xib; sourceTree = "<group>"; };
+		A6B2B17C20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishTreeCompleteVC.h; sourceTree = "<group>"; };
+		A6B2B17D20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishTreeCompleteVC.m; sourceTree = "<group>"; };
+		A6B2B17F20A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishTreeCompleteView.h; sourceTree = "<group>"; };
+		A6B2B18020A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishTreeCompleteView.m; sourceTree = "<group>"; };
+		A6B2B18220A9E97000F5CDF7 /* TXBZSMWishTreeCompleteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMWishTreeCompleteView.xib; sourceTree = "<group>"; };
+		A6B2B18420A9EB4500F5CDF7 /* wishtreecompl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wishtreecompl@2x.png"; sourceTree = "<group>"; };
+		A6B2B18720A9EFAA00F5CDF7 /* messagecancle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messagecancle@2x.png"; sourceTree = "<group>"; };
+		A6B2B18820A9EFAA00F5CDF7 /* messageBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageBg@2x.png"; sourceTree = "<group>"; };
+		A6B2B18920A9EFAA00F5CDF7 /* messagetop@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messagetop@2x.png"; sourceTree = "<group>"; };
+		A6B2B18A20A9EFAA00F5CDF7 /* messageBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "messageBtn@2x.png"; sourceTree = "<group>"; };
+		A6B2B19120A9F01300F5CDF7 /* TXBZSMUserMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMUserMessageVC.h; sourceTree = "<group>"; };
+		A6B2B19220A9F01300F5CDF7 /* TXBZSMUserMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMUserMessageVC.m; sourceTree = "<group>"; };
+		A6B2B19420A9F1F200F5CDF7 /* TXBZSMMessageAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMMessageAlertView.h; sourceTree = "<group>"; };
+		A6B2B19520A9F1F200F5CDF7 /* TXBZSMMessageAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMMessageAlertView.m; sourceTree = "<group>"; };
+		A6B2B19720A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMMessageAlertView.xib; sourceTree = "<group>"; };
 		A6C06C6C20A7DF9100565990 /* TXBZSMPlatformGoodsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMPlatformGoodsCell.h; sourceTree = "<group>"; };
 		A6C06C6D20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMPlatformGoodsCell.m; sourceTree = "<group>"; };
 		A6C06C6E20A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMPlatformGoodsCell.xib; sourceTree = "<group>"; };
@@ -1488,7 +1540,6 @@
 				A6617B8F20A41EE800ACD878 /* TXBZSMMyBlessWishVC.m */,
 				A686DF3720A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.h */,
 				A686DF3820A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m */,
-				A686DF3920A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.xib */,
 			);
 			path = MyBless;
 			sourceTree = "<group>";
@@ -1505,6 +1556,9 @@
 				A6617B9120A4200800ACD878 /* TXBZSMMyBlessWishView.h */,
 				A6617B9220A4200800ACD878 /* TXBZSMMyBlessWishView.m */,
 				A6617BC820A53BB600ACD878 /* TXBZSMMyBlessWishView.xib */,
+				A6B2B15E20A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.h */,
+				A6B2B15F20A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.m */,
+				A6B2B16120A9B0C700F5CDF7 /* TXBZSMBlessWishCompleteView.xib */,
 			);
 			path = MyBless;
 			sourceTree = "<group>";
@@ -1878,6 +1932,10 @@
 				A6B2B15220A88E7200F5CDF7 /* TXBZSMWishCardDetailVC.m */,
 				A6B2B15920A88F5000F5CDF7 /* TXBZSMWishInputVC.h */,
 				A6B2B15A20A88F5000F5CDF7 /* TXBZSMWishInputVC.m */,
+				A6B2B16B20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.h */,
+				A6B2B16C20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.m */,
+				A6B2B17C20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.h */,
+				A6B2B17D20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.m */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -1903,6 +1961,18 @@
 				A6B2B15420A88ED800F5CDF7 /* TXBZSMWishCardDetailView.h */,
 				A6B2B15520A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m */,
 				A6B2B15720A88EE200F5CDF7 /* TXBZSMWishCardDetailView.xib */,
+				A6B2B16620A9C12900F5CDF7 /* TXBZSMWishInputView.h */,
+				A6B2B16720A9C12900F5CDF7 /* TXBZSMWishInputView.m */,
+				A6B2B16920A9C14100F5CDF7 /* TXBZSMWishInputView.xib */,
+				A6B2B16E20A9CA8400F5CDF7 /* TXBZSMInitWishCardView.h */,
+				A6B2B16F20A9CA8400F5CDF7 /* TXBZSMInitWishCardView.m */,
+				A6B2B17120A9CA9900F5CDF7 /* TXBZSMInitWishCardView.xib */,
+				A6B2B17720A9E27500F5CDF7 /* TXBZSMCardDetailView.h */,
+				A6B2B17820A9E27500F5CDF7 /* TXBZSMCardDetailView.m */,
+				A6B2B17A20A9E28B00F5CDF7 /* TXBZSMCardDetailView.xib */,
+				A6B2B17F20A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.h */,
+				A6B2B18020A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m */,
+				A6B2B18220A9E97000F5CDF7 /* TXBZSMWishTreeCompleteView.xib */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -1910,6 +1980,8 @@
 		A6B2B0BB20A805E100F5CDF7 /* Tree */ = {
 			isa = PBXGroup;
 			children = (
+				A6B2B18420A9EB4500F5CDF7 /* wishtreecompl@2x.png */,
+				A6B2B17520A9D21C00F5CDF7 /* wishmessagebg@2x.png */,
 				A6B2B15C20A8904E00F5CDF7 /* wishcarddetailbg@2x.png */,
 				A6B2B14F20A88C6200F5CDF7 /* mywishtitlebg@2x.png */,
 				A6B2B14820A8890200F5CDF7 /* mywishbg@2x.png */,
@@ -1951,6 +2023,36 @@
 				A6B2B0DC20A834FB00F5CDF7 /* shiyeyellowcard@2x.png */,
 			);
 			path = card;
+			sourceTree = "<group>";
+		};
+		A6B2B18620A9EFAA00F5CDF7 /* message */ = {
+			isa = PBXGroup;
+			children = (
+				A6B2B18720A9EFAA00F5CDF7 /* messagecancle@2x.png */,
+				A6B2B18820A9EFAA00F5CDF7 /* messageBg@2x.png */,
+				A6B2B18920A9EFAA00F5CDF7 /* messagetop@2x.png */,
+				A6B2B18A20A9EFAA00F5CDF7 /* messageBtn@2x.png */,
+			);
+			path = message;
+			sourceTree = "<group>";
+		};
+		A6B2B18F20A9EFC100F5CDF7 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A6B2B19420A9F1F200F5CDF7 /* TXBZSMMessageAlertView.h */,
+				A6B2B19520A9F1F200F5CDF7 /* TXBZSMMessageAlertView.m */,
+				A6B2B19720A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		A6B2B19020A9EFDB00F5CDF7 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A6B2B19120A9F01300F5CDF7 /* TXBZSMUserMessageVC.h */,
+				A6B2B19220A9F01300F5CDF7 /* TXBZSMUserMessageVC.m */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		A6DC2AAA209AF7DD0058202B /* PNChart */ = {
@@ -2134,6 +2236,7 @@
 		A6EA53F5209017080018158C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A6B2B18620A9EFAA00F5CDF7 /* message */,
 				A686DE8420A9113600CAE822 /* gongguo */,
 				A686DEC720A9113700CAE822 /* gonghua */,
 				A686DEB620A9113700CAE822 /* lazhu */,
@@ -2453,6 +2556,8 @@
 			children = (
 				A686DF2920A9336000CAE822 /* TXBZSMGodMessageModel.h */,
 				A686DF2A20A9336000CAE822 /* TXBZSMGodMessageModel.m */,
+				A6B2B16320A9BE1600F5CDF7 /* TXBZSMWishTreeModel.h */,
+				A6B2B16420A9BE1600F5CDF7 /* TXBZSMWishTreeModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2527,6 +2632,7 @@
 		A6EA556E209017DB0018158C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A6B2B18F20A9EFC100F5CDF7 /* Message */,
 				A651057A20A1716A0091B6E5 /* LiveAnalysis */,
 				A651051E209FDAC30091B6E5 /* Today */,
 				A6DC2B0C209BEC2C0058202B /* Home */,
@@ -2546,6 +2652,7 @@
 		A6EA5570209017DB0018158C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A6B2B19020A9EFDB00F5CDF7 /* Message */,
 				A651057120A16EAC0091B6E5 /* LiveAnalysis */,
 				A6510534209FDD4A0091B6E5 /* Today */,
 				A6DC2AFB209AFBC40058202B /* TXBZSMFortuneHomeVC.h */,
@@ -2708,6 +2815,7 @@
 				A686DF1B20A9113700CAE822 /* lanhua@2x.png in Resources */,
 				A686DEFE20A9113700CAE822 /* taohuashengshui@2x.png in Resources */,
 				A695A262209462C4009C95EB /* 5.dat in Resources */,
+				A6B2B18320A9E97000F5CDF7 /* TXBZSMWishTreeCompleteView.xib in Resources */,
 				A6617BB220A431D000ACD878 /* blacshare@2x.png in Resources */,
 				A6EA5503209017080018158C /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				A6510520209FDBA80091B6E5 /* today_bg@2x.png in Resources */,
@@ -2740,10 +2848,12 @@
 				A6EA5526209017080018158C /* guanbi@3x.png in Resources */,
 				A686DF0620A9113700CAE822 /* changshoushengshui@2x.png in Resources */,
 				A695A265209462C4009C95EB /* 7.dat in Resources */,
+				A6B2B17620A9D21D00F5CDF7 /* wishmessagebg@2x.png in Resources */,
 				A6B2B0EE20A834FD00F5CDF7 /* caiyunyellowcard@2x.png in Resources */,
 				A6022E2020A73ACC00A6D84E /* 640_guide_2.png in Resources */,
 				A6DC2B2B209BF3910058202B /* TXBZSMBlessPlatformView.xib in Resources */,
 				A695A25F209462C4009C95EB /* 2.dat in Resources */,
+				A6B2B18B20A9EFAA00F5CDF7 /* messagecancle@2x.png in Resources */,
 				A6B2B0E620A834FD00F5CDF7 /* pingancard@2x.png in Resources */,
 				A6617B4E20A2ECF800ACD878 /* wenzhupus@2x.png in Resources */,
 				A686DF3520A983AE00CAE822 /* mybless_wan@2x.png in Resources */,
@@ -2757,6 +2867,7 @@
 				A6617AC820A284AF00ACD878 /* tree@2x.png in Resources */,
 				A686DEEC20A9113700CAE822 /* wuxingcuicai@2x.png in Resources */,
 				A686DF2520A9113700CAE822 /* shanyulan@2x.png in Resources */,
+				A6B2B18520A9EB4500F5CDF7 /* wishtreecompl@2x.png in Resources */,
 				A6617BD820A57C9800ACD878 /* nogod@2x.png in Resources */,
 				A6DC2AA9209AF62C0058202B /* searchNameDetail.plist in Resources */,
 				A6617B4620A2ECF800ACD878 /* budongzunpus@2x.png in Resources */,
@@ -2784,6 +2895,7 @@
 				A686DEDA20A9113700CAE822 /* pingguo@2x.png in Resources */,
 				A695A258209462C4009C95EB /* 18.dat in Resources */,
 				A686DEDB20A9113700CAE822 /* chengzi@2x.png in Resources */,
+				A6B2B19820A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib in Resources */,
 				A6617B1520A2E89B00ACD878 /* diguan@2x.png in Resources */,
 				A6617BBF20A43D4F00ACD878 /* gongpin@2x.png in Resources */,
 				A6617B1F20A2E89B00ACD878 /* ziwei@2x.png in Resources */,
@@ -2798,6 +2910,7 @@
 				A686DF0220A9113700CAE822 /* songzishengshui@2x.png in Resources */,
 				A6B2B0EB20A834FD00F5CDF7 /* bishengcard@2x.png in Resources */,
 				A6DC2A99209997150058202B /* jixiangseResult.plist in Resources */,
+				A6B2B16220A9B0C700F5CDF7 /* TXBZSMBlessWishCompleteView.xib in Resources */,
 				A6617B1E20A2E89B00ACD878 /* zudashi@2x.png in Resources */,
 				A6617B3020A2E89B00ACD878 /* zhaojun@2x.png in Resources */,
 				A686DF1120A9113700CAE822 /* shoubinanshanlazhu@2x.png in Resources */,
@@ -2870,6 +2983,7 @@
 				A6DC2AF7209AFB700058202B /* tab_0_n@2x.png in Resources */,
 				A695A26B20946442009C95EB /* dizhishuzhi.plist in Resources */,
 				A6B2B0E720A834FD00F5CDF7 /* shiyeyellowcard@2x.png in Resources */,
+				A6B2B18E20A9EFAA00F5CDF7 /* messageBtn@2x.png in Resources */,
 				A686DF0020A9113700CAE822 /* hexieshengshui@2x.png in Resources */,
 				A6617B2020A2E89B00ACD878 /* guiren@2x.png in Resources */,
 				A6617B2220A2E89B00ACD878 /* luxing@2x.png in Resources */,
@@ -2884,6 +2998,7 @@
 				A6617B1C20A2E89B00ACD878 /* piancai@2x.png in Resources */,
 				A6DC2B0B209B0E4F0058202B /* xingzuoList.plist in Resources */,
 				A695A256209462C4009C95EB /* 17.dat in Resources */,
+				A6B2B18C20A9EFAA00F5CDF7 /* messageBg@2x.png in Resources */,
 				A6617B8D20A3F34D00ACD878 /* goddetailbg@2x.png in Resources */,
 				A6617AE220A2A7B800ACD878 /* nodataimage@2x.png in Resources */,
 				A686DF0A20A9113700CAE822 /* hongyunlianlianlazhu@2x.png in Resources */,
@@ -2911,6 +3026,7 @@
 				A695A231209462C4009C95EB /* pengzuDetail.plist in Resources */,
 				A6510527209FDC230091B6E5 /* luckycolor_icon@2x.png in Resources */,
 				A6022E1F20A73ACC00A6D84E /* 640_guide_0.png in Resources */,
+				A6B2B18D20A9EFAA00F5CDF7 /* messagetop@2x.png in Resources */,
 				A695A249209462C4009C95EB /* chineseMonth.plist in Resources */,
 				A686DF1A20A9113700CAE822 /* dijinlian@2x.png in Resources */,
 				A6617B2F20A2E89B00ACD878 /* wencang@2x.png in Resources */,
@@ -2924,10 +3040,12 @@
 				A6B2B0E820A834FD00F5CDF7 /* chueyellowcard@2x.png in Resources */,
 				A6617B4C20A2ECF800ACD878 /* shijiamouni@2x.png in Resources */,
 				A686DF0B20A9113700CAE822 /* fuguipinganlazhu@2x.png in Resources */,
+				A6B2B16A20A9C14100F5CDF7 /* TXBZSMWishInputView.xib in Resources */,
 				A6EA54F6209017080018158C /* TabBarSetting.plist in Resources */,
 				A686DF2120A9113700CAE822 /* zhuye@2x.png in Resources */,
 				A651052A209FDC230091B6E5 /* shareicon@2x.png in Resources */,
 				A686DF0D20A9113700CAE822 /* caiyuanguanjinlazhu@2x.png in Resources */,
+				A6B2B17B20A9E28B00F5CDF7 /* TXBZSMCardDetailView.xib in Resources */,
 				A6DC2AA5209AF5C50058202B /* huanli.db in Resources */,
 				A6022E2220A73ACC00A6D84E /* 1125_guide_0.png in Resources */,
 				A6DC2A97209994B10058202B /* jixiangse.plist in Resources */,
@@ -2982,7 +3100,6 @@
 				A6DC2B21209BF3410058202B /* TXBZSMTodayFortuneView.xib in Resources */,
 				A6617B2C20A2E89B00ACD878 /* doulao@2x.png in Resources */,
 				A695A23B209462C4009C95EB /* hourState.plist in Resources */,
-				A686DF3B20A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.xib in Resources */,
 				A6617B6220A3DAC200ACD878 /* TXBZSMGodSelectCell.xib in Resources */,
 				A6617B2B20A2E89B00ACD878 /* wencai@2x.png in Resources */,
 				A6617B8620A3EB3A00ACD878 /* TXBZSMGodDetailInfoView.xib in Resources */,
@@ -3000,6 +3117,7 @@
 				A686DEF420A9113700CAE822 /* danchanxiang@2x.png in Resources */,
 				A6617AB920A19BA400ACD878 /* TXBZSMBlessHomeCell.xib in Resources */,
 				A651058520A173C40091B6E5 /* TXBZSMAnalysisMessageView.xib in Resources */,
+				A6B2B17220A9CA9900F5CDF7 /* TXBZSMInitWishCardView.xib in Resources */,
 				A686DF0420A9113700CAE822 /* guanyunshengshui@2x.png in Resources */,
 				A686DEE720A9113700CAE822 /* lizhi@2x.png in Resources */,
 				A6617BC120A43D4F00ACD878 /* platformbg@2x.png in Resources */,
@@ -3127,6 +3245,7 @@
 				A6617AD920A29F8500ACD878 /* TXBZSMMyBlessCell.m in Sources */,
 				A6EA559320901A0D0018158C /* PPSSAppVersionApi.m in Sources */,
 				A6EA5524209017080018158C /* LSKBaseWebViewController.m in Sources */,
+				A6B2B16520A9BE1600F5CDF7 /* TXBZSMWishTreeModel.m in Sources */,
 				A6EA54F9209017080018158C /* HListView.m in Sources */,
 				A6617B6520A3DC8F00ACD878 /* TXBZSMSelectGodButton.m in Sources */,
 				A6617B8420A3EB3200ACD878 /* TXBZSMGodDetailInfoView.m in Sources */,
@@ -3140,6 +3259,7 @@
 				A6DC2AE7209AF8340058202B /* UINavigation+SXFixSpace.m in Sources */,
 				A6B2B0B020A7F4EE00F5CDF7 /* TXBZSMPlatformGoodsButtn.m in Sources */,
 				A6DC2AD3209AF7DD0058202B /* PNRadarChartDataItem.m in Sources */,
+				A6B2B19320A9F01300F5CDF7 /* TXBZSMUserMessageVC.m in Sources */,
 				A6510537209FE1B40091B6E5 /* TXBZSMTodayNavigationView.m in Sources */,
 				A6EA5521209017080018158C /* LSKBannerImageView.m in Sources */,
 				A6B2B13520A84B5C00F5CDF7 /* TXBZSMWishCardHomeView.m in Sources */,
@@ -3159,6 +3279,7 @@
 				A6EA54F7209017080018158C /* PPSSCircleProgress.m in Sources */,
 				A6EA551A209017080018158C /* LSKBaseResponseModel.m in Sources */,
 				A651054F20A028C80091B6E5 /* TXBZSMTomorrowDetailView.m in Sources */,
+				A6B2B16D20A9C9D900F5CDF7 /* TXBZSMInitWishCardVC.m in Sources */,
 				A651056320A144460091B6E5 /* TXBZSMWeekDetailView.m in Sources */,
 				A6EA5522209017080018158C /* SKHUD.m in Sources */,
 				A6EA5520209017080018158C /* LSKBarnerScrollView.m in Sources */,
@@ -3174,6 +3295,7 @@
 				A6DC2AD8209AF7DD0058202B /* PNLineChartData.m in Sources */,
 				A6EA5517209017080018158C /* NSArray+Extend.m in Sources */,
 				A6EA5514209017080018158C /* NSString+Extend.m in Sources */,
+				A6B2B17E20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.m in Sources */,
 				A6EA559420901A0D0018158C /* PPSSAppUpdateView.m in Sources */,
 				A6EA5509209017080018158C /* LSKMediaParamterEntity.m in Sources */,
 				A6EA555D209017090018158C /* TXXLGuideVC.m in Sources */,
@@ -3199,6 +3321,7 @@
 				A6617AAA20A1922C00ACD878 /* TXXLCalculateMainVC.m in Sources */,
 				A6DC2B29209BF3890058202B /* TXBZSMBlessPlatformView.m in Sources */,
 				A6DC2AD5209AF7DD0058202B /* PNBarChart.m in Sources */,
+				A6B2B16820A9C12900F5CDF7 /* TXBZSMWishInputView.m in Sources */,
 				A6617B6D20A3E4E100ACD878 /* TXBZSMGodSelectSuperCell.m in Sources */,
 				A6EA550B209017080018158C /* LSKParamterEntity.m in Sources */,
 				A6617B9C20A42C9400ACD878 /* TXBZSMBlessPlatformVC.m in Sources */,
@@ -3216,12 +3339,15 @@
 				A695A27020946585009C95EB /* TXBZSMHappyManager.m in Sources */,
 				A6DC2B41209C48810058202B /* TXBZSMDictionaryModel.m in Sources */,
 				A6B2B0F120A8438200F5CDF7 /* TXBZSMMyWishListVC.m in Sources */,
+				A6B2B17020A9CA8400F5CDF7 /* TXBZSMInitWishCardView.m in Sources */,
 				A6617AB820A19BA400ACD878 /* TXBZSMBlessHomeCell.m in Sources */,
 				A6617AA220A1922C00ACD878 /* TXXLCalculateHomeVM.m in Sources */,
 				A6EA5519209017080018158C /* LSKBaseViewModel.m in Sources */,
 				A6DC2AE6209AF8340058202B /* NSObject+SXRuntime.m in Sources */,
 				A686DF2B20A9336000CAE822 /* TXBZSMGodMessageModel.m in Sources */,
 				A651054220A0213D0091B6E5 /* TXBZSMWeekMessageView.m in Sources */,
+				A6B2B17920A9E27500F5CDF7 /* TXBZSMCardDetailView.m in Sources */,
+				A6B2B19620A9F1F200F5CDF7 /* TXBZSMMessageAlertView.m in Sources */,
 				A6617AA720A1922C00ACD878 /* TXSMFourAdView.m in Sources */,
 				A6EA559120901A0D0018158C /* PPSSAppVersionViewModel.m in Sources */,
 				A6617B9320A4200800ACD878 /* TXBZSMMyBlessWishView.m in Sources */,
@@ -3233,6 +3359,7 @@
 				A6EA552C209017080018158C /* LSKWebEventHandleManager.m in Sources */,
 				A651052D209FDCEA0091B6E5 /* TXBZSMTodayHeaderView.m in Sources */,
 				A6B2B0F420A843B100F5CDF7 /* TXBZSMVWishListVC.m in Sources */,
+				A6B2B18120A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m in Sources */,
 				A6510533209FDD320091B6E5 /* TXBZSMTodayAdView.m in Sources */,
 				A6C06C6F20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m in Sources */,
 				A6EA5510209017080018158C /* UITableView+Extend.m in Sources */,
@@ -3254,6 +3381,7 @@
 				A6617AB120A1998F00ACD878 /* TXBZSMBlessHomeVM.m in Sources */,
 				A651058020A173670091B6E5 /* TXBZSMAnalysisMessageView.m in Sources */,
 				A6DC2AD9209AF7DD0058202B /* PNLineChartDataItem.m in Sources */,
+				A6B2B16020A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.m in Sources */,
 				A6B2B15620A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m in Sources */,
 				A6617AAD20A198CB00ACD878 /* TXBZSMBlessModuleAPI.m in Sources */,
 				A6DC2AED209AF8860058202B /* TXSMShareView.m in Sources */,

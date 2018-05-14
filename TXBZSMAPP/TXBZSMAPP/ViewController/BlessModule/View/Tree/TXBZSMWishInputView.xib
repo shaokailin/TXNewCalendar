@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TXBZSMWishInputView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTp-O9-D6m">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_bisheng.png" translatesAutoresizingMaskIntoConstraints="NO" id="VmY-iP-70G">
+                            <rect key="frame" x="15.5" y="7" width="28" height="49"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="49" id="IVt-Wv-Oxh"/>
+                                <constraint firstAttribute="width" constant="28" id="ehr-DB-8V0"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="诚心许下心愿，向许愿树祈求，若得应灵，愿前往许愿树还愿！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-ao-XOK">
+                            <rect key="frame" x="58.5" y="17" width="294.5" height="33.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="VmY-iP-70G" firstAttribute="leading" secondItem="UTp-O9-D6m" secondAttribute="leading" constant="15" id="8kw-Mz-csl"/>
+                        <constraint firstItem="VmY-iP-70G" firstAttribute="top" secondItem="UTp-O9-D6m" secondAttribute="top" constant="7" id="8tV-5u-Zm3"/>
+                        <constraint firstItem="cCw-ao-XOK" firstAttribute="leading" secondItem="VmY-iP-70G" secondAttribute="trailing" constant="15" id="9tz-9z-JKf"/>
+                        <constraint firstAttribute="trailing" secondItem="cCw-ao-XOK" secondAttribute="trailing" constant="22" id="JES-VX-vKc"/>
+                        <constraint firstAttribute="height" constant="65" id="RyK-5l-eKa"/>
+                        <constraint firstAttribute="bottom" secondItem="VmY-iP-70G" secondAttribute="bottom" constant="9" id="WtP-oC-phY"/>
+                        <constraint firstItem="cCw-ao-XOK" firstAttribute="top" secondItem="UTp-O9-D6m" secondAttribute="top" constant="17" id="lan-hL-3pI"/>
+                    </constraints>
+                </view>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的名字" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j9I-1i-bmm">
+                    <rect key="frame" x="22" y="73" width="331" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="keG-xf-ghe"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wKG-cp-XJH">
+                    <rect key="frame" x="12" y="103" width="351" height="1"/>
+                    <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="sUa-nN-sMy"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NpV-8g-bpm">
+                    <rect key="frame" x="12" y="132" width="351" height="175"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="限100字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XUt-hF-iZT">
+                            <rect key="frame" x="293.5" y="153" width="45.5" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="67A-PL-oXP">
+                            <rect key="frame" x="0.0" y="0.0" width="351" height="146"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="XUt-hF-iZT" secondAttribute="bottom" constant="7" id="8N5-7k-0vW"/>
+                        <constraint firstAttribute="trailing" secondItem="67A-PL-oXP" secondAttribute="trailing" id="Flg-1x-5fo"/>
+                        <constraint firstAttribute="height" constant="175" id="Gwa-nk-ba7"/>
+                        <constraint firstItem="67A-PL-oXP" firstAttribute="top" secondItem="NpV-8g-bpm" secondAttribute="top" id="JHx-L9-6Bm"/>
+                        <constraint firstItem="XUt-hF-iZT" firstAttribute="top" secondItem="67A-PL-oXP" secondAttribute="bottom" constant="7" id="Tyn-aG-WMU"/>
+                        <constraint firstAttribute="trailing" secondItem="XUt-hF-iZT" secondAttribute="trailing" constant="12" id="Vs8-h8-H4i"/>
+                        <constraint firstItem="67A-PL-oXP" firstAttribute="leading" secondItem="NpV-8g-bpm" secondAttribute="leading" id="m2g-Be-qo4"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dx-HZ-k0e">
+                    <rect key="frame" x="12" y="327" width="351" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：许愿心诚则灵，许愿内容应填写自己真实所求，挂上许愿树生效。如有反国家、反社会或其他不端正的言论，请恕无法为您实现。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZS-Ku-6eu">
+                            <rect key="frame" x="7" y="10" width="337" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="OZS-Ku-6eu" firstAttribute="leading" secondItem="2dx-HZ-k0e" secondAttribute="leading" constant="7" id="31C-Wb-zhl"/>
+                        <constraint firstAttribute="height" constant="50" id="Kcc-qD-N4r"/>
+                        <constraint firstItem="OZS-Ku-6eu" firstAttribute="top" secondItem="2dx-HZ-k0e" secondAttribute="top" constant="10" id="Ypz-7U-53W"/>
+                        <constraint firstAttribute="trailing" secondItem="OZS-Ku-6eu" secondAttribute="trailing" constant="7" id="aIg-P8-Xov"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="j9I-1i-bmm" secondAttribute="trailing" constant="22" id="504-hi-M1V"/>
+                <constraint firstItem="j9I-1i-bmm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="22" id="Fnz-Li-qwB"/>
+                <constraint firstItem="2dx-HZ-k0e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="HUL-0w-Kn6"/>
+                <constraint firstAttribute="trailing" secondItem="2dx-HZ-k0e" secondAttribute="trailing" constant="12" id="JUI-VA-2Zg"/>
+                <constraint firstItem="NpV-8g-bpm" firstAttribute="top" secondItem="wKG-cp-XJH" secondAttribute="bottom" constant="28" id="MUm-yx-IsZ"/>
+                <constraint firstItem="UTp-O9-D6m" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ni6-lK-p4A"/>
+                <constraint firstItem="wKG-cp-XJH" firstAttribute="top" secondItem="j9I-1i-bmm" secondAttribute="bottom" id="Nsp-Ii-6Vb"/>
+                <constraint firstItem="wKG-cp-XJH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="SQB-3R-c0i"/>
+                <constraint firstAttribute="trailing" secondItem="UTp-O9-D6m" secondAttribute="trailing" id="WET-OG-c6I"/>
+                <constraint firstAttribute="trailing" secondItem="NpV-8g-bpm" secondAttribute="trailing" constant="12" id="YoF-YR-ork"/>
+                <constraint firstItem="NpV-8g-bpm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="hFf-Rb-HsE"/>
+                <constraint firstItem="2dx-HZ-k0e" firstAttribute="top" secondItem="NpV-8g-bpm" secondAttribute="bottom" constant="20" id="iZD-2c-8iq"/>
+                <constraint firstAttribute="trailing" secondItem="wKG-cp-XJH" secondAttribute="trailing" constant="12" id="qwx-06-oo7"/>
+                <constraint firstItem="j9I-1i-bmm" firstAttribute="top" secondItem="UTp-O9-D6m" secondAttribute="bottom" constant="8" id="sBr-OB-RAT"/>
+                <constraint firstItem="UTp-O9-D6m" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="uYM-2P-Vzh"/>
+            </constraints>
+            <connections>
+                <outlet property="contentBgView" destination="NpV-8g-bpm" id="jXc-yY-W3D"/>
+                <outlet property="iconImage" destination="VmY-iP-70G" id="CN8-Ai-4k4"/>
+                <outlet property="limitLbl" destination="XUt-hF-iZT" id="9Zg-Hh-STO"/>
+                <outlet property="remarkBgView" destination="2dx-HZ-k0e" id="Xa8-Gg-ODe"/>
+                <outlet property="textField" destination="j9I-1i-bmm" id="oWJ-7K-UKw"/>
+                <outlet property="textView" destination="67A-PL-oXP" id="CLb-gc-Int"/>
+            </connections>
+            <point key="canvasLocation" x="31.5" y="121.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="wish_bisheng.png" width="73" height="128"/>
+    </resources>
+</document>

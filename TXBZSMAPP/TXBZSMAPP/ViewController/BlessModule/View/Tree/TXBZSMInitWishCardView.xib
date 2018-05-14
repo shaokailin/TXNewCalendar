@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TXBZSMInitWishCardView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishTreebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-cI-Te5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Co9-G8-wUn">
+                    <rect key="frame" x="133" y="126" width="110" height="193"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishmessagebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="KBK-SD-efi">
+                            <rect key="frame" x="0.0" y="0.0" width="110" height="193"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKD-cf-Rv6">
+                            <rect key="frame" x="10" y="40" width="90" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVH-rz-HwM">
+                            <rect key="frame" x="10" y="173" width="90" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="193" id="0de-WF-5r6"/>
+                        <constraint firstItem="KBK-SD-efi" firstAttribute="leading" secondItem="Co9-G8-wUn" secondAttribute="leading" id="2EH-4c-H5h"/>
+                        <constraint firstAttribute="bottom" secondItem="KBK-SD-efi" secondAttribute="bottom" id="JGX-ls-hdL"/>
+                        <constraint firstItem="KBK-SD-efi" firstAttribute="top" secondItem="Co9-G8-wUn" secondAttribute="top" id="NeO-jY-twd"/>
+                        <constraint firstAttribute="trailing" secondItem="cKD-cf-Rv6" secondAttribute="trailing" constant="10" id="OCa-5N-kiC"/>
+                        <constraint firstAttribute="bottom" secondItem="sVH-rz-HwM" secondAttribute="bottom" constant="8" id="Pjf-xw-lOj"/>
+                        <constraint firstItem="cKD-cf-Rv6" firstAttribute="leading" secondItem="Co9-G8-wUn" secondAttribute="leading" constant="10" id="QEJ-fs-h9b"/>
+                        <constraint firstItem="cKD-cf-Rv6" firstAttribute="top" secondItem="Co9-G8-wUn" secondAttribute="top" constant="40" id="eiD-Ko-b3c"/>
+                        <constraint firstAttribute="trailing" secondItem="sVH-rz-HwM" secondAttribute="trailing" constant="10" id="g6V-yM-XKM"/>
+                        <constraint firstAttribute="width" constant="110" id="red-I8-T7y"/>
+                        <constraint firstAttribute="trailing" secondItem="KBK-SD-efi" secondAttribute="trailing" id="xEc-g2-90G"/>
+                        <constraint firstItem="sVH-rz-HwM" firstAttribute="leading" secondItem="Co9-G8-wUn" secondAttribute="leading" constant="10" id="xsK-ye-ec5"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_bisheng.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y4m-r3-MGh">
+                    <rect key="frame" x="132" y="126" width="110" height="193"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="193" id="vkE-WS-Akn"/>
+                        <constraint firstAttribute="width" constant="110" id="ze4-h4-9nn"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-Ms-oNa">
+                    <rect key="frame" x="12" y="389" width="351" height="60"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="纯白百合花纹，幸运之花寓意祝福祈愿，许原树守护祈愿之人，博弈、比赛等运气开旺，事事顺利。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grq-uG-45S">
+                            <rect key="frame" x="10" y="10" width="331" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFZ-G5-yBk">
+                    <rect key="frame" x="15" y="617" width="169" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="eUd-Q6-TPh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="返回许愿树" backgroundImage="tree_my.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="backClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4gJ-kZ-1U0"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AGI-Gx-QHl">
+                    <rect key="frame" x="191" y="617" width="169" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="MhR-ei-OXH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="保持并分享" backgroundImage="wish_icon.png">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="shareClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Wn-SF-gwg"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="BFZ-G5-yBk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="4Sj-QB-Q0w"/>
+                <constraint firstAttribute="bottom" secondItem="bsf-Ms-oNa" secondAttribute="bottom" constant="218" id="7Is-Qt-Rna"/>
+                <constraint firstItem="bsf-Ms-oNa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="L5P-GD-i9o"/>
+                <constraint firstAttribute="trailing" secondItem="AGI-Gx-QHl" secondAttribute="trailing" constant="15" id="TNq-9M-2N5"/>
+                <constraint firstItem="Qrd-cI-Te5" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="c0W-7o-6ug"/>
+                <constraint firstItem="bsf-Ms-oNa" firstAttribute="centerX" secondItem="Y4m-r3-MGh" secondAttribute="centerX" id="cWT-YK-zSU"/>
+                <constraint firstItem="Y4m-r3-MGh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="126" id="fIJ-83-n3C"/>
+                <constraint firstItem="Qrd-cI-Te5" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hmF-nw-uIR"/>
+                <constraint firstItem="Co9-G8-wUn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="126" id="kQf-3m-VPU"/>
+                <constraint firstAttribute="bottom" secondItem="AGI-Gx-QHl" secondAttribute="bottom" constant="12" id="pQf-aG-9Md"/>
+                <constraint firstItem="AGI-Gx-QHl" firstAttribute="width" secondItem="BFZ-G5-yBk" secondAttribute="width" id="paa-U9-2jd"/>
+                <constraint firstItem="Y4m-r3-MGh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="r9g-Yc-PGc"/>
+                <constraint firstAttribute="trailing" secondItem="Qrd-cI-Te5" secondAttribute="trailing" id="rEY-64-6wt"/>
+                <constraint firstItem="bsf-Ms-oNa" firstAttribute="top" secondItem="Co9-G8-wUn" secondAttribute="bottom" constant="70" id="rUh-TA-Ytp"/>
+                <constraint firstAttribute="bottom" secondItem="BFZ-G5-yBk" secondAttribute="bottom" constant="12" id="sca-OB-Lh1"/>
+                <constraint firstAttribute="bottom" secondItem="Qrd-cI-Te5" secondAttribute="bottom" id="siN-jF-Bg8"/>
+                <constraint firstItem="AGI-Gx-QHl" firstAttribute="leading" secondItem="BFZ-G5-yBk" secondAttribute="trailing" constant="7" id="uss-b8-l3a"/>
+                <constraint firstItem="Co9-G8-wUn" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="xe5-fQ-dmv"/>
+            </constraints>
+            <connections>
+                <outlet property="contentLbl" destination="cKD-cf-Rv6" id="mEp-eI-BVP"/>
+                <outlet property="contentView" destination="Co9-G8-wUn" id="Yta-gw-KpL"/>
+                <outlet property="iconImageView" destination="Y4m-r3-MGh" id="tUG-iL-JLq"/>
+                <outlet property="nameLbl" destination="sVH-rz-HwM" id="3Ml-XE-EhO"/>
+                <outlet property="remarkView" destination="bsf-Ms-oNa" id="BWj-Ek-EcK"/>
+            </connections>
+            <point key="canvasLocation" x="31.5" y="121.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="tree_my.png" width="169" height="37"/>
+        <image name="wishTreebg.png" width="375" height="667"/>
+        <image name="wish_bisheng.png" width="73" height="128"/>
+        <image name="wish_icon.png" width="169" height="37"/>
+        <image name="wishmessagebg.png" width="183" height="302"/>
+    </resources>
+</document>

@@ -10,6 +10,7 @@
 #import "TXBZSMTreeHomeView.h"
 #import "TXBZSMVWishListVC.h"
 #import "TXBZSMMyWishListVC.h"
+#import "TXBZSMCardDetailView.h"
 @interface TXBZSMWishTreeVC ()
 
 @end
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [kUserMessageManager getWishTreeData];
     [self initializeMainView];
 }
 - (void)viewDidAppear:(BOOL)animated {
@@ -30,6 +32,29 @@
     [self.navigationController.navigationBar setBackgroundImage:ImageNameInit(@"navigationbg") forBarMetrics:UIBarMetricsDefault];
 }
 - (void)actionWithType:(NSInteger)type data:(NSDictionary *)dict {
+    if (type < 10) {
+        NSArray *data = kUserMessageManager.wishArray;
+        TXBZSMWishTreeModel *cardModel = nil;
+        for (TXBZSMWishTreeModel *model in data) {
+            if ([model.type integerValue] == type) {
+                cardModel = model;
+                break;
+            }
+        }
+        if (cardModel) {
+            TXBZSMCardDetailView *view = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMCardDetailView" owner:self options:nil] lastObject];
+            [view setupCellContent:cardModel.wishContent title:cardModel.wishTitle];
+            UIWindow *windowView = [UIApplication sharedApplication].keyWindow;
+            [windowView addSubview:view];
+            [view mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.equalTo(windowView);
+            }];
+        }else {
+            TXBZSMVWishListVC *list = [[TXBZSMVWishListVC alloc]init];
+            [self.navigationController pushViewController:list animated:YES];
+        }
+        return;
+    }
     switch (type) {
         case 12:
             [self navigationBackClick];

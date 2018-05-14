@@ -7,7 +7,7 @@
 //
 
 #import "LSKMessageManage.h"
-
+#import "TXBZSMWishTreeModel.h"
 @interface TXXLSharedInstance : LSKMessageManage
 #pragma mark - 用户资料
 //
@@ -31,8 +31,14 @@
 
 #pragma mark - 祈福数据
 @property (nonatomic, strong) NSMutableArray *blessArray;
+- (void)removeBlessModel:(NSInteger)index;
 - (void)addBlessModel:(TXBZSMGodMessageModel *)model;
 - (void)changeBlessWithIndex:(NSInteger)index image:(NSString *)image date:(NSString *)date type:(PlatformGoodsType)type;
+- (void)changeBlessWishContent:(NSString *)content user:(NSString *)user index:(NSInteger)index;
 #pragma mark - 许愿
 @property (nonatomic, strong) NSMutableArray *wishArray;
+- (void)getWishTreeData;
+- (void)resetWishTreeData;
+- (void)removeWishModel:(NSInteger)index;
+- (void)addWishModel:(TXBZSMWishTreeModel *)model;
 @end

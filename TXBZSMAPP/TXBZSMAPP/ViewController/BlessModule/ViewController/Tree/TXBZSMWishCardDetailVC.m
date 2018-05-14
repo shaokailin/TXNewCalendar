@@ -31,7 +31,7 @@
         case 1:
         {
             TXBZSMWishInputVC *detail = [[TXBZSMWishInputVC alloc]init];
-            detail.dataDict = dict;
+            detail.dataDict = self.dataDict;
             [self.navigationController pushViewController:detail animated:YES];
         }
             break;

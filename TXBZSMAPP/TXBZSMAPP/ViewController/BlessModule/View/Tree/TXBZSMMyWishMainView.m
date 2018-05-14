@@ -18,13 +18,18 @@
 @implementation TXBZSMMyWishMainView
 - (IBAction)backClick:(id)sender {
     if (self.homeBlock) {
-        self.homeBlock(0, nil);
+        self.homeBlock(0, nil,-1);
     }
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.topValue.constant = STATUSBAR_HEIGHT - 10;
     [self _initMainView];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeData) name:kWishDataChangeNotice object:nil];
+}
+- (void)changeData {
+    _dataArr = kUserMessageManager.wishArray;
+    [self.collectionView reloadData];
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _dataArr.count + 1;
@@ -34,23 +39,33 @@
     if (indexPath.row == _dataArr.count) {
         [cell setupContent:@"wish_null" title:@"继续许愿"];
     }else {
-        NSDictionary *dict = [_dataArr objectAtIndex:indexPath.row];
-        [cell setupContent:[dict objectForKey:@"image"] title:@"还愿"];
+        TXBZSMWishTreeModel  *model = [_dataArr objectAtIndex:indexPath.row];
+        @weakify(self)
+        cell.block = ^(id clickCell) {
+            @strongify(self)
+            [self clickBtn:clickCell];
+        };
+        [cell setupContent:model.image title:@"还愿"];
     }
     return cell;
+}
+- (void)clickBtn:(TXBZSMMyWishCell *)cell {
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
+    TXBZSMWishTreeModel  *model = [_dataArr objectAtIndex:indexPath.row];
+    self.homeBlock(3, model,indexPath.row);
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.homeBlock) {
         if (indexPath.row < _dataArr.count) {
-            NSDictionary *dict = [_dataArr objectAtIndex:indexPath.row];
-            self.homeBlock(1, dict);
+//            TXBZSMWishTreeModel  *model = [_dataArr objectAtIndex:indexPath.row];
+//            self.homeBlock(1, model);
         }else {
-            self.homeBlock(2, nil);
+            self.homeBlock(2, nil,-1);
         }
     }
 }
 - (void)_initMainView {
-    _dataArr = [NSArray arrayWithPlist:@"WishList"];
+    _dataArr = kUserMessageManager.wishArray;
     UICollectionViewFlowLayout *flowLaout = [[UICollectionViewFlowLayout alloc]init];
     flowLaout.itemSize = CGSizeMake(70, 155);
     flowLaout.sectionInset = UIEdgeInsetsMake(0, 15, 15, 15);
@@ -62,5 +77,4 @@
         make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(130 + STATUSBAR_HEIGHT, 30, 20, 30));
     }];
 }
-
 @end

@@ -48,14 +48,23 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
             _userPhoto = _isBoy == YES? ImageNameInit(@"boy"):ImageNameInit(@"girl");
         }
         _nickName = [self getMessageManagerForObjectWithKey:kUserNickname];
+        _birthDay = [NSDate stringTransToDate:birthday withFormat:kBirthdayFormatter];
     }else {
-        birthday = @"1991-06-05 21:30";
-        _isBoy = YES;
-        _userPhoto = _isBoy == YES? ImageNameInit(@"boy"):ImageNameInit(@"girl");
-        _nickName = _isBoy == YES? @"小帅":@"小靓";
+        self.birthDay = [NSDate date];
+        self.isBoy = YES;
+        _userPhoto = ImageNameInit(@"boy");
+        self.nickName = @"师哥";
     }
-    _birthDay = [NSDate stringTransToDate:birthday withFormat:kBirthdayFormatter];
     [self getBlessData];
+}
+
+- (void)setNickName:(NSString *)nickName {
+    _nickName = nickName;
+    [self setMessageManagerForObjectWithKey:kUserNickname value:nickName];
+}
+- (void)setIsBoy:(BOOL)isBoy {
+    _isBoy = isBoy;
+    [self setMessageManagerForBoolWithKey:kUserSex value:isBoy];
 }
 - (void)setBirthDay:(NSDate *)birthDay {
     _birthDay = birthDay;
@@ -80,11 +89,21 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     return path;
 }
 #pragma mark - 祈福
+- (void)removeBlessModel:(NSInteger)index {
+    [_blessArray removeObjectAtIndex:index];
+    [self saveObject:_blessArray key:kBlessDataSave_key];
+}
 - (void)addBlessModel:(TXBZSMGodMessageModel *)model {
     model.godInDate = [[NSDate getTodayDate]dateTransformToString:@"yyyy年MM月dd日"];
     [_blessArray insertObject:model atIndex:0];
     [self saveObject:_blessArray key:kBlessDataSave_key];
     [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
+}
+- (void)changeBlessWishContent:(NSString *)content user:(NSString *)user index:(NSInteger)index {
+    TXBZSMGodMessageModel *model = [_blessArray objectAtIndex:index];
+    model.wishContent = content;
+    model.wishName = user;
+    [self saveObject:_blessArray key:kBlessDataSave_key];
 }
 - (void)changeBlessWithIndex:(NSInteger)index image:(NSString *)image date:(NSString *)date type:(PlatformGoodsType)type {
     TXBZSMGodMessageModel *model = [_blessArray objectAtIndex:index];
@@ -135,7 +154,28 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     return data;
 }
 #pragma mark - 许愿树
-
+- (void)removeWishModel:(NSInteger)index {
+    [_wishArray removeObjectAtIndex:index];
+    [self saveObject:_wishArray key:kWishDataSave_key];
+}
+- (void)addWishModel:(TXBZSMWishTreeModel *)model {
+    [_wishArray insertObject:model atIndex:0];
+    [self saveObject:_wishArray key:kWishDataSave_key];
+}
+- (void)getWishTreeData {
+    if (!_wishArray) {
+        _wishArray = [NSMutableArray array];
+    }else {
+        [_wishArray removeAllObjects];
+    }
+    [_wishArray addObjectsFromArray:[self getObject:kWishDataSave_key]];
+}
+- (void)resetWishTreeData {
+    if (_wishArray) {
+        [_wishArray removeAllObjects];
+    }
+    _wishArray = nil;
+}
 #pragma mark -统计
 - (void)analiticsViewAppear:(UIViewController *)vc {
     [[ALBBMANPageHitHelper getInstance] pageAppear:vc];

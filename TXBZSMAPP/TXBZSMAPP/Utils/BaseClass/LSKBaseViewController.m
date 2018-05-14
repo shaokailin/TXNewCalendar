@@ -9,7 +9,7 @@
 #import "LSKBaseViewController.h"
 #import "UIViewController+Extend.h"
 
-static const NSInteger kNavigationBarButton_Font = 12;
+static const NSInteger kNavigationBarButton_Font = 15;
 static NSString * const kNavigation_BackImg = @"whiteback_icon";
 @interface LSKBaseViewController ()
 
@@ -80,12 +80,8 @@ static NSString * const kNavigation_BackImg = @"whiteback_icon";
     UIBarButtonItem *tRightButton = [UIBarButtonItem initBarButtonItemWithNornalImage:nornalImage seletedImage:seletedImage title:nil font:0 fontColor:nil target:target action:action isRight:YES];
     [self addNavigationRightButton:tRightButton];
 }
-
-- (void)addRightNavigationButtonWithNornalImage:(NSString *)nornalImage
-                                   seletedIamge:(NSString *)seletedImage
-                                         target:(id)target
-                                         action:(SEL)action color:(UIColor *)color {
-    UIBarButtonItem *tRightButton = [UIBarButtonItem initBarButtonItemWithNornalImage:nornalImage seletedImage:seletedImage title:nil font:0 fontColor:color target:target action:action isRight:YES];
+- (void)addRightNavigationButtonWithTitle:(NSString *)title color:(UIColor *)color target:(id)target action:(SEL)action {
+    UIBarButtonItem *tRightButton = [UIBarButtonItem initBarButtonItemWithNornalImage:nil seletedImage:nil title:title font:kNavigationBarButton_Font fontColor:color target:target action:action isRight:YES];
     [self addNavigationRightButton:tRightButton];
 }
 

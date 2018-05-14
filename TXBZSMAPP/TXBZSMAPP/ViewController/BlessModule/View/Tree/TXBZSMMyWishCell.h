@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 static NSString * const kTXBZSMMyWishCell = @"TXBZSMMyWishCell";
+typedef void (^BtnClickBlock)(id clickCell);
 @interface TXBZSMMyWishCell : UICollectionViewCell
+@property (nonatomic, copy) BtnClickBlock block;
 - (void)setupContent:(NSString *)image title:(NSString *)title;
 @end

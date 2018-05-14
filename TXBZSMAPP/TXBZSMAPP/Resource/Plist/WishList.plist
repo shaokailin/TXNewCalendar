@@ -3,6 +3,8 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>type</key>
+		<string>0</string>
 		<key>image</key>
 		<string>wish_bisheng</string>
 		<key>info</key>
@@ -11,6 +13,8 @@
 		<string>必胜</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>1</string>
 		<key>image</key>
 		<string>wish_xueye</string>
 		<key>info</key>
@@ -19,6 +23,8 @@
 		<string>学业成就</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>2</string>
 		<key>image</key>
 		<string>wish_fortunr</string>
 		<key>info</key>
@@ -27,6 +33,8 @@
 		<string>财运</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>3</string>
 		<key>image</key>
 		<string>wish_boyup</string>
 		<key>info</key>
@@ -35,6 +43,8 @@
 		<string>男孩成长</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>4</string>
 		<key>image</key>
 		<string>wish_love</string>
 		<key>info</key>
@@ -43,6 +53,8 @@
 		<string>爱情</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>5</string>
 		<key>image</key>
 		<string>wish_pingan</string>
 		<key>info</key>
@@ -51,6 +63,8 @@
 		<string>平安</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>6</string>
 		<key>image</key>
 		<string>wish_hongyun</string>
 		<key>info</key>
@@ -59,6 +73,8 @@
 		<string>鸿运</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>7</string>
 		<key>image</key>
 		<string>wish_girlup</string>
 		<key>info</key>
@@ -67,6 +83,8 @@
 		<string>女孩成长</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>8</string>
 		<key>image</key>
 		<string>wish_job</string>
 		<key>info</key>
@@ -75,6 +93,8 @@
 		<string>事业</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>9</string>
 		<key>image</key>
 		<string>wish_chue</string>
 		<key>info</key>
@@ -83,6 +103,8 @@
 		<string>除厄</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>10</string>
 		<key>image</key>
 		<string>wish_health</string>
 		<key>info</key>
@@ -91,6 +113,8 @@
 		<string>健康</string>
 	</dict>
 	<dict>
+		<key>type</key>
+		<string>11</string>
 		<key>image</key>
 		<string>wsh_shengchan</string>
 		<key>info</key>

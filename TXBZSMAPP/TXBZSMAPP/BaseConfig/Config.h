@@ -63,4 +63,6 @@ static NSString * const kBlessDataChangeNotice = @"BlessDataChangeNotice";
 static NSString * const kWishDataChangeNotice = @"WishDataChangeNotice";
 static NSString * const kBlessContentChange = @"BlessContentChange";
 
+static NSString * const kUserFirstAlertShow = @"UserFirstAlertShow";
+
 #endif /* Config_h */

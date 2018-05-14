@@ -8,6 +8,7 @@
 
 #import "TXBZSMMyWishListVC.h"
 #import "TXBZSMMyWishMainView.h"
+#import "TXBZSMWishTreeCompleteVC.h"
 @interface TXBZSMMyWishListVC ()
 
 @end
@@ -18,18 +19,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+    
 }
 - (BOOL)fd_prefersNavigationBarHidden {
     return YES;
 }
-- (void)actionWithType:(NSInteger)type data:(NSDictionary *)dict {
+
+- (void)actionWithType:(NSInteger)type data:(TXBZSMWishTreeModel *)dict index:(NSInteger)index {
     switch (type) {
         case 0:
             [self navigationBackClick];
             break;
-        case 1:
+        case 3:
         {
-            
+            TXBZSMWishTreeCompleteVC *complete = [[TXBZSMWishTreeCompleteVC alloc]init];
+            complete.index = index;
+            complete.name = dict.name;
+            [self.navigationController pushViewController:complete animated:YES];
         }
             break;
         
@@ -41,9 +47,9 @@
     TXBZSMMyWishMainView *mainView = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMMyWishMainView" owner:self options:nil]lastObject];
     mainView.topBetween = STATUSBAR_HEIGHT;
     @weakify(self)
-    mainView.homeBlock = ^(NSInteger type,NSDictionary *data) {
+    mainView.homeBlock = ^(NSInteger type, TXBZSMWishTreeModel *model, NSInteger index) {
         @strongify(self)
-        [self actionWithType:type data:data];
+        [self actionWithType:type data:model index:index];
     };
     [self.view addSubview:mainView];
     [mainView mas_makeConstraints:^(MASConstraintMaker *make) {

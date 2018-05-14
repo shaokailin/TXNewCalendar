@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^NavigaitionBlock)(NSInteger type);
 @interface TXBZSMNavigationView : UIView
-
+@property (nonatomic, copy) NavigaitionBlock block;
 @end

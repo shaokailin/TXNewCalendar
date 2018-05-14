@@ -22,5 +22,10 @@
     self.iconImage.image = ImageNameInit(image);
     [self.btn setTitle:title forState:UIControlStateNormal];
 }
+- (IBAction)click:(id)sender {
+    if (self.block) {
+        self.block(self);
+    }
+}
 
 @end

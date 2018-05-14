@@ -42,6 +42,7 @@ static NSString * const kBlessHomeData = @"kBlessHomeData_save";
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [kUserMessageManager analiticsViewAppear:self];
+    [kUserMessageManager resetWishTreeData];
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];

@@ -51,18 +51,35 @@
         _nornalColor = KColorUtilsString(kNavigationTitle_Color);
     }
 }
+- (void)addSelectGod:(NSDictionary *)dict {
+    TXBZSMGodMessageModel *model = [[TXBZSMGodMessageModel alloc]init];
+    model.godType = [dict objectForKey:@"type"];
+    model.godImage = [dict objectForKey:@"image"];
+    model.indexId = [dict objectForKey:@"indexId"];
+    model.godName = [dict objectForKey:@"name"];
+    model.blessType = [dict objectForKey:@"blessType"];
+    [kUserMessageManager addBlessModel:model];
+    [self initializeMainView];
+    [self.mainTableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+}
 - (void)jumpBlessSelect {
     [self needChange];
     TXBZSMGodSelectVC *select = [[TXBZSMGodSelectVC alloc]init];
+    @weakify(self)
+    select.selectBlock = ^(NSDictionary *dict) {
+        @strongify(self)
+        [self addSelectGod:dict];
+    };
     [self.navigationController pushViewController: select animated:YES];
 }
 - (void)refreshData:(NSInteger)index {
     [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 - (void)deleteIndex:(NSInteger)index {
+    [self initializeMainView];
     [self.mainTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
 }
-//type 2:碗 1.前往祈福
+//type 1.前往祈福
 - (void)cellClickEvent:(NSInteger)type cell:(TXBZSMMyBlessCell *)cell {
     NSIndexPath *indexpath = [self.mainTableView indexPathForCell:cell];
     TXBZSMGodMessageModel *model = [kUserMessageManager.blessArray objectAtIndex:indexpath.row];
@@ -76,6 +93,7 @@
             @strongify(self)
             [self deleteIndex:index];
         };
+        [self.navigationController pushViewController:wishComplete animated:YES];
     }else {
         TXBZSMMyBlessWishVC *wish = [[TXBZSMMyBlessWishVC alloc]init];
         wish.model = model;
@@ -105,7 +123,8 @@
 }
 #pragma mark - 初始化
 - (void)initializeMainView {
-    if (_isHasData) {
+    _isHasData = kUserMessageManager.blessArray.count >0?YES:NO;
+    if (!_isHasData) {
         self.navigationItem.title = @"许愿祈福";
         self.noDataView.hidden = NO;
     }else {

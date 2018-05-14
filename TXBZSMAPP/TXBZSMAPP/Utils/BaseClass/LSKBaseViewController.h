@@ -39,6 +39,7 @@
                                          target:(id)target
                                          action:(SEL)action;
 - (void)addRightNavigationButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action;
+- (void)addRightNavigationButtonWithTitle:(NSString *)title color:(UIColor *)color target:(id)target action:(SEL)action;
 /**
  *  添加一个通知
  */

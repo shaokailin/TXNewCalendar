@@ -15,6 +15,8 @@
 #import "TXBZSMTodayFortuneVC.h"
 #import "TXBZSMLiveAnalysisVC.h"
 #import "TXBZSMBlessPlatformVC.h"
+#import "TXBZSMUserMessageVC.h"
+#import "TXBZSMMessageAlertView.h"
 static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 @interface TXBZSMFortuneHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -23,6 +25,7 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     NSDictionary *_dataDictionary;
     NSDictionary *_xingzuoDictionry;
     BOOL _isJumpFortune;
+    BOOL _isShowAlertMessage;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) TXBZSMFortuneHeaderView *headerView;
@@ -43,6 +46,15 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [kUserMessageManager analiticsViewAppear:self];
+    BOOL isShowAlert = [kUserMessageManager getMessageManagerForBoolWithKey:kUserFirstAlertShow];
+    if (!isShowAlert && !_isShowAlertMessage) {
+        TXBZSMMessageAlertView *view = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMMessageAlertView" owner:self options:nil] lastObject];
+        UIWindow *windowView = [UIApplication sharedApplication].keyWindow;
+        [windowView addSubview:view];
+        [view mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(windowView);
+        }];
+    }
 }
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
@@ -175,13 +187,18 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 }
 - (void)initializeMainView {
     TXBZSMNavigationView *navigationView = [[TXBZSMNavigationView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.navibarHeight + STATUSBAR_HEIGHT + 11)];
+    @weakify(self)
+    navigationView.block = ^(NSInteger type) {
+        @strongify(self)
+        TXBZSMUserMessageVC *message = [[TXBZSMUserMessageVC alloc]init];
+        [self.navigationController pushViewController:message animated:YES];
+    };
     [self.view addSubview:navigationView];
     
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:[UIColor clearColor]];
     tableView.rowHeight = 87;
     [tableView registerNib:[UINib nibWithNibName:kTXBZSMFortuneHomeCell bundle:nil] forCellReuseIdentifier:kTXBZSMFortuneHomeCell];
     _headerView = [[TXBZSMFortuneHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 747)];
-    @weakify(self)
     _headerView.eventBlock = ^(NSInteger type) {
       @strongify(self)
         [self headerEventClick:type];
