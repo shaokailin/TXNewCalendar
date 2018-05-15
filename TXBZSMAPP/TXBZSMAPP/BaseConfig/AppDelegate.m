@@ -53,6 +53,7 @@ static const BOOL kIsOnline = NO;
     //点击通知打开app处理逻辑
     _isRegisterIphone = [kUserMessageManager getMessageManagerForBoolWithKey:kMiPushRegisterIphone];
     NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    
     if (userInfo) {
         NSString *messageId = [userInfo objectForKey:@"_id_"];
         if (messageId!=nil) {
@@ -60,6 +61,13 @@ static const BOOL kIsOnline = NO;
         }
         [self actionEventWithUserInfo:userInfo];
     }
+    NSDictionary* locatluserInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
+    
+    if (locatluserInfo) {
+        [self getLoactionEvent];
+    }
+    
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     return YES;
 }
 - (void)registerAnalytics {
@@ -184,6 +192,13 @@ static const BOOL kIsOnline = NO;
 }
 //前台和后台按钮处理方法
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)(void))completionHandler{
+//    if ([identifier isEqualToString:UIMutableUserNotificationActionBackground]) {
+//        NSLog(@"后台运行程序");
+//    }else if ([identifier isEqualToString:UIMutableUserNotificationActionForeground]){
+//        NSLog(@"前台运行程序");
+//    }else{
+//        NSLog(@"其他");
+//    }
     [self getLoactionEvent];
     completionHandler();
 }

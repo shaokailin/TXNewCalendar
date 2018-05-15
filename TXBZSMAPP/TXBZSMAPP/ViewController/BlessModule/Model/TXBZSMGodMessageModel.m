@@ -46,8 +46,12 @@
         NSDate *current = [NSDate getTodayDate];
         NSDate *godDate1 = [NSDate stringTransToDate:godDate withFormat:@"yyyy-MM-dd HH:mm"];
         NSTimeInterval time = [godDate1 timeIntervalSinceDate:current];
-        NSInteger count = ceil(time / (3600 * 24));
-        self.hasCount = count;
+        if (time >= 0) {
+            NSInteger count = ceil(time / (3600 * 24));
+            self.hasCount = count;
+        }else {
+            self.hasCount = 0;
+        }
     }else {
         self.hasCount = 0;
     }

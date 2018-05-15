@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *feelView;
 @property (weak, nonatomic) IBOutlet UIProgressView *moneyView;
 @property (weak, nonatomic) IBOutlet UIProgressView *jobView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *betweenValue;
 
 @end
 @implementation TXBZSMTodayFortuneView
@@ -32,6 +33,9 @@
     KViewBoundsRadius(self.feelView, 5.0);
     KViewBoundsRadius(self.moneyView, 5.0);
     KViewBoundsRadius(self.jobView, 5.0);
+    if ([LSKPublicMethodUtil getiPhoneType] < 2) {
+        self.betweenValue.constant = 35;
+    }
 }
 - (void)setupContent:(NSDictionary *)data {
     NSString *all = [data objectForKey:@"synthesize"];

@@ -261,6 +261,7 @@
                 <outlet property="allCircleLbl" destination="hyH-9T-kdb" id="4Tt-mS-exS"/>
                 <outlet property="allView" destination="nfD-Xh-fR0" id="cex-Ja-K6T"/>
                 <outlet property="allallLbl" destination="e2Z-BM-OlK" id="LvC-Xi-Si9"/>
+                <outlet property="betweenValue" destination="nlQ-bM-rCF" id="dDo-ye-jPg"/>
                 <outlet property="circleView" destination="jya-fz-kCh" id="cdf-ao-vfm"/>
                 <outlet property="colorLbl" destination="hbI-xv-fus" id="quQ-wA-lNg"/>
                 <outlet property="feelLbl" destination="xN1-LX-JSc" id="Lry-qa-u8V"/>

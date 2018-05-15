@@ -197,7 +197,7 @@
             view.frame = CGRectMake((SCREEN_WIDTH - 10) * i, 0, (SCREEN_WIDTH - 10), [view returnViewHeight]);
             [self.m_mainScrollView addSubview:view];
         }else {
-            TXBZSMWeekMessageView *view = [[TXBZSMWeekMessageView alloc]init];
+            TXBZSMWeekMessageView *view = [[TXBZSMWeekMessageView alloc]initWithType:i - 2];
             view.frame = CGRectMake((SCREEN_WIDTH - 10) * i, 0, SCREEN_WIDTH - 10, [view returnViewHeight]);
             [self.m_mainScrollView addSubview:view];
         }

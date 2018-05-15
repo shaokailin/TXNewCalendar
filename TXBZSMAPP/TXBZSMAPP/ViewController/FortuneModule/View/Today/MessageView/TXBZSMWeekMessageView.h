@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "TXBZSMFortuneMessageProtocol.h"
 @interface TXBZSMWeekMessageView : UIView<TXBZSMFortuneMessageProtocol>
-
+- (instancetype)initWithType:(NSInteger)type;
 @end

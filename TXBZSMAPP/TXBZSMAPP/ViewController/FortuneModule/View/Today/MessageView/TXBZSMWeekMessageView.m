@@ -12,9 +12,11 @@
 @implementation TXBZSMWeekMessageView
 {
     TXBZSMWeekProgressView *_progressView;
+    NSInteger _type;
 }
-- (instancetype)init {
+- (instancetype)initWithType:(NSInteger)type {
     if (self = [super init]) {
+        _type = type;
         [self _layoutMainView];
     }
     return self;
@@ -44,7 +46,7 @@
     self.frame = frame;
 }
 - (void)_layoutMainView {
-    _progressView = [[TXBZSMWeekProgressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 10, 210)];
+    _progressView = [[TXBZSMWeekProgressView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH - 10, 210) type:_type];
     KViewRadius(_progressView, 5.0);
     [self addSubview:_progressView];
 }

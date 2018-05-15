@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TXBZSMWeekProgressView : UIView
+- (instancetype)initWithFrame:(CGRect)frame type:(NSInteger)type;
 - (void)setupScore:(NSDictionary *)dict;
 @end
