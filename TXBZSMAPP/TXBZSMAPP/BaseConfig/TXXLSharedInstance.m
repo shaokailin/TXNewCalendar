@@ -142,7 +142,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
         default:
             break;
     }
-    if (date) {
+    if (date && !KJudgeIsNullData(model.godDate)) {
         model.godDate = date;
         [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
         [self pushLocationNotice:date name:model.godName key:NSStringFormat(@"notice_%@%@",model.godType,model.indexId)];
