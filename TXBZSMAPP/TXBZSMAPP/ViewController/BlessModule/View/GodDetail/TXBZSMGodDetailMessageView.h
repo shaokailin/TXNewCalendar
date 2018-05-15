@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TXBZSMGodDetailMessageView : UIView
-- (void)setupContent:(NSString *)name type:(NSString *)type image:(NSString *)img;
+- (void)setupContent:(NSString *)name type:(NSString *)type image:(NSString *)img has:(BOOL)isHas;
 @end

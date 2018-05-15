@@ -192,7 +192,7 @@ static const CGFloat kBottonViewHeight = 49;
 }
 #pragma mark - 界面 
 - (void)initializeMainView {
-    [self addRightNavigationButtonWithNornalImage:@"share_icon" seletedIamge:nil target:self action:@selector(showShareView)];
+    [self addRightNavigationButtonWithNornalImage:@"shareicon" seletedIamge:nil target:self action:@selector(showShareView)];
     self.firstHistoryCount = 0;
     self.webView = [[LSKWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.viewMainHeight - kBottonViewHeight - self.tabbarBetweenHeight)];
     self.webView.backgroundColor = KColorHexadecimal(0xf5f5f5, 1.0);

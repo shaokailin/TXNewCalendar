@@ -150,7 +150,7 @@
                 _lazhu_right_btn.image = ImageNameInit(@"lazhu");
                 break;
             case 1:
-                _isChashui = NO;
+                _isChashui = YES;
                 _chashui_btn.image = ImageNameInit(@"chashui");
                 break;
             case 2:
@@ -172,6 +172,7 @@
     }
 }
 - (void)_layoutMainView {
+    _isChashui = YES;
     BOOL isIphone5 = [LSKPublicMethodUtil getiPhoneType] < 2 ?YES:NO;
     UIImageView *bgImageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"platformbg")];
     bgImageView.contentMode = UIViewContentModeScaleAspectFill;

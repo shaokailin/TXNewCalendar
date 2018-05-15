@@ -74,7 +74,15 @@
 		<true/>
 	</dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许天机妙算允许访问你的相处？</string>
+	<string>是否允许易运易测允许访问你的相册？</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>是否允许易运易测允许访问你的相册？</string>
+	<key>NSCameraUsageDescription</key>
+	<string>是否允许易运易测允许访问你的相机？</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

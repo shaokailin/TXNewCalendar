@@ -40,19 +40,23 @@
         [cell setupContent:@"wish_null" title:@"继续许愿"];
     }else {
         TXBZSMWishTreeModel  *model = [_dataArr objectAtIndex:indexPath.row];
-        @weakify(self)
-        cell.block = ^(id clickCell) {
-            @strongify(self)
-            [self clickBtn:clickCell];
-        };
         [cell setupContent:model.image title:@"还愿"];
     }
+    @weakify(self)
+    cell.block = ^(id clickCell) {
+        @strongify(self)
+        [self clickBtn:clickCell];
+    };
     return cell;
 }
 - (void)clickBtn:(TXBZSMMyWishCell *)cell {
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:cell];
-    TXBZSMWishTreeModel  *model = [_dataArr objectAtIndex:indexPath.row];
-    self.homeBlock(3, model,indexPath.row);
+    if (indexPath.row < _dataArr.count) {
+        TXBZSMWishTreeModel  *model = [_dataArr objectAtIndex:indexPath.row];
+        self.homeBlock(3, model,indexPath.row);
+    }else {
+        self.homeBlock(2, nil,-1);
+    }
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.homeBlock) {

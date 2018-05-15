@@ -13,6 +13,7 @@
     UIImageView *_iconImage;
     UILabel *_detailLbl;
     UILabel *_nameLbl;
+    UIImageView *_hasInviteImg;
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -25,12 +26,14 @@
     return self;
 }
 
-- (void)setupContentWithName:(NSString *)name detail:(NSString *)detail img:(NSString *)img {
+- (void)setupContentWithName:(NSString *)name detail:(NSString *)detail img:(NSString *)img isHas:(BOOL)isHas {
     _nameLbl.text = name;
     _detailLbl.text = detail;
+    _hasInviteImg.hidden = !isHas;
     _iconImage.image = ImageNameInit(img);
 }
 - (void)_layoutMainView {
+    
     _nameLbl = [LSKViewFactory initializeLableWithText:@"哈哈" font:13 textColor:KColorHexadecimal(kText_Title_Color, 1.0) textAlignment:0 backgroundColor:nil];
     [self addSubview:_nameLbl];
     [_nameLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,6 +51,13 @@
     [_iconImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self);
         make.bottom.equalTo(self).with.offset(-46);
+    }];
+    _hasInviteImg = [[UIImageView alloc]initWithImage:ImageNameInit(@"hasInvite")];
+    [self addSubview:_hasInviteImg];
+    [_hasInviteImg mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self);
+        make.left.equalTo(self).with.offset(-10);
+        make.size.mas_equalTo(CGSizeMake(42, 63));
     }];
 }
 @end

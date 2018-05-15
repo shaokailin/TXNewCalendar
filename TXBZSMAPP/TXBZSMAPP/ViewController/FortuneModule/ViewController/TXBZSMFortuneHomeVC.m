@@ -17,6 +17,7 @@
 #import "TXBZSMBlessPlatformVC.h"
 #import "TXBZSMUserMessageVC.h"
 #import "TXBZSMMessageAlertView.h"
+
 static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 @interface TXBZSMFortuneHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -37,18 +38,28 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _currentXingzuo = -1;
+    _isShowAlertMessage = [kUserMessageManager getMessageManagerForBoolWithKey:kUserFirstAlertShow];
     [self initializeMainView];
     [self getSaveData];
     [self bindSignal];
+    [self addNotificationWithSelector:@selector(getXingzuoMessage) name:kUserMessageChangeNotice];
     [kUserMessageManager setupViewProperties:self url:nil name:@"运势首页"];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [kUserMessageManager analiticsViewAppear:self];
-    BOOL isShowAlert = [kUserMessageManager getMessageManagerForBoolWithKey:kUserFirstAlertShow];
-    if (!isShowAlert && !_isShowAlertMessage) {
+    if (!_isShowAlertMessage) {
+        _isShowAlertMessage = YES;
         TXBZSMMessageAlertView *view = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMMessageAlertView" owner:self options:nil] lastObject];
+        view.tabHeight = self.tabbarBetweenHeight;
+        @weakify(self)
+        view.block = ^(NSInteger type) {
+            @strongify(self)
+            [kUserMessageManager setMessageManagerForBoolWithKey:kUserFirstAlertShow value:YES];
+            [self addHeaderView];
+            [self getXingzuoMessage];
+        };
         UIWindow *windowView = [UIApplication sharedApplication].keyWindow;
         [windowView addSubview:view];
         [view mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -91,8 +102,6 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     _viewModel.contactId = NSStringFormat(@"%@,%@",kFortuneHomeHot,kFortuneHomeAd);
     _viewModel.limit = @"1,3";
     _viewModel.isLoadingAd = YES;
-    [self.mainTableView.mj_header beginRefreshing];
-    
 }
 - (void)pullDownRefresh {
     [_viewModel getHomeData:YES];
@@ -110,14 +119,18 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 }
 #pragma mark - event
 - (void)getXingzuoMessage {
-    NSInteger index = [kUserMessageManager.birthDay getXingzuo];
-    NSArray *array = [NSArray arrayWithPlist:@"xingzuoList"];
-    NSDictionary *dict = [array objectAtIndex:index];
-    _viewModel.xingzuo = [dict objectForKey:@"english"];
-    if (_currentXingzuo != -1 && _currentXingzuo != index) {
-        [_viewModel getHomeData:NO];
+    if (kUserMessageManager.birthDay) {
+        NSInteger index = [kUserMessageManager.birthDay getXingzuo];
+        NSArray *array = [NSArray arrayWithPlist:@"xingzuoList"];
+        NSDictionary *dict = [array objectAtIndex:index];
+        _viewModel.xingzuo = [dict objectForKey:@"english"];
+        if (_currentXingzuo != -1 && _currentXingzuo != index) {
+            [_viewModel getHomeData:NO];
+        }else if (_currentXingzuo == -1){
+            [self.mainTableView.mj_header beginRefreshing];
+        }
+        _currentXingzuo = index;
     }
-    _currentXingzuo = index;
 }
 - (void)headerEventClick:(NSInteger)type {
     if (type == 3) {
@@ -191,6 +204,7 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     navigationView.block = ^(NSInteger type) {
         @strongify(self)
         TXBZSMUserMessageVC *message = [[TXBZSMUserMessageVC alloc]init];
+        message.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:message animated:YES];
     };
     [self.view addSubview:navigationView];
@@ -198,12 +212,7 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:[UIColor clearColor]];
     tableView.rowHeight = 87;
     [tableView registerNib:[UINib nibWithNibName:kTXBZSMFortuneHomeCell bundle:nil] forCellReuseIdentifier:kTXBZSMFortuneHomeCell];
-    _headerView = [[TXBZSMFortuneHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 747)];
-    _headerView.eventBlock = ^(NSInteger type) {
-      @strongify(self)
-        [self headerEventClick:type];
-    };
-    tableView.tableHeaderView = self.headerView;
+    
     tableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 10)];
     self.mainTableView = tableView;
     [self.view addSubview:tableView];
@@ -212,7 +221,20 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
         make.left.right.equalTo(self.view);
         make.bottom.equalTo(self.view).with.offset(-self.tabbarBetweenHeight);
     }];
-    
+    if (kUserMessageManager.birthDay) {
+        [self addHeaderView];
+    }
+}
+- (void)addHeaderView {
+    if (!_headerView) {
+        _headerView = [[TXBZSMFortuneHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 747)];
+        @weakify(self)
+        _headerView.eventBlock = ^(NSInteger type) {
+            @strongify(self)
+            [self headerEventClick:type];
+        };
+        self.mainTableView.tableHeaderView = self.headerView;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

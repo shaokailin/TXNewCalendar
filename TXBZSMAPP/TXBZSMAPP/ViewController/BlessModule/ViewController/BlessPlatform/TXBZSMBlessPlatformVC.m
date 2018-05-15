@@ -105,6 +105,7 @@
             [godView removeFromSuperview];
         }
     }
+    [self.mainScrollView setContentOffset:CGPointMake(0, 0)];
     self.mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * count, contentHeight);
     self.pageControl.numberOfPages = count;
     if (self.pageControl.currentPage >= count) {

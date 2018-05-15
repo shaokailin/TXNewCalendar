@@ -11,7 +11,7 @@
 #import <AlicloudMobileAnalitics/ALBBMAN.h>
 #import <AdSupport/AdSupport.h>
 #import "YYModel.h"
-static NSString * const kBirthdayFormatter = @"yyyy-MM-dd HH:mm";
+
 static NSString * const KEY_UUID_INSTEAD = @"com.tx.yyyc";
 static NSString * const kUserPhotoName = @"userPhoto12";
 static NSString * const kUserNickname = @"Nickname34";
@@ -41,7 +41,11 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     if (KJudgeIsNullData(birthday)) {
         _isBoy = [self getMessageManagerForBoolWithKey:kUserSex];
         NSString *string = [NSString stringWithContentsOfFile:[self returnPhotoPath] encoding:NSUTF8StringEncoding error:nil];
-        NSData *data = [[NSData alloc]initWithBase64EncodedString:string options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        NSData *data = nil;
+        if (string) {
+           data = [[NSData alloc]initWithBase64EncodedString:string options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        }
+        
         if (data) {
             _userPhoto = [UIImage imageWithData:data];
         }else {
@@ -49,21 +53,30 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
         }
         _nickName = [self getMessageManagerForObjectWithKey:kUserNickname];
         _birthDay = [NSDate stringTransToDate:birthday withFormat:kBirthdayFormatter];
-    }else {
-        self.birthDay = [NSDate date];
-        self.isBoy = YES;
-        _userPhoto = ImageNameInit(@"boy");
-        self.nickName = @"师哥";
     }
     [self getBlessData];
 }
-
+- (void)setupDefaultData {
+    self.birthDay = [NSDate date];
+    self.isBoy = YES;
+    _userPhoto = ImageNameInit(@"boy");
+    self.nickName = @"师哥";
+}
+- (void)getUserPhoto {
+    if (![self hasImage]) {
+        _userPhoto = _isBoy == YES? ImageNameInit(@"boy"):ImageNameInit(@"girl");
+    }
+}
+- (BOOL)hasImage {
+    return [[NSFileManager defaultManager]fileExistsAtPath:[self returnPhotoPath]];
+}
 - (void)setNickName:(NSString *)nickName {
     _nickName = nickName;
     [self setMessageManagerForObjectWithKey:kUserNickname value:nickName];
 }
 - (void)setIsBoy:(BOOL)isBoy {
     _isBoy = isBoy;
+    [self getUserPhoto];
     [self setMessageManagerForBoolWithKey:kUserSex value:isBoy];
 }
 - (void)setBirthDay:(NSDate *)birthDay {
@@ -90,6 +103,8 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
 }
 #pragma mark - 祈福
 - (void)removeBlessModel:(NSInteger)index {
+    TXBZSMGodMessageModel *model = [_blessArray objectAtIndex:index];
+    [self removeLocalNotificationByKey:NSStringFormat(@"notice_%@%@",model.godType,model.indexId)];
     [_blessArray removeObjectAtIndex:index];
     [self saveObject:_blessArray key:kBlessDataSave_key];
 }
@@ -130,8 +145,48 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     if (date) {
         model.godDate = date;
         [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
+        [self pushLocationNotice:date name:model.godName key:NSStringFormat(@"notice_%@%@",model.godType,model.indexId)];
     }
     [self saveObject:_blessArray key:kBlessDataSave_key];
+}
+- (void)pushLocationNotice:(NSString *)dateString name:(NSString *)name key:(NSString *)key {
+    // 1.创建通知
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    // 2.设置通知的必选参数
+    // 设置通知显示的内容
+    if (@available(iOS 8.2, *)) {
+        localNotification.alertTitle = @"祈福满满";
+    } else {
+        // Fallback on earlier versions
+    }
+    localNotification.alertBody = NSStringFormat(@"弟子在%@ 供前虔诚供奉，许下心愿，今天达成所愿，请至寺庙烧香还愿！",name);
+    // 设置通知的发送时间,单位秒
+    NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy-MM-dd HH:mm"];
+    NSDate *date1 = [[NSDate stringTransToDate:[date dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"]dateByAddingTimeInterval:3600 * (9 + 24 * 80) ];
+    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+    //解锁滑动时的事件
+    localNotification.alertAction = @"查看";
+    localNotification.timeZone = [NSTimeZone defaultTimeZone];
+    //收到通知时App icon的角标
+    localNotification.applicationIconBadgeNumber = 1;
+    //推送是带的声音提醒，设置默认的字段为UILocalNotificationDefaultSoundName
+    localNotification.soundName = UILocalNotificationDefaultSoundName;
+    localNotification.userInfo = @{@"id":key};
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+}
+- (void)removeLocalNotificationByKey:(NSString*)key {
+    // 取出全部本地通知
+    NSArray *notifications = [UIApplication sharedApplication].scheduledLocalNotifications;
+    // 设置要移除的通知id
+    NSString *notificationId = key;
+    // 遍历进行移除
+    for (UILocalNotification *localNotification in notifications) {
+        // 将每个通知的id取出来进行对比
+        if ([[localNotification.userInfo objectForKey:@"id"] isEqualToString:notificationId]) {
+            // 移除某一个通知
+            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+        }
+    }
 }
 - (void)getBlessData {
     if (!_blessArray) {

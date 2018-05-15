@@ -19,17 +19,19 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     KViewBoundsRadius(self.userPhoto, 35);
-
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kUserMessageChangeNotice object:nil];
     [self reloadData];
 }
 - (void)reloadData {
-    self.userPhoto.image = kUserMessageManager.userPhoto;
-    self.nickName.text = kUserMessageManager.nickName;
-    NSDate *birthday = kUserMessageManager.birthDay;
-    self.birthdayLbl.text = [birthday dateTransformToString:@"yyyy年MM月dd日 HH时"];
-    self.xiyongLbl.text = NSStringFormat(@"喜用神%@",[[TXBZSMHappyManager sharedInstance] getHappyGod:kUserMessageManager.birthDay]);
-    NSString *dgz = [[TXXLDateManager sharedInstance]getGanzhiDay];
-    [self setupLuckRemark:dgz];
+    if (kUserMessageManager.birthDay) {
+        self.userPhoto.image = kUserMessageManager.userPhoto;
+        self.nickName.text = kUserMessageManager.nickName;
+        NSDate *birthday = kUserMessageManager.birthDay;
+        self.birthdayLbl.text = [birthday dateTransformToString:@"yyyy年MM月dd日 HH时"];
+        self.xiyongLbl.text = NSStringFormat(@"喜用神%@",[[TXBZSMHappyManager sharedInstance] getHappyGod:kUserMessageManager.birthDay]);
+        NSString *dgz = [[TXXLDateManager sharedInstance]getGanzhiDay];
+        [self setupLuckRemark:dgz];
+    }
 }
 - (void)setupLuckRemark:(NSString *)dgz {
     NSDictionary *dict = [[TXBZSMHappyManager sharedInstance]getXtzyDgz:dgz];

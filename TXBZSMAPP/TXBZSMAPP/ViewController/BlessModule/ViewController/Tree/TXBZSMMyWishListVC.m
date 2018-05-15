@@ -9,6 +9,7 @@
 #import "TXBZSMMyWishListVC.h"
 #import "TXBZSMMyWishMainView.h"
 #import "TXBZSMWishTreeCompleteVC.h"
+#import "TXBZSMVWishListVC.h"
 @interface TXBZSMMyWishListVC ()
 
 @end
@@ -36,6 +37,12 @@
             complete.index = index;
             complete.name = dict.name;
             [self.navigationController pushViewController:complete animated:YES];
+        }
+            break;
+        case 2:
+        {
+            TXBZSMVWishListVC *list = [[TXBZSMVWishListVC alloc]init];
+            [self.navigationController pushViewController:list animated:YES];
         }
             break;
         

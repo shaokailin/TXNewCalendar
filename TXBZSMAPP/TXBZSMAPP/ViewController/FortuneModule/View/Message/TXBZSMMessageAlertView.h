@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^AlertBlock)(NSInteger type);
 @interface TXBZSMMessageAlertView : UIView
-
+@property (nonatomic, copy) AlertBlock block;
+@property (nonatomic, assign) CGFloat tabHeight;
 @end

@@ -40,7 +40,7 @@ typedef void (^GodSureBlock)(NSDictionary *dict);
 typedef void (^WishCompleteBlock)(NSInteger index);
 
 static NSString * const kCalendarFormatter = @"yyyy-MM-dd";
-
+static NSString * const kBirthdayFormatter = @"yyyy-MM-dd HH:mm";
 static NSString * const kFortuneHomeHot = @"61";
 static NSString * const kFortuneHomeAd = @"62";
 static NSString * const kFortuneMessageAd = @"65";
@@ -62,6 +62,7 @@ static NSString * const kShare_Notice = @"Share_Notice";
 static NSString * const kBlessDataChangeNotice = @"BlessDataChangeNotice";
 static NSString * const kWishDataChangeNotice = @"WishDataChangeNotice";
 static NSString * const kBlessContentChange = @"BlessContentChange";
+static NSString * const kUserMessageChangeNotice = @"UserMessageChangeNotice";
 
 static NSString * const kUserFirstAlertShow = @"UserFirstAlertShow";
 

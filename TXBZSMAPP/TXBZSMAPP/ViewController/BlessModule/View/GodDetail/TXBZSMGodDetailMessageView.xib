@@ -29,7 +29,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFx-VT-ai5">
-                    <rect key="frame" x="167" y="179" width="40" height="20"/>
+                    <rect key="frame" x="145.5" y="179" width="40" height="20"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -41,20 +42,31 @@
                         <constraint firstAttribute="height" constant="180" id="VqS-JG-vyB"/>
                     </constraints>
                 </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hasRed.png" translatesAutoresizingMaskIntoConstraints="NO" id="fzV-IP-rqS">
+                    <rect key="frame" x="190" y="182" width="39" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="iM9-Q8-Zfe"/>
+                        <constraint firstAttribute="width" constant="39" id="nCB-Qh-w4Z"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="s5m-Nc-jHV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1HZ-fe-HFI"/>
+                <constraint firstItem="fzV-IP-rqS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="22" id="1UB-Co-RAW"/>
                 <constraint firstItem="NbH-Jh-zG2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="1hv-pI-ReF"/>
-                <constraint firstItem="PFx-VT-ai5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="3DG-gU-ivH"/>
+                <constraint firstItem="PFx-VT-ai5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-22" id="3DG-gU-ivH"/>
                 <constraint firstItem="s5m-Nc-jHV" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="L2R-hs-I3z"/>
                 <constraint firstItem="NbH-Jh-zG2" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="TAT-3p-b4M"/>
                 <constraint firstItem="Kl2-BH-xld" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="WBz-wB-WH2"/>
                 <constraint firstItem="Kl2-BH-xld" firstAttribute="top" secondItem="PFx-VT-ai5" secondAttribute="bottom" constant="8" id="nnP-rs-Les"/>
+                <constraint firstItem="fzV-IP-rqS" firstAttribute="centerY" secondItem="PFx-VT-ai5" secondAttribute="centerY" id="u6A-c1-rGw"/>
                 <constraint firstAttribute="bottom" secondItem="Kl2-BH-xld" secondAttribute="bottom" constant="15" id="w5h-RJ-Ycy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="centerValue" destination="3DG-gU-ivH" id="N1p-oe-ZZe"/>
+                <outlet property="hasImage" destination="fzV-IP-rqS" id="Db8-M3-a9S"/>
                 <outlet property="imageView" destination="s5m-Nc-jHV" id="joc-bA-3vb"/>
                 <outlet property="nameLbl" destination="PFx-VT-ai5" id="jZk-qX-RY0"/>
                 <outlet property="typeLbl" destination="Kl2-BH-xld" id="p3b-hS-Z8X"/>
@@ -64,6 +76,7 @@
     </objects>
     <resources>
         <image name="goddetailbg.png" width="140" height="140"/>
+        <image name="hasRed.png" width="39" height="14"/>
         <image name="yuelao.png" width="151" height="247"/>
     </resources>
 </document>

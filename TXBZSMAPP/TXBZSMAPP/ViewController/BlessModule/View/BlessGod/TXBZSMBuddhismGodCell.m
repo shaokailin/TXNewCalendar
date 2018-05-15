@@ -21,9 +21,9 @@
     // Initialization code
 }
 - (void)setupContentWithFirst:(NSDictionary *)first second:(NSDictionary *)second third:(NSDictionary *)third {
-    [self.firstBtn setupContentWithName:[first objectForKey:@"name"] detail:[first objectForKey:@"blessType"] img:[first objectForKey:@"image"]];
-    [self.secondBtn setupContentWithName:[second objectForKey:@"name"] detail:[second objectForKey:@"blessType"] img:[second objectForKey:@"image"]];
-    [self.thirdBtn setupContentWithName:[third objectForKey:@"name"] detail:[third objectForKey:@"blessType"] img:[third objectForKey:@"image"]];
+    [self.firstBtn setupContentWithName:[first objectForKey:@"name"] detail:[first objectForKey:@"blessType"] img:[first objectForKey:@"image"] isHas:[[first objectForKey:@"has"]integerValue]];
+    [self.secondBtn setupContentWithName:[second objectForKey:@"name"] detail:[second objectForKey:@"blessType"] img:[second objectForKey:@"image"] isHas:[[second objectForKey:@"has"]integerValue]];
+    [self.thirdBtn setupContentWithName:[third objectForKey:@"name"] detail:[third objectForKey:@"blessType"] img:[third objectForKey:@"image"] isHas:[[third objectForKey:@"has"]integerValue]];
 }
 - (IBAction)buttonClick:(UIButton *)sender {
     if (self.block) {

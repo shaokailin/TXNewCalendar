@@ -16,6 +16,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import <WXApi.h>
 #import "TXSMUrlRouteInstance.h"
+#import "TXBZSMMyBlessVC.h"
 static NSString * const kAliAanaliticsKey = @"24885728";
 static NSString * const kAliAanaliticsSecret = @"eb191f96095cc8af1c089dd1ae50645a";
 static NSString * const kAliAanaliticssetChannel = @"APP Store";
@@ -36,6 +37,7 @@ static const BOOL kIsOnline = NO;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     
     //设置导航栏的全局样式
     [LSKViewFactory setupMainNavigationBgImage:ImageNameInit(@"navigationbg") titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
@@ -43,8 +45,8 @@ static const BOOL kIsOnline = NO;
     [self windowRootController];
     [self.window makeKeyAndVisible];
 
-//    [self registerAnalytics];
-//    [self registerMiPush];
+    [self registerAnalytics];
+    [self registerMiPush];
     TencentOAuth *author = [[TencentOAuth alloc] initWithAppId:@"1106740079" andDelegate:self];
     LSKLog(@"%@",author);
     [WXApi registerApp:@"wx0ac8e675150edf05"];
@@ -177,6 +179,14 @@ static const BOOL kIsOnline = NO;
     // 注册APNS失败.
     // 自行处理.
 }
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification{
+    [self getLoactionEvent];
+}
+//前台和后台按钮处理方法
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forLocalNotification:(UILocalNotification *)notification completionHandler:(void (^)(void))completionHandler{
+    [self getLoactionEvent];
+    completionHandler();
+}
 
 #pragma mark Local And Push Notification
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
@@ -201,6 +211,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     if (@available(iOS 10.0, *)) {
         if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
             [MiPushSDK handleReceiveRemoteNotification:userInfo];
+        }else {
+            [self getLoactionEvent];
         }
     } else {
         // Fallback on earlier versions
@@ -216,6 +228,7 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 // 点击通知进入应用
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
     NSDictionary * userInfo = response.notification.request.content.userInfo;
+    NSLog(@"%@",response.notification.request.trigger);
     if (@available(iOS 10.0, *)) {
         if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
             _isFackground = YES;
@@ -224,6 +237,8 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
             if (messageId!=nil) {
                 [MiPushSDK openAppNotify:messageId];
             }
+        }else {
+            [self getLoactionEvent];
         }
     } else {
         // Fallback on earlier versions
@@ -307,7 +322,19 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     }
     [navi pushViewController:web animated:YES];
 }
-
+- (void)getLoactionEvent {
+    if (_rootTabBarVC) {
+        UINavigationController *navi = _rootTabBarVC.selectedViewController;
+        UIViewController *controll = navi.topViewController;
+        if (![controll isKindOfClass:[TXBZSMMyBlessVC class]]) {
+            TXBZSMMyBlessVC *bless = [[TXBZSMMyBlessVC alloc]init];
+            if (navi.viewControllers.count == 1) {
+                bless.hidesBottomBarWhenPushed = YES;
+            }
+            [navi pushViewController:bless animated:YES];
+        }
+    }
+}
 - (NSString*)getOperateType:(NSString*)selector
 {
     NSString *ret = nil;

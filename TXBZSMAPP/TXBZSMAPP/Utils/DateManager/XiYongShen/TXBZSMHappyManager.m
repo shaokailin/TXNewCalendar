@@ -80,13 +80,16 @@ SYNTHESIZE_SINGLETON_CLASS(TXBZSMHappyManager);
     //异类
     NSMutableDictionary *unKing = [NSMutableDictionary dictionary];
     CGFloat mimFloat = -1;
+    NSString *minKey;
     for (NSString *key in [[temp objectForKey:likeGodDay]objectAtIndex:1]) {
         CGFloat value = [[likeGodNum objectForKey:key]floatValue];
         if (mimFloat == -1) {
             mimFloat = value;
+            minKey = key;
         }else {
             if (value < mimFloat) {
                 mimFloat = value;
+                minKey = key;
             }
         }
         [unKing setObject:@(value) forKey:key];
@@ -94,7 +97,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXBZSMHappyManager);
     
     CGFloat differ = feng1 - feng2;
     if (differ > 0.1 || differ == 0.1) {
-        likeGod = NSStringFormat(@"%f",mimFloat);
+        likeGod = minKey;
     } else if (differ >= 0) {
         likeGod = likeGodDay;
     } else {

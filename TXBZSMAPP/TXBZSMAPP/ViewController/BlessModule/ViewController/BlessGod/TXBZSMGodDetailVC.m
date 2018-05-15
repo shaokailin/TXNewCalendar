@@ -34,10 +34,10 @@
 - (void)initializeMainView {
     UIScrollView *mainScroll = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
     [self.view addSubview:mainScroll];
-    
+    BOOL has = [[self.godDetail objectForKey:@"has"]boolValue];
     CGFloat contentHeight = 242;
     TXBZSMGodDetailMessageView *message = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMGodDetailMessageView" owner:self options:nil] lastObject];
-    [message setupContent:[self.godDetail objectForKey:@"name"] type:[self.godDetail objectForKey:@"blessType"] image:[self.godDetail objectForKey:@"image"]];
+    [message setupContent:[self.godDetail objectForKey:@"name"] type:[self.godDetail objectForKey:@"blessType"] image:[self.godDetail objectForKey:@"image"] has:has];
     [mainScroll addSubview:message];
     [message mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(mainScroll);
@@ -79,6 +79,13 @@
         make.top.left.right.equalTo(self.view);
         make.bottom.equalTo(inviteBtn.mas_top);
     }];
+    
+    if (has) {
+        [inviteBtn setBackgroundColor:KColorHexadecimal(0xbfbfbf, 1.0)];
+        [inviteBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [inviteBtn setTitle:@"已供奉仙" forState:UIControlStateNormal];
+        inviteBtn.userInteractionEnabled = NO;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

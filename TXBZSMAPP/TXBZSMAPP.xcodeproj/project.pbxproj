@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1C7F90ACA41023701DFE6283 /* Pods_TXBZSMAPP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2DC5A64FD0EFEA9F48E8522 /* Pods_TXBZSMAPP.framework */; };
+		A600E2B020AAB3F70082A8D5 /* TXBZSMCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A600E2AE20AAB3F70082A8D5 /* TXBZSMCardCell.m */; };
+		A600E2B120AAB3F70082A8D5 /* TXBZSMCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A600E2AF20AAB3F70082A8D5 /* TXBZSMCardCell.xib */; };
+		A600E2B420AAC0450082A8D5 /* TXBZSMTreeShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = A600E2B320AAC0450082A8D5 /* TXBZSMTreeShareView.m */; };
 		A6022E1F20A73ACC00A6D84E /* 640_guide_0.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1320A73ACA00A6D84E /* 640_guide_0.png */; };
 		A6022E2020A73ACC00A6D84E /* 640_guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1420A73ACA00A6D84E /* 640_guide_2.png */; };
 		A6022E2120A73ACC00A6D84E /* guide_2.png in Resources */ = {isa = PBXBuildFile; fileRef = A6022E1520A73ACB00A6D84E /* guide_2.png */; };
@@ -255,6 +258,20 @@
 		A686DF3520A983AE00CAE822 /* mybless_wan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF3120A983AD00CAE822 /* mybless_wan@2x.png */; };
 		A686DF3620A983AE00CAE822 /* mybless_wan2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF3220A983AE00CAE822 /* mybless_wan2@2x.png */; };
 		A686DF3A20A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF3820A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m */; };
+		A686DF4020AA784200CAE822 /* TXBZSMUserPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF3E20AA784200CAE822 /* TXBZSMUserPhotoCell.m */; };
+		A686DF4120AA784200CAE822 /* TXBZSMUserPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A686DF3F20AA784200CAE822 /* TXBZSMUserPhotoCell.xib */; };
+		A686DF4520AA786C00CAE822 /* TXBZSMNameInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF4320AA786C00CAE822 /* TXBZSMNameInputCell.m */; };
+		A686DF4620AA786C00CAE822 /* TXBZSMNameInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A686DF4420AA786C00CAE822 /* TXBZSMNameInputCell.xib */; };
+		A686DF4A20AA788800CAE822 /* TXBZSMUserSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF4820AA788800CAE822 /* TXBZSMUserSelectCell.m */; };
+		A686DF4B20AA788800CAE822 /* TXBZSMUserSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A686DF4920AA788800CAE822 /* TXBZSMUserSelectCell.xib */; };
+		A686DF4D20AA7F0600CAE822 /* arrow_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF4C20AA7F0600CAE822 /* arrow_right@2x.png */; };
+		A686DF5020AA854000CAE822 /* boy1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF4E20AA854000CAE822 /* boy1@2x.png */; };
+		A686DF5120AA854000CAE822 /* girl1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF4F20AA854000CAE822 /* girl1@2x.png */; };
+		A686DF5420AA869500CAE822 /* hasRed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF5220AA869500CAE822 /* hasRed@2x.png */; };
+		A686DF5520AA869500CAE822 /* hasInvite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A686DF5320AA869500CAE822 /* hasInvite@2x.png */; };
+		A686DF5C20AAA99500CAE822 /* TXBZSMWishCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF5B20AAA99500CAE822 /* TXBZSMWishCardView.m */; };
+		A686DF6320AAAF6E00CAE822 /* SCAdCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF5E20AAAF6E00CAE822 /* SCAdCollectionViewLayout.m */; };
+		A686DF6420AAAF6E00CAE822 /* SCAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = A686DF6220AAAF6E00CAE822 /* SCAdView.m */; };
 		A691C00020A34D1500B60521 /* god_navi_god@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */; };
 		A695A22F209462C4009C95EB /* nayindetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F5209462C4009C95EB /* nayindetail.plist */; };
 		A695A230209462C4009C95EB /* heavenlyStems.plist in Resources */ = {isa = PBXBuildFile; fileRef = A695A1F6209462C4009C95EB /* heavenlyStems.plist */; };
@@ -518,6 +535,17 @@
 		A6EA559C20901B690018158C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EA559B20901B690018158C /* libresolv.tbd */; };
 		A6EA559E20901B700018158C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EA559D20901B700018158C /* libxml2.tbd */; };
 		A6EA55A020901B790018158C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A6EA559F20901B790018158C /* libz.tbd */; };
+		A6FD714420AACAA6005ECF8C /* qqspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD713F20AACAA4005ECF8C /* qqspace_icon@2x.png */; };
+		A6FD714520AACAA6005ECF8C /* weibo_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714020AACAA5005ECF8C /* weibo_icon@2x.png */; };
+		A6FD714620AACAA6005ECF8C /* qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714120AACAA5005ECF8C /* qq_icon@2x.png */; };
+		A6FD714720AACAA6005ECF8C /* wx_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714220AACAA5005ECF8C /* wx_icon@2x.png */; };
+		A6FD714820AACAA6005ECF8C /* wxspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714320AACAA6005ECF8C /* wxspace_icon@2x.png */; };
+		A6FD714F20AACB18005ECF8C /* right_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714920AACB16005ECF8C /* right_icon@3x.png */; };
+		A6FD715020AACB18005ECF8C /* right_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714A20AACB16005ECF8C /* right_icon@2x.png */; };
+		A6FD715120AACB18005ECF8C /* left_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714B20AACB17005ECF8C /* left_icon@3x.png */; };
+		A6FD715220AACB18005ECF8C /* left_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714C20AACB17005ECF8C /* left_icon@2x.png */; };
+		A6FD715320AACB18005ECF8C /* share_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714D20AACB17005ECF8C /* share_icon@2x.png */; };
+		A6FD715420AACB18005ECF8C /* share_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FD714E20AACB18005ECF8C /* share_icon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -540,6 +568,11 @@
 /* Begin PBXFileReference section */
 		056F4DE77E492DC8C929C37F /* Pods-TXBZSMAPP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXBZSMAPP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TXBZSMAPP/Pods-TXBZSMAPP.debug.xcconfig"; sourceTree = "<group>"; };
 		3B94EAE9E731F861CA780456 /* Pods-TXBZSMAPP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXBZSMAPP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TXBZSMAPP/Pods-TXBZSMAPP.release.xcconfig"; sourceTree = "<group>"; };
+		A600E2AD20AAB3F70082A8D5 /* TXBZSMCardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMCardCell.h; sourceTree = "<group>"; };
+		A600E2AE20AAB3F70082A8D5 /* TXBZSMCardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMCardCell.m; sourceTree = "<group>"; };
+		A600E2AF20AAB3F70082A8D5 /* TXBZSMCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMCardCell.xib; sourceTree = "<group>"; };
+		A600E2B220AAC0450082A8D5 /* TXBZSMTreeShareView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMTreeShareView.h; sourceTree = "<group>"; };
+		A600E2B320AAC0450082A8D5 /* TXBZSMTreeShareView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMTreeShareView.m; sourceTree = "<group>"; };
 		A6022E1320A73ACA00A6D84E /* 640_guide_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_0.png; sourceTree = "<group>"; };
 		A6022E1420A73ACA00A6D84E /* 640_guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 640_guide_2.png; sourceTree = "<group>"; };
 		A6022E1520A73ACB00A6D84E /* guide_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guide_2.png; sourceTree = "<group>"; };
@@ -847,6 +880,28 @@
 		A686DF3220A983AE00CAE822 /* mybless_wan2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mybless_wan2@2x.png"; sourceTree = "<group>"; };
 		A686DF3720A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMBlessWishCompleteVC.h; sourceTree = "<group>"; };
 		A686DF3820A98AE300CAE822 /* TXBZSMBlessWishCompleteVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMBlessWishCompleteVC.m; sourceTree = "<group>"; };
+		A686DF3C20AA732E00CAE822 /* TXBZSMAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TXBZSMAPP.entitlements; sourceTree = "<group>"; };
+		A686DF3D20AA784200CAE822 /* TXBZSMUserPhotoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMUserPhotoCell.h; sourceTree = "<group>"; };
+		A686DF3E20AA784200CAE822 /* TXBZSMUserPhotoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMUserPhotoCell.m; sourceTree = "<group>"; };
+		A686DF3F20AA784200CAE822 /* TXBZSMUserPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMUserPhotoCell.xib; sourceTree = "<group>"; };
+		A686DF4220AA786C00CAE822 /* TXBZSMNameInputCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMNameInputCell.h; sourceTree = "<group>"; };
+		A686DF4320AA786C00CAE822 /* TXBZSMNameInputCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMNameInputCell.m; sourceTree = "<group>"; };
+		A686DF4420AA786C00CAE822 /* TXBZSMNameInputCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMNameInputCell.xib; sourceTree = "<group>"; };
+		A686DF4720AA788800CAE822 /* TXBZSMUserSelectCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMUserSelectCell.h; sourceTree = "<group>"; };
+		A686DF4820AA788800CAE822 /* TXBZSMUserSelectCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMUserSelectCell.m; sourceTree = "<group>"; };
+		A686DF4920AA788800CAE822 /* TXBZSMUserSelectCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TXBZSMUserSelectCell.xib; sourceTree = "<group>"; };
+		A686DF4C20AA7F0600CAE822 /* arrow_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow_right@2x.png"; sourceTree = "<group>"; };
+		A686DF4E20AA854000CAE822 /* boy1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "boy1@2x.png"; sourceTree = "<group>"; };
+		A686DF4F20AA854000CAE822 /* girl1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "girl1@2x.png"; sourceTree = "<group>"; };
+		A686DF5220AA869500CAE822 /* hasRed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hasRed@2x.png"; sourceTree = "<group>"; };
+		A686DF5320AA869500CAE822 /* hasInvite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hasInvite@2x.png"; sourceTree = "<group>"; };
+		A686DF5A20AAA99500CAE822 /* TXBZSMWishCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXBZSMWishCardView.h; sourceTree = "<group>"; };
+		A686DF5B20AAA99500CAE822 /* TXBZSMWishCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXBZSMWishCardView.m; sourceTree = "<group>"; };
+		A686DF5E20AAAF6E00CAE822 /* SCAdCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAdCollectionViewLayout.m; sourceTree = "<group>"; };
+		A686DF5F20AAAF6E00CAE822 /* SCAdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAdView.h; sourceTree = "<group>"; };
+		A686DF6020AAAF6E00CAE822 /* SCAdViewRenderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAdViewRenderDelegate.h; sourceTree = "<group>"; };
+		A686DF6120AAAF6E00CAE822 /* SCAdCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCAdCollectionViewLayout.h; sourceTree = "<group>"; };
+		A686DF6220AAAF6E00CAE822 /* SCAdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCAdView.m; sourceTree = "<group>"; };
 		A691BFFF20A34D1500B60521 /* god_navi_god@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "god_navi_god@2x.png"; sourceTree = "<group>"; };
 		A695A1F5209462C4009C95EB /* nayindetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nayindetail.plist; sourceTree = "<group>"; };
 		A695A1F6209462C4009C95EB /* heavenlyStems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = heavenlyStems.plist; sourceTree = "<group>"; };
@@ -1237,6 +1292,17 @@
 		A6EA559B20901B690018158C /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		A6EA559D20901B700018158C /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
 		A6EA559F20901B790018158C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		A6FD713F20AACAA4005ECF8C /* qqspace_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qqspace_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714020AACAA5005ECF8C /* weibo_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "weibo_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714120AACAA5005ECF8C /* qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qq_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714220AACAA5005ECF8C /* wx_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wx_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714320AACAA6005ECF8C /* wxspace_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wxspace_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714920AACB16005ECF8C /* right_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_icon@3x.png"; sourceTree = "<group>"; };
+		A6FD714A20AACB16005ECF8C /* right_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714B20AACB17005ECF8C /* left_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_icon@3x.png"; sourceTree = "<group>"; };
+		A6FD714C20AACB17005ECF8C /* left_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714D20AACB17005ECF8C /* share_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_icon@2x.png"; sourceTree = "<group>"; };
+		A6FD714E20AACB18005ECF8C /* share_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_icon@3x.png"; sourceTree = "<group>"; };
 		E2DC5A64FD0EFEA9F48E8522 /* Pods_TXBZSMAPP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TXBZSMAPP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1494,6 +1560,8 @@
 		A6617AC220A1A0DD00ACD878 /* bless */ = {
 			isa = PBXGroup;
 			children = (
+				A686DF5320AA869500CAE822 /* hasInvite@2x.png */,
+				A686DF5220AA869500CAE822 /* hasRed@2x.png */,
 				A686DF3120A983AD00CAE822 /* mybless_wan@2x.png */,
 				A686DF3020A983AD00CAE822 /* mybless_wan1@2x.png */,
 				A686DF3220A983AE00CAE822 /* mybless_wan2@2x.png */,
@@ -1807,6 +1875,18 @@
 			path = gonghua;
 			sourceTree = "<group>";
 		};
+		A686DF5D20AAAF6E00CAE822 /* SCAdView */ = {
+			isa = PBXGroup;
+			children = (
+				A686DF5E20AAAF6E00CAE822 /* SCAdCollectionViewLayout.m */,
+				A686DF5F20AAAF6E00CAE822 /* SCAdView.h */,
+				A686DF6020AAAF6E00CAE822 /* SCAdViewRenderDelegate.h */,
+				A686DF6120AAAF6E00CAE822 /* SCAdCollectionViewLayout.h */,
+				A686DF6220AAAF6E00CAE822 /* SCAdView.m */,
+			);
+			path = SCAdView;
+			sourceTree = "<group>";
+		};
 		A695A1F3209462C4009C95EB /* DateManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1973,6 +2053,13 @@
 				A6B2B17F20A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.h */,
 				A6B2B18020A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m */,
 				A6B2B18220A9E97000F5CDF7 /* TXBZSMWishTreeCompleteView.xib */,
+				A686DF5A20AAA99500CAE822 /* TXBZSMWishCardView.h */,
+				A686DF5B20AAA99500CAE822 /* TXBZSMWishCardView.m */,
+				A600E2AD20AAB3F70082A8D5 /* TXBZSMCardCell.h */,
+				A600E2AE20AAB3F70082A8D5 /* TXBZSMCardCell.m */,
+				A600E2AF20AAB3F70082A8D5 /* TXBZSMCardCell.xib */,
+				A600E2B220AAC0450082A8D5 /* TXBZSMTreeShareView.h */,
+				A600E2B320AAC0450082A8D5 /* TXBZSMTreeShareView.m */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -2042,6 +2129,15 @@
 				A6B2B19420A9F1F200F5CDF7 /* TXBZSMMessageAlertView.h */,
 				A6B2B19520A9F1F200F5CDF7 /* TXBZSMMessageAlertView.m */,
 				A6B2B19720A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib */,
+				A686DF3D20AA784200CAE822 /* TXBZSMUserPhotoCell.h */,
+				A686DF3E20AA784200CAE822 /* TXBZSMUserPhotoCell.m */,
+				A686DF3F20AA784200CAE822 /* TXBZSMUserPhotoCell.xib */,
+				A686DF4220AA786C00CAE822 /* TXBZSMNameInputCell.h */,
+				A686DF4320AA786C00CAE822 /* TXBZSMNameInputCell.m */,
+				A686DF4420AA786C00CAE822 /* TXBZSMNameInputCell.xib */,
+				A686DF4720AA788800CAE822 /* TXBZSMUserSelectCell.h */,
+				A686DF4820AA788800CAE822 /* TXBZSMUserSelectCell.m */,
+				A686DF4920AA788800CAE822 /* TXBZSMUserSelectCell.xib */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2179,6 +2275,7 @@
 		A6EA53BF209013360018158C /* TXBZSMAPP */ = {
 			isa = PBXGroup;
 			children = (
+				A686DF3C20AA732E00CAE822 /* TXBZSMAPP.entitlements */,
 				A6EA5418209017080018158C /* BaseConfig */,
 				A6EA547A209017080018158C /* ViewController */,
 				A6EA53F2209017080018158C /* Resource */,
@@ -2236,6 +2333,8 @@
 		A6EA53F5209017080018158C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A6FD713E20AACA9C005ECF8C /* share */,
+				A686DF4C20AA7F0600CAE822 /* arrow_right@2x.png */,
 				A6B2B18620A9EFAA00F5CDF7 /* message */,
 				A686DE8420A9113600CAE822 /* gongguo */,
 				A686DEC720A9113700CAE822 /* gonghua */,
@@ -2251,6 +2350,8 @@
 				A6DC2B2C209BFB310058202B /* fortune */,
 				A6DC2B06209B0BE40058202B /* boy@2x.png */,
 				A6DC2B07209B0BE40058202B /* girl@2x.png */,
+				A686DF4E20AA854000CAE822 /* boy1@2x.png */,
+				A686DF4F20AA854000CAE822 /* girl1@2x.png */,
 				A6DC2B04209AFE530058202B /* navigationbg@2x.png */,
 				A6DC2AEE209AFA550058202B /* tab */,
 			);
@@ -2284,6 +2385,7 @@
 		A6EA540F209017080018158C /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				A686DF5D20AAAF6E00CAE822 /* SCAdView */,
 				A6DC2AAA209AF7DD0058202B /* PNChart */,
 				A6EA5410209017080018158C /* libMiPush */,
 				A6EA5415209017080018158C /* QQ */,
@@ -2678,6 +2780,24 @@
 			path = VersionManager;
 			sourceTree = "<group>";
 		};
+		A6FD713E20AACA9C005ECF8C /* share */ = {
+			isa = PBXGroup;
+			children = (
+				A6FD714C20AACB17005ECF8C /* left_icon@2x.png */,
+				A6FD714B20AACB17005ECF8C /* left_icon@3x.png */,
+				A6FD714A20AACB16005ECF8C /* right_icon@2x.png */,
+				A6FD714920AACB16005ECF8C /* right_icon@3x.png */,
+				A6FD714D20AACB17005ECF8C /* share_icon@2x.png */,
+				A6FD714E20AACB18005ECF8C /* share_icon@3x.png */,
+				A6FD714120AACAA5005ECF8C /* qq_icon@2x.png */,
+				A6FD713F20AACAA4005ECF8C /* qqspace_icon@2x.png */,
+				A6FD714020AACAA5005ECF8C /* weibo_icon@2x.png */,
+				A6FD714220AACAA5005ECF8C /* wx_icon@2x.png */,
+				A6FD714320AACAA6005ECF8C /* wxspace_icon@2x.png */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
 		CC8C54395F50283E9F704EA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2702,7 +2822,6 @@
 				A6EA53BA209013360018158C /* Frameworks */,
 				A6EA53BB209013360018158C /* Resources */,
 				326CA2C49B79FE5D020949A7 /* [CP] Embed Pods Frameworks */,
-				0CCD5336D31ED652110BD0E4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2761,6 +2880,14 @@
 				TargetAttributes = {
 					A6EA53BC209013360018158C = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					A6EA53D4209013380018158C = {
 						CreatedOnToolsVersion = 9.3;
@@ -2810,6 +2937,7 @@
 				A6617B5020A2ECF800ACD878 /* guanyinpusha@2x.png in Resources */,
 				A695A23D209462C4009C95EB /* zhishen.plist in Resources */,
 				A686DEF920A9113700CAE822 /* niaodongzhen@2x.png in Resources */,
+				A600E2B120AAB3F70082A8D5 /* TXBZSMCardCell.xib in Resources */,
 				A6617B2620A2E89B00ACD878 /* chegong@2x.png in Resources */,
 				A686DEDE20A9113700CAE822 /* mangguo@2x.png in Resources */,
 				A686DF1B20A9113700CAE822 /* lanhua@2x.png in Resources */,
@@ -2837,6 +2965,8 @@
 				A6617AF320A2D74400ACD878 /* gobBg@2x.png in Resources */,
 				A6B2B12820A84ACD00F5CDF7 /* wish_boyup@2x.png in Resources */,
 				A6617B4820A2ECF800ACD878 /* dashizhipus@2x.png in Resources */,
+				A686DF4620AA786C00CAE822 /* TXBZSMNameInputCell.xib in Resources */,
+				A6FD715220AACB18005ECF8C /* left_icon@2x.png in Resources */,
 				A686DF3620A983AE00CAE822 /* mybless_wan2@2x.png in Resources */,
 				A695A240209462C4009C95EB /* xingxiuDetail.plist in Resources */,
 				A686DEDD20A9113700CAE822 /* fotouguo@2x.png in Resources */,
@@ -2855,12 +2985,14 @@
 				A695A25F209462C4009C95EB /* 2.dat in Resources */,
 				A6B2B18B20A9EFAA00F5CDF7 /* messagecancle@2x.png in Resources */,
 				A6B2B0E620A834FD00F5CDF7 /* pingancard@2x.png in Resources */,
+				A686DF5420AA869500CAE822 /* hasRed@2x.png in Resources */,
 				A6617B4E20A2ECF800ACD878 /* wenzhupus@2x.png in Resources */,
 				A686DF3520A983AE00CAE822 /* mybless_wan@2x.png in Resources */,
 				A695A26D209464EE009C95EB /* zanggan.plist in Resources */,
 				A686DF1020A9113700CAE822 /* jixiangfuguilazhu@2x.png in Resources */,
 				A6B2B13020A84ACD00F5CDF7 /* wish_love@2x.png in Resources */,
 				A6617BC020A43D4F00ACD878 /* lazhu@2x.png in Resources */,
+				A686DF4D20AA7F0600CAE822 /* arrow_right@2x.png in Resources */,
 				A6617B2420A2E89B00ACD878 /* mazu@2x.png in Resources */,
 				A6DC2AF9209AFB700058202B /* tab_2_s@2x.png in Resources */,
 				A6C06C7020A7DF9100565990 /* TXBZSMPlatformGoodsCell.xib in Resources */,
@@ -2890,10 +3022,12 @@
 				A6B2B12C20A84ACD00F5CDF7 /* wish_xueye@2x.png in Resources */,
 				A6617B4D20A2ECF800ACD878 /* enituofo@2x.png in Resources */,
 				A6510526209FDC230091B6E5 /* whiteback_icon@2x.png in Resources */,
+				A686DF5020AA854000CAE822 /* boy1@2x.png in Resources */,
 				A686DEFC20A9113700CAE822 /* longnaoxiang@2x.png in Resources */,
 				A6022E2520A73ACC00A6D84E /* 1125_guide_1.png in Resources */,
 				A686DEDA20A9113700CAE822 /* pingguo@2x.png in Resources */,
 				A695A258209462C4009C95EB /* 18.dat in Resources */,
+				A6FD714420AACAA6005ECF8C /* qqspace_icon@2x.png in Resources */,
 				A686DEDB20A9113700CAE822 /* chengzi@2x.png in Resources */,
 				A6B2B19820A9F20200F5CDF7 /* TXBZSMMessageAlertView.xib in Resources */,
 				A6617B1520A2E89B00ACD878 /* diguan@2x.png in Resources */,
@@ -2901,8 +3035,10 @@
 				A6617B1F20A2E89B00ACD878 /* ziwei@2x.png in Resources */,
 				A6EA5525209017080018158C /* guanbi@2x.png in Resources */,
 				A6617B8120A3EB0E00ACD878 /* TXBZSMGodDetailMessageView.xib in Resources */,
+				A6FD714720AACAA6005ECF8C /* wx_icon@2x.png in Resources */,
 				A6617ABE20A19C4700ACD878 /* PublicSpaceTableViewCell.xib in Resources */,
 				A686DEFB20A9113700CAE822 /* ziranxiang@2x.png in Resources */,
+				A6FD714520AACAA6005ECF8C /* weibo_icon@2x.png in Resources */,
 				A695A239209462C4009C95EB /* zhengchong.plist in Resources */,
 				A6B2B0E920A834FD00F5CDF7 /* hongyuncard@2x.png in Resources */,
 				A6EA5528209017080018158C /* webviewmore@2x.png in Resources */,
@@ -2951,6 +3087,7 @@
 				A6617B4420A2ECF800ACD878 /* darirulai@2x.png in Resources */,
 				A6617B6A20A3E35700ACD878 /* TXBZSMBuddhismGodCell.xib in Resources */,
 				A6617B7B20A3E9F100ACD878 /* qingxian@2x.png in Resources */,
+				A6FD715320AACB18005ECF8C /* share_icon@2x.png in Resources */,
 				A6DC2B26209BF3650058202B /* TXBZSMHotSelectView.xib in Resources */,
 				A6B2B0BD20A805EC00F5CDF7 /* wishTreebg@2x.png in Resources */,
 				A695A23E209462C4009C95EB /* chineseHoliDay.plist in Resources */,
@@ -2998,6 +3135,7 @@
 				A6617B1C20A2E89B00ACD878 /* piancai@2x.png in Resources */,
 				A6DC2B0B209B0E4F0058202B /* xingzuoList.plist in Resources */,
 				A695A256209462C4009C95EB /* 17.dat in Resources */,
+				A686DF4120AA784200CAE822 /* TXBZSMUserPhotoCell.xib in Resources */,
 				A6B2B18C20A9EFAA00F5CDF7 /* messageBg@2x.png in Resources */,
 				A6617B8D20A3F34D00ACD878 /* goddetailbg@2x.png in Resources */,
 				A6617AE220A2A7B800ACD878 /* nodataimage@2x.png in Resources */,
@@ -3009,6 +3147,7 @@
 				A6EA5527209017080018158C /* webviewmore@3x.png in Resources */,
 				A686DEF820A9113700CAE822 /* zengyuanxiang@2x.png in Resources */,
 				A695A246209462C4009C95EB /* twenty-fourSolarTerms.plist in Resources */,
+				A686DF4B20AA788800CAE822 /* TXBZSMUserSelectCell.xib in Resources */,
 				A6EA53CA209013380018158C /* Assets.xcassets in Resources */,
 				A6DC2A9D20999D640058202B /* moneyPosition.plist in Resources */,
 				A695A260209462C4009C95EB /* 0.dat in Resources */,
@@ -3051,6 +3190,7 @@
 				A6DC2A97209994B10058202B /* jixiangse.plist in Resources */,
 				A6617BAB20A430ED00ACD878 /* btnbg@2x.png in Resources */,
 				A6617AE420A2A7B800ACD878 /* nodatabtn@2x.png in Resources */,
+				A6FD715020AACB18005ECF8C /* right_icon@2x.png in Resources */,
 				A695A237209462C4009C95EB /* hour.plist in Resources */,
 				A686DF0120A9113700CAE822 /* chuntonglianhuashengshui@2x.png in Resources */,
 				A6B2B12720A84ACD00F5CDF7 /* wish_pingan@2x.png in Resources */,
@@ -3060,7 +3200,9 @@
 				A6DC2B09209B0BE50058202B /* girl@2x.png in Resources */,
 				A686DF0820A9113700CAE822 /* gongxifacailazhu@2x.png in Resources */,
 				A686DF1C20A9113700CAE822 /* bianhua@2x.png in Resources */,
+				A686DF5520AA869500CAE822 /* hasInvite@2x.png in Resources */,
 				A6617B7820A3E9F100ACD878 /* gongfeng@2x.png in Resources */,
+				A6FD714820AACAA6005ECF8C /* wxspace_icon@2x.png in Resources */,
 				A6DC2A9320998EBA0058202B /* ganqingyunshi.plist in Resources */,
 				A6617BD620A5648A00ACD878 /* gongpingoods.plist in Resources */,
 				A6DC2A9F20999D720058202B /* lovePosity.plist in Resources */,
@@ -3073,6 +3215,7 @@
 				A695A254209462C4009C95EB /* 14.dat in Resources */,
 				A695A25D209462C4009C95EB /* 22.dat in Resources */,
 				A6617BA420A42EB100ACD878 /* TXBZSMPlatformNaviView.xib in Resources */,
+				A6FD715120AACB18005ECF8C /* left_icon@3x.png in Resources */,
 				A6B2B12F20A84ACD00F5CDF7 /* wish_bisheng@2x.png in Resources */,
 				A686DEF620A9113700CAE822 /* zengcaixiang@2x.png in Resources */,
 				A6DC2AF8209AFB700058202B /* tab_2_n@2x.png in Resources */,
@@ -3081,16 +3224,20 @@
 				A651055420A031B00091B6E5 /* TXBZSMTomorrowProgressView.xib in Resources */,
 				A6B2B0EC20A834FD00F5CDF7 /* hongyunredcard@2x.png in Resources */,
 				A6B2B14120A8534300F5CDF7 /* TXBZSMWishCardCell.xib in Resources */,
+				A6FD715420AACB18005ECF8C /* share_icon@3x.png in Resources */,
 				A686DF1220A9113700CAE822 /* xueyejinbulazhu@2x.png in Resources */,
 				A6617BC720A523EB00ACD878 /* xiangtai@2x.png in Resources */,
 				A695A22F209462C4009C95EB /* nayindetail.plist in Resources */,
+				A6FD714620AACAA6005ECF8C /* qq_icon@2x.png in Resources */,
 				A695A25A209462C4009C95EB /* 20.dat in Resources */,
 				A6617B1620A2E89B00ACD878 /* xuantian@2x.png in Resources */,
 				A695A24E209462C4009C95EB /* 8.dat in Resources */,
 				A6B2B12E20A84ACD00F5CDF7 /* wish_job@2x.png in Resources */,
 				A695A257209462C4009C95EB /* 19.dat in Resources */,
+				A6FD714F20AACB18005ECF8C /* right_icon@3x.png in Resources */,
 				A686DF0E20A9113700CAE822 /* zuanyunkaiguanglazhu@2x.png in Resources */,
 				A686DF1D20A9113700CAE822 /* jidanhua@2x.png in Resources */,
+				A686DF5120AA854000CAE822 /* girl1@2x.png in Resources */,
 				A6B2B14E20A8893800F5CDF7 /* TXBZSMMyWishCell.xib in Resources */,
 				A6DC2AA7209AF6230058202B /* category.plist in Resources */,
 				A6617ADE20A2A74400ACD878 /* myblessiconbg@2x.png in Resources */,
@@ -3152,21 +3299,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CCD5336D31ED652110BD0E4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TXBZSMAPP/Pods-TXBZSMAPP-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		326CA2C49B79FE5D020949A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -3179,6 +3311,7 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
@@ -3190,6 +3323,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
@@ -3241,6 +3375,7 @@
 				A6617AB420A19A2D00ACD878 /* TXBZSMBlessHomeHeaderView.m in Sources */,
 				A651054820A0232C0091B6E5 /* TXBZSMTomorrowMessageView.m in Sources */,
 				A6617AC120A19F8B00ACD878 /* TXBZSMBlessHomeBgView.m in Sources */,
+				A686DF4020AA784200CAE822 /* TXBZSMUserPhotoCell.m in Sources */,
 				A6DC2B3E209C482A0058202B /* TXBZSMFortuneModuleAPI.m in Sources */,
 				A6617AD920A29F8500ACD878 /* TXBZSMMyBlessCell.m in Sources */,
 				A6EA559320901A0D0018158C /* PPSSAppVersionApi.m in Sources */,
@@ -3296,12 +3431,14 @@
 				A6EA5517209017080018158C /* NSArray+Extend.m in Sources */,
 				A6EA5514209017080018158C /* NSString+Extend.m in Sources */,
 				A6B2B17E20A9E90D00F5CDF7 /* TXBZSMWishTreeCompleteVC.m in Sources */,
+				A686DF6320AAAF6E00CAE822 /* SCAdCollectionViewLayout.m in Sources */,
 				A6EA559420901A0D0018158C /* PPSSAppUpdateView.m in Sources */,
 				A6EA5509209017080018158C /* LSKMediaParamterEntity.m in Sources */,
 				A6EA555D209017090018158C /* TXXLGuideVC.m in Sources */,
 				A695A24C209462C4009C95EB /* TXXLDateManager.mm in Sources */,
 				A6DC2B13209BF0020058202B /* TXBZSMFortuneHomeCell.m in Sources */,
 				A6EA5523209017080018158C /* LSKLineTableView.m in Sources */,
+				A686DF4520AA786C00CAE822 /* TXBZSMNameInputCell.m in Sources */,
 				A6617B6120A3DAC200ACD878 /* TXBZSMGodSelectCell.m in Sources */,
 				A6617AA620A1922C00ACD878 /* TXSMCalculateHomeHeaderView.m in Sources */,
 				A6EA53D0209013380018158C /* main.m in Sources */,
@@ -3360,8 +3497,11 @@
 				A651052D209FDCEA0091B6E5 /* TXBZSMTodayHeaderView.m in Sources */,
 				A6B2B0F420A843B100F5CDF7 /* TXBZSMVWishListVC.m in Sources */,
 				A6B2B18120A9E93400F5CDF7 /* TXBZSMWishTreeCompleteView.m in Sources */,
+				A686DF4A20AA788800CAE822 /* TXBZSMUserSelectCell.m in Sources */,
 				A6510533209FDD320091B6E5 /* TXBZSMTodayAdView.m in Sources */,
 				A6C06C6F20A7DF9100565990 /* TXBZSMPlatformGoodsCell.m in Sources */,
+				A686DF6420AAAF6E00CAE822 /* SCAdView.m in Sources */,
+				A600E2B420AAC0450082A8D5 /* TXBZSMTreeShareView.m in Sources */,
 				A6EA5510209017080018158C /* UITableView+Extend.m in Sources */,
 				A6DC2B17209BF0870058202B /* TXBZSMFortuneHeaderView.m in Sources */,
 				A6EA552D209017080018158C /* LSKActionSheetView.m in Sources */,
@@ -3380,6 +3520,7 @@
 				A6510530209FDD180091B6E5 /* TXBZSMTodayMessageView.m in Sources */,
 				A6617AB120A1998F00ACD878 /* TXBZSMBlessHomeVM.m in Sources */,
 				A651058020A173670091B6E5 /* TXBZSMAnalysisMessageView.m in Sources */,
+				A600E2B020AAB3F70082A8D5 /* TXBZSMCardCell.m in Sources */,
 				A6DC2AD9209AF7DD0058202B /* PNLineChartDataItem.m in Sources */,
 				A6B2B16020A9B0B000F5CDF7 /* TXBZSMBlessWishCompleteView.m in Sources */,
 				A6B2B15620A88ED800F5CDF7 /* TXBZSMWishCardDetailView.m in Sources */,
@@ -3387,6 +3528,7 @@
 				A6DC2AED209AF8860058202B /* TXSMShareView.m in Sources */,
 				A6EA5511209017080018158C /* UIBarButtonItem+Extend.m in Sources */,
 				A6EA559220901A0D0018158C /* PPSSAppVersionModel.m in Sources */,
+				A686DF5C20AAA99500CAE822 /* TXBZSMWishCardView.m in Sources */,
 				A6EA5507209017080018158C /* AppDelegate.m in Sources */,
 				A6617ACB20A2852300ACD878 /* TXBZSMBlessHomeNaviButton.m in Sources */,
 				A6617AA820A1922C00ACD878 /* TXXLCategoryView.m in Sources */,
@@ -3553,6 +3695,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TXBZSMAPP/TXBZSMAPP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J2L9G2LEH;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -3583,6 +3726,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = TXBZSMAPP/TXBZSMAPP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2J2L9G2LEH;
 				FRAMEWORK_SEARCH_PATHS = (

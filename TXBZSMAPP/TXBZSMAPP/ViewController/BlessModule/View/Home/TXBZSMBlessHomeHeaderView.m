@@ -17,6 +17,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self _layoutMainView];
+        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeUserPhoto) name:kUserMessageChangeNotice object:nil];
     }
     return self;
 }

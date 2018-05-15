@@ -12,7 +12,7 @@
 #import "TXBZSMGodDetailVC.h"
 @interface TXBZSMGodSelectVC ()<UITableViewDelegate,UITableViewDataSource>
 {
-    NSDictionary *_dataDictionary;
+    NSMutableDictionary *_dataDictionary;
     NSInteger _currentIndex;
     BOOL _isJumpDetail;
 }
@@ -91,7 +91,35 @@
 }
 #pragma mark - init
 - (void)initializeMainView {
-    _dataDictionary = [NSDictionary dictionaryWithPlist:@"TaoismGod"];
+    NSDictionary *dict1 = [NSDictionary dictionaryWithPlist:@"TaoismGod"];
+    NSArray *blessArray = kUserMessageManager.blessArray;
+    if (blessArray.count > 0) {
+        _dataDictionary = [NSMutableDictionary dictionary];
+        for (NSString *key in dict1.allKeys) {
+            NSMutableArray *array = [NSMutableArray array];
+            NSArray *dataArray = [dict1 objectForKey:key];
+            for (NSDictionary *dict2 in dataArray) {
+                BOOL has = NO;
+                for (TXBZSMGodMessageModel *model in blessArray) {
+                    if ([model.godType isEqualToString:key] && [model.indexId isEqualToString:[dict2 objectForKey:@"indexId"]]) {
+                        has = YES;
+                        break;
+                    }
+                }
+                if (has) {
+                    NSMutableDictionary *dict3 = [NSMutableDictionary dictionaryWithDictionary:dict2];
+                    [dict3 setObject:@(1) forKey:@"has"];
+                    [array addObject:dict3];
+                }else {
+                    [array addObject:dict2];
+                }
+            }
+            [_dataDictionary setObject:array forKey:key];
+        }
+    }else {
+        _dataDictionary = [NSMutableDictionary dictionaryWithDictionary:dict1];
+    }
+    
     _currentIndex = 0;
     UIView *headerView = [[UIView alloc]init];
     headerView.backgroundColor = KColorHexadecimal(0xf5efe8, 1.0);

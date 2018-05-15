@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface TXBZSMSelectGodButton : UIButton
-- (void)setupContentWithName:(NSString *)name detail:(NSString *)detail img:(NSString *)img;
+- (void)setupContentWithName:(NSString *)name detail:(NSString *)detail img:(NSString *)img isHas:(BOOL)isHas;
 @end
