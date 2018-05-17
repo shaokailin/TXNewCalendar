@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platformheaderbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="rzg-u7-cfW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platformheaderbg" translatesAutoresizingMaskIntoConstraints="NO" id="rzg-u7-cfW">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="168"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BqV-h3-884">
@@ -25,7 +25,7 @@
                         <constraint firstAttribute="width" constant="60" id="gyS-rF-ctj"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="blackback.png"/>
+                    <state key="normal" image="blackback"/>
                     <connections>
                         <action selector="backClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="ABc-tI-ORU"/>
                     </connections>
@@ -45,7 +45,7 @@
                     <rect key="frame" x="213" y="30" width="61" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="我的祈福" backgroundImage="btnbg.png">
+                    <state key="normal" title="我的祈福" backgroundImage="btnbg">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -56,7 +56,7 @@
                     <rect key="frame" x="101" y="30" width="61" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <inset key="titleEdgeInsets" minX="0.0" minY="4" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" title="供奉神明" backgroundImage="btnbg.png">
+                    <state key="normal" title="供奉神明" backgroundImage="btnbg">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -86,9 +86,9 @@
         </view>
     </objects>
     <resources>
-        <image name="blackback.png" width="9" height="14"/>
+        <image name="blackback" width="9" height="14"/>
         <image name="blacshare.png" width="16" height="15"/>
-        <image name="btnbg.png" width="61" height="40"/>
-        <image name="platformheaderbg.png" width="375" height="168"/>
+        <image name="btnbg" width="61" height="40"/>
+        <image name="platformheaderbg" width="375" height="168"/>
     </resources>
 </document>

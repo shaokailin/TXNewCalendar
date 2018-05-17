@@ -18,10 +18,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fS7-er-OEK">
                     <rect key="frame" x="61" y="100" width="253" height="272"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="NQz-qA-U9A">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messageBg" translatesAutoresizingMaskIntoConstraints="NO" id="NQz-qA-U9A">
                             <rect key="frame" x="0.0" y="35" width="253" height="237"/>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messagetop.png" translatesAutoresizingMaskIntoConstraints="NO" id="OlK-fk-ZNk">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="messagetop" translatesAutoresizingMaskIntoConstraints="NO" id="OlK-fk-ZNk">
                             <rect key="frame" x="0.0" y="0.0" width="253" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="rpb-ZO-YVi"/>
@@ -33,14 +33,14 @@
                                 <constraint firstAttribute="height" constant="40" id="2BT-KS-0nR"/>
                                 <constraint firstAttribute="width" constant="50" id="5YK-lM-N1M"/>
                             </constraints>
-                            <state key="normal" image="messagecancle.png"/>
+                            <state key="normal" image="messagecancle"/>
                             <connections>
                                 <action selector="cancleClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="xJB-oG-h35"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzn-oM-P9B">
                             <rect key="frame" x="20" y="205" width="213" height="34"/>
-                            <state key="normal" title="完成" backgroundImage="messageBtn.png">
+                            <state key="normal" title="完成" backgroundImage="messageBtn">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>
@@ -169,9 +169,9 @@
         </view>
     </objects>
     <resources>
-        <image name="messageBg.png" width="253" height="237"/>
-        <image name="messageBtn.png" width="213" height="34"/>
-        <image name="messagecancle.png" width="20" height="20"/>
-        <image name="messagetop.png" width="246" height="34"/>
+        <image name="messageBg" width="253" height="237"/>
+        <image name="messageBtn" width="213" height="34"/>
+        <image name="messagecancle" width="20" height="20"/>
+        <image name="messagetop" width="246" height="34"/>
     </resources>
 </document>

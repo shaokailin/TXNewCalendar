@@ -52,7 +52,7 @@
                         <constraint firstAttribute="height" constant="37" id="ENF-OT-iK6"/>
                         <constraint firstAttribute="width" constant="169" id="jxO-iS-2yx"/>
                     </constraints>
-                    <state key="normal" title="还愿成功" backgroundImage="tree_my.png">
+                    <state key="normal" title="还愿成功" backgroundImage="tree_my">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -81,6 +81,6 @@
         </view>
     </objects>
     <resources>
-        <image name="tree_my.png" width="169" height="37"/>
+        <image name="tree_my" width="169" height="37"/>
     </resources>
 </document>

@@ -25,7 +25,7 @@
                                 <constraint firstAttribute="width" constant="32" id="xsb-E7-2P2"/>
                             </constraints>
                         </imageView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuelao.png" translatesAutoresizingMaskIntoConstraints="NO" id="vsx-oP-x9r">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuelao" translatesAutoresizingMaskIntoConstraints="NO" id="vsx-oP-x9r">
                             <rect key="frame" x="15.5" y="7" width="28" height="46"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="28" id="Ocm-BT-KlW"/>
@@ -121,6 +121,6 @@
     </objects>
     <resources>
         <image name="myblessiconbg.png" width="102" height="102"/>
-        <image name="yuelao.png" width="151" height="247"/>
+        <image name="yuelao" width="151" height="247"/>
     </resources>
 </document>

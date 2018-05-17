@@ -28,6 +28,30 @@
 				<string>txyyyc</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1106834277</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>QQ41f8f365</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx6347ffa8c616efc9</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
@@ -73,12 +97,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>是否允许易运易测允许访问你的相册？</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>是否允许易运易测允许访问你的相册？</string>
 	<key>NSCameraUsageDescription</key>
 	<string>是否允许易运易测允许访问你的相机？</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>是否允许易运易测允许访问你的相册？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>是否允许易运易测允许访问你的相册？</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

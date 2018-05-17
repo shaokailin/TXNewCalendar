@@ -53,7 +53,7 @@ static const CGFloat kBARBUTTONITEMSPACEWIDTH = -10.0;//空白 UIBarButtonItem �
         [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     }
     if (isRight) {
-        button.contentEdgeInsets =UIEdgeInsetsMake(0, 0,0, kBARBUTTONITEMSPACEWIDTH);
+        button.contentEdgeInsets =UIEdgeInsetsMake(0, 0,0, 0);
     }else {
         button.contentEdgeInsets =UIEdgeInsetsMake(0, kBARBUTTONITEMSPACEWIDTH,0, 0);
     }

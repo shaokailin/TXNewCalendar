@@ -18,6 +18,7 @@
     BOOL _isChangeNavi;
     UIImage *_naviImage;
     UIColor *_nornalColor;
+    BOOL _isChangeData;
 }
 @property (nonatomic, weak) TXBZSMMyBlessNoView *noDataView;
 @property (nonatomic, weak) UITableView *mainTableView;
@@ -39,9 +40,18 @@
         [self.navigationController.navigationBar setBackgroundImage:_naviImage forBarMetrics:UIBarMetricsDefault];
     }
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (_isChangeData) {
+        _isChangeData = NO;
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessContentChange object:nil];
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
+    }
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _isChangeNavi = NO;
+    
 }
 #pragma mark - 事件
 - (void)needChange {
@@ -76,6 +86,7 @@
     [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 - (void)deleteIndex:(NSInteger)index {
+    _isChangeData = YES;
     [self initializeMainView];
     [self.mainTableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
 }

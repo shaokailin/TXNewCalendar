@@ -27,12 +27,16 @@
     [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
+    BOOL isIphone4 = [LSKPublicMethodUtil getiPhoneType] == 0;
+    CGFloat top = isIphone4? 80:WIDTH_RACE_6S(126);
     _cardImage = [[UIImageView alloc]init];
     [self addSubview:_cardImage];
     [_cardImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self).with.offset(WIDTH_RACE_6S(126));
+        make.top.equalTo(self).with.offset(top);
         make.centerX.equalTo(self);
-        make.size.mas_equalTo(CGSizeMake(110, 193));
+        make.left.equalTo(self).with.offset(115);
+        make.right.equalTo(self).with.offset(-115);
+        make.height.equalTo(self->_cardImage.mas_width).multipliedBy(71 / 41.0);
     }];
     _contentView = [[UIView alloc]init];
     _contentView.backgroundColor = [UIColor whiteColor];
@@ -53,7 +57,7 @@
     KViewRadius(_contentView, 5.0);
     [self addSubview:_contentView];
     [_contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self->_cardImage.mas_bottom).with.offset(WIDTH_RACE_6S(60));
+        make.top.equalTo(self->_cardImage.mas_bottom).with.offset(WIDTH_RACE_6S(isIphone4? 50:60));
         make.left.equalTo(self).with.offset(12);
         make.right.equalTo(self).with.offset(-12);
         make.height.mas_equalTo(60);

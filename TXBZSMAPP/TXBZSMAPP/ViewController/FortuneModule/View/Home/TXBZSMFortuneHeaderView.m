@@ -49,9 +49,10 @@
         self.eventBlock(2);
     }
 }
-- (void)userEventClick {
+
+- (void)userMessageClick:(NSInteger)type {
     if (self.eventBlock) {
-        self.eventBlock(1);
+        self.eventBlock(type);
     }
 }
 - (void)_layoutMainView {
@@ -64,8 +65,11 @@
 - (void)customMessageView {
     NSArray *userXibs =  [[NSBundle mainBundle] loadNibNamed:@"TXBZSMUserMessageView"owner:self options:nil];
     _userMessageView = [userXibs objectAtIndex:0];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(userEventClick)];
-    [_userMessageView addGestureRecognizer:tap];
+    @weakify(self)
+    _userMessageView.block = ^(NSInteger type) {
+        @strongify(self)
+        [self userMessageClick:type];
+    };
     KViewRadius(_userMessageView, 5);
     [self addSubview:_userMessageView];
     [_userMessageView mas_makeConstraints:^(MASConstraintMaker *make) {

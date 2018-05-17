@@ -11,6 +11,7 @@
 #import "TXBZSMVWishListVC.h"
 #import "TXBZSMMyWishListVC.h"
 #import "TXBZSMCardDetailView.h"
+#import "TXBZSMTreeShareView.h"
 @interface TXBZSMWishTreeVC ()
 
 @end
@@ -83,11 +84,11 @@
         @strongify(self)
         [self actionWithType:type data:data];
     };
+    
     [self.view addSubview:mainView];
     [mainView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, self.tabbarBetweenHeight, 0));
     }];
-    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

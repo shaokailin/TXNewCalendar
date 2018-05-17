@@ -8,6 +8,8 @@
 
 #import "TXBZSMTreeHomeView.h"
 @interface TXBZSMTreeHomeView ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *Cardheight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topValue;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topValue1;
 @end
@@ -16,7 +18,15 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.topValue.constant = STATUSBAR_HEIGHT - 10;
-    self.topValue1.constant = 95 + STATUSBAR_HEIGHT;
+    if ([LSKPublicMethodUtil getiPhoneType] == 0) {
+        self.topValue1.constant = WIDTH_RACE_6S(95);
+        self.cardWidth.constant = 30;
+        self.Cardheight.constant = 52;
+    }else {
+        self.topValue1.constant = WIDTH_RACE_6S(95) + STATUSBAR_HEIGHT;
+        self.cardWidth.constant = WIDTH_RACE_6S(41);
+        self.Cardheight.constant = WIDTH_RACE_6S(71);
+    }
     
 }
 - (IBAction)cardClick:(UIButton *)sender {

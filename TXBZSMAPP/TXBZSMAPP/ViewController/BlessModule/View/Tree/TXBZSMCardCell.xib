@@ -18,13 +18,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="110" height="193"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_bisheng.png" translatesAutoresizingMaskIntoConstraints="NO" id="aak-Oi-tZ2">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_bisheng" translatesAutoresizingMaskIntoConstraints="NO" id="aak-Oi-tZ2">
                         <rect key="frame" x="0.0" y="0.0" width="110" height="193"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFL-EM-wXL">
                         <rect key="frame" x="0.0" y="0.0" width="110" height="193"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishmessagebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="56i-bM-5eL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishmessagebg" translatesAutoresizingMaskIntoConstraints="NO" id="56i-bM-5eL">
                                 <rect key="frame" x="0.0" y="0.0" width="110" height="193"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qt1-J9-vm1">
@@ -76,7 +76,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="wish_bisheng.png" width="73" height="128"/>
-        <image name="wishmessagebg.png" width="183" height="302"/>
+        <image name="wish_bisheng" width="73" height="128"/>
+        <image name="wishmessagebg" width="183" height="302"/>
     </resources>
 </document>

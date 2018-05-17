@@ -34,7 +34,7 @@
     if (!_isJumpDetail) {
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
         self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorHexadecimal(0xe2b579, 1.0)};;
-        [self.navigationController.navigationBar setBackgroundImage:ImageNameInit(@"god_navi_god") forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setBackgroundImage:[ImageNameInit(@"god_navi_god")resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 30, 10) resizingMode:UIImageResizingModeStretch] forBarMetrics:UIBarMetricsDefault];
     }
 }
 - (void)viewDidAppear:(BOOL)animated {

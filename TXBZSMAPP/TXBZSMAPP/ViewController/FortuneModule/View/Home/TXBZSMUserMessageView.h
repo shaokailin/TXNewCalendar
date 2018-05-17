@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^UserMessageBlock)(NSInteger type);
 @interface TXBZSMUserMessageView : UIView
-
+@property (nonatomic, copy) UserMessageBlock block;
 @end

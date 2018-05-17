@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="189.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platformgoods.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8V-58-tgL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platformgoods" translatesAutoresizingMaskIntoConstraints="NO" id="g8V-58-tgL">
                         <rect key="frame" x="36" y="121.5" width="248" height="68"/>
                     </imageView>
                     <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QGk-lw-XXo" customClass="TXBZSMPlatformGoodsButtn">
@@ -70,6 +70,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="platformgoods.png" width="309" height="68"/>
+        <image name="platformgoods" width="309" height="68"/>
     </resources>
 </document>

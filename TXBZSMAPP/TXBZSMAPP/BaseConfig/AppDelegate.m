@@ -47,9 +47,9 @@ static const BOOL kIsOnline = NO;
 
     [self registerAnalytics];
     [self registerMiPush];
-    TencentOAuth *author = [[TencentOAuth alloc] initWithAppId:@"1106740079" andDelegate:self];
+    TencentOAuth *author = [[TencentOAuth alloc] initWithAppId:@"1106834277" andDelegate:self];
     LSKLog(@"%@",author);
-    [WXApi registerApp:@"wx0ac8e675150edf05"];
+    [WXApi registerApp:@"wx6347ffa8c616efc9"];
     //点击通知打开app处理逻辑
     _isRegisterIphone = [kUserMessageManager getMessageManagerForBoolWithKey:kMiPushRegisterIphone];
     NSDictionary* userInfo = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];

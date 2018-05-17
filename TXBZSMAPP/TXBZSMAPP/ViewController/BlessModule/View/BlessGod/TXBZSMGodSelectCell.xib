@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gobBg.png" translatesAutoresizingMaskIntoConstraints="NO" id="IJs-zd-AEV">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gobBg" translatesAutoresizingMaskIntoConstraints="NO" id="IJs-zd-AEV">
                         <rect key="frame" x="0.0" y="69" width="320" height="130"/>
                     </imageView>
                     <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="inQ-IH-JdS" customClass="TXBZSMSelectGodButton">
@@ -74,6 +74,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="gobBg.png" width="375" height="130"/>
+        <image name="gobBg" width="375" height="130"/>
     </resources>
 </document>

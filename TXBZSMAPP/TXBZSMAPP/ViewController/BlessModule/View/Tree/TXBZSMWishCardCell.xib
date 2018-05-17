@@ -19,9 +19,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8dP-Gf-LXF">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="145"/>
+                        <rect key="frame" x="0.0" y="23" width="70" height="122"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="122" id="Nfq-QG-B5Z"/>
+                            <constraint firstAttribute="width" constant="70" id="QZP-HV-g9m"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_titlebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="loR-A5-pmU">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wish_titlebg" translatesAutoresizingMaskIntoConstraints="NO" id="loR-A5-pmU">
                         <rect key="frame" x="0.0" y="157" width="70" height="21"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJg-sr-tU5">
@@ -39,13 +43,11 @@
                 <constraint firstAttribute="trailing" secondItem="iJg-sr-tU5" secondAttribute="trailing" id="4jj-tm-98A"/>
                 <constraint firstAttribute="trailing" secondItem="loR-A5-pmU" secondAttribute="trailing" id="BrZ-KS-oNd"/>
                 <constraint firstItem="loR-A5-pmU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Kd9-1H-5qL"/>
-                <constraint firstAttribute="trailing" secondItem="8dP-Gf-LXF" secondAttribute="trailing" id="QjT-c5-d4t"/>
                 <constraint firstAttribute="bottom" secondItem="iJg-sr-tU5" secondAttribute="bottom" id="Sqn-Zb-EvX"/>
                 <constraint firstItem="loR-A5-pmU" firstAttribute="top" secondItem="8dP-Gf-LXF" secondAttribute="bottom" constant="12" id="TWH-tn-fvh"/>
                 <constraint firstItem="iJg-sr-tU5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YeB-60-v8e"/>
-                <constraint firstItem="8dP-Gf-LXF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ZEk-wZ-p8I"/>
                 <constraint firstAttribute="bottom" secondItem="loR-A5-pmU" secondAttribute="bottom" id="ekV-KK-NhZ"/>
-                <constraint firstItem="8dP-Gf-LXF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jck-Fz-jo0"/>
+                <constraint firstItem="8dP-Gf-LXF" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gFj-7K-Z3Y"/>
             </constraints>
             <connections>
                 <outlet property="iconImage" destination="8dP-Gf-LXF" id="tzK-5o-LSD"/>
@@ -54,6 +56,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="wish_titlebg.png" width="71" height="21"/>
+        <image name="wish_titlebg" width="71" height="21"/>
     </resources>
 </document>

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TPKeyboardAvoidingScrollView.h"
 @interface LSKViewFactory : NSObject
 + (UIView *)initializeLineView;
 /**
@@ -106,6 +107,7 @@
                                 backgroundColor :(UIColor *)backgroundColor;
 
 + (UIScrollView *)initializeScrollViewTarget:(id)target headRefreshAction:(SEL)headAction footRefreshAction:(SEL)footAction;
++ (TPKeyboardAvoidingScrollView *)initializeTPScrollView;
 /**
  UICollectionView
 

@@ -15,20 +15,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodataimage.png" translatesAutoresizingMaskIntoConstraints="NO" id="4bu-wt-79J">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodataimage" translatesAutoresizingMaskIntoConstraints="NO" id="4bu-wt-79J">
                     <rect key="frame" x="71.5" y="75" width="232" height="192"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RT3-EX-lk1">
                     <rect key="frame" x="81" y="354" width="212" height="53"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="前往恭请神明" backgroundImage="nodatabtn.png">
+                    <state key="normal" title="前往恭请神明" backgroundImage="nodatabtn">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="jumpSelect:" destination="iN0-l3-epB" eventType="touchUpInside" id="cAE-sr-TLb"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodatatitle.png" translatesAutoresizingMaskIntoConstraints="NO" id="H2F-wL-o56">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nodatatitle" translatesAutoresizingMaskIntoConstraints="NO" id="H2F-wL-o56">
                     <rect key="frame" x="65.5" y="295" width="243" height="24"/>
                 </imageView>
             </subviews>
@@ -46,8 +46,8 @@
         </view>
     </objects>
     <resources>
-        <image name="nodatabtn.png" width="212" height="53"/>
-        <image name="nodataimage.png" width="232" height="192"/>
-        <image name="nodatatitle.png" width="243" height="24"/>
+        <image name="nodatabtn" width="212" height="53"/>
+        <image name="nodataimage" width="232" height="192"/>
+        <image name="nodatatitle" width="243" height="24"/>
     </resources>
 </document>

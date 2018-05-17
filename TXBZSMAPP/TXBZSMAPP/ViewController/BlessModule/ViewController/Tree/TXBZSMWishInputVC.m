@@ -9,6 +9,7 @@
 #import "TXBZSMWishInputVC.h"
 #import "TXBZSMWishInputView.h"
 #import "TXBZSMInitWishCardVC.h"
+#import "TPKeyboardAvoidingScrollView.h"
 @interface TXBZSMWishInputVC ()
 @property (nonatomic, strong) TXBZSMWishInputView *inputView;
 @end
@@ -26,7 +27,7 @@
     [super viewWillAppear:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorHexadecimal(0xe2b579, 1.0)};;
-    [self.navigationController.navigationBar setBackgroundImage:ImageNameInit(@"god_navi_god") forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBackgroundImage:[ImageNameInit(@"god_navi_god")resizableImageWithCapInsets:UIEdgeInsetsMake(10, 10, 30, 10) resizingMode:UIImageResizingModeStretch] forBarMetrics:UIBarMetricsDefault];
 }
 - (void)nextClick {
     [self.view endEditing:YES];
@@ -66,12 +67,20 @@
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"完成" color:KColorHexadecimal(0xe2b579, 1.0) target:self action:@selector(nextClick)];
+    TPKeyboardAvoidingScrollView *scrollView = [LSKViewFactory initializeTPScrollView];
     _inputView = [[[NSBundle mainBundle]loadNibNamed:@"TXBZSMWishInputView" owner:self options:nil]lastObject];
     [_inputView setupGodImage:[self.dataDict objectForKey:@"image"]];
-    [self.view addSubview:_inputView];
+    [scrollView addSubview:_inputView];
     [_inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(scrollView);
+        make.height.mas_equalTo(self.viewMainHeight - self.tabbarBetweenHeight);
+        make.width.mas_equalTo(SCREEN_WIDTH);
+    }];
+    [self.view addSubview:scrollView];
+    [scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, self.tabbarBetweenHeight, 0));
     }];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

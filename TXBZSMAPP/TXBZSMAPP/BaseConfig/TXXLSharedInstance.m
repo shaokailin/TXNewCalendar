@@ -60,7 +60,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     self.birthDay = [NSDate date];
     self.isBoy = YES;
     _userPhoto = ImageNameInit(@"boy");
-    self.nickName = @"师哥";
+    self.nickName = @"";
 }
 - (void)getUserPhoto {
     if (![self hasImage]) {
@@ -112,6 +112,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     model.godInDate = [[NSDate getTodayDate]dateTransformToString:@"yyyy年MM月dd日"];
     [_blessArray insertObject:model atIndex:0];
     [self saveObject:_blessArray key:kBlessDataSave_key];
+    [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessContentChange object:nil];
     [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kBlessDataChangeNotice object:nil];
 }
 - (void)changeBlessWishContent:(NSString *)content user:(NSString *)user index:(NSInteger)index {
@@ -163,7 +164,7 @@ SYNTHESIZE_SINGLETON_CLASS(TXXLSharedInstance);
     // 设置通知的发送时间,单位秒
     NSDate *date = [NSDate stringTransToDate:dateString withFormat:@"yyyy-MM-dd HH:mm"];
     NSDate *date1 = [[NSDate stringTransToDate:[date dateTransformToString:@"yyyy-MM-dd"] withFormat:@"yyyy-MM-dd"]dateByAddingTimeInterval:3600 * (9 + 24 * 80) ];
-    localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:30];
+    localNotification.fireDate = date1;
     //解锁滑动时的事件
     localNotification.alertAction = @"查看";
     localNotification.timeZone = [NSTimeZone defaultTimeZone];

@@ -8,7 +8,8 @@
 
 #import "TXBZSMMessageAlertView.h"
 #import "LSKActionSheetView.h"
-#import "HSPDatePickView.h"
+#import "LSKDatePickView.h"
+#import "PGDatePickManager.h"
 @interface TXBZSMMessageAlertView()<UITextFieldDelegate>
 {
     NSDate *_selectDate;
@@ -45,16 +46,18 @@
             } otherButtonTitles:@"男",@"女", nil];
             [sheetView showInView];
         }else {
-            HSPDatePickView *datePick = [[HSPDatePickView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) tabbar:self.tabHeight];
-            datePick.title = @"出生日期";
+            LSKDatePickView *datePick = [[LSKDatePickView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) tabHeight:self.tabHeight];
+            datePick.titleLabel.text = @"出生日期";
             datePick.maxDate = [NSDate date];
             datePick.minDate = [NSDate stringTransToDate:@"1940-01-01" withFormat:@"yyyy-MM-dd"];
-            datePick.datePickerMode = UIDatePickerModeDateAndTime;
+            PGDatePicker *datePicker1 = datePick.datePicker;
+            datePicker1.datePickerType = PGDatePickerType2;
+            datePicker1.datePickerMode = PGDatePickerModeDateHourMinute;
             @weakify(self)
-            datePick.dateBlock = ^(NSDate *date) {
+            datePick.selectBlock = ^(NSDate *selectDate) {
                 @strongify(self);
-                self->_selectDate = date;
-                self.birthdayTextField.text = [date dateTransformToString:@"yyyy-MM-dd HH:mm"];
+                self->_selectDate = selectDate;
+                self.birthdayTextField.text = [selectDate dateTransformToString:@"yyyy-MM-dd HH:mm"];
             };
             [[UIApplication sharedApplication].keyWindow addSubview:datePick];
             [datePick showInView];
@@ -76,7 +79,8 @@
 }
 - (IBAction)sureClick:(id)sender {
     [self.nameTextField resignFirstResponder];
-    if (!KJudgeIsNullData([self.nameTextField.text stringBySpaceTrim])) {
+    NSString *content = [self.nameTextField.text stringBySpaceTrim];
+    if (!KJudgeIsNullData(content)) {
         [SKHUD showMessageInWindowWithMessage:@"请输入名字"];
         return;
     }
@@ -88,7 +92,7 @@
         [SKHUD showMessageInWindowWithMessage:@"请选择出生日期"];
         return;
     }
-    kUserMessageManager.nickName = [self.nameTextField.text stringBySpaceTrim];
+    kUserMessageManager.nickName = content;
     kUserMessageManager.isBoy = _isBoy;
     kUserMessageManager.birthDay = _selectDate;
     if (self.block) {

@@ -78,7 +78,7 @@
     self.collectionView = collection;
     [self addSubview:collection];
     [collection mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(130 + STATUSBAR_HEIGHT, 30, 20, 30));
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(100 + STATUSBAR_HEIGHT, 30, 20, 30));
     }];
 }
 @end

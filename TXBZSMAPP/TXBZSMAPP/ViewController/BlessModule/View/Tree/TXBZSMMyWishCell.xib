@@ -24,7 +24,7 @@
                             <constraint firstAttribute="height" constant="23" id="w8g-y0-b5R"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="还愿" backgroundImage="mywishtitlebg.png">
+                        <state key="normal" title="还愿" backgroundImage="mywishtitlebg">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <connections>
@@ -32,18 +32,20 @@
                         </connections>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="625-88-noP">
-                        <rect key="frame" x="0.0" y="0.0" width="70" height="125"/>
+                        <rect key="frame" x="0.0" y="3" width="70" height="122"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="122" id="3Ll-PN-lqq"/>
+                            <constraint firstAttribute="width" constant="70" id="y8d-v5-A7g"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstItem="Rsi-bx-whw" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="45Z-lh-BeR"/>
                 <constraint firstItem="Rsi-bx-whw" firstAttribute="top" secondItem="625-88-noP" secondAttribute="bottom" constant="7" id="6Lf-7P-asp"/>
-                <constraint firstAttribute="trailing" secondItem="625-88-noP" secondAttribute="trailing" id="Cv5-zj-Hdt"/>
-                <constraint firstItem="625-88-noP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DWV-wt-e6e"/>
+                <constraint firstItem="625-88-noP" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="F2y-Vr-cL2"/>
                 <constraint firstAttribute="bottom" secondItem="Rsi-bx-whw" secondAttribute="bottom" id="RTa-nv-jG0"/>
                 <constraint firstAttribute="trailing" secondItem="Rsi-bx-whw" secondAttribute="trailing" constant="3" id="WD1-yG-oEc"/>
-                <constraint firstItem="625-88-noP" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jZn-hp-rCh"/>
             </constraints>
             <connections>
                 <outlet property="btn" destination="Rsi-bx-whw" id="C9E-9x-d0b"/>
@@ -52,6 +54,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="mywishtitlebg.png" width="66" height="23"/>
+        <image name="mywishtitlebg" width="66" height="23"/>
     </resources>
 </document>

@@ -28,7 +28,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-7M-rNw">
                     <rect key="frame" x="7" y="35" width="90.5" height="80"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qingxian.png" translatesAutoresizingMaskIntoConstraints="NO" id="M1d-ez-eMo">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qingxian" translatesAutoresizingMaskIntoConstraints="NO" id="M1d-ez-eMo">
                             <rect key="frame" x="20.5" y="9" width="50" height="50"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请仙" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrx-Lm-lET">
@@ -49,7 +49,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUc-7r-fY6">
                     <rect key="frame" x="187.5" y="35" width="90.5" height="80"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gongfeng.png" translatesAutoresizingMaskIntoConstraints="NO" id="ySQ-cY-NSc">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gongfeng" translatesAutoresizingMaskIntoConstraints="NO" id="ySQ-cY-NSc">
                             <rect key="frame" x="20.5" y="9" width="50" height="50"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="供奉" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHm-TT-f2h">
@@ -70,7 +70,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vhb-vy-ehO">
                     <rect key="frame" x="97.5" y="35" width="90" height="80"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xuyaun.png" translatesAutoresizingMaskIntoConstraints="NO" id="S0X-t3-wQh">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xuyaun" translatesAutoresizingMaskIntoConstraints="NO" id="S0X-t3-wQh">
                             <rect key="frame" x="20" y="9" width="50" height="50"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="许愿" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEm-b1-n3n">
@@ -97,7 +97,7 @@
                             <color key="textColor" red="0.69019607839999997" green="0.51764705879999995" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuanwangdacheng.png" translatesAutoresizingMaskIntoConstraints="NO" id="lIR-Wz-H7g">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yuanwangdacheng" translatesAutoresizingMaskIntoConstraints="NO" id="lIR-Wz-H7g">
                             <rect key="frame" x="20" y="9" width="50" height="50"/>
                         </imageView>
                     </subviews>
@@ -143,9 +143,9 @@
         </view>
     </objects>
     <resources>
-        <image name="gongfeng.png" width="50" height="50"/>
-        <image name="qingxian.png" width="50" height="50"/>
-        <image name="xuyaun.png" width="50" height="50"/>
-        <image name="yuanwangdacheng.png" width="50" height="50"/>
+        <image name="gongfeng" width="50" height="50"/>
+        <image name="qingxian" width="50" height="50"/>
+        <image name="xuyaun" width="50" height="50"/>
+        <image name="yuanwangdacheng" width="50" height="50"/>
     </resources>
 </document>

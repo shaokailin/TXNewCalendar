@@ -15,22 +15,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishTreebg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-cI-Te5">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishTreebg" translatesAutoresizingMaskIntoConstraints="NO" id="Qrd-cI-Te5">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bsf-Ms-oNa">
-                    <rect key="frame" x="12" y="383.5" width="351" height="60"/>
+                    <rect key="frame" x="12" y="378.5" width="351" height="70"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="纯白百合花纹，幸运之花寓意祝福祈愿，许原树守护祈愿之人，博弈、比赛等运气开旺，事事顺利。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grq-uG-45S">
-                            <rect key="frame" x="10" y="10" width="331" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="纯白百合花纹，幸运之花寓意祝福祈愿，许原树守护祈愿之人，博弈、比赛等运气开旺，事事顺利。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grq-uG-45S">
+                            <rect key="frame" x="10" y="18.5" width="331" height="33.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="v2R-Mu-sk0"/>
+                        <constraint firstItem="grq-uG-45S" firstAttribute="leading" secondItem="bsf-Ms-oNa" secondAttribute="leading" constant="10" id="1gd-2d-Tee"/>
+                        <constraint firstItem="grq-uG-45S" firstAttribute="centerX" secondItem="bsf-Ms-oNa" secondAttribute="centerX" id="Ie6-0K-vNI"/>
+                        <constraint firstAttribute="trailing" secondItem="grq-uG-45S" secondAttribute="trailing" constant="10" id="Q4f-9x-dAt"/>
+                        <constraint firstItem="grq-uG-45S" firstAttribute="centerY" secondItem="bsf-Ms-oNa" secondAttribute="centerY" id="fRv-Rt-7wG"/>
+                        <constraint firstAttribute="height" constant="70" id="v2R-Mu-sk0"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFZ-G5-yBk">
@@ -39,7 +42,7 @@
                         <constraint firstAttribute="height" constant="38" id="eUd-Q6-TPh"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="返回许愿树" backgroundImage="tree_my.png">
+                    <state key="normal" title="返回许愿树" backgroundImage="tree_my">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -52,7 +55,7 @@
                         <constraint firstAttribute="height" constant="38" id="MhR-ei-OXH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <state key="normal" title="保持并分享" backgroundImage="wish_icon.png">
+                    <state key="normal" title="保持并分享" backgroundImage="wish_icon">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -84,8 +87,8 @@
         </view>
     </objects>
     <resources>
-        <image name="tree_my.png" width="169" height="37"/>
-        <image name="wishTreebg.png" width="375" height="667"/>
-        <image name="wish_icon.png" width="169" height="37"/>
+        <image name="tree_my" width="169" height="37"/>
+        <image name="wishTreebg" width="375" height="667"/>
+        <image name="wish_icon" width="169" height="37"/>
     </resources>
 </document>

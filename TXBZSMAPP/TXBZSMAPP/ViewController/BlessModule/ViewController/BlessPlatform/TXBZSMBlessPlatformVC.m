@@ -77,9 +77,9 @@
 - (void)changeContent {
     @weakify(self)
     CGFloat contentHeight = SCREEN_HEIGHT - WIDTH_RACE_6S(113) - self.tabbarBetweenHeight;
-    if ([LSKPublicMethodUtil getiPhoneType] == 0) {
-        contentHeight = 471.57333333333332;
-    }
+//    if ([LSKPublicMethodUtil getiPhoneType] == 0) {
+//        contentHeight = 471.57333333333332;
+//    }
     NSArray *data = kUserMessageManager.blessArray;
     NSInteger count = data.count + 1;
     NSInteger viewCount = self.mainScrollView.subviews.count;
@@ -105,6 +105,7 @@
             [godView removeFromSuperview];
         }
     }
+    
     [self.mainScrollView setContentOffset:CGPointMake(0, 0)];
     self.mainScrollView.contentSize = CGSizeMake(SCREEN_WIDTH * count, contentHeight);
     self.pageControl.numberOfPages = count;
@@ -119,7 +120,7 @@
         [view setupContent:image type:type];
         NSString *date = nil;
         if (view.isAll) {
-            [SKHUD showMessageInView:self.view withMessage:@"祈福成功~！"];
+            [SKHUD showMessageInView:self.view withMessage:@"供奉完成~！"];
             date = [[NSDate date]dateTransformToString:@"yyyy-MM-dd HH:mm"];
         }
         [kUserMessageManager changeBlessWithIndex:index image:image date:date type:type];
@@ -158,9 +159,6 @@
         make.height.mas_equalTo(WIDTH_RACE_6S(168));
     }];
     CGFloat contentHeight = SCREEN_HEIGHT - WIDTH_RACE_6S(113) - self.tabbarBetweenHeight;
-    if ([LSKPublicMethodUtil getiPhoneType] == 0) {
-        contentHeight = 471.57333333333332;
-    }
     UIScrollView *scrollView = [LSKViewFactory initializeScrollViewTarget:nil headRefreshAction:nil footRefreshAction:nil];
     scrollView.delegate = self;
     scrollView.bounces = NO;
@@ -182,9 +180,13 @@
     pageControl.currentPageIndicatorTintColor= KColorHexadecimal(0xfd8a32,    1.0);
     self.pageControl = pageControl;
     [self.view addSubview:pageControl];
+    CGFloat bottomBetween = self.tabbarBetweenHeight + WIDTH_RACE_6S(20);
+    if ([LSKPublicMethodUtil getiPhoneType] == 0) {
+        bottomBetween -= 20;
+    }
     [pageControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).with.offset(-self.tabbarBetweenHeight - 20);
+        make.bottom.equalTo(self.view).with.offset(-bottomBetween);
     }];
     [self changeContent];
 }

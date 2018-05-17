@@ -15,6 +15,7 @@
     UILabel *_birthdayLbl;
     UILabel *_chinesedayLbl;
     UILabel *_sexLbl;
+    UIView *_lineView;
 }
 - (instancetype)init {
     if (self = [super init]) {
@@ -45,10 +46,10 @@
         make.left.equalTo(self->_nickName.mas_right);
         make.centerY.equalTo(self->_nickName);
     }];
-    UIView *lineView = [[UIView alloc]init];
-    lineView.backgroundColor = [UIColor whiteColor];
-    [self addSubview:lineView];
-    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+    _lineView = [[UIView alloc]init];
+    _lineView.backgroundColor = [UIColor whiteColor];
+    [self addSubview:_lineView];
+    [_lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self->_sexLbl);
         make.top.equalTo(self->_sexLbl.mas_bottom).with.offset(5);
         make.height.mas_equalTo(1);
@@ -71,7 +72,12 @@
 - (void)setupContent {
     _userPhoto.image = kUserMessageManager.userPhoto;
     _nickName.text = kUserMessageManager.nickName;
-    _sexLbl.text = kUserMessageManager.isBoy?@"少年":@"姑娘";
+    if (!KJudgeIsNullData(_nickName.text)) {
+        _lineView.hidden = YES;
+    }else {
+        _lineView.hidden = NO;
+    }
+    _sexLbl.text = kUserMessageManager.isBoy?@"帅哥":@"美女";
     NSDate *date = kUserMessageManager.birthDay;
     _birthdayLbl.text = [date dateTransformToString:@"yyyy年MM月dd日HH时"];
     TXXLDateManager *dateManager = [TXXLDateManager sharedInstance];

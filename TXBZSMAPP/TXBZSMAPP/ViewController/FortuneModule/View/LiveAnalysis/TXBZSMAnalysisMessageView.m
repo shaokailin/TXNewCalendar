@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sexLbl;
 @property (weak, nonatomic) IBOutlet UILabel *birthdayLbl;
 @property (weak, nonatomic) IBOutlet UILabel *chinessLbl;
+@property (weak, nonatomic) IBOutlet UIView *lineView;
 
 @end
 @implementation TXBZSMAnalysisMessageView
@@ -25,8 +26,12 @@
 }
 - (void)refreshData:(NSString *)content date:(NSDate *)date {
     self.nickName.text = kUserMessageManager.nickName;
-    self.sexLbl.text = kUserMessageManager.isBoy?@"少年":@"姑娘";
-    
+    self.sexLbl.text = kUserMessageManager.isBoy?@"帅哥":@"美女";
+    if (!KJudgeIsNullData(self.nickName.text)) {
+        self.lineView.hidden = YES;
+    }else {
+        self.lineView.hidden = NO;
+    }
     self.birthdayLbl.text = [date dateTransformToString:@"yyyy年MM月dd日HH时"];
     TXXLDateManager *dateManager = [TXXLDateManager sharedInstance];
     self.chinessLbl.text = NSStringFormat(@"%@年%@%@%@时",[dateManager tgdzString],dateManager.chineseMonthString,dateManager.chineseDayString,[dateManager getHourChinese]);

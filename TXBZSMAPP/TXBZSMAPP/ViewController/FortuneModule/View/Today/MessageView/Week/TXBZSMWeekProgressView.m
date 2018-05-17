@@ -45,11 +45,11 @@
 }
 - (void)_layoutMainView {
     self.backgroundColor = [UIColor whiteColor];
-    CGFloat x = 0;
-    if ([LSKPublicMethodUtil getiOSSystemLevel] < 2 && _type == 0) {
-        x = -20;
+    CGFloat width = SCREEN_WIDTH - (_type == 0?20:10);
+    if ([LSKPublicMethodUtil getiPhoneType] < 2 && _type == 0) {
+        width -= 40;
     }
-    _radarChartView = [[PNRadarChart alloc] initWithFrame:CGRectMake(x, 0, SCREEN_WIDTH - (_type == 0? 20:10), CGRectGetHeight(self.frame)) items:@[] valueDivider:20];
+    _radarChartView = [[PNRadarChart alloc] initWithFrame:CGRectMake(0, 0, width, CGRectGetHeight(self.frame)) items:@[] valueDivider:20];
     _radarChartView.maxValue = 100;
     _radarChartView.labelStyle = PNRadarChartLabelStyleHorizontal;
     _radarChartView.plotColor = KColorHexadecimal(0xdd33ee, 0.5);

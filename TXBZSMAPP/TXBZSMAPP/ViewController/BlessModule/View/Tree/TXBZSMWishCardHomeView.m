@@ -44,14 +44,14 @@
 - (void)_initMainView {
     _dataArr = [NSArray arrayWithPlist:@"WishList"];
     UICollectionViewFlowLayout *flowLaout = [[UICollectionViewFlowLayout alloc]init];
-    flowLaout.itemSize = CGSizeMake(70, 178);
+    flowLaout.itemSize = CGSizeMake(70, 155);
     flowLaout.sectionInset = UIEdgeInsetsMake(0, 15, 15, 15);
     UICollectionView *collection = [LSKViewFactory initializeCollectionViewWithDelegate:self collectionViewLayout:flowLaout headRefreshAction:nil footRefreshAction:nil backgroundColor:[UIColor clearColor]];
     [collection registerNib:[UINib nibWithNibName:kTXBZSMWishCardCell bundle:nil] forCellWithReuseIdentifier:kTXBZSMWishCardCell];
     self.collectionView = collection;
     [self addSubview:collection];
     [collection mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(96 + STATUSBAR_HEIGHT, 30, 20, 30));
+        make.edges.equalTo(self).with.insets(UIEdgeInsetsMake(90 + STATUSBAR_HEIGHT, 30, 20, 30));
     }];
 }
 

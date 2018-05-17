@@ -118,7 +118,7 @@
         make.height.mas_equalTo(219);
     }];
     TXBZSMTodayNavigationView *navigationView = [[TXBZSMTodayNavigationView alloc]init];
-    navigationView.title = @"今日运势";
+    navigationView.title = @"运势";
     @weakify(self)
     navigationView.navigationBlock = ^(NSInteger type) {
         @strongify(self)

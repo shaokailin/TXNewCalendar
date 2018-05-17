@@ -21,11 +21,14 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     KViewRadius(self.remarkView, 5.0);
-    
+    CGFloat top = WIDTH_RACE_6S(120);
+    if ([LSKPublicMethodUtil getiPhoneType] == 0) {
+        top = 70;
+    }
     SCAdView *adView = [[SCAdView alloc] initWithBuilder:^(SCAdViewBuilder *builder) {
         builder.adArray = @[];
-        builder.viewFrame = (CGRect){0,120,SCREEN_WIDTH,240};
-        builder.adItemSize = (CGSize){110,193};//{78.6,137.86}
+        builder.viewFrame = (CGRect){0,top,SCREEN_WIDTH,WIDTH_RACE_6S(240)};
+        builder.adItemSize = (CGSize){WIDTH_RACE_6S(110),WIDTH_RACE_6S(193)};//{78.6,137.86}
         builder.minimumLineSpacing = WIDTH_RACE_6S(100);
         builder.secondaryItemMinAlpha = 1;
         builder.threeDimensionalScale = 1.0;

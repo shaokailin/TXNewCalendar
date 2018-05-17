@@ -12,8 +12,12 @@
 
 @end
 @implementation TXBZSMWishTreeCompleteView
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    
+}
 - (void)setupContent:(NSString *)name {
-    self.nameLbl.text = NSStringFormat(@"随缘布施传递爱心，许愿树会一直保佑您%@\n依教奉行，放生、印经、念佛、打坐",name);
+    self.nameLbl.text = NSStringFormat(@"随缘布施传递爱心，许愿树会一直保佑您%@依教奉行，放生、印经、念佛、打坐",name);
 }
 - (IBAction)buttonClick:(id)sender {
     if (self.block) {

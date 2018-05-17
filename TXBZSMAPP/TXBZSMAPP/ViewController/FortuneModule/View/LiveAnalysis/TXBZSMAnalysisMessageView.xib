@@ -50,7 +50,7 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="luopan.png" translatesAutoresizingMaskIntoConstraints="NO" id="TyL-AS-ePi">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="luopan" translatesAutoresizingMaskIntoConstraints="NO" id="TyL-AS-ePi">
                     <rect key="frame" x="108" y="99" width="158" height="158"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="158" id="HAy-Yd-ti2"/>
@@ -150,6 +150,7 @@
             <connections>
                 <outlet property="birthdayLbl" destination="L8n-Us-nPq" id="rt6-Kh-hf8"/>
                 <outlet property="chinessLbl" destination="cqn-zI-rc3" id="edh-tZ-uT8"/>
+                <outlet property="lineView" destination="92m-Jl-PXe" id="vYg-hN-BXq"/>
                 <outlet property="nickName" destination="Wd9-s2-fUs" id="HsC-h0-fzb"/>
                 <outlet property="sexLbl" destination="f8x-P2-Snw" id="fgQ-TP-Y0e"/>
             </connections>
@@ -157,6 +158,6 @@
         </view>
     </objects>
     <resources>
-        <image name="luopan.png" width="158" height="158"/>
+        <image name="luopan" width="158" height="158"/>
     </resources>
 </document>

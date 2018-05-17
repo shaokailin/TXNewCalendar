@@ -38,7 +38,7 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _currentXingzuo = -1;
-    _isShowAlertMessage = [kUserMessageManager getMessageManagerForBoolWithKey:kUserFirstAlertShow];
+    _isShowAlertMessage = ![kUserMessageManager getMessageManagerForBoolWithKey:kUserFirstAlertShow];
     [self initializeMainView];
     [self getSaveData];
     [self bindSignal];
@@ -157,6 +157,10 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
         TXBZSMLiveAnalysisVC *live = [[TXBZSMLiveAnalysisVC alloc]init];
         live.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:live animated:YES];
+    }else if (type == 0){
+        TXBZSMUserMessageVC *message = [[TXBZSMUserMessageVC alloc]init];
+        message.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:message animated:YES];
     }else {
         TXBZSMBlessPlatformVC *bless = [[TXBZSMBlessPlatformVC alloc]init];
         bless.hidesBottomBarWhenPushed = YES;
@@ -200,13 +204,11 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
 }
 - (void)initializeMainView {
     TXBZSMNavigationView *navigationView = [[TXBZSMNavigationView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.navibarHeight + STATUSBAR_HEIGHT + 11)];
-    @weakify(self)
-    navigationView.block = ^(NSInteger type) {
-        @strongify(self)
-        TXBZSMUserMessageVC *message = [[TXBZSMUserMessageVC alloc]init];
-        message.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:message animated:YES];
-    };
+//    @weakify(self)
+//    navigationView.block = ^(NSInteger type) {
+//        @strongify(self)
+//        
+//    };
     [self.view addSubview:navigationView];
     
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:[UIColor clearColor]];
@@ -219,7 +221,7 @@ static NSString * const kFortuneHomeData = @"kFortuneHomeData_save";
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(navigationView.mas_bottom).with.offset(-19);
         make.left.right.equalTo(self.view);
-        make.bottom.equalTo(self.view).with.offset(-self.tabbarBetweenHeight);
+        make.bottom.equalTo(self.view);
     }];
     if (kUserMessageManager.birthDay) {
         [self addHeaderView];

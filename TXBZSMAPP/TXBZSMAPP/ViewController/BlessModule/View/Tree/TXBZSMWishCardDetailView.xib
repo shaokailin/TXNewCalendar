@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishcarddetailbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-8W-R7E">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wishcarddetailbg" translatesAutoresizingMaskIntoConstraints="NO" id="s9y-8W-R7E">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqN-ax-ohw">
@@ -25,7 +26,7 @@
                         <constraint firstAttribute="width" constant="60" id="o1G-Zp-ZKS"/>
                     </constraints>
                     <inset key="imageEdgeInsets" minX="-20" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="blackback.png"/>
+                    <state key="normal" image="blackback"/>
                     <connections>
                         <action selector="backClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="4JT-43-Ob2"/>
                     </connections>
@@ -33,8 +34,7 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7hv-TN-viH">
                     <rect key="frame" x="114.5" y="122" width="145" height="270"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="270" id="2Ar-9l-HMI"/>
-                        <constraint firstAttribute="width" constant="145" id="UET-JP-eTM"/>
+                        <constraint firstAttribute="width" secondItem="7hv-TN-viH" secondAttribute="height" multiplier="29:54" id="XTM-73-r6h"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N2P-fO-yS7">
@@ -57,7 +57,7 @@
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFF-TI-CJH">
                     <rect key="frame" x="103" y="566" width="169" height="37"/>
-                    <state key="normal" title="填写许愿牌" backgroundImage="wish_icon.png">
+                    <state key="normal" title="填写许愿牌" backgroundImage="wish_icon">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -67,12 +67,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="7hv-TN-viH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="115" id="2Et-K9-lpe"/>
                 <constraint firstAttribute="trailing" secondItem="N2P-fO-yS7" secondAttribute="trailing" constant="12" id="HKl-89-Qy9"/>
                 <constraint firstItem="7hv-TN-viH" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="122" id="Hsx-1O-MT0"/>
                 <constraint firstItem="N2P-fO-yS7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="Q6s-Dl-7Ls"/>
                 <constraint firstItem="yFF-TI-CJH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Rcj-CB-Kjd"/>
                 <constraint firstItem="dqN-ax-ohw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="XCc-Au-8zd"/>
                 <constraint firstItem="7hv-TN-viH" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Xgq-25-ItS"/>
+                <constraint firstAttribute="trailing" secondItem="7hv-TN-viH" secondAttribute="trailing" constant="115" id="cWa-sy-Ib2"/>
                 <constraint firstItem="s9y-8W-R7E" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="e4Z-PT-HGf"/>
                 <constraint firstAttribute="trailing" secondItem="s9y-8W-R7E" secondAttribute="trailing" id="f7j-Gu-QtK"/>
                 <constraint firstAttribute="bottom" secondItem="s9y-8W-R7E" secondAttribute="bottom" id="fQ1-fz-nGi"/>
@@ -82,16 +84,18 @@
                 <constraint firstItem="N2P-fO-yS7" firstAttribute="top" secondItem="7hv-TN-viH" secondAttribute="bottom" constant="44" id="ug6-it-SSH"/>
             </constraints>
             <connections>
+                <outlet property="contentHeight" destination="IQX-It-HMU" id="cnQ-kW-OTz"/>
                 <outlet property="iconImage" destination="7hv-TN-viH" id="DOA-Rs-oeN"/>
                 <outlet property="infoLbl" destination="Xxr-S0-og4" id="2T5-dh-GyL"/>
+                <outlet property="topBetween" destination="Hsx-1O-MT0" id="SZc-7Y-lXp"/>
                 <outlet property="topValue" destination="XCc-Au-8zd" id="jho-6y-9sJ"/>
             </connections>
             <point key="canvasLocation" x="31.5" y="121.5"/>
         </view>
     </objects>
     <resources>
-        <image name="blackback.png" width="9" height="14"/>
-        <image name="wish_icon.png" width="169" height="37"/>
-        <image name="wishcarddetailbg.png" width="375" height="667"/>
+        <image name="blackback" width="9" height="14"/>
+        <image name="wish_icon" width="169" height="37"/>
+        <image name="wishcarddetailbg" width="375" height="667"/>
     </resources>
 </document>

@@ -18,14 +18,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="159.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myblessiconbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="dun-fV-wqL">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="myblessiconbg" translatesAutoresizingMaskIntoConstraints="NO" id="dun-fV-wqL">
                         <rect key="frame" x="25" y="19" width="62" height="62"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="62" id="GNc-RB-FDU"/>
                             <constraint firstAttribute="height" constant="62" id="qYn-Ag-uux"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nogod.png" translatesAutoresizingMaskIntoConstraints="NO" id="fLw-CN-vog">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nogod" translatesAutoresizingMaskIntoConstraints="NO" id="fLw-CN-vog">
                         <rect key="frame" x="25" y="4.5" width="62" height="101"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="101" id="4Sb-nY-Wfn"/>
@@ -64,7 +64,7 @@
                             <action selector="jumpBless:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="jdr-Pe-83k"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mybless_wan.png" translatesAutoresizingMaskIntoConstraints="NO" id="fDk-L5-m9E">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mybless_wan" translatesAutoresizingMaskIntoConstraints="NO" id="fDk-L5-m9E">
                         <rect key="frame" x="249" y="30" width="41" height="71"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="41" id="6d9-pk-qC1"/>
@@ -102,8 +102,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="mybless_wan.png" width="41" height="71"/>
-        <image name="myblessiconbg.png" width="102" height="102"/>
-        <image name="nogod.png" width="151" height="247"/>
+        <image name="mybless_wan" width="41" height="71"/>
+        <image name="myblessiconbg" width="102" height="102"/>
+        <image name="nogod" width="151" height="247"/>
     </resources>
 </document>

@@ -104,7 +104,18 @@
     [[self class]_setupScrollViewMJRefresh:tableView target:delegate headerAction:headAction footerAction:footAction background:backgroundColor];
     return tableView ;
 }
-
++ (TPKeyboardAvoidingScrollView *)initializeTPScrollView {
+    TPKeyboardAvoidingScrollView *scrollView = [[TPKeyboardAvoidingScrollView alloc]init];
+    //因为iOS 11 下的 刷新会出现偏移，所以适配
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000
+    if (@available(iOS 11.0, *)) {
+        scrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    } else {
+        // Fallback on earlier versions
+    }
+#endif
+    return scrollView;
+}
 + (UIScrollView *)initializeScrollViewTarget:(id)target headRefreshAction:(SEL)headAction footRefreshAction:(SEL)footAction  {
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     //因为iOS 11 下的 刷新会出现偏移，所以适配

@@ -15,4 +15,6 @@ source 'https://github.com/aliyun/aliyun-specs.git'
 pod 'AlicloudMAN'
 pod 'FMDB'
 pod 'RSKImageCropper'
+pod 'TPKeyboardAvoiding'
+pod 'PGPickerView'
 end

@@ -18,7 +18,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hY9-zk-xi9">
                     <rect key="frame" x="8" y="169" width="359" height="33"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enumicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="nUt-TW-vGZ">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="enumicon" translatesAutoresizingMaskIntoConstraints="NO" id="nUt-TW-vGZ">
                             <rect key="frame" x="0.0" y="11.5" width="10" height="10"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="10" id="Wys-Gi-92y"/>
@@ -277,6 +277,6 @@
         </view>
     </objects>
     <resources>
-        <image name="enumicon.png" width="10" height="10"/>
+        <image name="enumicon" width="10" height="10"/>
     </resources>
 </document>
